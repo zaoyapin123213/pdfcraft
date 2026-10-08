@@ -1,3 +1,4 @@
+import { getBlogPostsForTool } from '@/content/blog';
 import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { getToolById, getAllTools } from '@/config/tools';
