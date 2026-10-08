@@ -9,6 +9,11 @@ const nextConfig = {
 
   // Webpack configuration for WASM modules
   webpack: (config, { isServer, webpack }) => {
+    // The filesystem cache can grow very large (GBs); disable it for
+    // lean CI/static-export builds. Dev mode uses Turbopack and is
+    // unaffected.
+    config.cache = false;
+
     // Handle qpdf-wasm and other modules that use Node.js built-ins
     if (!isServer) {
       config.resolve.fallback = {
@@ -19,6 +24,9 @@ const nextConfig = {
         module: false,
         url: false,
         worker_threads: false,
+        // pdfjs-dist-legacy optionally requires the native 'canvas'
+        // package (Node.js only). It is never used in the browser.
+        canvas: false,
       };
     }
 
@@ -26,6 +34,10 @@ const nextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       'module': false,
+      // pdfjs-dist-legacy requires the native Node 'canvas' package.
+      // It is a no-op in browser bundles; alias it to an empty module
+      // so local Windows builds work without the native dependency.
+      'canvas': false,
     };
 
     // Ignore the dynamic import of 'module' in gs-wasm

@@ -30,7 +30,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       { title: '档案管理', description: '将大型档案文件拆分成可管理的部分，提取相关页面，重新整理历史文档。', icon: 'archive' },
     ],
     faq: [
-      { question: '一次可以处理多少个PDF？', answer: '您可以同时上传和处理最多10个PDF文件，合并最大大小为500MB。' },
+      { question: '一次可以处理多少个PDF？', answer: '您可以同时上传和处理最多10个PDF文件，没有固定的大小限制——所有处理均在浏览器本地完成，实际上限取决于您设备的可用内存。' },
       { question: '书签会被保留吗？', answer: '是的，合并PDF时，工具会保留现有书签，并可选择将它们合并成统一的书签结构。' },
       { question: '有页数限制吗？', answer: '没有严格的页数限制。该工具可以处理数百页的文档，但非常大的文件可能需要更长的处理时间。' },
     ],
@@ -56,7 +56,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       { title: '整合发票', description: '将多张发票或收据合并成一个文档，用于会计和记录保存。', icon: 'receipt' },
     ],
     faq: [
-      { question: '可以合并多少个PDF？', answer: '您可以一次合并最多100个PDF文件，总大小最高可达500MB。' },
+      { question: '可以合并多少个PDF？', answer: '您可以一次合并最多100个PDF文件，没有固定的大小限制——所有处理均在浏览器本地完成，实际上限取决于您设备的可用内存。' },
       { question: '合并后的PDF会保持原始质量吗？', answer: '是的，合并过程保留所有文档的原始质量，不会进行任何压缩或质量损失。' },
       { question: '可以合并受密码保护的PDF吗？', answer: '受密码保护的PDF需要先解密。请使用我们的解密PDF工具在合并前移除密码。' },
     ],
@@ -1527,7 +1527,7 @@ export const toolContentZh: Record<string, ToolContent> = {
     ],
     faq: [
       { question: '可以附加哪些文件类型？', answer: '任何文件类型都可以附加到PDF。' },
-      { question: '有大小限制吗？', answer: '包括附件在内的PDF总大小不应超过500MB。' },
+      { question: '有大小限制吗？', answer: '没有固定的大小限制。由于处理完全在浏览器本地进行，实际上限取决于您设备的可用内存。' },
       { question: '收件人可以提取附件吗？', answer: '是的，任何PDF阅读器都可以提取嵌入的附件。' },
     ],
   },

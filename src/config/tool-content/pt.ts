@@ -31,7 +31,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       { title: 'Gerenciamento de Arquivos', description: 'Divida arquivos grandes em seções gerenciáveis e extraia apenas as páginas relevantes.', icon: 'archive' },
     ],
     faq: [
-      { question: 'Quantos PDFs posso processar de uma vez?', answer: 'Você pode carregar e processar até 10 arquivos PDF simultaneamente, com um tamanho máximo combinado de 500MB.' },
+      { question: 'Quantos PDFs posso processar de uma vez?', answer: 'Você pode carregar e processar até 10 arquivos PDF simultaneamente, sem limite fixo de tamanho - o processamento acontece localmente no seu navegador, então o limite prático é a memória disponível do seu dispositivo.' },
       { question: 'Meus marcadores serão preservados?', answer: 'Sim, ao mesclar PDFs, a ferramenta preserva os marcadores existentes e pode combiná-los em uma estrutura unificada.' },
       { question: 'Existe um limite de páginas?', answer: 'Não há um limite estrito. A ferramenta lida com documentos de centenas de páginas, embora arquivos muito grandes possam demorar mais para processar.' },
     ],
@@ -56,7 +56,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       { title: 'Consolidar Notas Fiscais', description: 'Agrupe várias faturas ou recibos em um único arquivo para contabilidade.', icon: 'receipt' },
     ],
     faq: [
-      { question: 'Quantos PDFs posso juntar?', answer: 'Você pode mesclar até 100 arquivos PDF de uma só vez, com um tamanho total de até 500MB.' },
+      { question: 'Quantos PDFs posso juntar?', answer: 'Você pode mesclar até 100 arquivos PDF de uma só vez, sem limite fixo de tamanho - tudo é processado localmente no seu navegador.' },
       { question: 'A qualidade original será mantida?', answer: 'Sim, o processo de mesclagem preserva a qualidade original sem qualquer compressão adicional.' },
       { question: 'Posso juntar PDFs protegidos por senha?', answer: 'Eles precisam ser descriptografados primeiro. Use nossa ferramenta "Descriptografar PDF" antes de tentar mesclá-los.' },
     ],
@@ -662,7 +662,7 @@ export const toolContentPt: Record<string, ToolContent> = {
     ],
     faq: [
       { question: 'Quais tipos de arquivo são suportados?', answer: 'Você pode embutir qualquer tipo de arquivo dentro de um PDF.' },
-      { question: 'Existe limite de tamanho?', answer: 'O tamanho total do PDF com anexos não deve exceder 500 MB para garantir o desempenho.' },
+      { question: 'Existe limite de tamanho?', answer: 'Não há limite fixo de tamanho. Como o processamento acontece localmente no seu navegador, o limite prático é a memória disponível do seu dispositivo.' },
       { question: 'Os destinatários conseguirão ver os arquivos?', answer: 'Sim, leitores de PDF modernos mostram os anexos em uma barra lateral específica.' },
     ],
   },

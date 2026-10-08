@@ -29,7 +29,7 @@ export const toolContentEs: Record<string, ToolContent> = {
       { title: 'Gestión de Archivos', description: 'Divide archivos grandes y extrae páginas relevantes.', icon: 'archive' },
     ],
     faq: [
-      { question: '¿Cuántos PDFs puedo procesar?', answer: 'Puedes procesar hasta 10 archivos PDF simultáneamente, con un tamaño máximo de 500MB.' },
+      { question: '¿Cuántos PDFs puedo procesar?', answer: 'Puedes procesar hasta 10 archivos PDF simultáneamente, sin límite fijo de tamaño: el procesamiento ocurre localmente en tu navegador, por lo que el límite práctico es la memoria disponible de tu dispositivo.' },
       { question: '¿Se conservan los marcadores?', answer: 'Sí, al combinar PDFs se conservan los marcadores existentes.' },
       { question: '¿Hay límite de páginas?', answer: 'No hay límite estricto. La herramienta maneja documentos con cientos de páginas.' },
     ],
@@ -51,7 +51,7 @@ export const toolContentEs: Record<string, ToolContent> = {
       { title: 'Consolidar Facturas', description: 'Une facturas para propósitos contables.', icon: 'receipt' },
     ],
     faq: [
-      { question: '¿Cuántos PDFs puedo combinar?', answer: 'Hasta 100 archivos PDF con un tamaño total de 500MB.' },
+      { question: '¿Cuántos PDFs puedo combinar?', answer: 'Hasta 100 archivos PDF sin límite fijo de tamaño - todo se procesa localmente en tu navegador.' },
       { question: '¿Se mantiene la calidad?', answer: 'Sí, se preserva la calidad original sin compresión.' },
       { question: '¿Puedo combinar PDFs protegidos?', answer: 'Necesitas descifrarlos primero con nuestra herramienta Descifrar PDF.' },
     ],
@@ -154,7 +154,7 @@ export const toolContentEs: Record<string, ToolContent> = {
   'edit-pdf': {
     title: 'Editar PDF',
     metaDescription: 'Edita archivos PDF en línea. Añade texto, imágenes, anotaciones y formas.',
-    keywords: ['editar pdf', 'editor pdf', 'anotar pdf', 'añadir texto pdf'],
+    keywords: ['editar pdf', 'subrayar pdf', 'anotar pdf', 'editor de pdf gratis', 'subrayar en pdf', 'marcar pdf'],
     description: '<p>Editar PDF proporciona herramientas completas para modificar y anotar documentos. Añade texto, imágenes, formas y comentarios.</p><p>Edición local para privacidad total.</p>',
     howToUse: [
       { step: 1, title: 'Sube tu PDF', description: 'Arrastra y suelta o selecciona el documento a editar.' },
@@ -1012,7 +1012,7 @@ export const toolContentEs: Record<string, ToolContent> = {
     ],
     faq: [
       { question: '¿Qué tipos de archivos puedo adjuntar?', answer: 'Cualquier tipo de archivo: documentos, imágenes, hojas de cálculo, etc.' },
-      { question: '¿Hay límite de tamaño?', answer: 'El tamaño total del PDF con adjuntos no debe exceder 500MB.' },
+      { question: '¿Hay límite de tamaño?', answer: 'No hay un límite fijo de tamaño. Como el procesamiento ocurre localmente en tu navegador, el límite práctico es la memoria disponible de tu dispositivo.' },
       { question: '¿Cómo se accede a los adjuntos?', answer: 'Los lectores PDF muestran los adjuntos en un panel lateral.' },
     ],
   },

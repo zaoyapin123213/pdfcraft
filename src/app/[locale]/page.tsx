@@ -1,6 +1,8 @@
 import { setRequestLocale } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
 import HomePageClient from './HomePageClient';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { generateWebSiteSchema, generateOrganizationSchema } from '@/lib/seo';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -15,6 +17,11 @@ export default async function HomePage({ params }: HomePageProps) {
 
   // Enable static rendering
   setRequestLocale(locale);
+
+  // Site-level structured data helps search engines and AI assistants
+  // understand and cite the brand (WebSite) and the organization behind it.
+  const webSiteSchema = generateWebSiteSchema(locale as Locale);
+  const organizationSchema = generateOrganizationSchema();
 
   // Get localized content for tools
   const { tools } = await import('@/config/tools');
@@ -33,5 +40,10 @@ export default async function HomePage({ params }: HomePageProps) {
     return acc;
   }, {} as Record<string, { title: string; description: string }>);
 
-  return <HomePageClient locale={locale as Locale} localizedToolContent={localizedToolContent} />;
+  return (
+    <>
+      <JsonLd data={[webSiteSchema, organizationSchema]} />
+      <HomePageClient locale={locale as Locale} localizedToolContent={localizedToolContent} />
+    </>
+  );
 }

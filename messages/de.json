@@ -1,12 +1,12 @@
 {
   "metadata": {
     "home": {
-      "title": "PDFCraft - Professionelle PDF-Werkzeuge",
-      "description": "Kostenlos, privat und browserbasiert. PDF-Dateien online zusammenführen und bearbeiten, ohne sie auf Server hochzuladen."
+      "title": "Kostenloser PDF-Editor & 95 PDF-Tools | PDFCraft",
+      "description": "Kostenloser Online-PDF-Editor mit 95 Profi-Tools. PDFs direkt im Browser zusammenführen, teilen, komprimieren, konvertieren und bearbeiten - ohne Upload, ohne Anmeldung."
     },
     "tools": {
       "title": "Alle PDF-Werkzeuge",
-      "description": "Durchsuchen Sie 67+ professionelle PDF-Werkzeuge. PDF-Dateien kostenlos zusammenführen, teilen, komprimieren, konvertieren, bearbeiten und schützen."
+      "description": "Durchsuchen Sie 95 professionelle PDF-Werkzeuge. PDF-Dateien kostenlos zusammenführen, teilen, komprimieren, konvertieren, bearbeiten und schützen."
     },
     "about": {
       "title": "Über uns",
@@ -32,6 +32,10 @@
       "convertPdf": "PDF konvertieren",
       "freePdfTools": "kostenlose PDF-Werkzeuge",
       "onlinePdfEditor": "Online-PDF-Editor"
+    },
+    "category": {
+      "title": "{category} PDF-Tools",
+      "description": "Kostenlose Online-PDF-Tools für {category}. Schnell, sicher und einfach zu bedienen - die gesamte Verarbeitung erfolgt lokal in Ihrem Browser."
     }
   },
   "common": {
@@ -181,7 +185,7 @@
       "general": {
         "whatIs": {
           "question": "What is PDFCraft?",
-          "answer": "PDFCraft is a free, privacy-focused PDF toolkit that runs entirely in your browser. It offers 67+ professional tools for editing, converting, merging, splitting, and securing PDF files without uploading them to any server."
+          "answer": "PDFCraft is a free, privacy-focused PDF toolkit that runs entirely in your browser. It offers 95 professional tools for editing, converting, merging, splitting, and securing PDF files without uploading them to any server."
         },
         "isFree": {
           "question": "Is PDFCraft really free?",
@@ -209,7 +213,7 @@
       "features": {
         "operations": {
           "question": "What PDF operations can I perform?",
-          "answer": "PDFCraft offers 67+ tools including: merge, split, compress, convert (to/from images, text, JSON), edit, annotate, sign, add watermarks, encrypt/decrypt, OCR, and many more."
+          "answer": "PDFCraft offers 95 tools including: merge, split, compress, convert (to/from images, text, JSON), edit, annotate, sign, add watermarks, encrypt/decrypt, OCR, and many more."
         },
         "merge": {
           "question": "Can I merge multiple PDF files?",
@@ -418,7 +422,7 @@
       },
       "powerful": {
         "title": "Leistungsstarke Werkzeuge",
-        "description": "Über 67 professionelle PDF-Werkzeuge für alle Ihre Bedürfnisse."
+        "description": "Über 95 professionelle PDF-Werkzeuge für alle Ihre Bedürfnisse."
       }
     },
     "popularTools": {

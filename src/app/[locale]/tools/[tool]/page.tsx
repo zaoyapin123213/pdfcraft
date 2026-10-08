@@ -98,7 +98,11 @@ import {
 } from '@/lib/seo/structured-data';
 import type { Metadata } from 'next';
 
-const SUPPORTED_LOCALES: Locale[] = ['en', 'ja', 'ko', 'es', 'fr', 'de', 'zh', 'pt'];
+// Tool pages exist in every locale; zh-TW falls back to zh (Simplified)
+// content via getToolContent. Excluding a locale here would break the
+// hreflang alternates, sitemap entries, and internal links from the
+// locale's tool listing page (all would 404).
+const SUPPORTED_LOCALES: Locale[] = ['en', 'ja', 'ko', 'es', 'fr', 'de', 'zh', 'zh-TW', 'pt'];
 
 interface ToolPageParams {
   params: Promise<{
@@ -206,6 +210,9 @@ export default async function ToolPageRoute({ params }: ToolPageParams) {
     }
     return acc;
   }, {} as Record<string, { title: string; description: string }>);
+
+  // Reciprocal internal links: blog guides that reference this tool (en only)
+  const relatedBlogGuides = locale === 'en' ? getBlogPostsForTool(tool.slug) : [];
 
   // Render the appropriate tool interface
   const renderToolInterface = () => {
@@ -429,6 +436,7 @@ export default async function ToolPageRoute({ params }: ToolPageParams) {
         content={content}
         locale={locale}
         localizedRelatedTools={localizedRelatedTools}
+        relatedBlogGuides={relatedBlogGuides}
       >
         {renderToolInterface()}
       </ToolPage>

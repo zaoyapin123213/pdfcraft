@@ -24,6 +24,8 @@ export interface ToolPageProps {
   children?: React.ReactNode;
   /** Localized content for related tools */
   localizedRelatedTools?: Record<string, { title: string; description: string }>;
+  /** Blog guides that reference this tool (English only) */
+  relatedBlogGuides?: Array<{ slug: string; h1: string; description: string }>;
 }
 
 const categoryTranslationKeys: Record<ToolCategory, string> = {
@@ -39,7 +41,7 @@ const categoryTranslationKeys: Record<ToolCategory, string> = {
  * ToolPage layout component provides the structure for individual tool pages.
  * Includes tool interface, description, how-to, use cases, FAQ, and related tools.
  */
-export function ToolPage({ tool, content, locale, children, localizedRelatedTools = {} }: ToolPageProps) {
+export function ToolPage({ tool, content, locale, children, localizedRelatedTools = {}, relatedBlogGuides = [] }: ToolPageProps) {
   // Get related tools data
   const relatedTools = tool.relatedTools
     .map(id => getToolById(id))
@@ -112,6 +114,27 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
 
             {/* FAQ Section */}
             <FAQSection faq={content.faq} />
+
+            {/* Related Guides (blog posts referencing this tool, en only) */}
+            {locale === 'en' && relatedBlogGuides.length > 0 && (
+              <section className="mt-12" aria-labelledby="related-guides-heading" data-testid="related-guides">
+                <h2 id="related-guides-heading" className="text-2xl font-bold text-[hsl(var(--color-foreground))] mb-4">
+                  Related guides
+                </h2>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {relatedBlogGuides.map((guide) => (
+                    <Link
+                      key={guide.slug}
+                      href={`/en/blog/${guide.slug}/`}
+                      className="block rounded-xl border border-[hsl(var(--color-border))] p-5 hover:border-[hsl(var(--color-primary))] transition-colors"
+                    >
+                      <p className="font-semibold text-[hsl(var(--color-foreground))] mb-1">{guide.h1}</p>
+                      <p className="text-sm text-[hsl(var(--color-muted-foreground))]">{guide.description}</p>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* Related Tools Section */}
             <RelatedToolsSection

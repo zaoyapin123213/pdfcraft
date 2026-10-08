@@ -17,10 +17,11 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        // Only block non-existent dynamic API paths.
+        // /_next/ static assets (JS/CSS) stay crawlable so Googlebot can
+        // render pages and AI crawlers can fetch resources.
         disallow: [
           '/api/',
-          '/_next/',
-          '/static/',
         ],
       },
     ],

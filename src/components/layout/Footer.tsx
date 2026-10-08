@@ -25,6 +25,12 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
     { href: `/${locale}/contact`, label: t('navigation.contact') },
   ];
 
+  // Blog exists in English only; link it from every English page for
+  // site-wide internal linking (crawl discovery + ranking signals).
+  if (locale === 'en') {
+    footerLinks.splice(2, 0, { href: '/en/blog', label: 'Blog' });
+  }
+
   const handleLanguageChange = (newLocale: Locale) => {
     saveLanguagePreference(newLocale);
     const newPath = getLocalizedPath(pathname, newLocale);
@@ -182,9 +188,10 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
             &copy; {currentYear} {t('brand')}. {t('footer.copyright', { year: '' }).replace(/^\d{4}\s*/, '')}
           </p>
           <div className="flex items-center gap-6">
-            <Link href={`/${locale}/terms`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Terms</Link>
+            {/* Only link to pages that actually exist; /terms and /cookies
+                are not implemented and returned 404 (broken links). */}
             <Link href={`/${locale}/privacy`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Privacy</Link>
-            <Link href={`/${locale}/cookies`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Cookies</Link>
+            <Link href={`/${locale}/contact`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Contact</Link>
           </div>
         </div>
       </div>

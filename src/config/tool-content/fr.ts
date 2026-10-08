@@ -33,7 +33,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       { title: 'Gestion d\'archives', description: 'Divisez de gros fichiers d\'archive en sections gérables, extrayez les pages pertinentes et réorganisez les documents historiques.', icon: 'archive' },
     ],
     faq: [
-      { question: 'Combien de PDF puis-je traiter à la fois ?', answer: 'Vous pouvez télécharger et traiter jusqu\'à 10 fichiers PDF simultanément, avec une taille combinée maximale de 500 Mo.' },
+      { question: 'Combien de PDF puis-je traiter à la fois ?', answer: 'Vous pouvez télécharger et traiter jusqu\'à 10 fichiers PDF simultanément, sans limite de taille fixe : le traitement se fait localement dans votre navigateur, la limite pratique est donc la mémoire disponible de votre appareil.' },
       { question: 'Mes signets seront-ils conservés ?', answer: 'Oui, lors de la fusion de PDF, l\'outil conserve les signets existants et peut optionnellement les combiner en une structure de signets unifiée.' },
       { question: 'Y a-t-il une limite de pages ?', answer: 'Il n\'y a pas de limite stricte de pages. L\'outil peut gérer des documents de centaines de pages, bien que les fichiers très volumineux puissent prendre plus de temps à traiter.' },
     ],
@@ -59,7 +59,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       { title: 'Consolider des factures', description: 'Fusionnez plusieurs factures ou reçus en un seul document pour la comptabilité et la tenue de registres.', icon: 'receipt' },
     ],
     faq: [
-      { question: 'Combien de PDF puis-je fusionner ?', answer: 'Vous pouvez fusionner jusqu\'à 100 fichiers PDF à la fois, avec une taille totale combinée allant jusqu\'à 500 Mo.' },
+      { question: 'Combien de PDF puis-je fusionner ?', answer: 'Vous pouvez fusionner jusqu\'à 100 fichiers PDF à la fois, sans limite de taille fixe - tout est traité localement dans votre navigateur.' },
       { question: 'Le PDF fusionné conservera-t-il la qualité originale ?', answer: 'Oui, le processus de fusion préserve la qualité originale de tous les documents sans aucune compression ni perte de qualité.' },
       { question: 'Puis-je fusionner des PDF protégés par mot de passe ?', answer: 'Les PDF protégés par mot de passe doivent d\'abord être déchiffrés. Utilisez notre outil Déchiffrer PDF pour supprimer le mot de passe avant la fusion.' },
     ],
@@ -1161,7 +1161,7 @@ export const toolContentFr: Record<string, ToolContent> = {
     ],
     faq: [
       { question: 'Quels types de fichiers peuvent être joints ?', answer: 'N\'importe quel type de fichier peut être joint à un PDF.' },
-      { question: 'Y a-t-il une limite de taille ?', answer: 'La taille totale du PDF incluant les pièces jointes ne doit pas dépasser 500 Mo.' },
+      { question: 'Y a-t-il une limite de taille ?', answer: 'Il n’existe pas de limite de taille fixe. Le traitement étant effectué localement dans votre navigateur, la limite pratique est la mémoire disponible de votre appareil.' },
       { question: 'Les destinataires peuvent-ils extraire les pièces jointes ?', answer: 'Oui, n\'importe quel lecteur PDF peut extraire les pièces jointes intégrées.' },
     ],
   },

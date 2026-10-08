@@ -1,12 +1,12 @@
 {
   "metadata": {
     "home": {
-      "title": "PDFCraft - 专业 PDF 工具",
-      "description": "免费、私密、基于浏览器。在线合并、编辑 PDF 文件，无需上传到服务器。"
+      "title": "免费PDF编辑器 & 95款在线PDF工具 | PDFCraft",
+      "description": "免费在线PDF编辑器，内置95款专业工具。在浏览器中合并、拆分、压缩、转换和编辑PDF文件——无需上传、无需注册、100%隐私安全。"
     },
     "tools": {
       "title": "所有 PDF 工具",
-      "description": "浏览 67+ 款专业 PDF 工具。免费合并、拆分、压缩、转换、编辑和保护您的 PDF 文件。"
+      "description": "浏览 95 款专业 PDF 工具。免费合并、拆分、压缩、转换、编辑和保护您的 PDF 文件。"
     },
     "about": {
       "title": "关于我们",
@@ -32,6 +32,10 @@
       "convertPdf": "转换 PDF",
       "freePdfTools": "免费 PDF 工具",
       "onlinePdfEditor": "在线 PDF 编辑器"
+    },
+    "category": {
+      "title": "{category}PDF工具",
+      "description": "免费的在线{category}PDF工具。快速、安全、易用——所有处理均在您的浏览器本地完成。"
     }
   },
   "common": {
@@ -195,7 +199,7 @@
       "general": {
         "whatIs": {
           "question": "PDFCraft 是什么？",
-          "answer": "PDFCraft 是一个免费、注重隐私的 PDF 工具包，完全在您的浏览器中运行。它提供 67+ 个专业工具，用于编辑、转换、合并、分割和加密 PDF 文件，而无需将其上传到任何服务器。"
+          "answer": "PDFCraft 是一个免费、注重隐私的 PDF 工具包，完全在您的浏览器中运行。它提供 95 个专业工具，用于编辑、转换、合并、分割和加密 PDF 文件，而无需将其上传到任何服务器。"
         },
         "isFree": {
           "question": "PDFCraft 真的免费吗？",
@@ -223,7 +227,7 @@
       "features": {
         "operations": {
           "question": "我可以执行哪些 PDF 操作？",
-          "answer": "PDFCraft 提供 67+ 个工具，包括：合并、分割、压缩、转换（转为/来自图像、文本、JSON）、编辑、注释、签名、添加水印、加密/解密、OCR 等等。"
+          "answer": "PDFCraft 提供 95 个工具，包括：合并、分割、压缩、转换（转为/来自图像、文本、JSON）、编辑、注释、签名、添加水印、加密/解密、OCR 等等。"
         },
         "merge": {
           "question": "我可以合并多个 PDF 文件吗？",
@@ -432,7 +436,7 @@
       },
       "powerful": {
         "title": "强大工具",
-        "description": "67+专业PDF工具满足您的所有需求。"
+        "description": "95专业PDF工具满足您的所有需求。"
       }
     },
     "popularTools": {

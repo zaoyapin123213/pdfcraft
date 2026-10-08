@@ -33,7 +33,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       { title: 'Archive Management', description: 'Split large archive files into manageable sections, extract relevant pages, and reorganize historical documents.', icon: 'archive' },
     ],
     faq: [
-      { question: 'How many PDFs can I process at once?', answer: 'You can upload and process up to 10 PDF files simultaneously, with a combined maximum size of 500MB.' },
+      { question: 'How many PDFs can I process at once?', answer: 'You can upload and process up to 10 PDF files simultaneously, with no fixed size limit - files are processed locally in your browser, so the practical limit is the memory available on your device.' },
       { question: 'Will my bookmarks be preserved?', answer: 'Yes, when merging PDFs, the tool preserves existing bookmarks and can optionally combine them into a unified bookmark structure.' },
       { question: 'Is there a page limit?', answer: 'There is no strict page limit. The tool can handle documents with hundreds of pages, though very large files may take longer to process.' },
     ],
@@ -59,7 +59,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       { title: 'Consolidate Invoices', description: 'Merge multiple invoices or receipts into one document for accounting and record-keeping purposes.', icon: 'receipt' },
     ],
     faq: [
-      { question: 'How many PDFs can I merge?', answer: 'You can merge up to 100 PDF files at once, with a total combined size of up to 500MB.' },
+      { question: 'How many PDFs can I merge?', answer: 'You can merge up to 100 PDF files at once, with no fixed size limit - everything is processed locally in your browser.' },
       { question: 'Will the merged PDF maintain the original quality?', answer: 'Yes, the merging process preserves the original quality of all documents without any compression or quality loss.' },
       { question: 'Can I merge password-protected PDFs?', answer: 'Password-protected PDFs need to be decrypted first. Use our Decrypt PDF tool to remove the password before merging.' },
     ],
@@ -174,8 +174,8 @@ export const toolContentEn: Record<string, ToolContent> = {
 
   'edit-pdf': {
     title: 'Edit PDF',
-    metaDescription: 'Edit PDF files online. Add text, images, annotations, highlights, and shapes to your documents.',
-    keywords: ['edit pdf', 'pdf editor', 'annotate pdf', 'add text to pdf', 'pdf markup'],
+    metaDescription: 'Free online PDF editor with full PDF annotation. Add text, images, highlights and shapes, or delete text from your PDF - no upload, no signup.',
+    keywords: ['edit pdf', 'pdf annotation', 'delete text from pdf free', 'pdf editor', 'annotate pdf', 'add text to pdf', 'pdf markup'],
     description: `
       <p>Edit PDF provides a comprehensive set of tools for modifying and annotating your PDF documents. Add text, images, shapes, highlights, comments, and more without needing expensive desktop software.</p>
       <p>The intuitive editor interface makes it easy to mark up documents for review, add notes for collaboration, redact sensitive information, or enhance documents with additional content.</p>
@@ -202,7 +202,7 @@ export const toolContentEn: Record<string, ToolContent> = {
   'jpg-to-pdf': {
     title: 'JPG to PDF',
     metaDescription: 'Convert JPG images to PDF. Combine multiple JPG files into a single PDF document.',
-    keywords: ['jpg to pdf', 'jpeg to pdf', 'convert jpg', 'image to pdf', 'photo to pdf'],
+    keywords: ['jpg to pdf', 'drag and drop pdf creator', 'jpeg to pdf', 'convert jpg to pdf', 'image to pdf converter'],
     description: `
       <p>JPG to PDF converts your JPEG images into PDF documents quickly and easily. Whether you have a single photo or multiple images, this tool creates professional-looking PDF files.</p>
       <p>You can combine multiple JPG files into a single PDF, arrange them in any order, and customize page size and orientation. The conversion preserves image quality while creating compact, shareable PDF files.</p>
@@ -253,9 +253,9 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'crop-pdf': {
-    title: 'Crop PDF',
-    metaDescription: 'Crop PDF pages to remove margins and unwanted areas. Trim PDF documents precisely.',
-    keywords: ['crop pdf', 'trim pdf', 'cut pdf margins', 'resize pdf pages', 'pdf cropper'],
+    title: 'Crop PDF - Free Margin Editor',
+    metaDescription: 'Free PDF margin editor. Crop PDF pages to remove margins and unwanted areas online - precise, private, no signup.',
+    keywords: ['crop pdf', 'pdf margin editor', 'trim pdf', 'cut pdf margins', 'resize pdf pages', 'pdf page margins', 'pdf cropper'],
     description: `
       <p>Crop PDF allows you to trim margins and remove unwanted areas from your PDF pages. This is useful for removing excess whitespace, focusing on specific content areas, or standardizing page dimensions.</p>
       <p>You can crop all pages uniformly or adjust each page individually. The visual interface shows exactly what will be kept, making it easy to achieve precise results.</p>
@@ -334,7 +334,7 @@ export const toolContentEn: Record<string, ToolContent> = {
   'delete-pages': {
     title: 'Delete Pages',
     metaDescription: 'Remove unwanted pages from PDF files. Select and delete specific pages easily.',
-    keywords: ['delete pdf pages', 'remove pdf pages', 'pdf page remover', 'delete pages from pdf'],
+    keywords: ['delete pdf pages', 'remove pages pdf', 'remove pages from pdf', 'pdf page remover', 'cut pages pdf'],
     description: `
       <p>Delete Pages allows you to remove unwanted pages from your PDF documents quickly and easily. Whether you need to remove blank pages, outdated content, or sensitive information, this tool makes it simple.</p>
       <p>Visual page thumbnails help you identify exactly which pages to remove. You can delete individual pages or multiple pages at once.</p>
@@ -466,7 +466,7 @@ export const toolContentEn: Record<string, ToolContent> = {
   'header-footer': {
     title: 'Header & Footer',
     metaDescription: 'Add headers and footers to PDF documents. Include page numbers, dates, and custom text.',
-    keywords: ['pdf header', 'pdf footer', 'add header footer', 'pdf letterhead'],
+    keywords: ['pdf header', 'pdf footer', 'add date to pdf', 'add header footer', 'pdf letterhead', 'page numbers pdf'],
     description: `
       <p>Header & Footer adds customizable headers and footers to your PDF documents. Include page numbers, dates, document titles, or any custom text in the header or footer areas.</p>
       <p>Position content on the left, center, or right of the header/footer. Use different content for odd and even pages if needed. Perfect for creating professional documents with consistent formatting.</p>
@@ -492,7 +492,7 @@ export const toolContentEn: Record<string, ToolContent> = {
   'invert-colors': {
     title: 'Invert Colors',
     metaDescription: 'Invert PDF colors for dark mode reading. Convert documents to negative colors.',
-    keywords: ['invert pdf colors', 'pdf dark mode', 'negative pdf', 'reverse colors'],
+    keywords: ['invert pdf colors', 'adjust contrast pdf', 'dark mode pdf', 'pdf color inversion', 'negative pdf'],
     description: `
       <p>Invert Colors reverses the colors in your PDF documents, creating a negative image effect. This is particularly useful for creating dark mode versions of documents for easier reading in low-light conditions.</p>
       <p>The tool can invert all colors or selectively preserve certain elements like images. Perfect for reducing eye strain when reading documents at night.</p>
@@ -1530,7 +1530,7 @@ export const toolContentEn: Record<string, ToolContent> = {
     ],
     faq: [
       { question: 'What file types can be attached?', answer: 'Any file type can be attached to a PDF.' },
-      { question: 'Is there a size limit?', answer: 'Total PDF size including attachments should not exceed 500MB.' },
+      { question: 'Is there a size limit?', answer: 'There is no fixed size limit. Because processing happens locally in your browser, the practical limit is the memory available on your device.' },
       { question: 'Can recipients extract attachments?', answer: 'Yes, any PDF reader can extract embedded attachments.' },
     ],
   },
@@ -1799,7 +1799,7 @@ export const toolContentEn: Record<string, ToolContent> = {
   'edit-metadata': {
     title: 'Edit Metadata',
     metaDescription: 'Edit PDF document properties. Change title, author, subject, and keywords.',
-    keywords: ['edit pdf metadata', 'change pdf properties', 'pdf author', 'document info'],
+    keywords: ['edit pdf metadata', 'change title pdf', 'pdf metadata editor', 'pdf title editor', 'change pdf properties', 'pdf document info'],
     description: `
       <p>Edit Metadata allows you to modify document properties in your PDF files. Change the title, author, subject, keywords, and other metadata fields.</p>
       <p>Perfect for correcting document information, adding proper attribution, or preparing files for distribution.</p>
@@ -2061,7 +2061,7 @@ export const toolContentEn: Record<string, ToolContent> = {
   'sanitize-pdf': {
     title: 'Sanitize PDF',
     metaDescription: 'Remove hidden data from PDFs. Clean metadata, scripts, and sensitive information.',
-    keywords: ['sanitize pdf', 'clean pdf', 'remove hidden data', 'pdf privacy'],
+    keywords: ['sanitize pdf', 'clean up pdf free', 'clean pdf file', 'remove pdf scripts', 'pdf security'],
     description: `
       <p>Sanitize PDF removes hidden data and potentially sensitive information from your documents. Strip metadata, embedded scripts, attachments, comments, and other hidden content.</p>
       <p>Essential for preparing documents for public distribution or when privacy is a concern.</p>
@@ -2113,7 +2113,7 @@ export const toolContentEn: Record<string, ToolContent> = {
   'flatten-pdf': {
     title: 'Flatten PDF',
     metaDescription: 'Flatten PDF forms and annotations. Make content non-editable.',
-    keywords: ['flatten pdf', 'flatten forms', 'flatten annotations', 'non-editable pdf'],
+    keywords: ['flatten pdf', 'pdf flush', 'flush pdf file', 'flatten pdf online', 'merge pdf layers', 'pdf flattening'],
     description: `
       <p>Flatten PDF converts interactive elements like form fields and annotations into static content. The flattened PDF looks the same but can no longer be edited.</p>
       <p>Perfect for finalizing filled forms, preserving annotations, or creating non-editable document versions.</p>

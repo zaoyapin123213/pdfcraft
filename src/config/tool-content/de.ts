@@ -32,7 +32,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       { title: 'Archivverwaltung', description: 'Teilen Sie große Archivdateien in handliche Abschnitte auf und extrahieren Sie relevante Seiten.', icon: 'archive' },
     ],
     faq: [
-      { question: 'Wie viele PDFs kann ich gleichzeitig verarbeiten?', answer: 'Sie können bis zu 10 PDF-Dateien gleichzeitig hochladen und verarbeiten, mit einer maximalen Gesamtgröße von 500 MB.' },
+      { question: 'Wie viele PDFs kann ich gleichzeitig verarbeiten?', answer: 'Sie können bis zu 10 PDF-Dateien gleichzeitig hochladen und verarbeiten, ohne feste Größenbeschränkung - die Verarbeitung erfolgt lokal in Ihrem Browser, das praktische Limit ist der verfügbare Arbeitsspeicher Ihres Geräts.' },
       { question: 'Bleiben meine Lesezeichen erhalten?', answer: 'Ja, beim Zusammenfügen von PDFs bleiben vorhandene Lesezeichen erhalten und können optional in einer einheitlichen Struktur kombiniert werden.' },
       { question: 'Gibt es ein Seitenlimit?', answer: 'Es gibt kein striktes Seitenlimit. Das Tool kann Dokumente mit hunderten von Seiten verarbeiten, wobei sehr große Dateien etwas länger dauern können.' },
     ],
@@ -57,7 +57,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       { title: 'Rechnungen bündeln', description: 'Fassen Sie mehrere Belege oder Rechnungen für die Buchhaltung in einer Datei zusammen.', icon: 'receipt' },
     ],
     faq: [
-      { question: 'Wie viele PDFs kann ich verbinden?', answer: 'Sie können bis zu 100 PDF-Dateien auf einmal mit einer Gesamtgröße von bis zu 500 MB zusammenfügen.' },
+      { question: 'Wie viele PDFs kann ich verbinden?', answer: 'Sie können bis zu 100 PDF-Dateien auf einmal ohne feste Größenbeschränkung zusammenfügen - alles wird lokal in Ihrem Browser verarbeitet.' },
       { question: 'Bleibt die Qualität erhalten?', answer: 'Ja, der Prozess erfolgt ohne Qualitätsverlust oder zusätzliche Kompression.' },
       { question: 'Kann ich passwortgeschützte PDFs zusammenfügen?', answer: 'Diese müssen zuerst entschlüsselt werden. Nutzen Sie dafür unser Tool "PDF entschlüsseln".' },
     ],
@@ -1079,7 +1079,7 @@ export const toolContentDe: Record<string, ToolContent> = {
     ],
     faq: [
       { question: 'Welche Dateitypen werden unterstützt?', answer: 'Sie können jeden beliebigen Dateityp in ein PDF einbetten.' },
-      { question: 'Gibt es eine Größenbeschränkung?', answer: 'Die Gesamtgröße des PDFs inkl. Anhängen sollte 500 MB nicht überschreiten.' },
+      { question: 'Gibt es eine Größenbeschränkung?', answer: 'Es gibt keine feste Größenbeschränkung. Da die Verarbeitung lokal in Ihrem Browser erfolgt, ist das praktische Limit der verfügbare Arbeitsspeicher Ihres Geräts.' },
       { question: 'Können Empfänger die Dateien sehen?', answer: 'Ja, moderne PDF-Reader zeigen Anhänge in einer speziellen Seitenleiste an.' },
     ],
   },

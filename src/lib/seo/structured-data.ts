@@ -172,11 +172,9 @@ export function generateSoftwareApplicationSchema(
       price: '0',
       priceCurrency: 'USD',
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '1250',
-    },
+    // Note: aggregateRating is intentionally omitted. Publishing made-up
+    // ratings violates Google's structured data guidelines and risks a
+    // manual action. Only add it back once real user reviews exist.
     keywords: content.keywords ? content.keywords.join(', ') : undefined,
   };
 
@@ -293,14 +291,9 @@ export function generateWebSiteSchema(locale: Locale): WebSiteSchema {
     name: siteConfig.name,
     url: `${siteConfig.url}/${locale}`,
     description: siteConfig.description,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${siteConfig.url}/${locale}/tools?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
+    // Note: SearchAction is omitted because the site has no crawlable
+    // search results page (header search is client-side only). Declaring
+    // one that doesn't exist would be invalid structured data.
   };
 }
 
@@ -332,7 +325,49 @@ export function generateBreadcrumbSchema(
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `${siteConfig.url}/${locale}${item.path}`,
+      // Trailing slash matches the site's canonical URL format
+      item: `${siteConfig.url}/${locale}${item.path}/`,
+    })),
+  };
+}
+
+/**
+ * ItemList schema for category and listing pages
+ * @see https://schema.org/ItemList
+ */
+export interface ItemListSchema {
+  '@context': string;
+  '@type': 'ItemList';
+  name: string;
+  description?: string;
+  numberOfItems: number;
+  itemListElement: Array<{
+    '@type': 'ListItem';
+    position: number;
+    name: string;
+    url: string;
+  }>;
+}
+
+/**
+ * Generate ItemList schema for a category / listing page
+ */
+export function generateItemListSchema(
+  name: string,
+  items: Array<{ name: string; path: string }>,
+  locale: Locale,
+  basePath: string
+): ItemListSchema {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: `${siteConfig.url}/${locale}${basePath}/${item.path}/`,
     })),
   };
 }

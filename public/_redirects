@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects
+# Root URL must not serve the empty client-side redirect page: crawlers
+# (Googlebot and most AI crawlers) do not execute JavaScript, so they
+# would see a blank page at the site's most important URL.
+/ /en/ 302

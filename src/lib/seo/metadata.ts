@@ -191,7 +191,7 @@ export function generateToolsListMetadata(locale: Locale, translations?: { title
     locale,
     path: '/tools',
     title: translations?.title || 'All PDF Tools',
-    description: translations?.description || 'Browse all 67+ professional PDF tools. Merge, split, compress, convert, edit, and secure your PDF files for free.',
+    description: translations?.description || 'Browse all 95 professional PDF tools. Merge, split, compress, convert, edit, and secure your PDF files for free.',
     keywords: ['PDF tools', 'all PDF tools', 'PDF editor', 'PDF converter', 'PDF merger', 'PDF splitter'],
   });
 }

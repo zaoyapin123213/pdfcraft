@@ -1,6 +1,6 @@
 /**
  * Tools configuration file
- * Contains all 67 PDF tools with their properties, categories, and related tools
+ * Contains all 95 PDF tools with their properties, categories, and related tools
  * Migrated from BentoPDF and enhanced for PDFCraft
  */
 
