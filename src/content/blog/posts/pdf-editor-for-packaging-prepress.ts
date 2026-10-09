@@ -28,9 +28,20 @@ export const pdfEditorForPackagingPrepress: BlogPost = {
     { question: 'Can I do prepress work without uploading client files to a website?', answer: 'Yes - choose tools that process locally in the browser (like PDFCraft). For packaging work under NDA or with brand-sensitive artwork, local processing is not a preference but a compliance requirement, and it is exactly why browser-WASM tools have entered prepress workflows.' },
   ],
   body: `
-Packaging prepress is the most demanding corner of the PDF world: artwork destined for dies, presses and brand-critical shelves, where a wrong font, a missing bleed or a substituted color costs real money on real materials. The question "which PDF editor should I use for prepress" deserves a straight, non-promotional answer - because the honest one is nuanced: free tools now genuinely cover a meaningful share of prepress tasks, while a hard core of the workflow still belongs to professional software. This guide maps the whole territory: what prepress demands, what free tools actually do well, where the paid tools earn their price, and the workflow that combines both.
+There is no single best PDF editor for packaging prepress - the work splits into two tiers: deterministic fixes (font outlining, page-box geometry, deskew, PDF/A conversion, simple imposition) that free browser tools like PDFCraft handle genuinely well, and verification workflows (preflight profiles, ink coverage, complex imposition) that still require Enfocus PitStop or Acrobat Pro. This guide maps every task to the right tier, with a pre-send checklist for packaging artwork.
 
 **Quick answer:** for individual file fixes - font outlining, page-box adjustments, deskew, rasterizing, PDF/A conversion, simple imposition - free browser tools (PDFCraft's, all local) do the job. For automated preflight, ink-coverage analysis and complex imposition, you need Enfocus PitStop or Acrobat Pro. Most small studios need less of the paid tier than they assume.
+
+## Task coverage at a glance
+
+| Prepress task | Free tools | PitStop / Acrobat Pro |
+|---|---|---|
+| Font outlining | Yes - Font to Outlines | Yes |
+| Page box and trim fixes | Yes - Crop tool | Yes |
+| PDF/A and standards conversion | Yes - PDF to PDF/A | Yes |
+| Preflight profiles and ink coverage | No | Yes |
+| Complex imposition | Simple cases only | Yes |
+| Batch automation | No | Yes |
 
 ## On this page
 

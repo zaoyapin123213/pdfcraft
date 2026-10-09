@@ -28,9 +28,18 @@ export const howToInsertALineInAPdf: BlogPost = {
     { question: 'How do I add the same line to every page of a PDF?', answer: 'Manual drawing works for a few pages. For document-wide rules, the Header & Footer tool applies a consistent footer line (or bordered text) to every page in one pass - the correct tool for repeated structural elements.' },
   ],
   body: `
-It sounds like the smallest possible PDF edit - one straight line - and it is also one of the most frequently needed: signature lines on contracts, blanks on printed forms, rules between sections, dividers in reports, underlines beneath headings. The PDF's fixed-canvas design makes this refreshingly simple once you know the one tool that does it, and the craft details (thickness, color, alignment) that make a drawn line look like it was always part of the document.
+To insert a line in a PDF, open a free browser-based editor like PDFCraft's Edit PDF tool, select the line tool, set the thickness (1-1.5 pt for signature lines) and color, then drag to draw - hold shift for a perfectly straight stroke. The same thirty-second job covers fill-in blanks, section dividers and emphasis rules. This guide gives the exact settings for each line type, plus the signature-block recipe used in executed documents.
 
 **Quick answer:** open the free [Edit PDF tool](/en/tools/edit-pdf/), drop in your PDF, select the line or shape tool, set thickness and color, then drag to draw. Hold shift for perfectly straight strokes. Download - the line is now part of the page.
+
+## Line settings at a glance
+
+| Line type | Settings |
+|---|---|
+| Signature line | 1-1.5 pt thick, 2.5-3 in wide |
+| Fill-in blank | 1-1.5 pt, dark gray, plus a label beneath |
+| Section divider | 1-2 pt, margin to margin |
+| Emphasis rule | 2-3 pt, accent color, short |
 
 ## On this page
 

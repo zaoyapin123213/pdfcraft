@@ -28,7 +28,7 @@ export const canYouEditASignedPdf: BlogPost = {
     { question: 'What is the right way to change terms in an already-signed contract?', answer: 'The professional standard is a written addendum or amendment: a short new document that references the original, states the changed terms, and is signed by the same parties. It preserves the integrity of the original and is exactly how lawyers handle post-signature changes.' },
   ],
   body: `
-Someone sends you a PDF, you open it, and there it is: a signature already on the page - and you need to change something. Maybe the start date is wrong, an address needs updating, or you are the signer and spotted a typo a minute after sending. The question "can you edit a signed PDF?" has a genuinely nuanced answer: **it depends entirely on what kind of signature you are looking at** - and the difference matters both technically and legally.
+Yes, you can edit a signed PDF - but what happens next depends on the signature type. Typed and image signatures are ordinary page content and edit like anything else; digital certificate signatures are cryptographic tamper-evidence, and any edit breaks them in every PDF viewer. This guide shows you how to tell which kind you have, and the three legitimate ways to make changes: fix before signing, withdraw-and-re-sign your own signature, or add a signed addendum.
 
 **Quick answer:** a *digital certificate signature* is cryptographic tamper-evidence - any edit breaks it and every PDF viewer will say so. A *pasted signature image* or typed name is just page content and can be edited like anything else. For signed documents that genuinely need changes, the professional routes are: fix before signing, issue an addendum, or withdraw your own signature, edit, and re-sign.
 

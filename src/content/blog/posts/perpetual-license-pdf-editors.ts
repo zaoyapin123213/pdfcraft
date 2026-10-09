@@ -28,9 +28,17 @@ export const perpetualLicensePdfEditors: BlogPost = {
     { question: 'Are perpetual licenses safer for privacy than subscriptions?', answer: 'Desktop software - either licensing model - processes locally, which beats server-processing web services for confidentiality. Between two desktop products, licensing model does not change privacy; between desktop and upload-based web tools, desktop wins regardless of price.' },
   ],
   body: `
-Every year the search for a "perpetual license PDF editor" gets a little harder and a little more important. Harder, because the industry has raced to subscriptions and one-time options keep thinning. More important, because the remaining perpetual options deserve careful identification - and because for a growing share of buyers, the right answer is that no purchase is needed at all. This guide does all three jobs: maps the one-time-license landscape as it stands, gives you the checklist for evaluating any license text, and shows the free baseline that every purchase must justify itself against.
+Perpetual-license PDF editors still exist in 2026 - PDF-XChange, Master PDF Editor and PDF Studio recur as one-time-purchase options in a market that has largely moved to subscriptions. Before buying, run the honest math: the everyday tier (convert, merge, sign, compress, edit) runs free in browser tools, so a license only needs to justify the professional gap - certified signatures, preflight, advanced forms. This guide maps the landscape and the purchase checklist.
 
 **Quick verdict:** perpetual-license PDF editors still exist (PDF-XChange, Master PDF Editor, PDF Studio and peers recur in the category), and they can be excellent value for long-horizon professional use. Verify each vendor's current terms before buying - and run your task list against the free baseline first, because most people's PDF work needs none of the licenses.
+
+## The three tiers at a glance
+
+| Tier | Model | Best for |
+|---|---|---|
+| Free local tools | Free forever | Everyday tasks: convert, merge, sign, edit |
+| Perpetual utility editors | One-time purchase | Stable, long-horizon professional needs |
+| Subscription suites | Per month | Evolving pro features and cloud workflows |
 
 ## On this page
 

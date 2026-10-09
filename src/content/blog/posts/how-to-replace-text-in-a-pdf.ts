@@ -28,7 +28,7 @@ export const howToReplaceTextInAPdf: BlogPost = {
     { question: 'Is it legal to replace text in a PDF I did not create?', answer: 'Editing documents you are authorized to change - drafts, your own copies, agreed revisions - is normal work. Altering contracts, statements, certificates or records to change their meaning is forgery regardless of how the edit is made.' },
   ],
   body: `
-Replacing a word in a PDF - a wrong date, an old price, a renamed product, a corrected figure - is the edit people expect to be one keystroke and discover is a small project. The reason is architectural (PDFs store positioned glyphs, not editable sentences), but the practical fixes are quick. This guide covers the three honest methods: the visual cover-and-retype that works everywhere for free, the Word conversion that gives you real find-and-replace, and the redact-first variant that keeps sensitive documents safe. Plus the craft details that make replacements undetectable.
+To replace text in a PDF for free, cover the old words with a background-colored rectangle and retype the replacement in a matching font - the visual swap takes minutes in a browser-based editor. Replacing the same term dozens of times? Convert the PDF to Word for true find-and-replace, then convert back. This guide covers both methods, the font-matching checklist that makes edits undetectable, and when sensitive text needs redaction first.
 
 **Quick answer:** for a handful of replacements, open the free [Edit PDF tool](/en/tools/edit-pdf/), cover each old passage with a background-matched rectangle, and type the new text in a matching font. For replacements across a whole document, use the free [PDF to Word](/en/tools/pdf-to-docx/) round trip and find-and-replace there.
 

@@ -28,9 +28,18 @@ export const macroPdfEditorReview: BlogPost = {
     { question: 'Do I need an AI PDF editor at all?', answer: 'Honestly assess the volume: if you regularly digest long documents (contracts, filings, reports) and answer questions about them, AI assistance pays for itself in time. If you occasionally merge, sign and convert PDFs, it is overhead - a free toolbox does those jobs in seconds without any account.' },
   ],
   body: `
-Macro occupies an interesting position in the PDF software world: it is less a classic "PDF editor" and more an AI-powered document workspace - built for people whose jobs are made of documents. If you have seen it recommended for legal, insurance, finance or real-estate work and are wondering what it actually is, whether it is worth the subscription, and whether your needs genuinely require it, this review walks the whole territory honestly - including the part where a free tool is the better answer.
+Macro is an AI-powered PDF and document workspace - not a classic PDF editor - built for document-dense teams in legal, insurance, finance and real estate who spend hours inside long contracts and filings. Quick verdict: strong fit for teams whose bottleneck is reading and extracting from PDFs; unnecessary overhead if you occasionally merge, sign and convert, which free browser tools handle in seconds. This review covers the features, the fit, pricing evaluation and alternatives.
 
 **Quick verdict:** Macro is a genuinely interesting product for document-dense *teams* whose members spend hours inside long PDFs and want AI to help them read, extract and collaborate. For individuals doing occasional PDF tasks - merge, split, sign, convert, quick edits - it is more workspace than the job needs, and a free browser-based toolbox does those jobs in seconds.
+
+## Fit at a glance
+
+| Your situation | Verdict |
+|---|---|
+| Legal, insurance or finance team reading long PDFs daily | Strong fit |
+| Solo user with occasional merge, sign or convert tasks | Not needed - free tools cover it |
+| Offline or no-upload requirements | Not compatible - it is a SaaS workspace |
+| Prepress or print production | Not the focus |
 
 ## On this page
 

@@ -32,7 +32,7 @@ export const howToChangeFontSizeInPdf: BlogPost = {
     { question: 'Will changing font size affect PDF accessibility?', answer: 'Positively, in most cases: larger body text (14 pt or more) helps low-vision readers. Keep strong color contrast, and prefer true text over rasterized pages so screen readers and zoom features keep working.' },
   ],
   body: `
-Text that is too small strains every reader; text that is too large blows past margins and looks amateurish. Either way, at some point you need to change the font size in a PDF - to enlarge a contract's fine print for an older reader, shrink an overflowing resume onto one page, or resize the body text of a report after a template change. This guide shows every practical way to do it for free, in your browser, with no uploads - plus the paid options and the traps that make PDF text sizing different from Word.
+To change font size in a PDF for free, cover the old text with a background-colored rectangle and retype it at the size you need in a browser-based editor like PDFCraft - that is the whole method for headings, dates and short passages. For resizing an entire document, convert the PDF to Word, adjust the style's point size once, and convert back. Both routes are free, private (nothing uploads), and covered step by step below.
 
 **Quick answer:** to resize a few words, cover the old text and retype it at the new size with a free browser editor. To resize an entire document, convert the PDF to Word for free, change the style's point size once, and convert back - Word reflows the text automatically so nothing spills off the page.
 

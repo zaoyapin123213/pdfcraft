@@ -28,9 +28,17 @@ export const howToAddALinkToAPdf: BlogPost = {
     { question: 'Do long URLs hurt the PDF layout, and how do I handle them?', answer: 'They can overflow columns. Standard fixes: enable the viewer-friendly short domain (acme.com/offer instead of the full campaign URL with parameters), break long paths after slashes at line ends, or set the text slightly smaller so it fits the column width.' },
   ],
   body: `
-Links are where a PDF stops being paper-on-a-screen and starts being an interactive document: the proposal that clicks through to the demo, the report whose table of contents jumps to sections, the flyer with the registration URL. Adding one sounds trivial - and then you discover that "add link to PDF" behaves differently in every tool, breaks silently when files are flattened, and has a print problem hiding underneath. This guide covers the whole picture: the free methods that work everywhere, the professional methods, and the mechanics that make links predictable.
+To add a link to a PDF for free, work in two layers: add the URL as visible styled text with a browser-based editor (this version survives printing, forwarding and strict viewers), and - for click-to-open behavior - draw a link rectangle over the text in an editor with a link tool such as PDF-XChange or Acrobat. This guide covers both methods, internal links for tables of contents, and the testing routine that catches broken links before your readers do.
 
 **Quick answer:** the universally-safe free approach is to make the link *visible* - add styled text (your URL, in the document's font, as a clickable-looking reference) with a browser-based editor like [PDFCraft](/en/tools/edit-pdf/). For interactive click-rectangles, use a link-tool editor (Acrobat, PDF-XChange, Foxit): draw a box over the text, paste the URL, save. Details, pitfalls and internal links below.
+
+## Methods at a glance
+
+| Goal | Route | Cost |
+|---|---|---|
+| Link that survives print and forwarding | Visible styled URL text | Free |
+| Clickable rectangle over text | Link-tool editor (PDF-XChange, Acrobat) | Free tier or paid |
+| Linked table of contents | Word round trip or page-view links | Free |
 
 ## On this page
 

@@ -28,9 +28,17 @@ export const howToRotateAPdfInFirefox: BlogPost = {
     { question: 'Can I straighten a page that is tilted by a few degrees, not a clean 90?', answer: 'Yes - that is a deskew job rather than rotation. The free Rotate by Custom Degrees tool turns pages by exact angles like 2.5 degrees, which is how tilted scans get straightened without cutting content.' },
   ],
   body: `
-A sideways PDF in Firefox is a thirty-second fix - and also, famously, the source of one of the most repeated "why didn't my fix stick?" moments in document work. This short guide gives you both halves: the one-click rotation in Firefox's built-in viewer, and the honest explanation of what that button does and does not do - so your rotated file actually *stays* rotated when you save, share, or print it.
+To rotate a PDF in Firefox, click the rotate buttons in the PDF viewer's toolbar (top right) - one click per 90 degrees. The catch: this rotates your view only, so the downloaded, shared or printed file keeps its original orientation. To make rotation permanent, run the file through the free Rotate PDF tool - choose direction and pages, apply, download. This guide covers both halves, plus the mixed-scan fixes.
 
 **Quick answer:** to rotate your *view* in Firefox, click the rotate button in the PDF viewer's toolbar (top right) or press Ctrl+Alt+R. To rotate the *file* - permanently, so every viewer, printer and recipient sees it correctly - run it through the free [Rotate PDF tool](/en/tools/rotate-pdf/): choose direction, apply, download.
+
+## Rotation at a glance
+
+| Goal | Method | Persists in the file? |
+|---|---|---|
+| Read it now | Firefox rotate button | No - view only |
+| Send or print rotated | Rotate PDF tool | Yes |
+| Straighten a tilted scan | Deskew tool | Yes |
 
 ## On this page
 

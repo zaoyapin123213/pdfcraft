@@ -155,7 +155,7 @@ export const toolContentEs: Record<string, ToolContent> = {
     title: 'Editar PDF',
     metaDescription: 'Edita archivos PDF en línea. Añade texto, imágenes, anotaciones y formas.',
     keywords: ['editar pdf', 'subrayar pdf', 'anotar pdf', 'editor de pdf gratis', 'subrayar en pdf', 'marcar pdf'],
-    description: '<p>Editar PDF proporciona herramientas completas para modificar y anotar documentos. Añade texto, imágenes, formas y comentarios.</p><p>Edición local para privacidad total.</p>',
+    description: '<p>Editar PDF proporciona herramientas completas para modificar y anotar documentos. Añade texto, imágenes, formas y comentarios. Subrayar pdf es fácil: selecciona el texto y aplica subrayado, resaltado o notas al instante.</p><p>Edición local para privacidad total.</p>',
     howToUse: [
       { step: 1, title: 'Sube tu PDF', description: 'Arrastra y suelta o selecciona el documento a editar.' },
       { step: 2, title: 'Selecciona Herramienta', description: 'Elige: texto, resaltado, formas, imágenes o comentarios.' },

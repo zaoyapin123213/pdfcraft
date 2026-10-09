@@ -207,6 +207,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>JPG to PDF converts your JPEG images into PDF documents quickly and easily. Whether you have a single photo or multiple images, this tool creates professional-looking PDF files.</p>
       <p>You can combine multiple JPG files into a single PDF, arrange them in any order, and customize page size and orientation. The conversion preserves image quality while creating compact, shareable PDF files.</p>
       <p>All conversion happens in your browser, ensuring your photos remain private.</p>
+          <p>This drag and drop PDF creator accepts multiple JPG files at once and preserves full image quality.</p>
     `,
     howToUse: [
       { step: 1, title: 'Upload JPG Images', description: 'Drag and drop your JPG files or click to select images from your device.' },
@@ -233,6 +234,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>Sign PDF allows you to add electronic signatures to your PDF documents quickly and securely. Create your signature by drawing, typing, or uploading an image, then place it anywhere on your document.</p>
       <p>You can add multiple signatures to a single document, resize and position them precisely, and save your signature for future use. The tool is perfect for contracts, agreements, forms, and any document requiring your signature.</p>
       <p>All signing happens locally in your browser, ensuring your documents and signature remain private.</p>
+          <p>Add a PDF signature by typing, drawing or placing an image of your handwritten signature.</p>
     `,
     howToUse: [
       { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document you need to sign.' },
@@ -260,6 +262,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>Crop PDF allows you to trim margins and remove unwanted areas from your PDF pages. This is useful for removing excess whitespace, focusing on specific content areas, or standardizing page dimensions.</p>
       <p>You can crop all pages uniformly or adjust each page individually. The visual interface shows exactly what will be kept, making it easy to achieve precise results.</p>
       <p>All cropping happens locally in your browser, ensuring your documents remain private.</p>
+          <p>Every PDF crop is previewed live before you apply it, so results stay precise.</p>
     `,
     howToUse: [
       { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to crop.' },
@@ -280,8 +283,8 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'extract-pages': {
-    title: 'Extract Pages',
-    metaDescription: 'Extract specific pages from PDF files. Select and save individual pages as new documents.',
+    title: 'Extract Pages from PDF',
+    metaDescription: 'Extract pages from a PDF into a new document - single pages or custom ranges. Free online tool, private and local.',
     keywords: ['extract pdf pages', 'save pdf pages', 'copy pdf pages', 'pdf page extractor'],
     description: `
       <p>Extract Pages allows you to select and save specific pages from a PDF document as new files. This is perfect for pulling out relevant sections, creating excerpts, or separating combined documents.</p>
@@ -307,12 +310,13 @@ export const toolContentEn: Record<string, ToolContent> = {
 
   'organize-pdf': {
     title: 'Organize PDF',
-    metaDescription: 'Reorder, duplicate, and delete PDF pages. Drag and drop to reorganize your documents.',
+    metaDescription: 'Organize PDF pages - add, reorder, rotate, duplicate and delete pages in one visual view. Free and local.',
     keywords: ['organize pdf', 'reorder pdf pages', 'rearrange pdf', 'pdf page organizer'],
     description: `
       <p>Organize PDF provides an intuitive drag-and-drop interface for rearranging pages in your PDF documents. Reorder pages, duplicate important sections, or remove unwanted pages with ease.</p>
       <p>The visual page thumbnails make it easy to identify content and arrange pages exactly as you need them. Perfect for restructuring documents, creating custom page orders, or cleaning up scanned files.</p>
       <p>All organization happens locally in your browser, ensuring your documents remain private.</p>
+          <p>You can also add pages to PDF files here, inserting blank pages or pages from another document.</p>
     `,
     howToUse: [
       { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to organize.' },
@@ -332,8 +336,8 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'delete-pages': {
-    title: 'Delete Pages',
-    metaDescription: 'Remove unwanted pages from PDF files. Select and delete specific pages easily.',
+    title: 'Delete PDF Pages',
+    metaDescription: 'Delete pages from a PDF online - remove single pages or ranges in seconds. Free, fast and private.',
     keywords: ['delete pdf pages', 'remove pages pdf', 'remove pages from pdf', 'pdf page remover', 'cut pages pdf'],
     description: `
       <p>Delete Pages allows you to remove unwanted pages from your PDF documents quickly and easily. Whether you need to remove blank pages, outdated content, or sensitive information, this tool makes it simple.</p>
@@ -360,8 +364,8 @@ export const toolContentEn: Record<string, ToolContent> = {
 
   // ==================== EDIT & ANNOTATE ====================
   'bookmark': {
-    title: 'Edit Bookmarks',
-    metaDescription: 'Add, edit, and manage PDF bookmarks. Create navigation structure for your documents.',
+    title: 'Edit PDF Bookmarks',
+    metaDescription: 'Edit PDF bookmarks - add, rename or restructure the bookmark outline of long documents. Free online tool.',
     keywords: ['pdf bookmarks', 'edit bookmarks', 'add bookmarks', 'pdf navigation', 'table of contents'],
     description: `
       <p>Edit Bookmarks allows you to create, modify, and organize bookmarks in your PDF documents. Bookmarks provide quick navigation to specific sections, making long documents easier to use.</p>
@@ -438,13 +442,14 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'add-watermark': {
-    title: 'Add Watermark',
-    metaDescription: 'Add text or image watermarks to PDF files. Protect and brand your documents.',
+    title: 'Add Watermark to PDF',
+    metaDescription: 'Add a watermark to PDF pages - text or image stamps across one page or the whole document. Free and private.',
     keywords: ['add watermark', 'pdf watermark', 'stamp pdf', 'brand pdf', 'protect pdf'],
     description: `
       <p>Add Watermark allows you to place text or image watermarks on your PDF documents. Watermarks can indicate document status (Draft, Confidential), add branding, or deter unauthorized copying.</p>
       <p>Customize the watermark's position, size, opacity, rotation, and color. Apply to all pages or select specific pages. The tool supports both text watermarks and image watermarks.</p>
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
+          <p>Your PDF watermark can be text or an image, applied to a single page or the whole document.</p>
     `,
     howToUse: [
       { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
@@ -464,8 +469,8 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'header-footer': {
-    title: 'Header & Footer',
-    metaDescription: 'Add headers and footers to PDF documents. Include page numbers, dates, and custom text.',
+    title: 'Add Headers & Footers to PDF',
+    metaDescription: 'Add or edit PDF headers and footers - page numbers, dates and custom text on every page. Free and private.',
     keywords: ['pdf header', 'pdf footer', 'add date to pdf', 'add header footer', 'pdf letterhead', 'page numbers pdf'],
     description: `
       <p>Header & Footer adds customizable headers and footers to your PDF documents. Include page numbers, dates, document titles, or any custom text in the header or footer areas.</p>
@@ -568,13 +573,14 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'add-stamps': {
-    title: 'Add Stamps',
-    metaDescription: 'Add stamps to PDF documents. Use preset or custom stamps for approval, review, and more.',
+    title: 'Add Stamps to PDF',
+    metaDescription: 'Add stamps to PDF pages - APPROVED, DRAFT, dates and custom image stamps. Free online tool, local processing.',
     keywords: ['pdf stamps', 'add stamp', 'approval stamp', 'pdf rubber stamp'],
     description: `
       <p>Add Stamps allows you to place stamp images on your PDF documents. Use preset stamps like "Approved", "Rejected", "Draft", or upload custom stamp images.</p>
       <p>Position stamps anywhere on the page, resize them, and apply to single or multiple pages. Perfect for document workflows, approvals, and status indicators.</p>
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
+          <p>Each PDF stamp is placed exactly where you want it - APPROVED, DRAFT, dates or custom graphics.</p>
     `,
     howToUse: [
       { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
@@ -1484,7 +1490,7 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'alternate-merge': {
-    title: 'Alternate Merge',
+    title: 'Alternate Merge PDF',
     metaDescription: 'Merge PDFs by alternating pages. Combine front and back scans into one document.',
     keywords: ['alternate merge', 'interleave pdf', 'combine scans', 'front back merge'],
     description: `
@@ -1589,8 +1595,8 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'edit-attachments': {
-    title: 'Edit Attachments',
-    metaDescription: 'Manage PDF attachments. View, rename, and remove embedded files.',
+    title: 'Edit PDF Attachments',
+    metaDescription: 'Edit PDF attachments - add, extract, replace or remove embedded files in a PDF. Free and local.',
     keywords: ['edit attachments', 'manage pdf files', 'remove attachments', 'rename attachments'],
     description: `
       <p>Edit Attachments lets you manage embedded files in PDF documents. View all attachments, rename them, or remove unwanted files from the PDF.</p>
@@ -1615,8 +1621,8 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'divide-pages': {
-    title: 'Divide Pages',
-    metaDescription: 'Split PDF pages into multiple sections. Divide pages horizontally or vertically.',
+    title: 'Divide PDF Pages',
+    metaDescription: 'Divide PDF pages into separate documents - split every page or selected ranges at once. Free online tool.',
     keywords: ['divide pdf pages', 'split page', 'cut pdf page', 'page sections'],
     description: `
       <p>Divide Pages splits individual PDF pages into multiple sections. Cut pages horizontally, vertically, or into a grid to create multiple pages from one.</p>
@@ -1667,8 +1673,8 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'reverse-pages': {
-    title: 'Reverse Pages',
-    metaDescription: 'Reverse PDF page order. Flip document pages from last to first.',
+    title: 'Reverse PDF Pages',
+    metaDescription: 'Reverse PDF pages online for free - flip the whole document or just selected pages. Private, local, no signup.',
     keywords: ['reverse pdf', 'flip page order', 'invert pages', 'reverse document'],
     description: `
       <p>Reverse Pages flips the order of pages in your PDF document, putting the last page first and the first page last. Useful for documents scanned in reverse order or for specific printing needs.</p>
@@ -1797,8 +1803,8 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'edit-metadata': {
-    title: 'Edit Metadata',
-    metaDescription: 'Edit PDF document properties. Change title, author, subject, and keywords.',
+    title: 'Edit PDF Metadata',
+    metaDescription: 'Edit PDF metadata - change the title, author, subject and keywords of any PDF. Free, private, no signup.',
     keywords: ['edit pdf metadata', 'change title pdf', 'pdf metadata editor', 'pdf title editor', 'change pdf properties', 'pdf document info'],
     description: `
       <p>Edit Metadata allows you to modify document properties in your PDF files. Change the title, author, subject, keywords, and other metadata fields.</p>
@@ -1823,8 +1829,8 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'pdf-to-zip': {
-    title: 'PDFs to ZIP',
-    metaDescription: 'Package multiple PDFs into a ZIP archive. Compress and bundle PDF files.',
+    title: 'PDF to ZIP',
+    metaDescription: 'Convert PDF to ZIP online - bundle multiple PDF files into one compressed archive. Free and local.',
     keywords: ['pdf to zip', 'compress pdfs', 'bundle pdfs', 'archive pdfs'],
     description: `
       <p>PDFs to ZIP packages multiple PDF files into a single ZIP archive. Compress and bundle your PDFs for easier sharing, storage, or backup.</p>
@@ -1980,8 +1986,8 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'remove-restrictions': {
-    title: 'Remove Restrictions',
-    metaDescription: 'Remove PDF restrictions. Unlock printing, copying, and editing permissions.',
+    title: 'Remove Restrictions from PDF',
+    metaDescription: 'Remove restrictions from PDF files - unlock editing, printing and copying permissions. Free, local, no signup.',
     keywords: ['remove pdf restrictions', 'unlock pdf', 'pdf permissions', 'unrestrict pdf'],
     description: `
       <p>Remove Restrictions unlocks PDFs that have permission restrictions preventing printing, copying, or editing. This tool removes owner password restrictions while preserving document content.</p>
@@ -2118,6 +2124,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>Flatten PDF converts interactive elements like form fields and annotations into static content. The flattened PDF looks the same but can no longer be edited.</p>
       <p>Perfect for finalizing filled forms, preserving annotations, or creating non-editable document versions.</p>
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
+          <p>A PDF flush (flattening) makes annotations, form fields and layers permanent parts of the page.</p>
     `,
     howToUse: [
       { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF with forms or annotations.' },

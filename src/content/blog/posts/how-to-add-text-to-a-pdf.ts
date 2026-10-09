@@ -28,9 +28,18 @@ export const howToAddTextToAPdf: BlogPost = {
     { question: 'Why does my added text look different when printed?', answer: 'Two common causes: screen colors shift in CMYK printing (use darker, less saturated colors for text), and thin fonts render lighter at print resolution - bump the weight or size slightly and test-print one page before the full run.' },
   ],
   body: `
-Adding text to a PDF is the most common PDF edit there is - filling an application, adding a date to a contract, inserting a note into a report, labeling a diagram. And it is also the edit with the biggest gap between expectation and reality: people expect to click and type like in Word, and PDFs do not work that way. This guide closes that gap. You will learn the three practical ways to add text to any PDF file - free, in your browser, without uploading anything - and, just as importantly, which way fits which job.
+To add text to a PDF for free, open a browser-based editor like PDFCraft's Edit PDF tool, select the text tool, set the font, size and color, click where the text belongs, and type - the whole job takes under a minute for dates, labels and short answers. For whole paragraphs, convert the PDF to Word, type where the text flows naturally, and convert back. Both methods are free, private, and covered step by step below.
 
 **Quick answer:** for short additions - labels, dates, filled-in answers, notes - open the free [Edit PDF tool](/en/tools/edit-pdf/), pick the text tool, choose font/size/color, click on the page and type. For whole paragraphs or new pages, convert the PDF to Word for free, type where the text flows naturally, and convert back.
+
+## Methods at a glance
+
+| Task | Best method | Typical time |
+|---|---|---|
+| Add a date, name or label | Browser editor text box | Under a minute |
+| Fill a flat form by typing | Text boxes at 10-11 pt | A few minutes |
+| Add whole paragraphs | Convert to Word, type, convert back | 10-15 minutes |
+| Fill an interactive form | Click the fields directly | Seconds |
 
 ## On this page
 

@@ -28,9 +28,17 @@ export const pdfFileEditorProgramCrossword: BlogPost = {
     { question: 'Do crosswords use tech clues often?', answer: 'Increasingly yes - modern puzzles freely mix ADOBE, PIXEL, EMACS, MODEM and APP with traditional fare. Software names with common letters (ADOBE, SIRI, ECID-like abbreviations) are constructor favorites because they interlock well with theme answers.' },
   ],
   body: `
-If you arrived here from a crossword grid, welcome - you are in the right place, and we will get you back to your puzzle quickly. The clue "PDF file editor program" is a modern crossword staple, and its answer is almost always one of two words. If you instead arrived because you actually need a PDF editor program - well, that is convenient, because this page covers that too, further down.
+The answer to the 'PDF file editor program' crossword clue is ADOBE (5 letters) or ACROBAT (7 letters) - your grid's squares decide which. Both point to Adobe, the company that created the PDF format, and its Acrobat editing software. If you actually need the software rather than the puzzle answer, this page also has a straight recommendation further down.
 
 **Quick answer:** the most likely answers are **ADOBE (5 letters)** or **ACROBAT (7 letters)**. Count your squares: five slots means ADOBE, seven means ACROBAT. A rarer grid wants READER (6 letters). Details, clue variants and solving context below - then, for everyone whose puzzle-solving revealed they genuinely need the software: a straight answer on which PDF editor program to actually use.
+
+## Answers by letter count
+
+| Squares | Answer |
+|---|---|
+| 5 | ADOBE |
+| 7 | ACROBAT |
+| 6 | READER (occasional) |
 
 ## On this page
 

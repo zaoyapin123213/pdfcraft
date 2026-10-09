@@ -28,7 +28,7 @@ export const howToInsertAnImageIntoAPdf: BlogPost = {
     { question: 'Can I insert an image into a scanned PDF?', answer: 'Yes - the scan is just a page-sized image, and your photo sits on top of it like a sticker. This is the standard way to attach receipts to scanned expense reports or add exhibits to scanned case files.' },
   ],
   body: `
-A PDF needs a photo - a passport picture on an application, a product shot in a spec sheet, a logo on a proposal, a receipt attached to an expense report - and suddenly the internet's most common document format feels stubbornly resistant to the internet's most common file type. This guide fixes that permanently. You will learn how to insert a photo into a PDF online for free, how to place and size it properly, and the quality and file-size traps that turn clean insertions into blurry, bloated messes.
+To insert a photo into a PDF online for free, open a browser-based editor like PDFCraft's Edit PDF tool, choose the image tool, select your photo, click where it belongs, and drag a corner handle to resize - done in under a minute, with nothing uploaded. The quality rules that matter: match pixels to display size (about 300 per printed inch) and never upscale small images. This guide covers the steps, the resolution table, and the file-size fixes.
 
 **Quick answer:** open the free [Edit PDF tool](/en/tools/edit-pdf/) in your browser, drop in the PDF, choose the image tool, pick your photo, click where it belongs, drag to resize, download. Nothing uploads - both files stay on your device the whole time.
 

@@ -28,9 +28,18 @@ export const howToAdjustPdfContrastAndBrightness: BlogPost = {
     { question: 'Is there a PDF contrast editor like a photo editor?', answer: 'Not directly - PDFs are layout containers, so contrast lives inside the images and text colors, not in one document-level slider. The practical equivalents are the routes in this guide: image-level enhancement for scans, color inversion and greyscale for the document, and per-text recoloring for faint text.' },
   ],
   body: `
-"I need to adjust the contrast of a PDF" - a search that hides three completely different problems. Sometimes it is a faint scan where the ink barely whispers. Sometimes it is a dark, photo-heavy page that prints like mud. And sometimes it is just tired eyes at midnight wishing the white page were dark. Each problem has a different best fix, and this guide maps all of them honestly - including where free browser tools genuinely shine and where a photo editor is the real tool.
+You can adjust a PDF's contrast and brightness in four ways, matched to the actual problem: viewer and display settings for tired eyes (free, instant), extract-enhance-rebuild for faint or dark scans, color inversion for dark-mode reading, and greyscale conversion to clean up color noise. The thirty-second zoom test at the top of this guide tells you which of the four is yours.
 
 **Quick answer:** viewer and display adjustments fix perception for free; faint scans get extracted, enhanced in any photo editor, and rebuilt; color inversion flips a document to dark mode in one click; greyscale conversion evens out noisy color into clean contrast. Pick by symptom - the sections below match each one.
+
+## Fixes at a glance
+
+| Symptom | Fix | Where |
+|---|---|---|
+| Faint or dark scan | Extract images, enhance, rebuild | Free, local |
+| Dark-mode reading | Invert colors | Free, one click |
+| Color noise muddying text | Greyscale conversion | Free, one click |
+| Screen washes text out | Viewer zoom and brightness settings | Free, instant |
 
 ## On this page
 

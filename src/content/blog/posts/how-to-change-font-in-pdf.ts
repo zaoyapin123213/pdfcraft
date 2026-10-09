@@ -31,7 +31,7 @@ export const howToChangeFontInPdf: BlogPost = {
     { question: 'Is it legal to change the font of a PDF I received?', answer: 'Editing a document you received is fine for legitimate purposes like fixing your own copies, improving accessibility or preparing templates. It is not fine to alter contracts, certificates or official records to misrepresent their content.' },
   ],
   body: `
-Every so often a PDF arrives with the wrong typeface - a report that renders in Times when the brand demands Arial, a certificate in an unreadably decorative script, a resume whose custom font breaks on the recruiter's machine. This guide explains, honestly and step by step, how to change the font in a PDF: what is genuinely possible for free, which method fits your situation, and the traps (font subsetting, outlines, licensing) that catch almost everyone on the first attempt.
+To change the font in a PDF, you have three realistic routes: replace individual words in a browser-based editor (cover the old text, retype in a matching typeface), convert the PDF to Word and restyle it with styles for a whole-document change, or use Adobe Acrobat when you have the original fonts installed. The free routes take minutes and need no installation - this guide gives exact steps for each, plus the font-substitution traps that catch first-timers.
 
 **Quick answer:** PDFs do not have a simple font switch. To change the font of a few words, cover the old text and retype it in a matching typeface with a free browser editor. To change the font across an entire document, convert the PDF to Word, restyle it in seconds with styles, and convert back - both converters are free in PDFCraft and run entirely in your browser.
 

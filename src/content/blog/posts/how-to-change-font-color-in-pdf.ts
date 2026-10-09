@@ -37,7 +37,7 @@ export const howToChangeFontColorInPdf: BlogPost = {
     { question: 'How do I make one word a different color in a PDF?', answer: 'Use the Edit PDF tool: draw a small rectangle filled with the page background color over the word, then add a new text box on top containing just that word in your chosen color and a matching font size.' },
   ],
   body: `
-Changing the color of text is a one-click affair in Word, but in a PDF it can feel surprisingly locked down. Whether you need to fix a heading that prints in the wrong shade, restyle a cover page, make key numbers stand out in red, or correct a brand color across a report, this guide walks you through every practical way to change font color in a PDF - using free tools, right in your browser, without uploading your file anywhere.
+You can change font color in a PDF for free in about a minute: open a browser-based editor like PDFCraft's Edit PDF tool, cover the old text with a background-colored rectangle, and retype it in any color. For recoloring whole documents, convert the PDF to Word, restyle it there, and convert back. This guide walks through all four working methods - cover-and-retype, the Word round trip, Acrobat, and Illustrator - with exact steps for each.
 
 **Quick answer:** if you are adding new text, just use a free editor and pick the color before you type. If you need to recolor text that already exists in the PDF, you have three realistic options: cover-and-replace it visually, convert the PDF to Word and restyle it there, or use a desktop editor like Acrobat or Illustrator. All three methods are covered below with step-by-step instructions.
 

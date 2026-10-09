@@ -5,8 +5,8 @@
       "description": "Free online PDF editor with 95 pro tools. Merge, split, compress, convert and edit PDF files in your browser - no upload, no signup, 100% private."
     },
     "tools": {
-      "title": "All PDF Tools",
-      "description": "Browse all 95 professional PDF tools. Merge, split, compress, convert, edit, and secure your PDF files for free."
+      "title": "All PDF Tools & Free PDF Converter",
+      "description": "Browse all 95 free online PDF tools - the complete PDF converter, editor, merger, splitter and signer toolkit. No upload, no signup."
     },
     "about": {
       "title": "About",
@@ -422,7 +422,7 @@
     "hero": {
       "title": "Free PDF Editor",
       "highlight": "& 95 Online PDF Tools",
-      "subtitle": "Edit, merge, split, compress, convert and sign PDF files right in your browser - free, private, no signup. Your files never leave your device.",
+      "subtitle": "PDFCraft is the free PDF editor for everyday documents: edit, merge, split, compress, convert and sign PDF files right in your browser - private, no signup. Your files never leave your device.",
       "cta": "Open the Free PDF Editor"
     },
     "features": {

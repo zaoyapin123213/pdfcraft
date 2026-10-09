@@ -28,9 +28,18 @@ export const howToEditPdfInIllustrator: BlogPost = {
     { question: 'What free alternatives work like Illustrator for PDF editing?', answer: 'Inkscape imports PDF pages as vectors with many of the same benefits and no subscription. For lighter jobs - adding text, covering mistakes, simple shape edits - free browser-based editors such as PDFCraft handle the task without any install.' },
   ],
   body: `
-Designers get asked this constantly: a printer needs a fixed poster, a sign shop wants a changed phone number, a packaging proof needs a new barcode - and the only file anyone can find is the PDF. Adobe Illustrator has a genuine superpower here: because PDF and Illustrator share the same underlying imaging model (both descend from PostScript), Illustrator can open a PDF page not as a flat picture but as native vector artwork - every path, gradient and text run becomes a real, editable object. This guide covers exactly how to do it, the failure modes that catch even experienced designers, and the honest decision framework for when Illustrator is the right tool versus when a PDF editor or a round trip through Word will save you an hour.
+Yes, Adobe Illustrator can edit PDF files - it opens PDF pages as native vector artwork, so text, shapes and gradients become real editable objects. The catch: fonts must be installed on your machine, text that was outlined or rasterized before export cannot be edited as text, and multi-page PDFs open one page at a time. This guide covers the exact workflow, the three failure modes, and when a free PDF editor is the better tool for the job.
 
 **Quick answer:** File > Open in Illustrator, select the PDF, choose the page number, and edit - with fonts installed and content not outlined or rasterized, you are working on live artwork. Save back via Save As > Adobe PDF with a print preset. Multi-page documents, missing fonts and outlined text are the three big caveats, detailed below.
+
+## Illustrator fit at a glance
+
+| Content type | Verdict |
+|---|---|
+| Posters, packaging, logos | Best tool - edits the real vectors |
+| Multi-page text reports | Wrong tool - use a PDF editor or Word |
+| Forms and signatures | Wrong tool - fields do not survive |
+| Outlined or scanned pages | Limited - retype or rebuild |
 
 ## On this page
 

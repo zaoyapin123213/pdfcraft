@@ -28,7 +28,7 @@ export const howToMakeAnEditablePdfInCanva: BlogPost = {
     { question: 'Does Canva Pro matter for PDF work?', answer: 'Mostly no. PDF import, PDF Print export and JPG export are free-tier features. Pro adds brand kits, premium fonts and assets - valuable for design consistency, but not required for any technique in this guide.' },
   ],
   body: `
-Canva sits in an interesting spot in the PDF world: it is where millions of people now design flyers, resumes and social posts, and its relationship with PDF is a two-way street - Canva can *import* a PDF and turn it into an editable design, and it can *export* designs as polished PDFs. This guide covers both directions with step-by-step precision, including the parts Canva's own marketing glosses over: what "editable" really means in each case, which conversions lose information, and the export settings that separate crisp results from blurry disappointment.
+You can make a PDF editable in Canva by importing it: on the Canva homepage choose Create a design > Import file (or drag the PDF into the browser window), and Canva rebuilds each page as editable design layers. Expect approximation - fonts substitute, complex layouts fragment, and form fields do not survive - so import suits redesign work, not touch-ups. This guide covers the import, the export settings that matter, and when a direct PDF editor is the better route.
 
 **Quick answer:** to make an existing PDF editable, import it (Create a design > Import file) and Canva rebuilds it as editable design layers. To create a PDF that *you or others* can keep editing, build the design in Canva and keep the design itself as the master - the PDF you download is a finished rendering, not an editable document.
 

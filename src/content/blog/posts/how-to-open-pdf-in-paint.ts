@@ -28,7 +28,7 @@ export const howToOpenPdfInPaint = {
     { question: 'Will text still be selectable after Paint editing?', answer: 'No. Paint works on pixels, so the page becomes a flat image without a text layer. If selectable text matters, use a PDF editor instead, or keep the original PDF and attach the edited image separately.' },
   ],
   body: `
-Microsoft Paint is the first editor most Windows users ever touch, so it is natural to reach for it when someone asks you to "fix" a PDF. Here is the honest starting point: Paint cannot open PDF files - it is an image editor, and a PDF is a document format. But there is a well-trodden bridge between the two worlds, and for certain jobs (cropping a page, covering a mistake, pasting a signature or a logo, blacking out a section) Paint is genuinely the fastest tool for the task once the page is in the right format.
+Paint cannot open PDF files directly - it only reads image formats like PNG and JPG. The workaround takes about three minutes: convert the PDF page to a PNG or JPG image (free, in your browser), open that image in Paint, edit it, and - if you need a PDF again - convert the image back. Below are the exact steps, the DPI settings that keep the result sharp, and the jobs where skipping Paint entirely is the better call.
 
 **Quick answer:** convert the PDF page you need into a PNG or JPG image (free, browser-based, no upload), open that image in Paint, edit away, then - if the result must be a PDF again - convert the image back with a free JPG to PDF tool. The full loop takes about three minutes.
 

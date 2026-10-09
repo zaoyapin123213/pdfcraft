@@ -31,9 +31,17 @@ export const howToEditAReadOnlyPdf: BlogPost = {
     { question: 'Will the author know I edited a protected PDF?', answer: 'PDFs do not phone home - editing happens locally with no notifications. What can reveal edits is the content itself: metadata, version history on shared drives, or comparisons against the original in a dispute. Edit only what you are authorized to change.' },
   ],
   body: `
-A PDF that refuses to be edited is one of the most common support requests in the document world - and one of the most misunderstood, because "read-only" is actually three different problems wearing the same label. Sometimes it is a permissions flag inside the file. Sometimes the pages are just flattened images with no text to edit. And sometimes the file itself is marked read-only on disk. Each has its own fix, and choosing the right one takes about thirty seconds once you can tell them apart.
+A read-only PDF has one of three causes - a permissions lock inside the file, scanned pages with no text layer, or the read-only attribute on the file itself - and each has a free fix: clear restrictions with a browser-based tool, run OCR on scans, or untick read-only in the file properties. This guide diagnoses your case in thirty seconds and gives exact steps for all three fixes, plus the legal boundaries worth knowing.
 
 **Quick answer:** to make a non-editable PDF editable, first lift permission locks with the free [Remove Restrictions tool](/en/tools/remove-restrictions/) (no password needed for owner-level locks), then edit directly or convert to Word. Scanned pages need OCR first. All of it runs free in your browser with nothing uploaded.
+
+## Causes and fixes at a glance
+
+| Cause | Signature | Fix |
+|---|---|---|
+| Permission lock | Edits greyed out, text still selects | Remove Restrictions tool |
+| Scanned pages | No text selectable at all | OCR, then edit |
+| Disk read-only flag | OS refuses to save the file | Clear attribute in file properties |
 
 ## On this page
 

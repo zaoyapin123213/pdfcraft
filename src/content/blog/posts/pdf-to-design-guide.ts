@@ -28,7 +28,7 @@ export const pdfToDesignGuide: BlogPost = {
     { question: 'Can scanned PDFs be imported as editable layers?', answer: 'No - scans are images with no structure to reconstruct; they arrive as picture frames. If you need the scan\'s content as editable design material, extract the images, or run OCR to recover text, and rebuild deliberately.' },
   ],
   body: `
-Designers and marketers keep asking the same quiet question: "I have this PDF - can I get it *into* my design tool as real layers instead of a flat picture?" For Figma users, the answer with a name is **pdf.to.design** - a plugin that reconstructs PDF pages as editable Figma elements. This guide covers what it does, exactly how to use it, where it shines, where it disappoints, and the free companion routes (extraction, SVG conversion, page renders) that complete the workflow regardless of which tool you choose.
+pdf.to.design is a Figma plugin by divRIOTS that imports PDF pages into Figma as editable design layers - text, images and vectors reconstructed as Figma objects you can rework. It is genuinely useful for turning design-origin PDFs into new material, with two caveats: fonts substitute, and complex layouts need a cleanup pass. This guide covers the workflow, the free companion tools (SVG conversion, image extraction), and when manual routes beat the plugin.
 
 **Quick answer:** pdf.to.design imports PDF pages into Figma as editable layers - genuinely useful for reworking design-origin PDFs into new material. Text and vectors arrive as objects; fonts substitute; complex layouts need cleanup; scans stay flat images. The free support workflow - extracting images and converting pages to SVG locally - pairs with it or replaces it, task depending.
 

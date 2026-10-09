@@ -28,9 +28,18 @@ export const hipaaCompliantPdfEditor: BlogPost = {
     { question: 'Are free tools acceptable under HIPAA?', answer: 'The tool\'s price is irrelevant; the architecture is what matters. Local-processing free tools involve no vendor receiving PHI, which satisfies the vendor-relationship concern structurally. Safeguards around use (storage, access, training) remain your organization\'s responsibility exactly as with paid tools.' },
   ],
   body: `
-Healthcare runs on PDFs - referral letters, lab reports, insurance forms, consent documents - and every one of them is likely to carry protected health information (PHI). So the search for a "HIPAA-compliant PDF editor" is entirely reasonable, and it deserves an answer more precise than a product page: **no tool is HIPAA-compliant by itself**. HIPAA regulates conduct - how covered entities and their business associates safeguard PHI - and a tool becomes compliant *to use* when your safeguards surround it correctly. This guide explains what that means concretely: which PDF features matter, why the tool's processing architecture is the decision that changes everything, and the workflow that keeps PHI safe from creation to transmission.
+No PDF editor is HIPAA compliant as a product - HIPAA regulates how your organization handles protected health information (PHI), and a tool becomes compliant to use when your safeguards surround it: local processing so PHI never reaches a vendor, encryption before transmission, true redaction before sharing, and sanitization before every external send. This guide turns those requirements into a concrete, free-to-run PDF workflow. (General information, not legal advice.)
 
 **Quick verdict:** for PDF tasks on PHI, prefer tools that never receive the file - local browser processing (like PDFCraft's) means no vendor holds PHI, no Business Associate Agreement is needed for the tool, and the safeguards reduce to your own practices: encrypt at rest, redact before sharing, sanitize before sending. The full reasoning and workflow below. (This page is general information, not legal advice - your compliance officer owns your specific obligations.)
+
+## Safeguards at a glance
+
+| Safeguard | PDF capability | Rule of thumb |
+|---|---|---|
+| Transmission | Encrypt PDF, password via separate channel | Before any external send |
+| Minimum necessary | True redaction, verified by search | Before sharing beyond need |
+| Hidden data | Sanitize PDF | Before every external share |
+| Vendor risk | Local processing - nothing uploads | Always, for PHI tasks |
 
 ## On this page
 

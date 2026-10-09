@@ -41,15 +41,26 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
     const categoryLabel = tHome(`categories.${categoryTranslationKeys[category as ToolCategory]}`);
 
+    // Labels that already end in "PDF" (Convert to PDF / Convert from PDF /
+    // Secure PDF) would produce "Convert to PDF PDF Tools" via the generic
+    // template - special-case them in English.
+    const endsWithPdf = validLocale === 'en' && /pdf$/i.test(categoryLabel.trim());
+    const title = endsWithPdf
+        ? `${categoryLabel} - Free Online Tools`
+        : tMeta('category.title', { category: categoryLabel });
+    const description = endsWithPdf
+        ? `${categoryLabel} free online - fast, secure and private. All processing happens locally in your browser, no signup.`
+        : tMeta('category.description', { category: categoryLabel });
+
     // Full metadata with canonical URL, hreflang alternates and OG tags.
     // The generic title/description this page had before gave Google an
     // English-only, canonical-less page in every language.
     return generateBaseMetadata({
         locale: validLocale,
         path: `/tools/category/${category}`,
-        title: tMeta('category.title', { category: categoryLabel }),
-        description: tMeta('category.description', { category: categoryLabel }),
-        keywords: [`${categoryLabel} PDF`, 'free PDF tools', 'online PDF tools'],
+        title,
+        description,
+        keywords: [`${categoryLabel}`, 'free PDF tools', 'online PDF tools'],
     });
 }
 
