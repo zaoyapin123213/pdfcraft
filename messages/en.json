@@ -340,7 +340,7 @@
       "email": {
         "title": "Email",
         "description": "Send us an email and we'll respond within 24-48 hours.",
-        "action": "contact@pdfcraft.app"
+        "action": "peter@hengxang.com"
       },
       "github": {
         "title": "GitHub",
@@ -350,7 +350,7 @@
       "twitter": {
         "title": "Twitter",
         "description": "Follow us for updates and announcements.",
-        "action": "@pdfcraft"
+        "action": "@hengxang_firm"
       }
     },
     "form": {

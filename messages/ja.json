@@ -301,7 +301,7 @@
         "email": {
           "title": "メール",
           "description": "メールをお送りください。24〜48時間以内に返信いたします。",
-          "action": "contact@pdfcraft.app"
+          "action": "peter@hengxang.com"
         },
         "github": {
           "title": "GitHub",
@@ -311,7 +311,7 @@
         "twitter": {
           "title": "Twitter",
           "description": "最新情報やお知らせはこちらでフォロー。",
-          "action": "@pdfcraft"
+          "action": "@hengxang_firm"
         }
       },
       "form": {

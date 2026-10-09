@@ -33,7 +33,7 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
       title: t('methods.email.title'),
       description: t('methods.email.description'),
       action: t('methods.email.action'),
-      href: 'mailto:contact@pdfcraft.gitu.net',
+      href: 'mailto:peter@hengxang.com',
     },
     {
       icon: Github,
@@ -47,7 +47,7 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
       title: t('methods.twitter.title'),
       description: t('methods.twitter.description'),
       action: t('methods.twitter.action'),
-      href: 'https://x.com/pdfeditorfree',
+      href: 'https://x.com/hengxang_firm',
     },
   ];
 
