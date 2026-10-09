@@ -168,8 +168,8 @@
     }
   },
   "toolsPage": {
-    "title": "Professional PDF Tools",
-    "subtitle": "{count}+ free, secure, and easy-to-use tools for all your PDF needs.",
+    "title": "Free Online PDF Tools & PDF Converter",
+    "subtitle": "95 free online PDF tools in one place. Use PDFEditorFree as your free PDF converter, PDF editor, merger and signer - no upload, no signup, no watermark.",
     "filters": "Filters",
     "allTools": "All Tools",
     "clearAll": "Clear all",
@@ -450,12 +450,12 @@
       "toolsCount": "{count} tools"
     },
     "categoriesDescription": {
-      "editAnnotate": "Edit, annotate, and modify PDF content",
-      "convertToPdf": "Convert various formats to PDF",
-      "convertFromPdf": "Convert PDF to other formats",
-      "organizeManage": "Organize, merge, split, and manage PDF pages",
-      "optimizeRepair": "Compress, optimize, and repair PDF files",
-      "securePdf": "Encrypt, decrypt, and secure PDF files"
+      "editAnnotate": "Edit and annotate PDF files free - add text, draw in PDF free-hand, highlight, delete text and add images or links.",
+      "convertToPdf": "Convert to PDF free online - turn Word, Excel, PowerPoint, JPG, PNG, HEIC and 20+ other formats into PDF files.",
+      "convertFromPdf": "Convert from PDF to Word, Excel, PowerPoint, JPG and more - free online PDF converter tools.",
+      "organizeManage": "Organize PDF pages - merge, split, rotate, reverse, extract and add pages to PDF files in one place.",
+      "optimizeRepair": "Compress, optimize and repair PDF files - reduce size, fix corruption, deskew scans and clean up PDFs free.",
+      "securePdf": "Encrypt, decrypt and secure PDF files - password protection, restrictions removal, sanitizing and PDF signatures."
     },
     "stats": {
       "pdfTools": "PDF Tools",

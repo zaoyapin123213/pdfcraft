@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Search, X, Filter, Star } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
@@ -25,7 +26,6 @@ interface ToolsPageClientProps {
 
 export default function ToolsPageClient({ locale, localizedToolContent }: ToolsPageClientProps) {
   const t = useTranslations();
-  const searchParams = useSearchParams();
   const allTools = getAllTools();
   const { favorites, isLoaded: favoritesLoaded, favoritesCount } = useFavorites();
 
@@ -38,22 +38,15 @@ export default function ToolsPageClient({ locale, localizedToolContent }: ToolsP
     'secure-pdf': 'securePdf',
   };
 
-  // Read initial values from URL search params (client-side)
-  const initialCategory = searchParams.get('category') || 'all';
-  const initialQuery = searchParams.get('q') || '';
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('all');
 
-  const [searchQuery, setSearchQuery] = useState(initialQuery);
-  const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>(
-    (initialCategory as ToolCategory) || 'all'
-  );
-
-  // Sync state with URL params when they change
-  useEffect(() => {
-    const category = searchParams.get('category') || 'all';
-    const query = searchParams.get('q') || '';
-    setSelectedCategory(category as CategoryFilter);
+  // Sync state with URL params when they change (isolated so the page body
+  // still prerenders statically - see SearchParamsSync at the bottom)
+  const handleParamsChange = useCallback((category: string, query: string) => {
+    setSelectedCategory((category as ToolCategory) || 'all');
     setSearchQuery(query);
-  }, [searchParams]);
+  }, []);
   const [showFilters, setShowFilters] = useState(false);
 
   // Filter tools based on search and category
@@ -107,6 +100,9 @@ export default function ToolsPageClient({ locale, localizedToolContent }: ToolsP
 
   return (
     <div className="min-h-screen flex flex-col bg-[hsl(var(--color-background))]">
+      <Suspense fallback={null}>
+        <SearchParamsSync onChange={handleParamsChange} />
+      </Suspense>
       <Header locale={locale} />
 
       <main className="flex-1">
@@ -296,4 +292,17 @@ export default function ToolsPageClient({ locale, localizedToolContent }: ToolsP
       <Footer locale={locale} />
     </div>
   );
+}
+
+/**
+ * Isolated useSearchParams consumer: keeps ?category/?q deep-link behavior
+ * without forcing the whole page behind a Suspense fallback, so the tool
+ * grid and page copy are present in the prerendered static HTML.
+ */
+function SearchParamsSync({ onChange }: { onChange: (category: string, query: string) => void }) {
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    onChange(searchParams.get('category') || 'all', searchParams.get('q') || '');
+  }, [searchParams, onChange]);
+  return null;
 }

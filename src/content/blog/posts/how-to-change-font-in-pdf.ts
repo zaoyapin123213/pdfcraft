@@ -33,7 +33,7 @@ export const howToChangeFontInPdf: BlogPost = {
   body: `
 To change the font in a PDF, you have three realistic routes: replace individual words in a browser-based editor (cover the old text, retype in a matching typeface), convert the PDF to Word and restyle it with styles for a whole-document change, or use Adobe Acrobat when you have the original fonts installed. The free routes take minutes and need no installation - this guide gives exact steps for each, plus the font-substitution traps that catch first-timers.
 
-**Quick answer:** PDFs do not have a simple font switch. To change the font of a few words, cover the old text and retype it in a matching typeface with a free browser editor. To change the font across an entire document, convert the PDF to Word, restyle it in seconds with styles, and convert back - both converters are free in PDFEditorFree and run entirely in your browser.
+**Quick answer:** There is no one-click "PDF font changer" - PDFs do not have a simple font switch. To change the font of a few words, cover the old text and retype it in a matching typeface with a free browser editor. To change the font across an entire document, convert the PDF to Word, restyle it in seconds with styles, and convert back - both converters are free in PDFEditorFree and run entirely in your browser.
 
 ## On this page
 

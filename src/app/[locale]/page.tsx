@@ -3,6 +3,7 @@ import { locales, type Locale } from '@/lib/i18n/config';
 import HomePageClient from './HomePageClient';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { generateWebSiteSchema, generateOrganizationSchema } from '@/lib/seo';
+import { homeFaqs } from '@/content/homeFaq';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -23,6 +24,25 @@ export default async function HomePage({ params }: HomePageProps) {
   const webSiteSchema = generateWebSiteSchema(locale as Locale);
   const organizationSchema = generateOrganizationSchema();
 
+  // Homepage FAQ schema mirrors the visible FAQ section (English only),
+  // targeting the "People also ask" box for "pdf editor free".
+  const schemas =
+    locale === 'en'
+      ? [
+          webSiteSchema,
+          organizationSchema,
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: homeFaqs.map((f) => ({
+              '@type': 'Question',
+              name: f.question,
+              acceptedAnswer: { '@type': 'Answer', text: f.answer },
+            })),
+          },
+        ]
+      : [webSiteSchema, organizationSchema];
+
   // Get localized content for tools
   const { tools } = await import('@/config/tools');
   const { getToolContent } = await import('@/config/tool-content');
@@ -42,7 +62,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
   return (
     <>
-      <JsonLd data={[webSiteSchema, organizationSchema]} />
+      <JsonLd data={schemas} />
       <HomePageClient locale={locale as Locale} localizedToolContent={localizedToolContent} />
     </>
   );

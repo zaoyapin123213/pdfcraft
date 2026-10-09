@@ -180,6 +180,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>Edit PDF provides a comprehensive set of tools for modifying and annotating your PDF documents. Add text, images, shapes, highlights, comments, and more without needing expensive desktop software.</p>
       <p>The intuitive editor interface makes it easy to mark up documents for review, add notes for collaboration, redact sensitive information, or enhance documents with additional content.</p>
       <p>All editing happens locally in your browser, ensuring complete privacy for your sensitive documents.</p>
+          <p>You can also draw in PDF free-hand with the pencil and shape tools, annotate with highlights and comments, and delete text from PDF files by covering it - all free, with no account.</p>
     `,
     howToUse: [
       { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to edit.' },

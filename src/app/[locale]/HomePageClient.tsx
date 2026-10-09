@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { homeSeoHeading, homeSeoParagraphs, homeFaqs } from '@/content/homeFaq';
 import Link from 'next/link';
 import { ArrowRight, Zap, Wrench, Lock, Sparkles, Edit, FileImage, FolderOpen, Settings, ShieldCheck, Star } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
@@ -302,6 +303,23 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
             </div>
           </div>
         </section>
+        {/* SEO content + FAQ (English only) */}
+        {locale === 'en' && (
+          <section className="max-w-4xl mx-auto px-4 pb-16 w-full" aria-labelledby="about-free-pdf-editor">
+            <h2 id="about-free-pdf-editor" className="text-2xl md:text-3xl font-bold mb-4">{homeSeoHeading}</h2>
+            {homeSeoParagraphs.map((p, i) => (
+              <p key={i} className="text-[hsl(var(--color-muted-foreground))] mb-4 leading-relaxed">{p}</p>
+            ))}
+            <div className="mt-8 grid gap-4">
+              {homeFaqs.map((faq) => (
+                <div key={faq.question} className="rounded-xl border border-[hsl(var(--color-border))] p-5">
+                  <h3 className="font-semibold mb-2">{faq.question}</h3>
+                  <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
       </main>
 
       <Footer locale={locale} />
