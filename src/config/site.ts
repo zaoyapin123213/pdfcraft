@@ -2,7 +2,7 @@
  * Site configuration
  */
 export const siteConfig = {
-  name: 'PDFCraft',
+  name: 'PDFEditorFree',
   description: 'Free online PDF editor with 95 professional tools. Merge, split, compress, convert, and edit PDF files in your browser - no upload, no registration, 100% private.',
   url: 'https://pdfeditorfree.net',
   ogImage: '/images/og-image.png',
@@ -10,7 +10,7 @@ export const siteConfig = {
     github: 'https://github.com/zaoyapin123213/pdfcraft',
     twitter: 'https://twitter.com/pdfcraft',
   },
-  creator: 'PDFCraft Team',
+  creator: 'PDFEditorFree Team',
   keywords: [
     'PDF tools',
     'PDF editor',
@@ -26,8 +26,8 @@ export const siteConfig = {
   ],
   // SEO-related settings
   seo: {
-    titleTemplate: '%s | PDFCraft',
-    defaultTitle: 'Free PDF Editor & 95 Online PDF Tools | PDFCraft',
+    titleTemplate: '%s | PDFEditorFree',
+    defaultTitle: 'Free PDF Editor & 95 Online PDF Tools | PDFEditorFree',
     twitterHandle: '@pdfcraft',
     locale: 'en_US',
   },

@@ -22,8 +22,8 @@ export const pdfFileEditorProgramCrossword: BlogPost = {
     { question: 'What is the difference between Adobe and Acrobat in crossword clues?', answer: 'ADOBE is the company (and also the word for sun-dried brick - which is how the company got its name, from the Adobe Creek near its founders\' homes). ACROBAT is the company\'s PDF software product. Clues saying "PDF maker" or "PDF file editor program" can point to either; the letter count decides.' },
     { question: 'Are there other crossword answers for PDF editor clues?', answer: 'Occasionally: READER (as in Adobe Reader) appears in some grids, and non-PDF clues in the same family include EXCEL, POWERPOINT or WORD for office software clues. But ADOBE and ACROBAT cover the overwhelming majority of PDF-themed clues.' },
     { question: 'Why do crosswords love Adobe so much?', answer: 'Crossword grids reward short words with common letters and multiple vowels. ADOBE has two vowels plus the friendly D and B; it also has the pleasant property of meaning both a software company and an ancient building material, which lets constructors write tricky clues. It appears in puzzles constantly.' },
-    { question: 'What is the actual best PDF file editor program?', answer: 'For free editing in your browser, PDFCraft offers 95 tools - merge, split, convert, sign, annotate and edit - with files processed locally on your device. Desktop staples include Adobe Acrobat (subscription), Foxit and PDF-XChange. The best pick depends on whether you need quick edits (browser tools) or heavy workflow features (desktop suites).' },
-    { question: 'Is there a free alternative to Adobe Acrobat?', answer: 'Yes - browser-based tools like PDFCraft handle the everyday PDF tasks (merge, split, compress, convert, edit, sign) for free without installs or uploads, and desktop freeware like PDF-XChange Editor covers annotation and light editing offline.' },
+    { question: 'What is the actual best PDF file editor program?', answer: 'For free editing in your browser, PDFEditorFree offers 95 tools - merge, split, convert, sign, annotate and edit - with files processed locally on your device. Desktop staples include Adobe Acrobat (subscription), Foxit and PDF-XChange. The best pick depends on whether you need quick edits (browser tools) or heavy workflow features (desktop suites).' },
+    { question: 'Is there a free alternative to Adobe Acrobat?', answer: 'Yes - browser-based tools like PDFEditorFree handle the everyday PDF tasks (merge, split, compress, convert, edit, sign) for free without installs or uploads, and desktop freeware like PDF-XChange Editor covers annotation and light editing offline.' },
     { question: 'What was Adobe Acrobat\'s history in brief?', answer: 'Adobe co-founded PDF in the early 1990s (Acrobat 1 shipped in 1993), and PDF became an ISO standard in 2008. Acrobat remains the reference implementation - which is why it owns the mental slot that crossword clues like this one tap into.' },
     { question: 'Do crosswords use tech clues often?', answer: 'Increasingly yes - modern puzzles freely mix ADOBE, PIXEL, EMACS, MODEM and APP with traditional fare. Software names with common letters (ADOBE, SIRI, ECID-like abbreviations) are constructor favorites because they interlock well with theme answers.' },
   ],
@@ -120,7 +120,7 @@ These five cover the overwhelming majority of software-name clues you will meet 
 
 A meaningful share of people searching this clue are not solving a puzzle - they need the software and phrased the need the way the clue phrased it. If that is you: welcome, and here is the straight answer.
 
-**For free, no-install editing in your browser:** [PDFCraft](/en/) runs 95 professional PDF tools entirely on your device - merge, split, compress, convert to and from Word/Excel/images, edit and annotate, sign, encrypt, OCR and more. Files never upload; everything processes locally via WebAssembly, so it is safe for contracts and confidential documents. No account, no watermark, no cost.
+**For free, no-install editing in your browser:** [PDFEditorFree](/en/) runs 95 professional PDF tools entirely on your device - merge, split, compress, convert to and from Word/Excel/images, edit and annotate, sign, encrypt, OCR and more. Files never upload; everything processes locally via WebAssembly, so it is safe for contracts and confidential documents. No account, no watermark, no cost.
 
 **For heavy desktop workflows:** Adobe Acrobat Pro remains the reference - native text editing, forms, redaction and preflight, at a subscription price. Foxit and PDF-XChange offer perpetual-license desktop alternatives with strong annotation and editing features at lower cost.
 
@@ -147,7 +147,7 @@ No single product leads every row; the practical question is which rows *you* ne
 
 The PDF software market has three tiers, and the honest answer is that most people's needs live in the free one:
 
-**Free browser tools (PDFCraft and peers).** The everyday tasks - merging, splitting, converting, compressing, signing, annotating - run excellently in modern browsers, processing locally on your machine. Strengths: zero cost, zero install, cross-platform, private (with local processing). Limits: heavy automated workflows and niche prepress features remain desktop territory.
+**Free browser tools (PDFEditorFree and peers).** The everyday tasks - merging, splitting, converting, compressing, signing, annotating - run excellently in modern browsers, processing locally on your machine. Strengths: zero cost, zero install, cross-platform, private (with local processing). Limits: heavy automated workflows and niche prepress features remain desktop territory.
 
 **Free desktop applications.** PDF-XChange Editor's free tier, Foxit's reader, and open-source PDF tools cover annotation and light editing offline. Strengths: no internet needed, deep annotation toolsets. Limits: the best features in these products increasingly sit behind pro licenses.
 
@@ -236,7 +236,7 @@ A curious funnel exists around clues like this one: a meaningful share of search
 
 **Your situation, three honest paths:**
 
-**You occasionally merge, split, convert or sign a PDF.** You do not need a program in the desktop sense at all. Browser-based tools ([PDFCraft's toolbox](/en/tools/)) do each task in seconds, free, with files processed on your own device rather than uploaded - bookmark it and skip the install discussion entirely.
+**You occasionally merge, split, convert or sign a PDF.** You do not need a program in the desktop sense at all. Browser-based tools ([PDFEditorFree's toolbox](/en/tools/)) do each task in seconds, free, with files processed on your own device rather than uploaded - bookmark it and skip the install discussion entirely.
 
 **You edit PDFs weekly or daily.** Pick by workflow: annotation-and-review-heavy work fits free desktop tiers (PDF-XChange Editor, Foxit Reader's tools); creation and heavy text editing fit Acrobat Pro or its perpetual-license rivals; conversions at volume fit either the browser toolbox or a desktop batch tool.
 
@@ -259,10 +259,10 @@ Rarely READER (as in the free viewing app), and adjacent grids use EXCEL, WORD, 
 Two vowels in five letters, friendly consonants, a famous double meaning (software company and sun-dried brick), and universal recognition - a constructor's dream word.
 
 **What is the actual best PDF file editor program?**
-For free browser-based editing with local privacy, PDFCraft's 95 tools cover merge, split, convert, edit, sign and more. For heavy professional workflows, Acrobat Pro, Foxit and PDF-XChange are the desktop staples.
+For free browser-based editing with local privacy, PDFEditorFree's 95 tools cover merge, split, convert, edit, sign and more. For heavy professional workflows, Acrobat Pro, Foxit and PDF-XChange are the desktop staples.
 
 **Is there a free alternative to Adobe Acrobat?**
-Yes - browser tools like PDFCraft handle everyday PDF tasks free with no uploads, and free desktop tiers like PDF-XChange cover offline annotation and light editing.
+Yes - browser tools like PDFEditorFree handle everyday PDF tasks free with no uploads, and free desktop tiers like PDF-XChange cover offline annotation and light editing.
 
 **What was Adobe Acrobat's history in brief?**
 Adobe introduced PDF and shipped Acrobat 1 in 1993; PDF became an ISO open standard in 2008. Acrobat remains the reference implementation of the format it created.

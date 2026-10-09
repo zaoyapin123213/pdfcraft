@@ -21,19 +21,19 @@ export const howToChangeFontInPdf: BlogPost = {
     { title: 'Font to Outlines', href: '/en/tools/font-to-outline/', description: 'Convert fonts to vector shapes to lock in appearance everywhere.' },
   ],
   faq: [
-    { question: 'Can you change the font of existing text in a PDF for free?', answer: 'Yes, in two ways: convert the PDF to Word for free with PDFCraft, change fonts in Word, then export back to PDF - this restyles the whole document. For a few words, cover the old text and retype it in a matching font using the free browser-based Edit PDF tool.' },
+    { question: 'Can you change the font of existing text in a PDF for free?', answer: 'Yes, in two ways: convert the PDF to Word for free with PDFEditorFree, change fonts in Word, then export back to PDF - this restyles the whole document. For a few words, cover the old text and retype it in a matching font using the free browser-based Edit PDF tool.' },
     { question: 'Why does my PDF use a different font after editing?', answer: 'PDFs embed only the characters actually used (a subset). When an editor needs a letter that was never embedded, it falls back to a substitute font. Choose a similar standard typeface and match the size to keep the page looking consistent.' },
     { question: 'What fonts can I use when replacing text in a PDF?', answer: 'Browser-based editors offer standard web fonts such as Helvetica/Arial, Times, Georgia and Courier. If the exact original font is installed on your computer, a desktop editor can use it; otherwise pick the closest match and compare letterforms visually.' },
     { question: 'How do I find out which font a PDF uses?', answer: 'Open the PDF in a desktop viewer and check the document properties or the File > Properties > Fonts panel, which lists every embedded font. In Adobe Acrobat, right-click the text with the Edit tool and the font appears in the properties panel.' },
     { question: 'Does converting a PDF to Word change the font?', answer: 'The converter maps embedded fonts to the closest widely available equivalents, so the DOCX may use Arial where the PDF used Helvetica. Layout, sizes and colors are preserved closely, and you can set any font you like once the file is in Word.' },
-    { question: 'How do I change the font in a scanned PDF?', answer: 'Scanned pages are images without fonts. Run OCR to generate a text layer (PDFCraft includes a free OCR tool), convert to Word, restyle the fonts, and export a new PDF - or add replacement text directly on top of the scan.' },
+    { question: 'How do I change the font in a scanned PDF?', answer: 'Scanned pages are images without fonts. Run OCR to generate a text layer (PDFEditorFree includes a free OCR tool), convert to Word, restyle the fonts, and export a new PDF - or add replacement text directly on top of the scan.' },
     { question: 'Why do fonts show as outlines in my PDF?', answer: 'The document was probably exported with text converted to outlines (vector shapes) for print safety or licensing. Outlined text cannot be edited as text; cover-and-replace it visually, or ask the designer for the source file.' },
     { question: 'Is it legal to change the font of a PDF I received?', answer: 'Editing a document you received is fine for legitimate purposes like fixing your own copies, improving accessibility or preparing templates. It is not fine to alter contracts, certificates or official records to misrepresent their content.' },
   ],
   body: `
 To change the font in a PDF, you have three realistic routes: replace individual words in a browser-based editor (cover the old text, retype in a matching typeface), convert the PDF to Word and restyle it with styles for a whole-document change, or use Adobe Acrobat when you have the original fonts installed. The free routes take minutes and need no installation - this guide gives exact steps for each, plus the font-substitution traps that catch first-timers.
 
-**Quick answer:** PDFs do not have a simple font switch. To change the font of a few words, cover the old text and retype it in a matching typeface with a free browser editor. To change the font across an entire document, convert the PDF to Word, restyle it in seconds with styles, and convert back - both converters are free in PDFCraft and run entirely in your browser.
+**Quick answer:** PDFs do not have a simple font switch. To change the font of a few words, cover the old text and retype it in a matching typeface with a free browser editor. To change the font across an entire document, convert the PDF to Word, restyle it in seconds with styles, and convert back - both converters are free in PDFEditorFree and run entirely in your browser.
 
 ## On this page
 
@@ -109,7 +109,7 @@ Practical notes: Acrobat enforces permissions, so a locked PDF must be unlocked 
 
 **LibreOffice Draw (free, desktop).** Open the PDF directly and each page becomes a canvas of editable objects. You can click into a paragraph and change its font on the spot. Quality depends heavily on the PDF's construction: simple documents edit beautifully, complex ones fragment. It is the best zero-cost *native* (no conversion) option on Linux and a handy second opinion on Windows and Mac.
 
-**Mobile apps.** Phone editors (Adobe Fill & Sign, various annotation apps) can add text in chosen fonts on top of pages - adequate for signatures and short labels, impractical for documents. Because PDFCraft is browser-based, the full Method 1 and Method 2 workflows also run in mobile Safari or Chrome when you are away from your desk.
+**Mobile apps.** Phone editors (Adobe Fill & Sign, various annotation apps) can add text in chosen fonts on top of pages - adequate for signatures and short labels, impractical for documents. Because PDFEditorFree is browser-based, the full Method 1 and Method 2 workflows also run in mobile Safari or Chrome when you are away from your desk.
 
 ## Fonts, subsetting and outlines explained {#internals}
 

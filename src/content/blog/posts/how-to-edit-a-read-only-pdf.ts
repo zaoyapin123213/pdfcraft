@@ -163,7 +163,7 @@ A test that fits on a sticky note: **would the document's owner be comfortable w
 
 **The restrictions come back after I save.** Your editor is preserving the original document's security dictionary on export. Save via a different path - print-to-PDF, or export from the Word round trip - which produces fresh, unrestricted files.
 
-**Owner password required dialog appears on unlock.** Some tools prompt for the owner password opportunistically; supplying it is cleaner when you have it. Without it, choose a tool that clears permissions from openable documents directly (as PDFCraft's does locally).
+**Owner password required dialog appears on unlock.** Some tools prompt for the owner password opportunistically; supplying it is cleaner when you have it. Without it, choose a tool that clears permissions from openable documents directly (as PDFEditorFree's does locally).
 
 **File edits fine on one computer, read-only on another.** Compare the two environments: disk attribute, sync-client locks, or a viewer with restrictive default policy on the second machine. The file itself is rarely the variable.
 
@@ -203,7 +203,7 @@ Applied together, these produce edits that survive printing, zooming and skeptic
 
 The same locked file behaves differently across the apps people actually use, and the fastest fix depends on which window you are staring at.
 
-**Adobe Acrobat Reader (the free one).** Reader annotates but cannot edit content on any file - a frequent false alarm where the file is fine and the tool is read-only by design. If the Security tab shows "Editing: Allowed", your problem is the free viewer, not the file: move to a browser-based editor like PDFCraft.
+**Adobe Acrobat Reader (the free one).** Reader annotates but cannot edit content on any file - a frequent false alarm where the file is fine and the tool is read-only by design. If the Security tab shows "Editing: Allowed", your problem is the free viewer, not the file: move to a browser-based editor like PDFEditorFree.
 
 **Microsoft Edge / Chrome PDF viewers.** Browsers display and (in Edge) annotate lightly, but never edit content. Useful for verifying text selection and copying - both work even on permission-locked files when flags allow - but the editing itself needs a real editor.
 

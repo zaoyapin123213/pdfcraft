@@ -18,7 +18,7 @@ export const howToAddALinkToAPdf: BlogPost = {
     { title: 'Compress PDF', href: '/en/tools/compress-pdf/', description: 'Shrink link-heavy marketing PDFs for email.' },
   ],
   faq: [
-    { question: 'How do I add a clickable link to a PDF for free?', answer: 'A free route that always works: add a visible, well-styled text link (your URL in the document\'s typography) with a browser-based editor like PDFCraft. For interactive click targets, use a PDF editor with a link tool - desktop options include Acrobat and PDF-XChange, where you draw a rectangle and paste the URL. Then test every link in a fresh viewer.' },
+    { question: 'How do I add a clickable link to a PDF for free?', answer: 'A free route that always works: add a visible, well-styled text link (your URL in the document\'s typography) with a browser-based editor like PDFEditorFree. For interactive click targets, use a PDF editor with a link tool - desktop options include Acrobat and PDF-XChange, where you draw a rectangle and paste the URL. Then test every link in a fresh viewer.' },
     { question: 'Why does my PDF link not work after printing or flattening?', answer: 'Printed pages have no clicks, and flattened PDFs convert link annotations into static page content. Links live as annotation objects in the file; flattening or printing to PDF re-renders pages and drops them. Keep an unflattened master for digital distribution.' },
     { question: 'Can I add a link that opens another page inside the same PDF?', answer: 'Yes - internal links target a page number or named destination instead of a URL. They are how tables of contents work. Editors with link tools offer "open a page view" as the target; readers of all mainstream viewers follow them.' },
     { question: 'How do I add an email link in a PDF?', answer: 'Use the mailto scheme as the link target: mailto:name@company.com - optionally with subject and body parameters like mailto:sales@acme.com?subject=Quote%20request. When clicked in a desktop or mobile viewer, the default mail app opens pre-filled.' },
@@ -30,7 +30,7 @@ export const howToAddALinkToAPdf: BlogPost = {
   body: `
 To add a link to a PDF for free, work in two layers: add the URL as visible styled text with a browser-based editor (this version survives printing, forwarding and strict viewers), and - for click-to-open behavior - draw a link rectangle over the text in an editor with a link tool such as PDF-XChange or Acrobat. This guide covers both methods, internal links for tables of contents, and the testing routine that catches broken links before your readers do.
 
-**Quick answer:** the universally-safe free approach is to make the link *visible* - add styled text (your URL, in the document's font, as a clickable-looking reference) with a browser-based editor like [PDFCraft](/en/tools/edit-pdf/). For interactive click-rectangles, use a link-tool editor (Acrobat, PDF-XChange, Foxit): draw a box over the text, paste the URL, save. Details, pitfalls and internal links below.
+**Quick answer:** the universally-safe free approach is to make the link *visible* - add styled text (your URL, in the document's font, as a clickable-looking reference) with a browser-based editor like [PDFEditorFree](/en/tools/edit-pdf/). For interactive click-rectangles, use a link-tool editor (Acrobat, PDF-XChange, Foxit): draw a box over the text, paste the URL, save. Details, pitfalls and internal links below.
 
 ## Methods at a glance
 
@@ -158,7 +158,7 @@ Across all genres, one meta-rule holds: links are maintenance liabilities. Every
 
 **The link works in my editor but not in the saved file.** You tested the session, not the output. Reopen the downloaded file and re-test; annotations occasionally fail to save with certain tools' "optimize" options.
 
-**Links vanished after combining or processing PDFs.** Some merge/optimize pipelines drop annotations. Use a merge tool that preserves them (PDFCraft's does), and re-add links after any processing step that ran through a printer-driver pipeline.
+**Links vanished after combining or processing PDFs.** Some merge/optimize pipelines drop annotations. Use a merge tool that preserves them (PDFEditorFree's does), and re-add links after any processing step that ran through a printer-driver pipeline.
 
 **URL opens with a space in it.** A trailing space rode along in the stored target. Edit the annotation and delete it - the classic silent killer.
 
@@ -240,7 +240,7 @@ Organizations that treat documents as living assets already do this for text and
 ## FAQ {#faq}
 
 **How do I add a clickable link to a PDF for free?**
-Add visible, styled URL text with a free browser editor like PDFCraft for the unbreakable version, and use a link-tool editor (PDF-XChange free tier, Acrobat) to draw click rectangles for interactivity. Test in a fresh viewer afterwards.
+Add visible, styled URL text with a free browser editor like PDFEditorFree for the unbreakable version, and use a link-tool editor (PDF-XChange free tier, Acrobat) to draw click rectangles for interactivity. Test in a fresh viewer afterwards.
 
 **Why does my PDF link not work after printing or flattening?**
 Links are annotation objects; flattening and printing re-render pages as static content without them. Keep an unflattened master for digital copies.

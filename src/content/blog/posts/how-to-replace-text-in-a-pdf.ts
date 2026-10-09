@@ -93,7 +93,7 @@ The trap: cover-and-retype *hides* the old text but keeps it in the file. Anyone
 
 The safe sequence:
 
-1. **Redact the original.** Mark the sensitive text for redaction with a true redaction tool - redaction *deletes* the underlying text object, not just its appearance. PDFCraft's Edit PDF tool includes redaction, and the [Sanitize PDF tool](/en/tools/sanitize-pdf/) strips hidden text and metadata document-wide.
+1. **Redact the original.** Mark the sensitive text for redaction with a true redaction tool - redaction *deletes* the underlying text object, not just its appearance. PDFEditorFree's Edit PDF tool includes redaction, and the [Sanitize PDF tool](/en/tools/sanitize-pdf/) strips hidden text and metadata document-wide.
 2. **Verify the removal.** In the saved file, search for the sensitive string: zero results is the pass condition. This ten-second check is the entire difference between redaction and theater.
 3. **Type the replacement** (if one is wanted) on the redacted area, per Method 1's matching checklist.
 

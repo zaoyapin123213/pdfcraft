@@ -32,7 +32,7 @@ export const howToChangeFontSizeInPdf: BlogPost = {
     { question: 'Will changing font size affect PDF accessibility?', answer: 'Positively, in most cases: larger body text (14 pt or more) helps low-vision readers. Keep strong color contrast, and prefer true text over rasterized pages so screen readers and zoom features keep working.' },
   ],
   body: `
-To change font size in a PDF for free, cover the old text with a background-colored rectangle and retype it at the size you need in a browser-based editor like PDFCraft - that is the whole method for headings, dates and short passages. For resizing an entire document, convert the PDF to Word, adjust the style's point size once, and convert back. Both routes are free, private (nothing uploads), and covered step by step below.
+To change font size in a PDF for free, cover the old text with a background-colored rectangle and retype it at the size you need in a browser-based editor like PDFEditorFree - that is the whole method for headings, dates and short passages. For resizing an entire document, convert the PDF to Word, adjust the style's point size once, and convert back. Both routes are free, private (nothing uploads), and covered step by step below.
 
 **Quick answer:** to resize a few words, cover the old text and retype it at the new size with a free browser editor. To resize an entire document, convert the PDF to Word for free, change the style's point size once, and convert back - Word reflows the text automatically so nothing spills off the page.
 
@@ -162,7 +162,7 @@ Mobile is where small PDF text hurts most, and where the right fix depends on wh
 
 **To read, not to edit:** pinch-zoom works everywhere, but the smarter gesture is reflow mode - Adobe's mobile reader and several others can rewrap a document to the phone's width at a size you choose. Browsers can also enlarge PDFs with the standard page-zoom controls. For sustained reading, sending the file through the free PDF to Word converter and reading the DOCX in a mobile office app gives you system-wide text scaling.
 
-**To edit on the go:** annotation apps let you add text boxes at chosen sizes - fine for signatures and short notes. The full replacement workflow (cover, retype, fit-check) is genuinely usable in mobile browsers on tablets: PDFCraft runs entirely in-device, so a tablet plus the Edit PDF tool handles quick heading fixes comfortably. For whole-document resizing, do it on a computer - reviewing reflowed pages on a phone screen is where mistakes slip through.
+**To edit on the go:** annotation apps let you add text boxes at chosen sizes - fine for signatures and short notes. The full replacement workflow (cover, retype, fit-check) is genuinely usable in mobile browsers on tablets: PDFEditorFree runs entirely in-device, so a tablet plus the Edit PDF tool handles quick heading fixes comfortably. For whole-document resizing, do it on a computer - reviewing reflowed pages on a phone screen is where mistakes slip through.
 
 One mobile-specific trap: some mobile PDF viewers *lie about size*, rendering documents with a substitution font at a slightly different scale than desktop viewers. If a client reports "the text looks bigger on my phone", check the file in a desktop viewer before concluding the document is wrong.
 
@@ -190,7 +190,7 @@ One document is a task; fifty documents are a process. If a whole archive needs 
 
 **If you own the sources** (Word templates, LaTeX, InDesign): change the size in the template and re-export everything. This is the only fully consistent route, and it is fast regardless of file count.
 
-**If you only have the PDFs**: accept that each document needs the conversion treatment (Method 2), and systematize it. Convert in batches during a single session, apply one style change per document, spot-check three pages per file (first, a middle, last), and export. Because every processing step runs locally in the browser with PDFCraft, per-file overhead is seconds, not upload queues - a realistic pace is a document every two to three minutes.
+**If you only have the PDFs**: accept that each document needs the conversion treatment (Method 2), and systematize it. Convert in batches during a single session, apply one style change per document, spot-check three pages per file (first, a middle, last), and export. Because every processing step runs locally in the browser with PDFEditorFree, per-file overhead is seconds, not upload queues - a realistic pace is a document every two to three minutes.
 
 **If the files are mostly scans**: resize nothing; scan quality is the actual constraint. Enlarging raster text multiplies its pixelation. Re-scan at a higher DPI if the text must genuinely be bigger and crisper.
 

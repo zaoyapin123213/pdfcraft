@@ -18,19 +18,19 @@ export const pdfEditorForPackagingPrepress: BlogPost = {
     { title: 'Posterize PDF', href: '/en/tools/posterize-pdf/', description: 'Scale artwork across multiple sheets.' },
   ],
   faq: [
-    { question: 'What is the best free PDF editor for packaging prepress?', answer: 'For individual prepress tasks - font outlining, page-box corrections, deskew, rasterizing, PDF/A conversion - free browser tools like PDFCraft genuinely suffice, processing files locally so client artwork never leaves your machine. Full prepress automation (preflight profiles, ink coverage checks, imposition) still requires professional software like Enfocus PitStop or Acrobat Pro.' },
+    { question: 'What is the best free PDF editor for packaging prepress?', answer: 'For individual prepress tasks - font outlining, page-box corrections, deskew, rasterizing, PDF/A conversion - free browser tools like PDFEditorFree genuinely suffice, processing files locally so client artwork never leaves your machine. Full prepress automation (preflight profiles, ink coverage checks, imposition) still requires professional software like Enfocus PitStop or Acrobat Pro.' },
     { question: 'What does prepress actually need from a PDF editor?', answer: 'The recurring needs: converting fonts to outlines, adjusting trim/media/crop boxes, verifying and fixing colors (spot vs CMYK), adding or checking bleed, imposing pages onto press sheets, flattening transparency, and preflighting against standards like PDF/X. Some are single-file edits; some are verification workflows.' },
     { question: 'Can free tools convert fonts to outlines in a PDF?', answer: 'Yes - the free Font to Outlines tool converts every text object to vector shapes so no font dependencies remain at output. This is one of the most requested prepress fixes and one of the safest to run: it is lossless visually, though text stops being selectable afterward (keep the live-text master).' },
     { question: 'Is PDF/X required for packaging printers?', answer: 'Most packaging and label printers request PDF/X-1a or PDF/X-4 compliance because it guarantees embedded fonts, predictable color and no surprise transparency. Ask your printer which version they want; converting the final file is a one-step job with a PDF/A-X conversion tool.' },
     { question: 'How do I check bleed and trim marks on a PDF before sending to a packaging printer?', answer: 'Check the page boxes: the trim box defines the cut, and artwork must extend 3-5 mm past it (bleed). Visual inspection at 400% zoom along all edges, plus a crop-box check in an editor, catches most issues. Printers\' preflight will catch the rest - but every fix you make upstream saves a proofing round.' },
     { question: 'What is imposition, and do I need special software for it?', answer: 'Imposition arranges pages onto press sheets for efficient printing and correct folding. Professional imposition (Quite Imposing, Acrobat) handles complex signatures automatically; free tools cover simpler cases - N-up arrangements, booklet ordering, poster scaling - which suffice for small runs and in-house work.' },
     { question: 'Why do packaging printers ask for outlined fonts?', answer: 'Outlined text eliminates font-licensing, embedding and version-mismatch risks at output - the press RIP renders pure shapes with zero font dependencies. It is the industry\'s belt-and-braces for artwork that must print identically on machines nobody controls.' },
-    { question: 'Can I do prepress work without uploading client files to a website?', answer: 'Yes - choose tools that process locally in the browser (like PDFCraft). For packaging work under NDA or with brand-sensitive artwork, local processing is not a preference but a compliance requirement, and it is exactly why browser-WASM tools have entered prepress workflows.' },
+    { question: 'Can I do prepress work without uploading client files to a website?', answer: 'Yes - choose tools that process locally in the browser (like PDFEditorFree). For packaging work under NDA or with brand-sensitive artwork, local processing is not a preference but a compliance requirement, and it is exactly why browser-WASM tools have entered prepress workflows.' },
   ],
   body: `
-There is no single best PDF editor for packaging prepress - the work splits into two tiers: deterministic fixes (font outlining, page-box geometry, deskew, PDF/A conversion, simple imposition) that free browser tools like PDFCraft handle genuinely well, and verification workflows (preflight profiles, ink coverage, complex imposition) that still require Enfocus PitStop or Acrobat Pro. This guide maps every task to the right tier, with a pre-send checklist for packaging artwork.
+There is no single best PDF editor for packaging prepress - the work splits into two tiers: deterministic fixes (font outlining, page-box geometry, deskew, PDF/A conversion, simple imposition) that free browser tools like PDFEditorFree handle genuinely well, and verification workflows (preflight profiles, ink coverage, complex imposition) that still require Enfocus PitStop or Acrobat Pro. This guide maps every task to the right tier, with a pre-send checklist for packaging artwork.
 
-**Quick answer:** for individual file fixes - font outlining, page-box adjustments, deskew, rasterizing, PDF/A conversion, simple imposition - free browser tools (PDFCraft's, all local) do the job. For automated preflight, ink-coverage analysis and complex imposition, you need Enfocus PitStop or Acrobat Pro. Most small studios need less of the paid tier than they assume.
+**Quick answer:** for individual file fixes - font outlining, page-box adjustments, deskew, rasterizing, PDF/A conversion, simple imposition - free browser tools (PDFEditorFree's, all local) do the job. For automated preflight, ink-coverage analysis and complex imposition, you need Enfocus PitStop or Acrobat Pro. Most small studios need less of the paid tier than they assume.
 
 ## Task coverage at a glance
 
@@ -239,7 +239,7 @@ Packaging artwork is commercially sensitive - unreleased products, brand assets,
 
 **The upload question.** Many online PDF tools process files on their servers: your unreleased packaging design transits and possibly persists on infrastructure you do not control. For agencies under NDA and brand teams handling pre-launch products, that is an unacceptable data path regardless of encryption claims - the file exists outside your perimeter, and that is the risk.
 
-**Local processing as the compliance answer.** Browser-based tools that process via WebAssembly - PDFCraft's model - execute the entire workflow on your machine: the file never leaves the device, which makes the tool usable under NDA by construction. This is not a marketing nicety; it is the reason local-processing tools have entered production prepress workflows where upload-based tools cannot go.
+**Local processing as the compliance answer.** Browser-based tools that process via WebAssembly - PDFEditorFree's model - execute the entire workflow on your machine: the file never leaves the device, which makes the tool usable under NDA by construction. This is not a marketing nicety; it is the reason local-processing tools have entered production prepress workflows where upload-based tools cannot go.
 
 **The practical rules that round it out:**
 
@@ -253,7 +253,7 @@ Prepress people protect physical plates and proofs with access discipline; digit
 ## FAQ {#faq}
 
 **What is the best free PDF editor for packaging prepress?**
-For deterministic single tasks - font outlining, page-box fixes, deskew, PDF/A conversion, simple imposition - free local browser tools like PDFCraft do real prepress work. Automated preflight and complex imposition remain PitStop/Acrobat territory.
+For deterministic single tasks - font outlining, page-box fixes, deskew, PDF/A conversion, simple imposition - free local browser tools like PDFEditorFree do real prepress work. Automated preflight and complex imposition remain PitStop/Acrobat territory.
 
 **What does prepress actually need from a PDF editor?**
 Font outlining, page-box geometry, standards conversion, bleed verification, imposition for the press, and preflight - some are simple edits (free tools), some are verification/automation workflows (pro tools).

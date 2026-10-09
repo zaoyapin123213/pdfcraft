@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: BlogPostParams): Promise<Meta
       url,
       title: post.title,
       description: post.description,
-      siteName: 'PDFCraft',
+      siteName: 'PDFEditorFree',
       publishedTime: post.datePublished,
       modifiedTime: post.dateModified,
       images: [{ url: `${SITE_URL}/images/og-image.png`, width: 1200, height: 630 }],
@@ -81,10 +81,10 @@ export default async function BlogPostPage({ params }: BlogPostParams) {
       description: post.description,
       datePublished: post.datePublished,
       dateModified: post.dateModified,
-      author: { '@type': 'Organization', name: 'PDFCraft Team', url: SITE_URL },
+      author: { '@type': 'Organization', name: 'PDFEditorFree Team', url: SITE_URL },
       publisher: {
         '@type': 'Organization',
-        name: 'PDFCraft',
+        name: 'PDFEditorFree',
         url: SITE_URL,
         logo: { '@type': 'ImageObject', url: `${SITE_URL}/images/logo.png` },
       },
@@ -130,7 +130,7 @@ export default async function BlogPostPage({ params }: BlogPostParams) {
 
         <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">{post.h1}</h1>
         <div className="flex flex-wrap items-center gap-3 text-sm text-[hsl(var(--color-muted-foreground))] mb-8">
-          <span>By PDFCraft Team</span>
+          <span>By PDFEditorFree Team</span>
           <span aria-hidden="true">•</span>
           <time dateTime={post.dateModified}>
             Updated {new Date(post.dateModified).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}

@@ -12,7 +12,7 @@ export const perpetualLicensePdfEditors: BlogPost = {
   category: 'Editor Reviews',
   readingMinutes: 16,
   relatedTools: [
-    { title: 'PDFCraft Free Toolbox', href: '/en/tools/', description: '95 tools covering the everyday tier - free forever, no install.' },
+    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '95 tools covering the everyday tier - free forever, no install.' },
     { title: 'Edit PDF', href: '/en/tools/edit-pdf/', description: 'Browser editing that may replace the purchase entirely.' },
     { title: 'Sign PDF', href: '/en/tools/sign-pdf/', description: 'Signing without any license at all.' },
     { title: 'PDF to Word', href: '/en/tools/pdf-to-docx/', description: 'Conversion - the most-bought feature, free locally.' },
@@ -24,7 +24,7 @@ export const perpetualLicensePdfEditors: BlogPost = {
     { question: 'Is a perpetual license better value than a subscription?', answer: 'It depends on the horizon: over many years of use, one-time purchase usually wins arithmetic; over one or two years, subscriptions with lower entry prices can tie or win; and if the free tier of tools covers your actual tasks, both lose to zero. Run your horizon through the math in this guide.' },
     { question: 'Do perpetual-license PDF editors get updates?', answer: 'Typically point updates (fixes) for a period, with major version upgrades sold separately or via an optional maintenance plan. Confirm the included update window before purchase - perpetual rarely means "all future versions"; it means "this version forever".' },
     { question: 'What features actually require a paid PDF editor?', answer: 'A narrowing set: native text editing with matched fonts, certified digital signature workflows, advanced form creation, preflight, and batch automation. The everyday tier - merge, split, convert, compress, fill, sign, annotate, basic edit - runs free in browser tools, which is the baseline every paid purchase should be measured against.' },
-    { question: 'Is there a free alternative that covers most paid PDF features?', answer: 'For the everyday family, yes: PDFCraft\'s browser toolbox (95 tools, local processing, no account) covers convert, merge, split, compress, sign, fill, annotate and edit free. Purchases then only need to justify the specific professional features your work provably requires.' },
+    { question: 'Is there a free alternative that covers most paid PDF features?', answer: 'For the everyday family, yes: PDFEditorFree\'s browser toolbox (95 tools, local processing, no account) covers convert, merge, split, compress, sign, fill, annotate and edit free. Purchases then only need to justify the specific professional features your work provably requires.' },
     { question: 'Are perpetual licenses safer for privacy than subscriptions?', answer: 'Desktop software - either licensing model - processes locally, which beats server-processing web services for confidentiality. Between two desktop products, licensing model does not change privacy; between desktop and upload-based web tools, desktop wins regardless of price.' },
   ],
   body: `
@@ -249,13 +249,13 @@ Typically point fixes for a period, with major versions sold separately - perpet
 A narrowing list: native text editing with matched fonts, certified signature workflows, advanced form creation, preflight, batch automation. The everyday family runs free locally.
 
 **Is there a free alternative that covers most paid features?**
-For the everyday tier, yes - PDFCraft's local browser toolbox (95 tools, no account) covers convert, merge, split, compress, sign, fill, annotate and edit; purchases then justify only the professional gap.
+For the everyday tier, yes - PDFEditorFree's local browser toolbox (95 tools, no account) covers convert, merge, split, compress, sign, fill, annotate and edit; purchases then justify only the professional gap.
 
 **Are perpetual licenses safer for privacy than subscriptions?**
 Desktop software processes locally under either model - the privacy divide is desktop versus upload-based web tools, not licensing models. For confidential work, local processing wins at any price.
 
 ## Price the gap, not the box
 
-Run your task list against the free baseline first: [PDFCraft's 95 tools](/en/tools/) - [convert](/en/tools/pdf-to-docx/), [merge](/en/tools/merge-pdf/), [sign](/en/tools/sign-pdf/), [edit](/en/tools/edit-pdf/) - cover the everyday tier free, local, forever. What remains uncovered is the only thing worth a license - of either kind.
+Run your task list against the free baseline first: [PDFEditorFree's 95 tools](/en/tools/) - [convert](/en/tools/pdf-to-docx/), [merge](/en/tools/merge-pdf/), [sign](/en/tools/sign-pdf/), [edit](/en/tools/edit-pdf/) - cover the everyday tier free, local, forever. What remains uncovered is the only thing worth a license - of either kind.
 `,
 };

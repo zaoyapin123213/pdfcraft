@@ -12,7 +12,7 @@ export const adobePdfPackFreeAlternative: BlogPost = {
   category: 'Editor Reviews',
   readingMinutes: 15,
   relatedTools: [
-    { title: 'PDFCraft Free Toolbox', href: '/en/tools/', description: 'Every Pack function\'s free counterpart - 95 tools, no subscription.' },
+    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: 'Every Pack function\'s free counterpart - 95 tools, no subscription.' },
     { title: 'Merge PDF', href: '/en/tools/merge-pdf/', description: 'Combine files - the Pack combine function, free.' },
     { title: 'PDF to Word', href: '/en/tools/pdf-to-docx/', description: 'Export PDFs to Office formats, free and local.' },
     { title: 'JPG to PDF', href: '/en/tools/jpg-to-pdf/', description: 'Create PDFs from images, free and local.' },
@@ -21,16 +21,16 @@ export const adobePdfPackFreeAlternative: BlogPost = {
     { question: 'What is Adobe PDF Pack?', answer: 'PDF Pack is (was) an Adobe subscription - a lighter-priced tier of Acrobat\'s online services - bundling the everyday PDF web tools: converting PDFs to and from Office and image formats, creating PDFs from files, and combining documents. Adobe has progressively folded such standalone offerings into its broader Acrobat online plans, so the exact packaging changes over time; the underlying functions remain Acrobat\'s web tools.' },
     { question: 'How much does PDF Pack cost?', answer: 'Historically it ran at a modest monthly or annual subscription, cheaper than full Acrobat Pro and centered on the web tools rather than the full desktop application. Check Adobe\'s site for current packaging and pricing - Adobe restructures these plans regularly. The free-replacement analysis in this guide holds regardless of the price.' },
     { question: 'What does PDF Pack include that free tools do not?', answer: 'Functionally, very little that free tools cannot do: the Pack\'s ingredients - convert to Word/Excel, convert from images and Office files, combine, fill and sign - each have free equivalents of comparable quality for everyday use. What the subscription adds is Adobe branding, higher-usage allowances on Adobe\'s servers, and integration with Adobe\'s ecosystem.' },
-    { question: 'Is there a free version of PDF Pack?', answer: 'Adobe\'s free Acrobat online tier covers limited use of many of the same tools with usage caps. Free-without-caps alternatives exist in the form of local-processing tools: PDFCraft\'s browser toolbox performs all the Pack\'s core functions - convert, create, combine, sign - with no account and no upload.' },
+    { question: 'Is there a free version of PDF Pack?', answer: 'Adobe\'s free Acrobat online tier covers limited use of many of the same tools with usage caps. Free-without-caps alternatives exist in the form of local-processing tools: PDFEditorFree\'s browser toolbox performs all the Pack\'s core functions - convert, create, combine, sign - with no account and no upload.' },
     { question: 'Do I need PDF Pack, or full Acrobat?', answer: 'Match the tier to the workload: occasional web-based convert/combine/fill tasks need neither subscription (free tools cover them); native text editing, preflight and advanced forms justify full Acrobat Pro; the middle tier (PDF Pack) suits users who want Adobe\'s web tools with paid limits - mostly an ecosystem choice, not a capability necessity.' },
-    { question: 'What is the best free alternative to Adobe PDF Pack?', answer: 'Tool for tool: PDF to Word/Excel - PDFCraft\'s converters (free, local); create PDFs from images or Office files - the create family (free); combine - Merge PDF (free); fill and sign - the Sign PDF tool (free). The full mapping is in this guide\'s replacement table.' },
-    { question: 'Is my privacy different with free alternatives?', answer: 'It can be better: local-processing tools (PDFCraft) never upload your files, while subscription web services process on their servers under their policies. For confidential documents, local processing is the stronger privacy posture at any price.' },
+    { question: 'What is the best free alternative to Adobe PDF Pack?', answer: 'Tool for tool: PDF to Word/Excel - PDFEditorFree\'s converters (free, local); create PDFs from images or Office files - the create family (free); combine - Merge PDF (free); fill and sign - the Sign PDF tool (free). The full mapping is in this guide\'s replacement table.' },
+    { question: 'Is my privacy different with free alternatives?', answer: 'It can be better: local-processing tools (PDFEditorFree) never upload your files, while subscription web services process on their servers under their policies. For confidential documents, local processing is the stronger privacy posture at any price.' },
     { question: 'Why do subscription PDF services exist if free tools cover the same tasks?', answer: 'Brands, ecosystem integration (storage, e-signature accounts), usage allowances, support and procurement familiarity all have value to organizations. For individuals, the honest evaluation is task-by-task - and most individual tasks are fully covered free.' },
   ],
   body: `
 Adobe PDF Pack is Adobe's lighter subscription bundling its online PDF tools - convert PDFs to and from Office and image formats, create PDFs, combine files, and fill and sign documents. Every one of those functions has a free equivalent of comparable quality: this guide gives the function-by-function replacement table, the privacy comparison (local tools never upload), and the cancellation-safe switch plan.
 
-**Quick verdict:** PDF Pack's ingredients are convert (PDF to and from Office/images), create, combine, fill and sign. Every one of those has a free, high-quality equivalent - most of them local and private in PDFCraft's browser toolbox. The subscription's genuine value is ecosystem and brand preference, not capability. The full function-by-function replacement table is below.
+**Quick verdict:** PDF Pack's ingredients are convert (PDF to and from Office/images), create, combine, fill and sign. Every one of those has a free, high-quality equivalent - most of them local and private in PDFEditorFree's browser toolbox. The subscription's genuine value is ecosystem and brand preference, not capability. The full function-by-function replacement table is below.
 
 ## On this page
 
@@ -120,7 +120,7 @@ The subscription's architecture deserves its own line in the ledger: Adobe's web
 
 That is not a scandal - Adobe is a serious steward - but it *is* a structural fact with consequences: confidential documents transit servers as a condition of use; usage depends on connectivity; and the policies governing your files live in a document you agreed to once and will never read again.
 
-Local-processing tools change the architecture rather than the vendor: PDFCraft's tools execute in your browser - the document never leaves your device, no policy governs what never arrives, and no connectivity is required. For the everyday task family, the free option is *also* the more private one - a pricing inversion (free and more private than paid) worth naming, because it does not happen often in software.
+Local-processing tools change the architecture rather than the vendor: PDFEditorFree's tools execute in your browser - the document never leaves your device, no policy governs what never arrives, and no connectivity is required. For the everyday task family, the free option is *also* the more private one - a pricing inversion (free and more private than paid) worth naming, because it does not happen often in software.
 
 For organizations with confidentiality obligations, this section is usually where the decision lands: local tools by policy, whatever the subscription's other merits. For individuals, it is simply a pleasant bonus on top of free.
 
@@ -172,7 +172,7 @@ The evaluator's rule this review keeps returning to, now with its economic expla
 
 **Open-standard free tools** - genuinely free operations with the trade-off named openly (ads supporting the service, or community-supported software). The caps are economic facts, not marketing traps, and they are usually stated plainly.
 
-**Local-processing free tools** - free because the economics vanish: your device does the computing, so there is no server bill to amortize, no cap to impose, no watermark needed. PDFCraft's model - and the reason this category can promise "no account, no upload, no limits" without fine print: there is no fine print *to* have. The honest trade-off named: local tools are operations-focused; the AI-workspace and ecosystem features live in paid tiers elsewhere by necessity.
+**Local-processing free tools** - free because the economics vanish: your device does the computing, so there is no server bill to amortize, no cap to impose, no watermark needed. PDFEditorFree's model - and the reason this category can promise "no account, no upload, no limits" without fine print: there is no fine print *to* have. The honest trade-off named: local tools are operations-focused; the AI-workspace and ecosystem features live in paid tiers elsewhere by necessity.
 
 The evaluator's upgrade from this section: when any review (including this one) says "free", ask *which* free - caps-free, ads-free, watermark-free, account-free are four different promises, and a tool can hold any subset. The local architecture is the only one that holds all four structurally rather than as policy - policies change; architectures do not.
 
@@ -240,13 +240,13 @@ It ran below full Acrobat Pro pricing as a web-tools tier; current packaging cha
 No capability gap - every function (convert, create, combine, fill, sign) has a free equivalent of comparable everyday quality. The subscription adds Adobe's ecosystem, allowances and support.
 
 **Is there a free version of PDF Pack?**
-Adobe's free online tier caps usage of similar tools. Uncapped free alternatives run locally: PDFCraft's toolbox performs all the core functions with no account and no upload.
+Adobe's free online tier caps usage of similar tools. Uncapped free alternatives run locally: PDFEditorFree's toolbox performs all the core functions with no account and no upload.
 
 **Do I need PDF Pack, or full Acrobat?**
 Everyday tasks: neither (free tools cover them). Native editing, preflight, advanced forms: full Acrobat Pro. The middle tier is an ecosystem choice rather than a capability necessity.
 
 **What is the best free alternative to Adobe PDF Pack?**
-Function for function: PDF to Word/Excel, JPG to PDF, Word to PDF, Merge PDF and Sign PDF - all free and local in PDFCraft's toolbox; the full mapping is the replacement table above.
+Function for function: PDF to Word/Excel, JPG to PDF, Word to PDF, Merge PDF and Sign PDF - all free and local in PDFEditorFree's toolbox; the full mapping is the replacement table above.
 
 **Is my privacy different with free alternatives?**
 Usually better: local tools never upload your files, while subscription web services process on their servers. Free-and-more-private is the rare pricing inversion - and it applies here.
@@ -256,6 +256,6 @@ Ecosystem integration, usage allowances, support and procurement familiarity hav
 
 ## Replace the Pack, free
 
-Every function in the Pack runs free and local at [PDFCraft](/en/tools/): [convert](/en/tools/pdf-to-docx/), [create](/en/tools/jpg-to-pdf/), [combine](/en/tools/merge-pdf/), [sign](/en/tools/sign-pdf/) - no account, no upload, no subscription. Test with your own files; keep the difference.
+Every function in the Pack runs free and local at [PDFEditorFree](/en/tools/): [convert](/en/tools/pdf-to-docx/), [create](/en/tools/jpg-to-pdf/), [combine](/en/tools/merge-pdf/), [sign](/en/tools/sign-pdf/) - no account, no upload, no subscription. Test with your own files; keep the difference.
 `,
 };

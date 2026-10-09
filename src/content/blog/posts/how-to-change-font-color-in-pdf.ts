@@ -27,17 +27,17 @@ export const howToChangeFontColorInPdf: BlogPost = {
     { title: 'Highlight PDF (in editor)', href: '/en/tools/edit-pdf/', description: 'Mark up important passages in any color without touching the original text.' },
   ],
   faq: [
-    { question: 'Can I change the font color of existing text in a PDF for free?', answer: 'Yes. For visually replacing text you can cover the old text with a white shape and type new text in any color using a free browser-based editor like PDFCraft. For a true text-layer recolor, convert the PDF to Word for free with PDFCraft, change the color in Word, and convert it back to PDF.' },
+    { question: 'Can I change the font color of existing text in a PDF for free?', answer: 'Yes. For visually replacing text you can cover the old text with a white shape and type new text in any color using a free browser-based editor like PDFEditorFree. For a true text-layer recolor, convert the PDF to Word for free with PDFEditorFree, change the color in Word, and convert it back to PDF.' },
     { question: 'Why is changing text color in a PDF so hard compared to Word?', answer: 'A PDF is a print-ready layout format, not a flowing document. Text is stored as positioned glyphs with explicit color attributes, often split into fragments, so editors must rebuild or cover text instead of simply restyling it like Word does.' },
     { question: 'Will covering text with a white box affect printing?', answer: 'The covered text still exists under the box; only its appearance is hidden. For sensitive content use redaction instead, which removes the text from the file. Visually, a white cover prints exactly like plain white paper, so it is fine for titles, labels and headings.' },
-    { question: 'How do I change the text color in a scanned PDF?', answer: 'Scanned PDFs are images, so there is no font to recolor. Cover the area with a shape and add new colored text, or run OCR first (PDFCraft has a free OCR tool) and convert the document to an editable format.' },
+    { question: 'How do I change the text color in a scanned PDF?', answer: 'Scanned PDFs are images, so there is no font to recolor. Cover the area with a shape and add new colored text, or run OCR first (PDFEditorFree has a free OCR tool) and convert the document to an editable format.' },
     { question: 'Does changing font color break PDF/A compliance?', answer: 'Adding annotations or covers can break strict PDF/A validation. If you need an archival file, make your color changes first, then convert the final document with the PDF to PDF/A tool.' },
     { question: 'What color format do PDFs use for text?', answer: 'PDF text color is stored as fill color values, usually in RGB for screen documents or CMYK and spot colors for print. When you add text in a browser editor you work in RGB, which converts cleanly to CMYK at print time.' },
-    { question: 'Is it safe to upload a contract to change its text color?', answer: 'With PDFCraft you never upload anything: all processing happens locally in your browser with WebAssembly, so contracts, IDs and financial documents never leave your device.' },
+    { question: 'Is it safe to upload a contract to change its text color?', answer: 'With PDFEditorFree you never upload anything: all processing happens locally in your browser with WebAssembly, so contracts, IDs and financial documents never leave your device.' },
     { question: 'How do I make one word a different color in a PDF?', answer: 'Use the Edit PDF tool: draw a small rectangle filled with the page background color over the word, then add a new text box on top containing just that word in your chosen color and a matching font size.' },
   ],
   body: `
-You can change font color in a PDF for free in about a minute: open a browser-based editor like PDFCraft's Edit PDF tool, cover the old text with a background-colored rectangle, and retype it in any color. For recoloring whole documents, convert the PDF to Word, restyle it there, and convert back. This guide walks through all four working methods - cover-and-retype, the Word round trip, Acrobat, and Illustrator - with exact steps for each.
+You can change font color in a PDF for free in about a minute: open a browser-based editor like PDFEditorFree's Edit PDF tool, cover the old text with a background-colored rectangle, and retype it in any color. For recoloring whole documents, convert the PDF to Word, restyle it there, and convert back. This guide walks through all four working methods - cover-and-retype, the Word round trip, Acrobat, and Illustrator - with exact steps for each.
 
 **Quick answer:** if you are adding new text, just use a free editor and pick the color before you type. If you need to recolor text that already exists in the PDF, you have three realistic options: cover-and-replace it visually, convert the PDF to Word and restyle it there, or use a desktop editor like Acrobat or Illustrator. All three methods are covered below with step-by-step instructions.
 
@@ -70,7 +70,7 @@ With that context, the methods below will make immediate sense, and you will be 
 
 ## Method 1: Cover and replace text in your browser (free) {#cover-replace}
 
-This is the fastest free way to change the color of specific existing words - titles, dates, phone numbers, prices - without installing anything. The idea: you hide the old text with a background-colored shape, then type the replacement in whatever color you want. Everything happens locally in your browser with [PDFCraft's Edit PDF tool](/en/tools/edit-pdf/), so confidential documents never leave your computer.
+This is the fastest free way to change the color of specific existing words - titles, dates, phone numbers, prices - without installing anything. The idea: you hide the old text with a background-colored shape, then type the replacement in whatever color you want. Everything happens locally in your browser with [PDFEditorFree's Edit PDF tool](/en/tools/edit-pdf/), so confidential documents never leave your computer.
 
 **Step 1 - Open the editor.** Go to the Edit PDF tool and drop your file onto the page. There is no upload step: the file is read directly from your disk into the browser's memory.
 
@@ -127,7 +127,7 @@ Acrobat's advantages are real - native text editing, form tools, preflight check
 
 **macOS Preview.** Preview cannot recolor existing text, but it can add colored text boxes and shapes (Tools > Annotate). For a quick colored note on a Mac, Preview is fine; for precise replacement, the browser method gives better control over hex colors.
 
-**iPhone and Android.** Mobile PDF apps from Adobe and others support colored annotations - typed comments and highlights. They are convenient for reviewing on the go, though typing long replacements on a phone keyboard gets old quickly. Because PDFCraft runs entirely in the browser, it also works in mobile Safari and Chrome: open the site, edit the file, download it - no app install required.
+**iPhone and Android.** Mobile PDF apps from Adobe and others support colored annotations - typed comments and highlights. They are convenient for reviewing on the go, though typing long replacements on a phone keyboard gets old quickly. Because PDFEditorFree runs entirely in the browser, it also works in mobile Safari and Chrome: open the site, edit the file, download it - no app install required.
 
 ## Which method should you use? {#comparison}
 
@@ -198,7 +198,7 @@ Method 1 and Method 3 are per-document workflows. If you need consistent recolor
 
 1. **Fix the source, re-export.** If the PDFs were generated from templates (Word, InDesign, LaTeX), change the color once in the template and re-export every document. This is the only approach that is fully consistent, and it takes minutes for any number of files.
 2. **Standardize at the converter stage.** Where documents come from Word anyway, define the color in Word's styles; the export to PDF inherits it automatically. Future edits then never touch the PDF.
-3. **Process in the browser, file by file, with a checklist.** If re-export is impossible, accept the manual route but systematize it: keep a one-line checklist per file (sample background, cover, retype, verify, save) and batch similar files in one sitting. Because PDFCraft runs locally, you can queue files one after another without upload waits, which typically doubles your throughput compared with upload-based tools.
+3. **Process in the browser, file by file, with a checklist.** If re-export is impossible, accept the manual route but systematize it: keep a one-line checklist per file (sample background, cover, retype, verify, save) and batch similar files in one sitting. Because PDFEditorFree runs locally, you can queue files one after another without upload waits, which typically doubles your throughput compared with upload-based tools.
 
 ## Related changes people often bundle with a color edit {#related-changes}
 
@@ -214,7 +214,7 @@ Recoloring text rarely happens in isolation. These companion edits are worth doi
 <!-- FAQ items mirror the FAQPage structured data for this article. -->
 
 **Can I change the font color of existing text in a PDF for free?**
-Yes. For visually replacing text you can cover the old text with a white shape and type new text in any color using a free browser-based editor like PDFCraft. For a true text-layer recolor, convert the PDF to Word for free, change the color in Word, and convert it back to PDF.
+Yes. For visually replacing text you can cover the old text with a white shape and type new text in any color using a free browser-based editor like PDFEditorFree. For a true text-layer recolor, convert the PDF to Word for free, change the color in Word, and convert it back to PDF.
 
 **Why is changing text color in a PDF so hard compared to Word?**
 A PDF is a print-ready layout format, not a flowing document. Text is stored as positioned glyphs with explicit color attributes, often split into fragments, so editors must rebuild or cover text instead of simply restyling it like Word does.
@@ -232,7 +232,7 @@ Adding annotations or covers can break strict PDF/A validation. If you need an a
 PDF text color is stored as fill color values, usually RGB for screen documents or CMYK and spot colors for print. Browser editors work in RGB, which converts cleanly to CMYK at print time.
 
 **Is it safe to upload a contract to change its text color?**
-With PDFCraft you never upload anything: all processing happens locally in your browser, so contracts, IDs and financial documents never leave your device.
+With PDFEditorFree you never upload anything: all processing happens locally in your browser, so contracts, IDs and financial documents never leave your device.
 
 **How do I make one word a different color in a PDF?**
 Draw a small rectangle filled with the page background color over the word, then add a new text box on top containing just that word in your chosen color, matching the surrounding font size.

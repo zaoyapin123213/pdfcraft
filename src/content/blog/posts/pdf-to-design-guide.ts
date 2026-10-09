@@ -15,7 +15,7 @@ export const pdfToDesignGuide: BlogPost = {
     { title: 'PDF to SVG', href: '/en/tools/pdf-to-svg/', description: 'Get PDF pages as vector SVG for any design tool.' },
     { title: 'Extract Images from PDF', href: '/en/tools/extract-images/', description: 'Pull embedded images at full quality, free.' },
     { title: 'PDF to PNG', href: '/en/tools/pdf-to-png/', description: 'High-res page renders for tracing or reference.' },
-    { title: 'PDFCraft Free Toolbox', href: '/en/tools/', description: '95 free local tools around your design workflow.' },
+    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '95 free local tools around your design workflow.' },
   ],
   faq: [
     { question: 'What is pdf.to.design?', answer: 'pdf.to.design is a Figma plugin (by divRIOTS) that imports PDF files into Figma as editable design layers - text, images and vector elements reconstructed as Figma objects you can modify, restyle and rebuild. It belongs to the same import-then-edit family as design platforms\' PDF support, specialized for Figma workflows.' },
@@ -255,6 +255,6 @@ No - scans are flat images with no structure to reconstruct; they arrive as imag
 
 ## Get your PDF into design - free where possible
 
-Layers when reconstruction pays: try pdf.to.design in Figma. Assets always: [PDF to SVG](/en/tools/pdf-to-svg/), [Extract Images](/en/tools/extract-images/) and [PDF to PNG](/en/tools/pdf-to-png/) run free and local at [PDFCraft](/en/tools/) - no account, nothing uploaded.
+Layers when reconstruction pays: try pdf.to.design in Figma. Assets always: [PDF to SVG](/en/tools/pdf-to-svg/), [Extract Images](/en/tools/extract-images/) and [PDF to PNG](/en/tools/pdf-to-png/) run free and local at [PDFEditorFree](/en/tools/) - no account, nothing uploaded.
 `,
 };

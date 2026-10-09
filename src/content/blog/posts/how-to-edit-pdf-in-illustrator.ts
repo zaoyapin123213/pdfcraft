@@ -25,7 +25,7 @@ export const howToEditPdfInIllustrator: BlogPost = {
     { question: 'Does editing a PDF in Illustrator preserve quality?', answer: 'For vector content, yes - it stays infinitely sharp. Raster images inside the PDF keep their original resolution as long as you do not rescale them. The main quality risks are font substitution and accidental clipping-mask damage during edits.' },
     { question: 'Is Illustrator the best tool for editing PDFs?', answer: 'For one-page design artifacts - posters, packaging, business cards - it is the most powerful option because the PDF becomes real vector artwork. For multipage text documents it is the wrong tool; a PDF editor or a Word conversion handles those better and faster.' },
     { question: 'How do I save my edited file back to PDF from Illustrator?', answer: 'Use File > Save As > Adobe PDF. Choose the PDF/X presets for print work (your printer will specify the version), or High Quality Print for general use. Avoid the Illustrator-only options like Preserve Illustrator Editing Capabilities if the file goes to non-Adobe users.' },
-    { question: 'What free alternatives work like Illustrator for PDF editing?', answer: 'Inkscape imports PDF pages as vectors with many of the same benefits and no subscription. For lighter jobs - adding text, covering mistakes, simple shape edits - free browser-based editors such as PDFCraft handle the task without any install.' },
+    { question: 'What free alternatives work like Illustrator for PDF editing?', answer: 'Inkscape imports PDF pages as vectors with many of the same benefits and no subscription. For lighter jobs - adding text, covering mistakes, simple shape edits - free browser-based editors such as PDFEditorFree handle the task without any install.' },
   ],
   body: `
 Yes, Adobe Illustrator can edit PDF files - it opens PDF pages as native vector artwork, so text, shapes and gradients become real editable objects. The catch: fonts must be installed on your machine, text that was outlined or rasterized before export cannot be edited as text, and multi-page PDFs open one page at a time. This guide covers the exact workflow, the three failure modes, and when a free PDF editor is the better tool for the job.
@@ -126,7 +126,7 @@ Finally, discipline with versions: save the edited PDF under a new name and keep
 
 Illustrator is architecturally a single-artboard-per-document tool (Artboards exist, but PDF import gives you one page as one document), which shapes how multipage jobs must be run.
 
-The standard loop for changing, say, page 7 of a 40-page deck: open the PDF in Illustrator with page 7 as the target, edit, save as a single-page PDF, then reassemble the full document in a PDF tool - replace page 7 in the original, or combine the new page with extracted neighbors. PDFCraft's [extract pages](/en/tools/extract-pages/) and merge tools handle the reassembly in a browser in under a minute.
+The standard loop for changing, say, page 7 of a 40-page deck: open the PDF in Illustrator with page 7 as the target, edit, save as a single-page PDF, then reassemble the full document in a PDF tool - replace page 7 in the original, or combine the new page with extracted neighbors. PDFEditorFree's [extract pages](/en/tools/extract-pages/) and merge tools handle the reassembly in a browser in under a minute.
 
 Working page-by-page across many pages is possible (open, edit, save, next) but the round trips add up; if the job expands beyond a handful of pages, that is the signal to switch tools - a PDF editor for text-heavy pages, or better yet the source application that generated the deck.
 
@@ -148,7 +148,7 @@ A practical heuristic from production experience: if you find yourself *fighting
 
 **Inkscape** (free, Windows/Mac/Linux) is the closest open-source equivalent: it imports PDF pages as vector graphics with a PostScript-derived engine of its own. Text imports as text where fonts permit (it will map missing fonts to installed ones), paths and gradients come through cleanly, and the XML editor even lets the brave inspect the parsed structure directly. The interface differs from Illustrator and print presets are thinner, but for recoloring logos, editing shapes and replacing text in exported artwork, it covers a large share of the same jobs at zero cost.
 
-**Browser-based vector routes:** PDFCraft's [PDF to SVG converter](/en/tools/pdf-to-svg/) exports a page as an SVG - a text file of vector geometry you can open in any vector editor (including Inkscape, Figma, or a code editor) and edit. For extracting just the imagery, the [Extract Images](/en/tools/extract-images/) tool pulls embedded rasters at native resolution - frequently all a job actually needs ("get me the logo from this PDF" is a daily request in most marketing teams).
+**Browser-based vector routes:** PDFEditorFree's [PDF to SVG converter](/en/tools/pdf-to-svg/) exports a page as an SVG - a text file of vector geometry you can open in any vector editor (including Inkscape, Figma, or a code editor) and edit. For extracting just the imagery, the [Extract Images](/en/tools/extract-images/) tool pulls embedded rasters at native resolution - frequently all a job actually needs ("get me the logo from this PDF" is a daily request in most marketing teams).
 
 **Figma and pdf.to.design:** for UI and web-adjacent teams, the pdf.to.design plugin imports PDF content into Figma as editable layers - a different ecosystem with a similar promise. The dedicated guide covers when that route makes sense.
 
@@ -230,7 +230,7 @@ For single-page design artifacts, yes - nothing else edits the actual geometry a
 File > Save As > Adobe PDF, choosing PDF/X-4 for press work or High Quality Print for general use. Save as a new version and verify fonts are embedded.
 
 **What free alternatives work like Illustrator for PDF editing?**
-Inkscape imports PDF pages as vectors with most of the same benefits for free, and browser tools like PDFCraft's PDF to SVG converter get pages into any vector editor without an install.
+Inkscape imports PDF pages as vectors with most of the same benefits for free, and browser tools like PDFEditorFree's PDF to SVG converter get pages into any vector editor without an install.
 
 ## Edit your PDF artwork
 

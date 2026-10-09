@@ -23,10 +23,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: BLOG_URL,
-    title: 'PDF Blog - Guides, Tutorials & Editor Reviews | PDFCraft',
+    title: 'PDF Blog - Guides, Tutorials & Editor Reviews | PDFEditorFree',
     description:
       'Step-by-step PDF guides and honest editor reviews. Every tutorial is free to follow with a browser-based PDF tool - no uploads, no signup.',
-    siteName: 'PDFCraft',
+    siteName: 'PDFEditorFree',
   },
 };
 
@@ -40,7 +40,7 @@ export default function BlogIndexPage() {
           {
             '@context': 'https://schema.org',
             '@type': 'Blog',
-            name: 'PDFCraft PDF Blog',
+            name: 'PDFEditorFree PDF Blog',
             url: BLOG_URL,
             description:
               'PDF tutorials, how-to guides and editor reviews. Learn to edit, convert, secure and optimize PDF files for free.',

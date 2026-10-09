@@ -14,7 +14,7 @@ export const dynamic = 'force-static';
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: siteConfig.name,
-    short_name: 'PDFCraft',
+    short_name: 'PDFEditorFree',
     description: siteConfig.description,
     // Must point at a real page: "/" is a redirect on Cloudflare Pages
     start_url: '/en/',

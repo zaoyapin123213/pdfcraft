@@ -18,17 +18,17 @@ export const howToAddTextToAPdf: BlogPost = {
     { title: 'Sign PDF', href: '/en/tools/sign-pdf/', description: 'Add your signature alongside the text you typed.' },
   ],
   faq: [
-    { question: 'How do I add text to a PDF for free?', answer: 'Open the free Edit PDF tool from PDFCraft in your browser, drop in your file, select the text tool, click where the text should go, and type. Choose font, size and color first. Everything processes locally - no upload, no account, no watermark.' },
+    { question: 'How do I add text to a PDF for free?', answer: 'Open the free Edit PDF tool from PDFEditorFree in your browser, drop in your file, select the text tool, click where the text should go, and type. Choose font, size and color first. Everything processes locally - no upload, no account, no watermark.' },
     { question: 'Why can\'t I just click and type on a PDF like in Word?', answer: 'A PDF is a fixed layout format - it stores where every character is drawn, not editable paragraphs. There are no "blank lines" to type into. PDF editors therefore add text as new text boxes positioned on top of the page, which is the correct mental model for every method in this guide.' },
     { question: 'Will the text I add stay editable for other people?', answer: 'New text in a PDF editor is a text object - recipients can select, copy and search it. If you flatten the document afterwards, the text becomes part of a fixed page image and loses selectability, so keep an unflattened master copy for future edits.' },
     { question: 'How do I add a lot of text to a PDF - several paragraphs or pages?', answer: 'Typing long passages into positioned text boxes is slow and fragile. Convert the PDF to Word for free, add your paragraphs where the reflow engine places them properly, then export back to PDF. Use direct text boxes for short additions and the Word round trip for long ones.' },
     { question: 'Can I add text to a scanned PDF?', answer: 'Yes. The scan is an image, but new text you type sits on top of it like a label - perfectly fine for filling printed forms by typing over them. If you want the scan itself to become searchable and editable, run OCR first to create a text layer.' },
     { question: 'How do I match the font of the existing PDF text?', answer: 'Check the document properties in a desktop viewer to see the embedded fonts, then pick the closest standard match in the editor - Helvetica/Arial for grotesque sans faces, Times or Georgia for serifs. Match the visual size against neighboring lines rather than trusting the point number.' },
-    { question: 'Is it safe to add text to confidential PDFs online?', answer: 'With PDFCraft there is no upload at all: the file is processed in your browser with WebAssembly and never leaves your device, which is the property you want for contracts, medical and financial documents.' },
+    { question: 'Is it safe to add text to confidential PDFs online?', answer: 'With PDFEditorFree there is no upload at all: the file is processed in your browser with WebAssembly and never leaves your device, which is the property you want for contracts, medical and financial documents.' },
     { question: 'Why does my added text look different when printed?', answer: 'Two common causes: screen colors shift in CMYK printing (use darker, less saturated colors for text), and thin fonts render lighter at print resolution - bump the weight or size slightly and test-print one page before the full run.' },
   ],
   body: `
-To add text to a PDF for free, open a browser-based editor like PDFCraft's Edit PDF tool, select the text tool, set the font, size and color, click where the text belongs, and type - the whole job takes under a minute for dates, labels and short answers. For whole paragraphs, convert the PDF to Word, type where the text flows naturally, and convert back. Both methods are free, private, and covered step by step below.
+To add text to a PDF for free, open a browser-based editor like PDFEditorFree's Edit PDF tool, select the text tool, set the font, size and color, click where the text belongs, and type - the whole job takes under a minute for dates, labels and short answers. For whole paragraphs, convert the PDF to Word, type where the text flows naturally, and convert back. Both methods are free, private, and covered step by step below.
 
 **Quick answer:** for short additions - labels, dates, filled-in answers, notes - open the free [Edit PDF tool](/en/tools/edit-pdf/), pick the text tool, choose font/size/color, click on the page and type. For whole paragraphs or new pages, convert the PDF to Word for free, type where the text flows naturally, and convert back.
 
@@ -166,7 +166,7 @@ Tablets with a stylus or keyboard cover close the gap to laptops entirely - text
 
 A minute of structure makes the troubleshooting section predictable, and it explains behaviors that otherwise seem arbitrary.
 
-When you type in a PDF editor, the new content becomes one of two things. Most editors (PDFCraft included) add a **text annotation or page-content object** - a discrete element sitting above the page's original content, carrying its own font, size, color and position. The original page content beneath is untouched. This is why your additions can be moved after placement, why they never disturb the original layout, and why a document with additions is always slightly "two-layered" internally.
+When you type in a PDF editor, the new content becomes one of two things. Most editors (PDFEditorFree included) add a **text annotation or page-content object** - a discrete element sitting above the page's original content, carrying its own font, size, color and position. The original page content beneath is untouched. This is why your additions can be moved after placement, why they never disturb the original layout, and why a document with additions is always slightly "two-layered" internally.
 
 The alternative is **flattening** - re-rendering the page and its additions into a single imaging surface. Flattened documents render identically everywhere (nothing can shift), which is why some submission portals demand them - but the layers are gone: additions merge into the page picture, text loses selectability, and future edits need cover-and-retype rather than box-dragging.
 
@@ -245,7 +245,7 @@ Yes - typed text sits on top of the scan like a label, ideal for filling printed
 Check the embedded fonts in document properties, then substitute from the same category (Helvetica/Arial for sans, Times/Georgia for serif), matching visual size against neighboring lines.
 
 **Is it safe to add text to confidential PDFs online?**
-With PDFCraft the file never uploads - processing happens in your browser with WebAssembly, keeping contracts and financial documents on your device.
+With PDFEditorFree the file never uploads - processing happens in your browser with WebAssembly, keeping contracts and financial documents on your device.
 
 **Why does my added text look different when printed?**
 Screen colors shift in CMYK and thin fonts render lighter on paper. Use darker, less saturated colors, bump weight or size slightly, and test-print one page first.

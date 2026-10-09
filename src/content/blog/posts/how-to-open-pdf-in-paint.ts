@@ -19,7 +19,7 @@ export const howToOpenPdfInPaint = {
   ],
   faq: [
     { question: 'Can MS Paint open PDF files directly?', answer: 'No. Microsoft Paint only opens image formats (PNG, JPG, BMP, GIF and similar), not documents. To work on a PDF in Paint, first convert the page you need to a PNG or JPG image, edit it, and convert it back to PDF afterwards if required.' },
-    { question: 'How do I convert a PDF page to an image for Paint?', answer: 'Use a free converter like PDFCraft\'s PDF to PNG or PDF to JPG tool: open the file in your browser, choose the page and resolution, and download the image. The whole conversion happens locally, so private documents stay on your device.' },
+    { question: 'How do I convert a PDF page to an image for Paint?', answer: 'Use a free converter like PDFEditorFree\'s PDF to PNG or PDF to JPG tool: open the file in your browser, choose the page and resolution, and download the image. The whole conversion happens locally, so private documents stay on your device.' },
     { question: 'Why is my PDF blurry after editing it in Paint?', answer: 'The page was rendered at a low resolution. Convert again choosing a higher DPI (200-300 for printing, 150 for screen). Once a page has been rasterized at low quality, re-editing cannot restore the lost detail - always re-export from the original PDF.' },
     { question: 'How do I turn my edited image back into a PDF?', answer: 'Open the free JPG to PDF tool, drop in your edited PNG or JPG, and download the PDF it creates. For multi-page documents, convert each page separately and combine the images in one pass.' },
     { question: 'Is Paint or a PDF editor better for signing a document?', answer: 'A PDF editor is better: the signature stays in the file as a real object, the text underneath remains selectable, and the rest of the document is untouched. In Paint the whole page becomes one flat image.' },
@@ -55,7 +55,7 @@ One more subtlety: a PDF often has many pages, while Paint edits one image at a 
 
 ## Method 1: Convert the page to PNG/JPG, then edit in Paint {#convert}
 
-This is the reliable, quality-controlled route. Everything runs free and local in your browser with PDFCraft.
+This is the reliable, quality-controlled route. Everything runs free and local in your browser with PDFEditorFree.
 
 **Step 1 - Convert PDF to an image.** Open the [PDF to PNG](/en/tools/pdf-to-png/) tool (or [PDF to JPG](/en/tools/pdf-to-jpg/) if you prefer smaller files). Drop in your PDF. Pick the page you need - or all pages if the whole document is destined for image editing. Choose a resolution of about 200 DPI for screen use or 300 DPI if the result will print. Download the image(s).
 
@@ -193,7 +193,7 @@ So the modern rule of thumb: when the deliverable is a *picture of a page*, Pain
 
 Document editing has a privacy dimension that image editing hides, and it deserves thirty seconds of attention before you convert anything.
 
-**Local conversion matters.** Many online converters upload your file to a server. PDFCraft's converters run entirely in your browser via WebAssembly - the document never leaves the device - which is the property you want when the page contains salaries, medical details or client data. If you use a different converter for anything sensitive, verify its privacy claims first.
+**Local conversion matters.** Many online converters upload your file to a server. PDFEditorFree's converters run entirely in your browser via WebAssembly - the document never leaves the device - which is the property you want when the page contains salaries, medical details or client data. If you use a different converter for anything sensitive, verify its privacy claims first.
 
 **Visual black bars are not redaction.** This is the single most consequential mistake in the Paint workflow: painting a black rectangle over a salary figure hides it from view, but the underlying PDF - if you ever send the *original* alongside, or the recipient has it - still contains the text, one copy-paste away. If the goal is to remove information, redact on the actual PDF with a redaction tool, which deletes the text object itself. Paint's black box is for *appearance only*.
 
@@ -221,7 +221,7 @@ Muscle memory on Ctrl+Z and Ctrl+V alone covers 80% of the fumbling first-timers
 No. Paint opens image formats only (PNG, JPG, BMP and similar), not documents. Convert the PDF page to PNG or JPG first, edit it in Paint, and convert back to PDF if needed.
 
 **How do I convert a PDF page to an image for Paint?**
-Use a free local converter such as PDFCraft's PDF to PNG or PDF to JPG tool: choose the page and DPI, download, and open in Paint. Nothing is uploaded - conversion happens in your browser.
+Use a free local converter such as PDFEditorFree's PDF to PNG or PDF to JPG tool: choose the page and DPI, download, and open in Paint. Nothing is uploaded - conversion happens in your browser.
 
 **Why is my PDF blurry after editing it in Paint?**
 The page was rasterized at low resolution. Re-export from the original PDF at 200-300 DPI; lost detail cannot be restored in the low-res image itself.

@@ -12,14 +12,14 @@ export const portablePdfEditor: BlogPost = {
   category: 'Editor Reviews',
   readingMinutes: 16,
   relatedTools: [
-    { title: 'PDFCraft Free Toolbox', href: '/en/tools/', description: '95 tools that run on any machine via browser - nothing to install.' },
+    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '95 tools that run on any machine via browser - nothing to install.' },
     { title: 'Edit PDF', href: '/en/tools/edit-pdf/', description: 'Full editing wherever you are - files stay on the device.' },
     { title: 'Merge PDF', href: '/en/tools/merge-pdf/', description: 'Combine documents on borrowed machines instantly.' },
     { title: 'Encrypt PDF', href: '/en/tools/encrypt-pdf/', description: 'Protect files before they travel on any drive.' },
   ],
   faq: [
     { question: 'What is a portable PDF editor?', answer: 'A PDF editor that runs without installation - the classic form is a "portable app" on a USB drive, and the modern form is a browser-based tool that works on any machine you sit down at. Both deliver the same promise: full PDF capability on borrowed, locked-down or temporary computers, leaving no install behind.' },
-    { question: 'Do I need to download a portable PDF editor app?', answer: 'Usually no. Browser-based local tools like PDFCraft provide the entire capability - edit, merge, split, convert, sign, compress - on any computer with a browser, with no download and no install. A USB-resident app only adds value for fully offline environments (no internet at all), where its portability matters more than its inconvenience.' },
+    { question: 'Do I need to download a portable PDF editor app?', answer: 'Usually no. Browser-based local tools like PDFEditorFree provide the entire capability - edit, merge, split, convert, sign, compress - on any computer with a browser, with no download and no install. A USB-resident app only adds value for fully offline environments (no internet at all), where its portability matters more than its inconvenience.' },
     { question: 'Are browser-based PDF tools really "portable"?', answer: 'By every definition that matters: they run on any machine (Windows, Mac, Linux, borrowed, corporate), require zero installation, leave the host machine clean, and process files locally so nothing about your documents reaches the network. Portability was never about the USB stick - it was about capability without installation, and the browser delivers exactly that.' },
     { question: 'Is it safe to edit PDFs on a borrowed or public computer?', answer: 'With local-processing tools, yes, with precautions: the document never leaves that machine, so the exposure surface is the machine itself. Use a private/incognito window where possible, close tabs when done, avoid saving to the public machine (work from and save to your own drive), and never on machines you cannot trust at all.' },
     { question: 'What are portable apps for PDF work on USB?', answer: 'Portable versions of PDF utilities exist in the classic portable-app ecosystems (standalone executables that run from a drive without installing). Verify any portable app by maker and scan before trusting it - and weigh honestly whether the browser route covers the same tasks without the download at all.' },
@@ -28,9 +28,9 @@ export const portablePdfEditor: BlogPost = {
     { question: 'What is the fastest way to help someone else with a PDF remotely?', answer: 'Point them to the same local toolbox - they open the browser tool on their machine and process the file themselves, on their device, privately. No remote-desktop session, no file emailing, no installation walkthrough: a URL is the whole handoff.' },
   ],
   body: `
-A portable PDF editor in 2026 is your browser: open a local-processing toolbox like PDFCraft on any machine - borrowed, locked-down, hotel, client site - and you get full editing, merging, converting and signing with nothing installed, nothing left behind, and nothing uploaded. The classic USB portable-app route now survives only for fully offline environments. This guide covers both, plus the borrowed-computer workflow and transport security.
+A portable PDF editor in 2026 is your browser: open a local-processing toolbox like PDFEditorFree on any machine - borrowed, locked-down, hotel, client site - and you get full editing, merging, converting and signing with nothing installed, nothing left behind, and nothing uploaded. The classic USB portable-app route now survives only for fully offline environments. This guide covers both, plus the borrowed-computer workflow and transport security.
 
-**Quick verdict:** for editing PDFs on any machine - borrowed, locked-down, temporary - a local-processing browser toolbox (PDFCraft's 95 tools) is the portable editor: it opens like a web page, runs entirely on the machine in front of you, and never uploads your files. The USB-app route survives only for truly offline environments.
+**Quick verdict:** for editing PDFs on any machine - borrowed, locked-down, temporary - a local-processing browser toolbox (PDFEditorFree's 95 tools) is the portable editor: it opens like a web page, runs entirely on the machine in front of you, and never uploads your files. The USB-app route survives only for truly offline environments.
 
 ## On this page
 
@@ -248,7 +248,7 @@ That is the entire discipline - four sections, sixteen checkboxes, no software p
 A PDF editor that runs without installation. The classic form is a portable app on a USB drive; the modern form is a browser-based tool that works on any machine - same promise, better logistics.
 
 **Do I need to download a portable PDF editor app?**
-Usually no - browser-based local tools (PDFCraft) deliver full editing, merging, converting and signing on any machine with zero downloads. USB apps survive only as the offline-environment niche.
+Usually no - browser-based local tools (PDFEditorFree) deliver full editing, merging, converting and signing on any machine with zero downloads. USB apps survive only as the offline-environment niche.
 
 **Are browser-based PDF tools really "portable"?**
 Yes by both definitions: capability portability (the same tools on every machine) and footprint portability (nothing installs, nothing persists) - with local processing keeping documents on whichever device you are at.
@@ -270,6 +270,6 @@ Send them the toolbox URL - they process their own document on their own machine
 
 ## The portable editor is one bookmark away
 
-Open [PDFCraft's toolbox](/en/tools/) on any machine - Windows, Mac, borrowed, locked-down - and edit, merge, convert, sign and compress with nothing installed and nothing uploaded. Pair it with an encrypted drive for transport, and portability is solved permanently.
+Open [PDFEditorFree's toolbox](/en/tools/) on any machine - Windows, Mac, borrowed, locked-down - and edit, merge, convert, sign and compress with nothing installed and nothing uploaded. Pair it with an encrypted drive for transport, and portability is solved permanently.
 `,
 };

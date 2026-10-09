@@ -12,7 +12,7 @@ export const macroPdfEditorReview: BlogPost = {
   category: 'Editor Reviews',
   readingMinutes: 16,
   relatedTools: [
-    { title: 'PDFCraft Free Toolbox', href: '/en/tools/', description: '95 free tools - merge, split, convert, edit, sign - all in your browser.' },
+    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '95 free tools - merge, split, convert, edit, sign - all in your browser.' },
     { title: 'Edit PDF', href: '/en/tools/edit-pdf/', description: 'Free browser-based editing for everyday PDF changes.' },
     { title: 'OCR PDF', href: '/en/tools/ocr-pdf/', description: 'Make scans searchable - free and local.' },
     { title: 'Sign PDF', href: '/en/tools/sign-pdf/', description: 'Add signatures without any subscription.' },
@@ -20,11 +20,11 @@ export const macroPdfEditorReview: BlogPost = {
   faq: [
     { question: 'What is Macro PDF editor?', answer: 'Macro is an AI-assisted PDF and document workspace aimed at teams that live in documents - notably legal, finance, insurance and real-estate workflows. It combines PDF viewing and editing with AI features like document chat, summarization and data extraction, positioned as a productivity layer on top of document handling rather than a bare editing tool.' },
     { question: 'How much does Macro PDF editor cost?', answer: 'Macro works on a subscription model with free and paid tiers - the free tier covers basic use and the paid plans (per user, per month) unlock the AI and team features. Check Macro\'s site for current pricing, as SaaS pricing changes frequently; the decision framework in this review stays valid regardless of the exact numbers.' },
-    { question: 'Is Macro PDF editor free?', answer: 'There is a free tier for individuals, with the AI-assist and collaboration features concentrated in the paid plans. If your needs are occasional PDF tasks - merging, converting, signing, quick edits - a free browser-based toolbox like PDFCraft covers those without any subscription at all.' },
+    { question: 'Is Macro PDF editor free?', answer: 'There is a free tier for individuals, with the AI-assist and collaboration features concentrated in the paid plans. If your needs are occasional PDF tasks - merging, converting, signing, quick edits - a free browser-based toolbox like PDFEditorFree covers those without any subscription at all.' },
     { question: 'What is Macro PDF editor best for?', answer: 'Teams whose work is document-dense: reviewing long contracts, extracting data from stacks of PDFs, summarizing filings, collaborating on document sets. The AI layer (ask questions of a document, auto-extract fields) is the differentiator versus traditional editors.' },
     { question: 'What are Macro\'s main limitations?', answer: 'The typical SaaS trade-offs: your documents process on their servers (consider confidentiality policies for sensitive files), the best features sit behind subscriptions, and deep print/prepress or offline use is not the focus. For lightweight personal PDF tasks, a full workspace is more tool than the job needs.' },
-    { question: 'Is Macro safe for confidential documents?', answer: 'Macro is an established SaaS vendor with standard cloud security practices; the question to ask for your documents is about your own compliance rules. If policy or NDA requires files to never leave your device, local-processing tools (browser-based PDFCraft) are the compatible choice.' },
-    { question: 'What is the best free alternative to Macro?', answer: 'For editing tasks: PDFCraft\'s free browser toolbox (95 tools, local processing, no signup). For the AI-document-workflow layer Macro specializes in, alternatives include Adobe\'s AI Assistant in Acrobat and various AI-document startups - that category is inherently subscription SaaS.' },
+    { question: 'Is Macro safe for confidential documents?', answer: 'Macro is an established SaaS vendor with standard cloud security practices; the question to ask for your documents is about your own compliance rules. If policy or NDA requires files to never leave your device, local-processing tools (browser-based PDFEditorFree) are the compatible choice.' },
+    { question: 'What is the best free alternative to Macro?', answer: 'For editing tasks: PDFEditorFree\'s free browser toolbox (95 tools, local processing, no signup). For the AI-document-workflow layer Macro specializes in, alternatives include Adobe\'s AI Assistant in Acrobat and various AI-document startups - that category is inherently subscription SaaS.' },
     { question: 'Do I need an AI PDF editor at all?', answer: 'Honestly assess the volume: if you regularly digest long documents (contracts, filings, reports) and answer questions about them, AI assistance pays for itself in time. If you occasionally merge, sign and convert PDFs, it is overhead - a free toolbox does those jobs in seconds without any account.' },
   ],
   body: `
@@ -128,7 +128,7 @@ Document workspaces process your documents on their servers - which is a genuine
 
 **AI-specific questions worth asking any vendor in this class:** is document content used for model training (and can you opt out)? Where are the servers? What are the retention policies? Vendors in this space have become notably clearer on these questions, and the answers belong in your evaluation notes.
 
-**The local alternative, stated plainly:** browser-based tools that process via WebAssembly - PDFCraft's model - execute entirely on your device, making them usable under the strictest policies by construction. The trade is honest too: you get no AI layer and no collaboration platform - just fast, private, free operations. Which side of that trade fits depends on your documents' sensitivity and your volume, which is exactly the five-question framework below.
+**The local alternative, stated plainly:** browser-based tools that process via WebAssembly - PDFEditorFree's model - execute entirely on your device, making them usable under the strictest policies by construction. The trade is honest too: you get no AI layer and no collaboration platform - just fast, private, free operations. Which side of that trade fits depends on your documents' sensitivity and your volume, which is exactly the five-question framework below.
 
 ## Free alternatives by actual need {#alternatives}
 
@@ -246,7 +246,7 @@ SaaS trade-offs: server-side processing (a policy question for confidential file
 Established vendor, standard cloud security - but the decisive question is whether your own compliance rules permit cloud processing at all. If files must never leave the device, local-processing tools are the compatible choice.
 
 **What is the best free alternative to Macro?**
-For operations: PDFCraft's free toolbox (95 tools, local, no signup). For the AI-comprehension layer specifically, that category is inherently subscription SaaS - Adobe's AI Assistant and peers compete there.
+For operations: PDFEditorFree's free toolbox (95 tools, local, no signup). For the AI-comprehension layer specifically, that category is inherently subscription SaaS - Adobe's AI Assistant and peers compete there.
 
 **Do I need an AI PDF editor at all?**
 If you regularly digest long documents and answer questions about them, trial one with your real files. If you occasionally merge, sign and convert, a free toolbox does the job in seconds.

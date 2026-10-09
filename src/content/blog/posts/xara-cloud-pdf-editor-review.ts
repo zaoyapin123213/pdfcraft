@@ -12,7 +12,7 @@ export const xaraCloudPdfEditorReview: BlogPost = {
   category: 'Editor Reviews',
   readingMinutes: 15,
   relatedTools: [
-    { title: 'PDFCraft Free Toolbox', href: '/en/tools/', description: '95 free tools - edit, convert, merge, sign - locally in your browser.' },
+    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '95 free tools - edit, convert, merge, sign - locally in your browser.' },
     { title: 'Edit PDF', href: '/en/tools/edit-pdf/', description: 'Quick text and image edits without a design subscription.' },
     { title: 'PDF to Word', href: '/en/tools/pdf-to-docx/', description: 'Round-trip editing through Word, free and local.' },
     { title: 'PDF to SVG', href: '/en/tools/pdf-to-svg/', description: 'Extract vector artwork for design tools.' },
@@ -21,10 +21,10 @@ export const xaraCloudPdfEditorReview: BlogPost = {
     { question: 'What is Xara Cloud PDF editor?', answer: 'Xara Cloud (now branded simply as Xara) is a browser-based design and content-creation platform - templates for marketing materials, documents and web content - that includes PDF import and editing among its capabilities. It approaches PDFs as design material: import a file into a design document and edit its text and images with design-tool controls.' },
     { question: 'Can Xara Cloud edit PDF files well?', answer: 'It handles design-style edits - changing text, swapping images, adjusting layout on imported pages - particularly on simpler, design-oriented documents. Like all import-then-edit approaches it approximates the original: complex layouts fragment, fonts substitute from its library, and fidelity to the source is not guaranteed. For fidelity-preserving small edits, a direct PDF editor is the safer tool.' },
     { question: 'How much does Xara Cloud cost?', answer: 'Xara runs on subscription plans (per user, monthly or annual) with a free trial tier; check Xara\'s site for current pricing as it changes. The decision framework in this review - design workload versus editing workload - stays valid regardless of the numbers.' },
-    { question: 'Is Xara Cloud free?', answer: 'There is a free trial; ongoing use is subscription-based. If your actual need is editing PDFs rather than designing marketing materials, free direct PDF editors (like PDFCraft\'s browser toolbox) cover editing without any subscription.' },
+    { question: 'Is Xara Cloud free?', answer: 'There is a free trial; ongoing use is subscription-based. If your actual need is editing PDFs rather than designing marketing materials, free direct PDF editors (like PDFEditorFree\'s browser toolbox) cover editing without any subscription.' },
     { question: 'Who is Xara Cloud best for?', answer: 'Small businesses and marketing teams that produce steady streams of designed content - social graphics, flyers, proposals, web content - from templates, and occasionally need PDFs edited as part of that design workflow. It is a design platform that edits PDFs, not a PDF specialist.' },
     { question: 'Xara Cloud vs Canva for PDF editing?', answer: 'They occupy the same category - browser design suites with PDF import - with different template libraries, editors and pricing. The comparison logic from Canva applies: design-first tools approximate PDFs on import and suit redesign work, not fidelity-critical document editing.' },
-    { question: 'What is the best free alternative to Xara Cloud for PDF editing?', answer: 'For direct, fidelity-preserving PDF edits: PDFCraft\'s free browser toolbox (edit, convert, merge, sign - 95 tools, local processing). For design-suite needs specifically, Canva\'s free tier is the heavyweight comparison point; Xara\'s differentiation is its template and web-content breadth.' },
+    { question: 'What is the best free alternative to Xara Cloud for PDF editing?', answer: 'For direct, fidelity-preserving PDF edits: PDFEditorFree\'s free browser toolbox (edit, convert, merge, sign - 95 tools, local processing). For design-suite needs specifically, Canva\'s free tier is the heavyweight comparison point; Xara\'s differentiation is its template and web-content breadth.' },
     { question: 'Is Xara Cloud safe for business documents?', answer: 'It is an established SaaS vendor with standard cloud security. The structural consideration is the same as any cloud platform: your documents upload for processing. Strict confidentiality policies may require local-processing tools instead, where files never leave the device.' },
   ],
   body: `
@@ -95,7 +95,7 @@ Three tool families occupy the space people mean when they search "PDF editor cl
 | Family | Examples | PDF approach | Best at |
 |---|---|---|---|
 | Design platforms | Xara, Canva | Import & reconstruct as design | Reworking marketing content |
-| Direct PDF editors | PDFCraft, Acrobat, Foxit | Edit the document natively | Fidelity-preserving document work |
+| Direct PDF editors | PDFEditorFree, Acrobat, Foxit | Edit the document natively | Fidelity-preserving document work |
 | AI document workspaces | Macro & peers | Understand & extract | High-volume reading/extraction |
 
 The families answer different questions: "how do I make this look better?" (design platforms), "how do I change this document?" (PDF editors), "how do I digest these documents?" (AI workspaces). Misdirected searches - "PDF editor" landing on design platforms - produce reviews that scold products for not being other products. The correct comparison for Xara is Canva (same family); the correct comparison for your *task* is whichever family your task belongs to.
@@ -231,7 +231,7 @@ Design-style edits on marketing-type documents, yes. Import reconstructs pages a
 Subscription per user with a free trial; check Xara's site for current numbers. Evaluate against your creation cadence and the free tier of the category leader (Canva) before committing.
 
 **Is Xara Cloud free?**
-Trial only; ongoing use is subscription. Editing PDFs *without designing* is covered free by direct editors like PDFCraft's browser toolbox.
+Trial only; ongoing use is subscription. Editing PDFs *without designing* is covered free by direct editors like PDFEditorFree's browser toolbox.
 
 **Who is Xara Cloud best for?**
 Small businesses and marketing teams producing steady template-based content across web, social and print, with PDF editing inside that workflow.
@@ -240,7 +240,7 @@ Small businesses and marketing teams producing steady template-based content acr
 Same tool family, same import-then-edit architecture - compare template fit, brand tooling and pricing. Neither competes with direct PDF editors on document fidelity.
 
 **What is the best free alternative for PDF editing?**
-PDFCraft's free browser toolbox: 95 tools - edit, convert, merge, sign, secure - processing locally with no account and no translation of your documents.
+PDFEditorFree's free browser toolbox: 95 tools - edit, convert, merge, sign, secure - processing locally with no account and no translation of your documents.
 
 **Is Xara Cloud safe for business documents?**
 Established vendor, standard SaaS security - with the structural note that documents upload for processing. Confidentiality-first policies point to local-processing tools.

@@ -18,7 +18,7 @@ export const howToInsertALineInAPdf: BlogPost = {
     { title: 'Word to PDF', href: '/en/tools/word-to-pdf/', description: 'Rebuild documents where lines must reflow with text.' },
   ],
   faq: [
-    { question: 'How do I insert a line into a PDF for free?', answer: 'Open the free Edit PDF tool from PDFCraft in your browser, drop in your file, select the line or shape tool, then drag to draw the line. Hold shift (or enable snap) for perfectly horizontal or vertical strokes, set thickness and color before drawing, and download. Everything runs locally - no upload.' },
+    { question: 'How do I insert a line into a PDF for free?', answer: 'Open the free Edit PDF tool from PDFEditorFree in your browser, drop in your file, select the line or shape tool, then drag to draw the line. Hold shift (or enable snap) for perfectly horizontal or vertical strokes, set thickness and color before drawing, and download. Everything runs locally - no upload.' },
     { question: 'How do I add a signature line to a PDF?', answer: 'Draw a horizontal line where the signature belongs (2-3 inches wide, 1-1.5 pt thick), then add small text beneath it - Name, Date, Title - with the text tool at 8-9 pt. For recurring signing workflows, the dedicated Sign PDF tool pairs with drawn lines in seconds.' },
     { question: 'How do I create a fill-in blank line that people can type on?', answer: 'Visual blank: draw the line and recipients print or annotate over it. Typeable blank: the document needs real form fields - create them in a PDF editor with form tools, sizing the field to sit on your drawn line. A drawn line alone has no typeability.' },
     { question: 'What thickness should a line be in a PDF?', answer: 'Body-level rules look right at 0.5-1 pt, signature and fill-in lines at 1-1.5 pt, and emphasis dividers at 2-3 pt. Match the document\'s existing line weights - check the thickness of table borders or underlines already on the page and mirror them.' },
@@ -28,7 +28,7 @@ export const howToInsertALineInAPdf: BlogPost = {
     { question: 'How do I add the same line to every page of a PDF?', answer: 'Manual drawing works for a few pages. For document-wide rules, the Header & Footer tool applies a consistent footer line (or bordered text) to every page in one pass - the correct tool for repeated structural elements.' },
   ],
   body: `
-To insert a line in a PDF, open a free browser-based editor like PDFCraft's Edit PDF tool, select the line tool, set the thickness (1-1.5 pt for signature lines) and color, then drag to draw - hold shift for a perfectly straight stroke. The same thirty-second job covers fill-in blanks, section dividers and emphasis rules. This guide gives the exact settings for each line type, plus the signature-block recipe used in executed documents.
+To insert a line in a PDF, open a free browser-based editor like PDFEditorFree's Edit PDF tool, select the line tool, set the thickness (1-1.5 pt for signature lines) and color, then drag to draw - hold shift for a perfectly straight stroke. The same thirty-second job covers fill-in blanks, section dividers and emphasis rules. This guide gives the exact settings for each line type, plus the signature-block recipe used in executed documents.
 
 **Quick answer:** open the free [Edit PDF tool](/en/tools/edit-pdf/), drop in your PDF, select the line or shape tool, set thickness and color, then drag to draw. Hold shift for perfectly straight strokes. Download - the line is now part of the page.
 
@@ -150,7 +150,7 @@ The decision is the same one from the text-adding guide, and it is worth interna
 
 **I drew on the wrong page / in the wrong spot.** Undo (Ctrl+Z) is your friend; for discovered-later errors, select and delete the line object - drawn lines remain selectable objects until the file is flattened.
 
-**The line disappeared after combining PDFs or another processing step.** Some pipelines drop annotation-layer content. Use merge tools that preserve page content faithfully (PDFCraft's does), and verify after processing.
+**The line disappeared after combining PDFs or another processing step.** Some pipelines drop annotation-layer content. Use merge tools that preserve page content faithfully (PDFEditorFree's does), and verify after processing.
 
 **My "line" needs to be dashed or dotted.** The shape tool's stroke style options (solid/dashed) cover it - dashed rules for cut-here marks and "optional" sections are a standard print convention worth using deliberately.
 

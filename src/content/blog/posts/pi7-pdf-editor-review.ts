@@ -12,25 +12,25 @@ export const pi7PdfEditorReview: BlogPost = {
   category: 'Editor Reviews',
   readingMinutes: 15,
   relatedTools: [
-    { title: 'PDFCraft Free Toolbox', href: '/en/tools/', description: '95 free tools with zero uploads - processing stays on your device.' },
+    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '95 free tools with zero uploads - processing stays on your device.' },
     { title: 'Edit PDF', href: '/en/tools/edit-pdf/', description: 'Add text, images and annotations locally in your browser.' },
     { title: 'Merge PDF', href: '/en/tools/merge-pdf/', description: 'Combine files without uploading them anywhere.' },
     { title: 'PDF to Word', href: '/en/tools/pdf-to-docx/', description: 'Convert to editable DOCX, locally and free.' },
   ],
   faq: [
     { question: 'What is Pi7 PDF editor?', answer: 'Pi7 is a free online PDF toolkit - a website offering a range of browser-based PDF utilities (editing, merging, converting and related tasks) that run the standard free-online-tool way: you upload your file, the site processes it, and you download the result. It sits in the same broad category as many free online PDF tool sites.' },
-    { question: 'Is Pi7 PDF editor really free?', answer: 'The tools are free to use as web utilities, typically supported by ads, with per-task or file-size practical limits that are common in this category. For genuinely free processing without upload limits, local-processing tools like PDFCraft run entirely in your browser with no server involved.' },
+    { question: 'Is Pi7 PDF editor really free?', answer: 'The tools are free to use as web utilities, typically supported by ads, with per-task or file-size practical limits that are common in this category. For genuinely free processing without upload limits, local-processing tools like PDFEditorFree run entirely in your browser with no server involved.' },
     { question: 'Is Pi7 safe to use for confidential PDFs?', answer: 'The important question with any upload-based tool is where your file goes: it travels to and is processed on the site\'s servers. For confidential documents - contracts, IDs, financial or medical files - local-processing tools are the safer architecture, because the file never leaves your device at all.' },
     { question: 'What can Pi7 PDF editor do?', answer: 'Free online tool sites in this category typically cover the everyday PDF tasks: adding text or images to pages, merging and splitting, format conversions, and basic page management. The exact tool list and depth changes over time - evaluate against your specific task rather than the category.' },
     { question: 'What are the limitations of free online PDF editors like Pi7?', answer: 'The category-wide limits: files must be uploaded (privacy consideration), practical size and task limits, ad-supported interfaces, and internet dependence. Tasks needing heavy files, offline work or strict confidentiality fit local tools better.' },
-    { question: 'What is the best alternative to Pi7?', answer: 'For the same everyday tasks without uploads, PDFCraft\'s free toolbox covers 95 operations - edit, merge, split, convert, sign, compress, OCR - processing entirely in your browser via WebAssembly, with no signup and no file-size anxiety.' },
+    { question: 'What is the best alternative to Pi7?', answer: 'For the same everyday tasks without uploads, PDFEditorFree\'s free toolbox covers 95 operations - edit, merge, split, convert, sign, compress, OCR - processing entirely in your browser via WebAssembly, with no signup and no file-size anxiety.' },
     { question: 'Do online PDF tools keep my files?', answer: 'Policies vary by site - reputable ones state they delete files after processing, but the upload itself is the structural exposure: the file existed on someone else\'s system. If that concerns you for any document class, local tools eliminate the question entirely.' },
     { question: 'Which tasks are fine to run on upload-based sites?', answer: 'Non-sensitive documents with no personal, financial, medical or confidential content are reasonable anywhere. The dividing line is simple: if the document embarrasses you or harms anyone by disclosure, process it locally.' },
   ],
   body: `
 Pi7 is a free online PDF toolkit in the upload-process-download mold: you upload your file, the site's servers process it, and you download the result. That architecture is fine for quick, non-sensitive tasks and structurally wrong for confidential ones - your document reaches someone else's infrastructure. This review explains the boundary, the safety analysis, and the free local-processing alternative that does the same jobs with nothing uploaded.
 
-**Quick verdict:** Pi7 is a free online PDF toolkit in the familiar upload-process-download mold - handy for quick, non-sensitive tasks. For anything confidential, for heavy files, or for ad-free speed, local-processing tools (like PDFCraft) do the same jobs with your files never leaving your device - and the rest of this review explains exactly how to choose.
+**Quick verdict:** Pi7 is a free online PDF toolkit in the familiar upload-process-download mold - handy for quick, non-sensitive tasks. For anything confidential, for heavy files, or for ad-free speed, local-processing tools (like PDFEditorFree) do the same jobs with your files never leaving your device - and the rest of this review explains exactly how to choose.
 
 ## On this page
 
@@ -224,7 +224,7 @@ Five slots, at most two installed applications, zero subscriptions for the vast 
 A free online PDF toolkit in the upload-process-download mold - a website of browser utilities covering everyday PDF tasks like editing, merging and converting.
 
 **Is Pi7 PDF editor really free?**
-The utilities are free, ad-supported, with the practical size/task limits typical of the category. Local tools like PDFCraft are also free - with no upload step and no server economics imposing limits.
+The utilities are free, ad-supported, with the practical size/task limits typical of the category. Local tools like PDFEditorFree are also free - with no upload step and no server economics imposing limits.
 
 **Is Pi7 safe to use for confidential PDFs?**
 Upload-based processing means your file reaches someone else's servers - for confidential documents, local-processing tools are the safer architecture because the file never leaves your device.
@@ -236,7 +236,7 @@ Category-typical coverage: page editing, merge/split, conversions, page manageme
 Uploads required, size and task limits, ad-supported interfaces, connectivity dependence - the standard category edges that local tools do not share.
 
 **What is the best alternative to Pi7?**
-PDFCraft's free toolbox: 95 operations - edit, merge, split, convert, sign, compress, OCR - processed entirely in your browser, no signup, no uploads.
+PDFEditorFree's free toolbox: 95 operations - edit, merge, split, convert, sign, compress, OCR - processed entirely in your browser, no signup, no uploads.
 
 **Do online PDF tools keep my files?**
 Policies vary and reputable sites state deletion windows - but the structural fact is the file reached their system at all. Sensitive documents belong in local tools, where the question never arises.
@@ -246,6 +246,6 @@ Non-sensitive documents with no personal, financial, medical or confidential con
 
 ## Do it locally, do it free
 
-Whatever brought you to Pi7 - a merge, a conversion, a quick edit - the same job runs free on your own device at [PDFCraft](/en/tools/): 95 tools, nothing uploaded, no signup. Start with [Edit PDF](/en/tools/edit-pdf/) or [Merge PDF](/en/tools/merge-pdf/) and keep the sensitive stuff sensitive.
+Whatever brought you to Pi7 - a merge, a conversion, a quick edit - the same job runs free on your own device at [PDFEditorFree](/en/tools/): 95 tools, nothing uploaded, no signup. Start with [Edit PDF](/en/tools/edit-pdf/) or [Merge PDF](/en/tools/merge-pdf/) and keep the sensitive stuff sensitive.
 `,
 };

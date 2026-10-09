@@ -12,7 +12,7 @@ export const swiftpdfReview: BlogPost = {
   category: 'Editor Reviews',
   readingMinutes: 15,
   relatedTools: [
-    { title: 'PDFCraft Free Toolbox', href: '/en/tools/', description: '95 tools that run at device speed - no uploads, no waiting.' },
+    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '95 tools that run at device speed - no uploads, no waiting.' },
     { title: 'Merge PDF', href: '/en/tools/merge-pdf/', description: 'The classic speed test - seconds, locally.' },
     { title: 'Compress PDF', href: '/en/tools/compress-pdf/', description: 'Shrink files without a server round trip.' },
     { title: 'PDF to Word', href: '/en/tools/pdf-to-docx/', description: 'Convert instantly, privately.' },
@@ -22,7 +22,7 @@ export const swiftpdfReview: BlogPost = {
     { question: 'Is SwiftPDF free?', answer: 'It depends which product of that name you encountered - tools sharing the name range from free utilities to paid developer components. Rather than chase a specific brand, this guide shows you how to get the outcome (fast PDF work) for free, with tools that run locally in your browser.' },
     { question: 'What makes a PDF tool actually fast?', answer: 'Three factors dominate: no upload wait (local processing beats server round trips), instant startup (a web tool opens as fast as a tab), and efficient processing (modern WebAssembly runs PDF engines at near-native speed on your device). Browser-based local tools score on all three - which is why they feel dramatically faster than upload-based sites.' },
     { question: 'Is SwiftPDF safe?', answer: 'With several products sharing one name, safety depends entirely on which one you downloaded or visited - a name is not a safety profile. Evaluate any tool by the 60-second checklist in this guide: who makes it, where files go, what it costs, and whether the output is clean.' },
-    { question: 'What is the best fast free PDF tool?', answer: 'For speed plus privacy plus zero cost, a local-processing browser toolbox is the category winner: PDFCraft\'s 95 tools open as fast as a web page and process on your device - merging, splitting, converting, compressing and signing without any upload.' },
+    { question: 'What is the best fast free PDF tool?', answer: 'For speed plus privacy plus zero cost, a local-processing browser toolbox is the category winner: PDFEditorFree\'s 95 tools open as fast as a web page and process on your device - merging, splitting, converting, compressing and signing without any upload.' },
     { question: 'Do I need a desktop app for fast PDF work?', answer: 'Usually no - modern browser tools process locally at speeds desktop users associate with native apps, without installation. Desktop suites still win for heavy professional workflows (certified signatures, preflight, batch automation), not for everyday speed.' },
     { question: 'How do I convert PDFs quickly on my phone?', answer: 'The same local browser tools run in mobile Safari and Chrome - open the site, pick the tool, process on-device. No app install, and speed is your phone\'s own, unaffected by network quality.' },
     { question: 'What should I check before trusting a small PDF utility?', answer: 'Four things: the maker is identifiable, the file-processing location is stated (local beats upload for privacy), output is watermark-free, and a sacrificial test file processes cleanly before you give it anything important.' },
@@ -30,7 +30,7 @@ export const swiftpdfReview: BlogPost = {
   body: `
 SwiftPDF is a name shared by several unrelated PDF products over the years, so there is no single tool to review - what people searching it want is PDF work that is fast. The honest answer: in 2026 the fastest PDF tool is a browser tab that processes locally - no upload wait, no installation, near-native speed on your own device. This guide includes a speed test you can run yourself, plus the safety checklist for any small utility.
 
-**Quick verdict:** rather than chasing whichever small product currently owns the name, route your need to its fastest real form: a local-processing browser toolbox - PDFCraft's 95 tools open like a web page and process on your own device, which is where PDF speed actually lives in 2026.
+**Quick verdict:** rather than chasing whichever small product currently owns the name, route your need to its fastest real form: a local-processing browser toolbox - PDFEditorFree's 95 tools open like a web page and process on your own device, which is where PDF speed actually lives in 2026.
 
 ## On this page
 
@@ -246,7 +246,7 @@ No upload wait (local processing), instant startup (a browser tab), and efficien
 A shared name is not a safety profile - evaluate whichever product you encountered with the checklist above: identifiable maker, stated file-processing location, clean output terms, scanned installer, tested output.
 
 **What is the best fast free PDF tool?**
-A local-processing browser toolbox - PDFCraft's 95 tools open instantly and process on your device, covering merge, split, convert, compress, sign and more, free.
+A local-processing browser toolbox - PDFEditorFree's 95 tools open instantly and process on your device, covering merge, split, convert, compress, sign and more, free.
 
 **Do I need a desktop app for fast PDF work?**
 No for everyday tasks - browser tools process locally at desktop-class speed with zero installation. Desktop suites earn installs only for certified signing, prepress, huge files or offline mandates.
@@ -259,6 +259,6 @@ The maker, the file-processing location, the output terms, a scanned installer (
 
 ## The swift route is already open
 
-Skip the name chase: [PDFCraft's toolbox](/en/tools/) opens like a web page and processes on your device - [Merge](/en/tools/merge-pdf/), [Compress](/en/tools/compress-pdf/), [PDF to Word](/en/tools/pdf-to-docx/), [Sign](/en/tools/sign-pdf/) and 90 more, free, with nothing uploaded. That is what swift actually looks like.
+Skip the name chase: [PDFEditorFree's toolbox](/en/tools/) opens like a web page and processes on your device - [Merge](/en/tools/merge-pdf/), [Compress](/en/tools/compress-pdf/), [PDF to Word](/en/tools/pdf-to-docx/), [Sign](/en/tools/sign-pdf/) and 90 more, free, with nothing uploaded. That is what swift actually looks like.
 `,
 };
