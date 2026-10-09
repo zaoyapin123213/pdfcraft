@@ -221,6 +221,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
               <Link
                 key={item.href}
                 href={item.href}
+                prefetch={false}
                 className="px-4 py-1.5 text-sm font-medium text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))/0.5] rounded-full transition-all"
               >
                 {item.label}
@@ -362,6 +363,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                prefetch={false}
                     className="block px-4 py-3 text-base font-medium text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))] rounded-lg transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

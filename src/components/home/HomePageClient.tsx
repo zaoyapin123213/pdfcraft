@@ -122,7 +122,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href={`/${locale}/tools`}>
+                <Link href={`/${locale}/tools`} prefetch={false}>
                   <Button variant="primary" size="lg" className="h-11 px-8 text-base shadow-lg hover:shadow-primary/25 transition-all hover:-translate-y-0.5">
                     {t('home.hero.cta')}
                     <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
@@ -198,7 +198,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                   {t(`home.categoriesDescription.${categoryTranslationKeys['organize-manage']}`)}
                 </p>
               </div>
-              <Link href={`/${locale}/tools`}>
+              <Link href={`/${locale}/tools`} prefetch={false}>
                 <Button variant="outline" size="sm" className="group">
                   {t('common.navigation.tools')}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />

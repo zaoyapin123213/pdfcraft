@@ -94,6 +94,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                prefetch={false}
                     className="text-sm text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-primary))] transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-[hsl(var(--color-muted-foreground))] group-hover:bg-[hsl(var(--color-primary))] transition-colors" />
@@ -190,8 +191,8 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
           <div className="flex items-center gap-6">
             {/* Only link to pages that actually exist; /terms and /cookies
                 are not implemented and returned 404 (broken links). */}
-            <Link href={`/${locale}/privacy`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Privacy</Link>
-            <Link href={`/${locale}/contact`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Contact</Link>
+            <Link href={`/${locale}/privacy`} prefetch={false} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Privacy</Link>
+            <Link href={`/${locale}/contact`} prefetch={false} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Contact</Link>
           </div>
         </div>
       </div>
