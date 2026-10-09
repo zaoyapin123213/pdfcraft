@@ -16,6 +16,14 @@ interface ContactPageClientProps {
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
+// Contact form delivery:
+// - Leave WEB3FORMS_ACCESS_KEY empty to fall back to opening the visitor's
+//   email client (mailto) with the message pre-filled.
+// - With a Web3Forms access key (free at web3forms.com), submissions POST
+//   directly and arrive in that account's email inbox and dashboard.
+const WEB3FORMS_ACCESS_KEY = '';
+const CONTACT_EMAIL = 'peter@hengxang.com';
+
 export default function ContactPageClient({ locale }: ContactPageClientProps) {
   const t = useTranslations('contactPage');
   const tCommon = useTranslations('common');
@@ -60,10 +68,45 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
     e.preventDefault();
     setFormStatus('submitting');
 
-    // Simulate form submission (in a real app, this would send to an API)
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    const subject = encodeURIComponent(`[pdfeditorfree.net] ${formData.subject || 'Contact form message'}`);
+    const body = encodeURIComponent(`Name: ${formData.name}
+Email: ${formData.email}
 
-    // For demo purposes, always succeed
+${formData.message}`);
+
+    if (WEB3FORMS_ACCESS_KEY) {
+      // Real submission: messages land in the inbox of the Web3Forms
+      // account that owns this access key (visible in the Web3Forms
+      // dashboard under Submissions as well).
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `[pdfeditorfree.net] ${formData.subject || 'Contact form message'}`,
+            from_name: 'PDFEditorFree Contact Form',
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          setFormStatus('success');
+          setFormData({ name: '', email: '', subject: '', message: '' });
+          return;
+        }
+        setFormStatus('error');
+      } catch {
+        setFormStatus('error');
+      }
+      return;
+    }
+
+    // Fallback (no access key configured): open the visitor's email client
+    // with the message pre-filled, addressed to the site owner's inbox.
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
     setFormStatus('success');
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
