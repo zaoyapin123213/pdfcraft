@@ -64,3 +64,4 @@ ehthumbs.db
 bentopdf-main
 # Comparison/debug files
 comparisons.txt
+.tmp-*
