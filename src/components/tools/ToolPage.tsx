@@ -12,6 +12,7 @@ import { getToolIcon } from '@/config/icons';
 import Link from 'next/link';
 import { Home, ChevronRight } from 'lucide-react';
 import { FavoriteButton } from '@/components/ui/FavoriteButton';
+import ToolLoader from '@/components/tools/ToolLoader';
 
 export interface ToolPageProps {
   /** Tool data */
@@ -41,7 +42,7 @@ const categoryTranslationKeys: Record<ToolCategory, string> = {
  * ToolPage layout component provides the structure for individual tool pages.
  * Includes tool interface, description, how-to, use cases, FAQ, and related tools.
  */
-export function ToolPage({ tool, content, locale, children, localizedRelatedTools = {}, relatedBlogGuides = [] }: ToolPageProps) {
+export function ToolPage({ tool, content, locale, localizedRelatedTools = {}, relatedBlogGuides = [] }: ToolPageProps) {
   // Get related tools data
   const relatedTools = tool.relatedTools
     .map(id => getToolById(id))
@@ -100,7 +101,7 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
               data-testid="tool-page-interface"
               aria-label="Tool interface"
             >
-              {children}
+              <ToolLoader toolId={tool.id} />
             </section>
 
             {/* Description Section */}

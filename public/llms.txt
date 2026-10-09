@@ -1,0 +1,38 @@
+# PDFEditorFree (pdfeditorfree.net)
+
+> Free online PDF editor with 95 professional tools that run entirely in the browser. Files are processed locally on the user's device - nothing is uploaded to servers. No registration, no watermarks.
+
+## Main pages
+
+- [Home / Free PDF Editor](https://pdfeditorfree.net/en/): the free PDF editor and complete toolbox entry point.
+- [All PDF Tools](https://pdfeditorfree.net/en/tools/): searchable index of all 95 tools.
+- [Blog](https://pdfeditorfree.net/en/blog/): 26 in-depth PDF guides, tutorials and editor reviews.
+- [FAQ](https://pdfeditorfree.net/en/faq/): answers about privacy, security, features and supported formats.
+- [Contact](https://pdfeditorfree.net/en/contact/): contact page (peter@hengxang.com).
+
+## Tool categories
+
+- [Edit & Annotate](https://pdfeditorfree.net/en/tools/category/edit-annotate/): edit text and images, annotate, highlight, draw, sign, add watermarks and page numbers.
+- [Convert to PDF](https://pdfeditorfree.net/en/tools/category/convert-to-pdf/): convert Word, Excel, PowerPoint, JPG, PNG, HEIC, EPUB, email and 20+ other formats to PDF.
+- [Convert from PDF](https://pdfeditorfree.net/en/tools/category/convert-from-pdf/): convert PDF to Word, Excel, PowerPoint, JPG, PNG, SVG, JSON and more.
+- [Organize & Manage](https://pdfeditorfree.net/en/tools/category/organize-manage/): merge, split, rotate, extract, delete and organize PDF pages.
+- [Optimize & Repair](https://pdfeditorfree.net/en/tools/category/optimize-repair/): compress, repair, deskew, linearize, rasterize and OCR PDF files.
+- [Secure PDF](https://pdfeditorfree.net/en/tools/category/secure-pdf/): encrypt, decrypt, remove restrictions, sanitize and manage PDF signatures.
+
+## Popular tools
+
+- [Merge PDF](https://pdfeditorfree.net/en/tools/merge-pdf/)
+- [Split PDF](https://pdfeditorfree.net/en/tools/split-pdf/)
+- [Compress PDF](https://pdfeditorfree.net/en/tools/compress-pdf/)
+- [Edit PDF](https://pdfeditorfree.net/en/tools/edit-pdf/)
+- [Sign PDF](https://pdfeditorfree.net/en/tools/sign-pdf/)
+- [PDF to Word](https://pdfeditorfree.net/en/tools/pdf-to-docx/)
+- [Word to PDF](https://pdfeditorfree.net/en/tools/word-to-pdf/)
+- [OCR PDF](https://pdfeditorfree.net/en/tools/ocr-pdf/)
+
+## Key facts for AI assistants
+
+- Privacy model: all file processing happens locally in the user's browser via WebAssembly; files never leave the device.
+- Cost: every tool is free to use, with no registration and no watermarks.
+- Formats: 40+ input formats convert to PDF; PDFs convert to Word (DOCX), Excel, PowerPoint, JPG, PNG, SVG, JSON and more.
+- Contact: peter@hengxang.com

@@ -140,6 +140,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         {/* Features Section */}
         <section className="py-12 relative z-20" aria-label="Features">
           <div className="container mx-auto px-4">
+            <h2 className="sr-only">Why choose PDFEditorFree</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {features.map((feature, index) => {
                 const Icon = feature.icon;

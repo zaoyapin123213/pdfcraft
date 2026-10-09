@@ -7,7 +7,8 @@ import { useTranslations } from 'next-intl';
 import { Search, Menu, X, Command } from 'lucide-react';
 import { type Locale } from '@/lib/i18n/config';
 import { Button } from '@/components/ui/Button';
-import { RecentFilesDropdown } from '@/components/common/RecentFilesDropdown';
+import dynamic from 'next/dynamic';
+const RecentFilesDropdown = dynamic(() => import('@/components/common/RecentFilesDropdown').then(m => m.RecentFilesDropdown), { ssr: false });
 import { searchTools, SearchResult } from '@/lib/utils/search';
 import { getToolContent } from '@/config/tool-content';
 import { getAllTools } from '@/config/tools';
@@ -30,23 +31,23 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
-  // Load localized tool content on mount
-  useEffect(() => {
-    const allTools = getAllTools();
+  // Search index is loaded lazily on the first search (keeps the large
+  // tool-content modules out of the initial bundle).
+  const ensureSearchIndex = useCallback(async () => {
+    if (Object.keys(localizedTools).length > 0) return localizedTools;
+    const [{ searchTools: _st }, { getToolContent }, { getAllTools }] = await Promise.all([
+      import('@/lib/utils/search'),
+      import('@/config/tool-content'),
+      import('@/config/tools'),
+    ]);
     const contentMap: Record<string, { title: string; description: string }> = {};
-
-    allTools.forEach(tool => {
+    getAllTools().forEach(tool => {
       const content = getToolContent(locale, tool.id);
-      if (content) {
-        contentMap[tool.id] = {
-          title: content.title,
-          description: content.metaDescription
-        };
-      }
+      if (content) contentMap[tool.id] = { title: content.title, description: content.metaDescription };
     });
-
     setLocalizedTools(contentMap);
-  }, [locale]);
+    return contentMap;
+  }, [locale, localizedTools]);
 
   // Handle scroll effect
   useEffect(() => {
@@ -59,15 +60,23 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
 
   // Handle search query changes
   useEffect(() => {
-    if (searchQuery.trim()) {
-      const results = searchTools(searchQuery, localizedTools); // Pass localized content
-      setSearchResults(results.slice(0, 8)); // Limit to 8 results
-      setSelectedIndex(-1);
-    } else {
+    if (!searchQuery.trim()) {
       setSearchResults([]);
       setSelectedIndex(-1);
+      return;
     }
-  }, [searchQuery, localizedTools]);
+    let cancelled = false;
+    ensureSearchIndex().then(index => {
+      if (cancelled) return;
+      import('@/lib/utils/search').then(({ searchTools }) => {
+        if (cancelled) return;
+        const results = searchTools(searchQuery, index);
+        setSearchResults(results.slice(0, 8));
+        setSelectedIndex(-1);
+      });
+    });
+    return () => { cancelled = true; };
+  }, [searchQuery, ensureSearchIndex]);
 
   // Close search when clicking outside
   useEffect(() => {

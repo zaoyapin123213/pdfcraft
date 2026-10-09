@@ -3,7 +3,7 @@
 /* PDFCraft Design System - CSS Variables for Theming */
 :root {
   /* Primary Colors - Deep Blue/Indigo for trust and modern tech feel */
-  --color-primary: 226 71% 55%; /* #3b82f6 - slightly more vibrant */
+  --color-primary: 226 68% 50%; /* #3b82f6 - slightly more vibrant */
   --color-primary-foreground: 0 0% 100%;
   --color-primary-hover: 226 71% 45%;
   
@@ -22,7 +22,7 @@
   
   /* Muted Colors */
   --color-muted: 210 40% 96%;
-  --color-muted-foreground: 215 16% 47%;
+  --color-muted-foreground: 215 16% 44%;
   
   /* Card Colors */
   --color-card: 0 0% 100%;
@@ -80,7 +80,7 @@
 
 /* Dark Mode Theme */
 .dark {
-  --color-primary: 226 71% 60%;
+  --color-primary: 226 75% 64%;
   --color-primary-foreground: 222 47% 11%;
   --color-primary-hover: 226 71% 70%;
   
@@ -95,7 +95,7 @@
   --color-foreground: 210 40% 98%;
   
   --color-muted: 217 33% 13%;
-  --color-muted-foreground: 215 20% 65%;
+  --color-muted-foreground: 215 20% 68%;
   
   --color-card: 222 47% 10%;
   --color-card-foreground: 210 40% 98%;

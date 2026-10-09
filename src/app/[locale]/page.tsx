@@ -1,6 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
-import HomePageClient from './HomePageClient';
+import HomePageClient from '@/components/home/HomePageClient';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { generateWebSiteSchema, generateOrganizationSchema } from '@/lib/seo';
 import { homeFaqs } from '@/content/homeFaq';
