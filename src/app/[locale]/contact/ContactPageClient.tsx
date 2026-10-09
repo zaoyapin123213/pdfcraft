@@ -117,7 +117,7 @@ ${formData.message}`);
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-[hsl(var(--color-muted)/0.3)] py-12">
+        <section className="bg-[hsl(var(--color-muted)/0.3)] pt-32 pb-12">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl font-bold text-[hsl(var(--color-foreground))] mb-4">
