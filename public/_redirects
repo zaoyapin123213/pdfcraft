@@ -1,4 +1,5 @@
 # Cloudflare Pages redirects/rewrites
-# Serve the prerendered English homepage at the root URL with HTTP 200
-# (no redirect hop = lower TTFB; crawlers and AI agents get full content).
-/ /en/index.html 200
+# 301 root to the English homepage. A redirect (unlike a 200 rewrite) is
+# fail-safe under any cache staleness: even a cached copy of the 301 still
+# sends visitors to /en/, never a dead shell.
+/ /en/ 301
