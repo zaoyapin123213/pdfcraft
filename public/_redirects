@@ -1,5 +1,9 @@
 # Cloudflare Pages redirects/rewrites
-# 301 root to the English homepage. A redirect (unlike a 200 rewrite) is
-# fail-safe under any cache staleness: even a cached copy of the 301 still
-# sends visitors to /en/, never a dead shell.
-/ /en/ 301
+# Serve the English homepage content directly at the root URL with HTTP 200
+# (no redirect hop: PSI/Lighthouse measured 0.92 vs 0.99 performance through
+# the previous 301 — the extra round trip cost the difference on slow 4G).
+# Target is the clean URL /en/ (NOT /en/index.html — the .html form gets
+# normalized to a 308 by CF Pages pretty-URLs, which broke the rewrite).
+# Requires that out/index.html is NOT emitted: keep src/app/page.tsx
+# deleted, otherwise the static asset shadows this rewrite.
+/ /en/ 200

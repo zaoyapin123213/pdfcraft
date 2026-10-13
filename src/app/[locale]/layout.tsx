@@ -70,6 +70,21 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
+      {/* Preload the latin Inter face. next/font marks the file .p. but
+          does not always emit the <link rel="preload"> in static-export
+          HTML; display:optional only applies the web font when it arrives
+          within its ~100ms block period, so the request must start at
+          head-parse. Duplicate links (if next/font emits its own) are
+          deduped by the browser. The media hash is content-derived and
+          stable across builds; update it if the Inter version changes.
+          React hoists this link into <head>. */}
+      <link
+        rel="preload"
+        href="/_next/static/media/e4af272ccee01ff0-s.p.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
       <div lang={locale} dir={direction} className={`${fontVariables} min-h-screen bg-background text-foreground antialiased font-sans`}>
         <SkipLink targetId="main-content">Skip to main content</SkipLink>
         {children}

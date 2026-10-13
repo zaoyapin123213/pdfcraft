@@ -92,12 +92,15 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
           className="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-28"
           aria-labelledby="hero-title"
         >
-          {/* Animated Background Blobs */}
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-[hsl(var(--color-primary)/0.2)] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" />
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-[hsl(var(--color-accent)/0.2)] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000" />
-            <div className="absolute -bottom-32 left-1/2 w-96 h-96 bg-[hsl(var(--color-secondary)/0.3)] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000" />
-          </div>
+          {/* Static background glow — replaces the previous three animated
+              blur-3xl/mix-blend blobs: 384px blur(64px) layers starving the
+              raster thread delayed hero text paint (LCP render delay >2.3s
+              on throttled mobile) while TBT looked clean, since raster cost
+              is invisible to TBT. A static radial gradient paints once. */}
+          <div
+            className="absolute inset-0 -z-10 pointer-events-none bg-[radial-gradient(600px_circle_at_20%_15%,hsl(var(--color-primary)/0.10),transparent_60%),radial-gradient(600px_circle_at_80%_10%,hsl(var(--color-accent)/0.08),transparent_60%),radial-gradient(700px_circle_at_50%_105%,hsl(var(--color-secondary)/0.10),transparent_60%)]"
+            aria-hidden="true"
+          />
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
@@ -236,6 +239,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                   <Link
                     key={category}
                     href={`/${locale}/tools?category=${category}`}
+                    prefetch={false}
                     className="group"
                   >
                     <Card className="p-5 h-full glass-card hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-[hsl(var(--color-border)/0.6)]">

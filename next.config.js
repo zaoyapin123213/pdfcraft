@@ -7,6 +7,13 @@ const nextConfig = {
   // Enable static export for deployment flexibility
   output: 'export',
 
+  // Do NOT enable experimental.inlineCss: it (a) drops next/font's font
+  // preload link and (b) inflates the SIMULATED LCP by ~1.5s because the
+  // ~190KB inline <style> serializes document parse + style-recalc in the
+  // Lighthouse throttling model (measured perf 97 -> 93/94 with everything
+  // else identical). The external CSS file is 15KB gz and costs one RTT.
+  // experimental: { inlineCss: true },
+
   // Webpack configuration for WASM modules
   webpack: (config, { isServer, webpack }) => {
     // The filesystem cache can grow very large (GBs); disable it for
