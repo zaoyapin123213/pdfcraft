@@ -8,36 +8,38 @@ export const onRequestGet = async ({ request }: { request: Request }): Promise<R
   const q = url.searchParams.get('q') ?? '';
   const sl = url.searchParams.get('sl') || 'auto';
   const tl = url.searchParams.get('tl') || '';
-  if (!q || !tl) {
-    return new Response(JSON.stringify({ error: 'missing q or tl' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
+  const json = (body: string, status: number): Response =>
+    new Response(body, {
+      status,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*',
+      },
     });
-  }
-  if (q.length > 1800) {
-    return new Response(JSON.stringify({ error: 'q too long' }), {
-      status: 413,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
+  if (!q || !tl) return json(JSON.stringify({ error: 'missing q or tl' }), 400);
+  if (q.length > 1800) return json(JSON.stringify({ error: 'q too long' }), 413);
   const target =
     'https://translate.googleapis.com/translate_a/single?client=gtx&dt=t' +
     `&sl=${encodeURIComponent(sl)}&tl=${encodeURIComponent(tl)}&q=${encodeURIComponent(q)}`;
-  const upstream = await fetch(target, {
-    headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
-  });
-  if (!upstream.ok) {
-    return new Response(JSON.stringify({ error: `upstream ${upstream.status}` }), {
-      status: 502,
-      headers: { 'Content-Type': 'application/json' },
+  try {
+    const upstream = await fetch(target, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
     });
+    if (!upstream.ok) {
+      return json(JSON.stringify({ error: `upstream ${upstream.status}` }), 502);
+    }
+    const body = await upstream.text();
+    return new Response(body, {
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'public, max-age=86400',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  } catch (e) {
+    return json(
+      JSON.stringify({ error: 'fetch failed', detail: e instanceof Error ? `${e.name}: ${e.message}` : String(e) }),
+      502,
+    );
   }
-  const body = await upstream.text();
-  return new Response(body, {
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Cache-Control': 'public, max-age=86400',
-      'Access-Control-Allow-Origin': '*',
-    },
-  });
 };
