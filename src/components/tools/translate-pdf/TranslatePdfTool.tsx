@@ -54,33 +54,67 @@ function configureWorker(pdfjsLib: unknown) {
     'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.8.69/build/pdf.worker.min.mjs';
 }
 
+type TranslatePath = { name: string; build: (text: string, sl: string, tl: string) => string };
+
+/**
+ * Translation paths, tried in order; the first path that succeeds is reused
+ * for subsequent blocks. Direct Google works for most visitors; the
+ * same-origin Pages Function proxy covers networks that block Google
+ * (its own availability depends on Cloudflare egress).
+ */
+const TRANSLATE_PATHS: TranslatePath[] = [
+  {
+    name: 'google-direct',
+    build: (text, sl, tl) =>
+      `https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&sl=${encodeURIComponent(sl)}&tl=${encodeURIComponent(tl)}&q=${encodeURIComponent(text)}`,
+  },
+  {
+    name: 'proxy',
+    build: (text, sl, tl) =>
+      `/api/translate?client=gtx&dt=t&sl=${encodeURIComponent(sl)}&tl=${encodeURIComponent(tl)}&q=${encodeURIComponent(text)}`,
+  },
+  {
+    name: 'google-clients5',
+    build: (text, sl, tl) =>
+      `https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=${encodeURIComponent(sl)}&tl=${encodeURIComponent(tl)}&q=${encodeURIComponent(text)}`,
+  },
+];
+
+let preferredPathIndex = 0;
+
+async function translateVia(
+  path: TranslatePath,
+  text: string,
+  sl: string,
+  tl: string,
+  signal?: AbortSignal,
+): Promise<string> {
+  const res = await fetch(path.build(text, sl, tl), { signal });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = (await res.json()) as unknown;
+  if (!Array.isArray(data) || !Array.isArray(data[0])) throw new Error('bad payload');
+  return (data[0] as unknown[])
+    .map(seg => (Array.isArray(seg) ? String(seg[0] ?? '') : ''))
+    .join('');
+}
+
 async function translateChunk(
   text: string,
   sl: string,
   tl: string,
   signal?: AbortSignal,
 ): Promise<string> {
-  // Same-origin Pages Function proxy (/functions/api/translate.ts): direct
-  // browser calls to translate.googleapis.com fail for visitors behind
-  // networks that block Google (e.g. mainland China); the proxy runs on
-  // Cloudflare's edge where Google is reachable.
-  const url =
-    '/api/translate?client=gtx&dt=t' +
-    `&sl=${encodeURIComponent(sl)}&tl=${encodeURIComponent(tl)}&q=${encodeURIComponent(text)}`;
   let lastErr: unknown;
   for (let attempt = 0; attempt < 3; attempt++) {
+    const path = TRANSLATE_PATHS[(preferredPathIndex + attempt) % TRANSLATE_PATHS.length];
     try {
-      const res = await fetch(url, { signal });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = (await res.json()) as unknown;
-      if (!Array.isArray(data) || !Array.isArray(data[0])) throw new Error('bad payload');
-      return (data[0] as unknown[])
-        .map(seg => (Array.isArray(seg) ? String(seg[0] ?? '') : ''))
-        .join('');
+      const out = await translateVia(path, text, sl, tl, signal);
+      preferredPathIndex = TRANSLATE_PATHS.indexOf(path);
+      return out;
     } catch (e) {
       lastErr = e;
       if (signal?.aborted) throw e;
-      await new Promise(r => setTimeout(r, 600 * (attempt + 1)));
+      await new Promise(r => setTimeout(r, 500 * (attempt + 1)));
     }
   }
   throw lastErr instanceof Error ? lastErr : new Error('translation failed');
