@@ -3,7 +3,7 @@
 // forwards the query to Google's translate endpoint from Cloudflare's edge
 // (reachable from mainland-China visitors, unlike translate.googleapis.com
 // direct browser calls) and returns the JSON with same-origin CORS.
-export const onRequestGet: PagesFunction = async ({ request }) => {
+export const onRequestGet = async ({ request }: { request: Request }): Promise<Response> => {
   const url = new URL(request.url);
   const q = url.searchParams.get('q') ?? '';
   const sl = url.searchParams.get('sl') || 'auto';
