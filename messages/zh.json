@@ -2043,6 +2043,25 @@
     "pdfReader": {
       "uploadLabel": "打开PDF文件",
       "uploadDescription": "打开PDF文件进行阅读和查看。"
+    },
+    "translatePdf": {
+      "uploadLabel": "上传要翻译的 PDF",
+      "uploadDescription": "把 PDF 文件拖到这里，或点击选择。文件始终在你的浏览器本地处理。",
+      "sourceLang": "源语言",
+      "targetLang": "目标语言",
+      "bilingualMode": "双语对照输出（原页与译页交错排列）",
+      "privacyNote": "文件本身永不上传；翻译需要把提取出的文本发送到在线翻译服务。",
+      "phaseParsing": "正在读取文档… 第 {done}/{total} 页",
+      "phaseTranslating": "正在翻译… 第 {done}/{total} 段",
+      "phaseComposing": "正在生成译文 PDF…",
+      "cancel": "取消",
+      "download": "下载译文 PDF",
+      "translateAnother": "翻译另一个文件",
+      "previewTitle": "第一页预览（已翻译）",
+      "previewAlt": "翻译后第一页的预览",
+      "errorGeneric": "翻译失败：",
+      "errorPdfOnly": "请上传 PDF 文件。",
+      "errorTooLarge": "文件过大，最大支持 50 MB。"
     }
   }
 }

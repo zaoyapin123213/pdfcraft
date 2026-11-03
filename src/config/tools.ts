@@ -1181,6 +1181,18 @@ export const tools: Tool[] = [
     features: ['page-navigation', 'zoom', 'rotate', 'fullscreen', 'print', 'download'],
     relatedTools: ['sign-pdf', 'annotate-pdf'],
   },
+  {
+    id: 'translate-pdf',
+    slug: 'translate-pdf',
+    icon: 'languages',
+    category: 'convert-from-pdf',
+    acceptedFormats: ['.pdf'],
+    outputFormat: '.pdf',
+    maxFileSize: DEFAULT_MAX_FILE_SIZE,
+    maxFiles: 1,
+    features: ['translate-text', 'preserve-layout', 'bilingual-output', 'multi-language'],
+    relatedTools: ['ocr-pdf', 'pdf-reader', 'compress-pdf'],
+  },
 ];
 
 /**

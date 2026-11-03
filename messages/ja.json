@@ -1822,6 +1822,25 @@
     "pdfReader": {
       "uploadLabel": "Open PDF",
       "uploadDescription": "Open PDF to read."
+    },
+    "translatePdf": {
+      "uploadLabel": "翻訳するPDFをアップロード",
+      "uploadDescription": "PDFファイルをドラッグ＆ドロップ、またはクリックして選択。ファイルはブラウザ内で処理されます。",
+      "sourceLang": "翻訳元の言語",
+      "targetLang": "翻訳先の言語",
+      "bilingualMode": "バイリンガル出力（原文ページと訳文ページを交互に配置）",
+      "privacyNote": "ファイル本体はアップロードされません。翻訳には抽出テキストをオンライン翻訳サービスへ送信する必要があります。",
+      "phaseParsing": "文書を読み込み中… {done}/{total} ページ",
+      "phaseTranslating": "翻訳中… ブロック {done}/{total}",
+      "phaseComposing": "翻訳PDFを生成中…",
+      "cancel": "キャンセル",
+      "download": "翻訳PDFをダウンロード",
+      "translateAnother": "別のファイルを翻訳",
+      "previewTitle": "1ページ目のプレビュー（翻訳済み）",
+      "previewAlt": "翻訳された1ページ目のプレビュー",
+      "errorGeneric": "翻訳に失敗しました：",
+      "errorPdfOnly": "PDFファイルをアップロードしてください。",
+      "errorTooLarge": "ファイルが大きすぎます。最大50MBです。"
     }
   }
 }

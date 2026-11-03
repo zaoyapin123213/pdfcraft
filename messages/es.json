@@ -1822,6 +1822,25 @@
     "pdfReader": {
       "uploadLabel": "Open PDF",
       "uploadDescription": "Open PDF to read."
+    },
+    "translatePdf": {
+      "uploadLabel": "Sube un PDF para traducir",
+      "uploadDescription": "Arrastra y suelta un archivo PDF aquí, o haz clic para seleccionarlo. El archivo se procesa localmente en tu navegador.",
+      "sourceLang": "Idioma de origen",
+      "targetLang": "Traducir a",
+      "bilingualMode": "Salida bilingüe (intercala páginas original y traducida)",
+      "privacyNote": "Tu archivo nunca sale de tu dispositivo. La traducción requiere enviar el texto extraído a un servicio de traducción en línea.",
+      "phaseParsing": "Leyendo documento… página {done} de {total}",
+      "phaseTranslating": "Traduciendo… bloque {done} de {total}",
+      "phaseComposing": "Generando PDF traducido…",
+      "cancel": "Cancelar",
+      "download": "Descargar PDF traducido",
+      "translateAnother": "Traducir otro archivo",
+      "previewTitle": "Vista previa de la primera página (traducida)",
+      "previewAlt": "Vista previa de la primera página traducida",
+      "errorGeneric": "Error de traducción:",
+      "errorPdfOnly": "Sube un archivo PDF.",
+      "errorTooLarge": "El archivo es demasiado grande. Máximo 50 MB."
     }
   }
 }

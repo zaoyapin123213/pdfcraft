@@ -2510,5 +2510,33 @@ export const toolContentEn: Record<string, ToolContent> = {
       { question: 'Does it work on mobile devices?', answer: 'Yes, the PDF Reader works on all devices with a modern web browser.' },
     ],
   },
+  'translate-pdf': {
+    title: 'Translate PDF',
+    metaDescription: 'Translate PDF documents to Chinese, Japanese, Spanish and more while keeping the original layout. Free online PDF translator - your file stays in your browser.',
+    keywords: ['translate pdf', 'pdf translator', 'translate pdf to english', 'pdf translation online', 'translate document pdf'],
+    description: `
+      <p>Translate PDF turns your bilingual reading problem into a two-click job. Upload a PDF, pick a target language, and get a translated document with the original pages preserved as a visual reference - charts, diagrams, signatures and scans stay exactly where they were.</p>
+      <p>Two output modes fit different workflows: the <strong>bilingual edition</strong> interleaves each original page with its translation (ideal for academic reading and cross-checking terminology), while the <strong>translated edition</strong> gives you a clean translated-only file.</p>
+      <p>Like every tool on PDFEditorFree, the PDF file itself is processed entirely in your browser and never uploaded to a server. To translate the wording, the extracted text is sent to an online translation service - the disclosure is shown in the tool before you start.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop a text-based PDF (scanned documents without selectable text are not supported), choose the source and target languages.' },
+      { step: 2, title: 'Translate', description: 'Click translate and watch the progress: pages are parsed locally, text blocks are translated online, then the translated pages are composed.' },
+      { step: 3, title: 'Preview and Download', description: 'Check the first-page preview, then download either the translated-only PDF or the interleaved bilingual edition.' },
+    ],
+    useCases: [
+      { title: 'Academic Papers', icon: 'graduation-cap', description: 'Read English research papers with a Chinese, Japanese or Korean side-by-side translation that keeps figures and formulas in place.' },
+      { title: 'Technical Manuals', icon: 'wrench', description: 'Translate equipment manuals and spec sheets while keeping diagrams and layout as the ground truth.' },
+      { title: 'Cross-Border Business', icon: 'briefcase', description: 'Turn English contracts and reports into a bilingual file your partners can verify line by line.' },
+    ],
+    faq: [
+      { question: 'Is my PDF uploaded to a server?', answer: 'No. The PDF is parsed and rendered entirely in your browser. Only the extracted text strings are sent to an online translation service to produce the wording.' },
+      { question: 'Why is the output text not selectable?', answer: 'This version composes translated pages as high-resolution images so translated Chinese, Japanese and Korean text renders correctly everywhere. Use PDFEditorFree\u2019s other tools if you need to annotate on top of the result.' },
+      { question: 'Does it work with scanned PDFs?', answer: 'No. Scanned pages have no selectable text to extract. Run them through an OCR tool first, then translate the OCR output.' },
+      { question: 'Which languages are supported?', answer: 'English, Chinese (Simplified), Japanese, Korean, Spanish, French, German, Portuguese and Russian, in any direction, with automatic source-language detection.' },
+      { question: 'Is there a page or size limit?', answer: 'Files up to 50 MB and the first 50 pages are translated in this version. Larger documents may hit browser memory limits.' },
+    ],
+  },
+
 };
 

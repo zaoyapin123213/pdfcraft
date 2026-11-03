@@ -1821,6 +1821,25 @@
     "pdfReader": {
       "uploadLabel": "Open PDF",
       "uploadDescription": "Open PDF to read."
+    },
+    "translatePdf": {
+      "uploadLabel": "上傳要翻譯的 PDF",
+      "uploadDescription": "把 PDF 檔案拖到這裡，或點擊選擇。檔案始終在你的瀏覽器本地處理。",
+      "sourceLang": "來源語言",
+      "targetLang": "目標語言",
+      "bilingualMode": "雙語對照輸出（原頁與譯頁交錯排列）",
+      "privacyNote": "檔案本身永不上傳；翻譯需要把提取出的文字發送到線上翻譯服務。",
+      "phaseParsing": "正在讀取文件… 第 {done}/{total} 頁",
+      "phaseTranslating": "正在翻譯… 第 {done}/{total} 段",
+      "phaseComposing": "正在產生譯文 PDF…",
+      "cancel": "取消",
+      "download": "下載譯文 PDF",
+      "translateAnother": "翻譯另一個檔案",
+      "previewTitle": "第一頁預覽（已翻譯）",
+      "previewAlt": "翻譯後第一頁的預覽",
+      "errorGeneric": "翻譯失敗：",
+      "errorPdfOnly": "請上傳 PDF 檔案。",
+      "errorTooLarge": "檔案過大，最大支援 50 MB。"
     }
   }
 }

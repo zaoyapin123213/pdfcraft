@@ -1822,6 +1822,25 @@
     "pdfReader": {
       "uploadLabel": "Open PDF",
       "uploadDescription": "Open PDF to read."
+    },
+    "translatePdf": {
+      "uploadLabel": "번역할 PDF 업로드",
+      "uploadDescription": "PDF 파일을 끌어다 놓거나 클릭하여 선택하세요. 파일은 브라우저에서 로컬로 처리됩니다.",
+      "sourceLang": "원본 언어",
+      "targetLang": "대상 언어",
+      "bilingualMode": "이중 언어 출력(원문 페이지와 번역 페이지 교차 배치)",
+      "privacyNote": "파일 자체는 업로드되지 않습니다. 번역에는 추출된 텍스트를 온라인 번역 서비스로 보내야 합니다.",
+      "phaseParsing": "문서 읽는 중… {done}/{total} 페이지",
+      "phaseTranslating": "번역 중… 블록 {done}/{total}",
+      "phaseComposing": "번역 PDF 생성 중…",
+      "cancel": "취소",
+      "download": "번역 PDF 다운로드",
+      "translateAnother": "다른 파일 번역",
+      "previewTitle": "첫 페이지 미리보기(번역됨)",
+      "previewAlt": "번역된 첫 페이지 미리보기",
+      "errorGeneric": "번역 실패:",
+      "errorPdfOnly": "PDF 파일을 업로드해 주세요.",
+      "errorTooLarge": "파일이 너무 큽니다. 최대 50MB입니다."
     }
   }
 }

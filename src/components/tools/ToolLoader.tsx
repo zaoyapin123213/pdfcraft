@@ -94,6 +94,7 @@ const FontToOutlineTool = dynamic(() => import('@/components/tools/font-to-outli
 const ExtractTablesTool = dynamic(() => import('@/components/tools/extract-tables').then(m => m.ExtractTablesTool), { ssr: true });
 const OCGManagerTool = dynamic(() => import('@/components/tools/ocg-manager').then(m => m.OCGManagerTool), { ssr: true });
 const PDFReaderTool = dynamic(() => import('@/components/tools/pdf-reader').then(m => m.PDFReaderTool), { ssr: true });
+const TranslatePdfTool = dynamic(() => import('@/components/tools/translate-pdf').then(m => m.TranslatePdfTool), { ssr: true });
 
 const registry: Record<string, Loader> = {
   'merge-pdf': () => <MergePDFTool />,
@@ -191,6 +192,7 @@ const registry: Record<string, Loader> = {
   'extract-tables': () => <ExtractTablesTool />,
   'ocg-manager': () => <OCGManagerTool />,
   'pdf-reader': () => <PDFReaderTool />,
+  'translate-pdf': () => <TranslatePdfTool />,
 };
 
 export default function ToolLoader({ toolId }: { toolId: string }) {

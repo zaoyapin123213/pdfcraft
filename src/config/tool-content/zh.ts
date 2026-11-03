@@ -2354,5 +2354,33 @@ export const toolContentZh: Record<string, ToolContent> = {
       { question: '支持移动设备吗？', answer: '是的。' },
     ],
   },
+  'translate-pdf': {
+    title: 'PDF 翻译',
+    metaDescription: '免费在线 PDF 翻译工具：把英文等语言的 PDF 翻译成中文，保留原始排版与图表，支持双语对照版下载，文件在浏览器本地处理。',
+    keywords: ['pdf翻译', 'pdf翻译成中文', '英文pdf翻译', 'pdf在线翻译', '文档翻译'],
+    description: `
+      <p>PDF 翻译工具把"对照阅读外文文档"变成两步操作：上传 PDF、选择目标语言，即可得到保留原始页面的译文文件——图表、公式、签名和扫描内容都停留在原来的位置。</p>
+      <p>两种输出模式适应不同场景：<strong>双语对照版</strong>把原文页与译文页交错排列（适合学术阅读和术语核对），<strong>纯译文版</strong>则输出干净的翻译文件。</p>
+      <p>与 PDFEditorFree 的所有工具一样，PDF 文件完全在你的浏览器内处理、从不上传服务器。为了翻译措辞，提取出的文本会发送到在线翻译服务——工具内会在开始前明确提示。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '上传 PDF', description: '拖入文本型 PDF（不支持无文字层的扫描件），选择源语言和目标语言。' },
+      { step: 2, title: '开始翻译', description: '点击翻译并查看进度：页面在本地解析，文本块在线翻译，然后合成译文页面。' },
+      { step: 3, title: '预览并下载', description: '检查第一页预览，下载纯译文版或双语对照版 PDF。' },
+    ],
+    useCases: [
+      { title: '学术论文阅读', icon: 'graduation-cap', description: '阅读英文论文时生成中文对照翻译，图表与公式保持在原位。' },
+      { title: '技术手册翻译', icon: 'wrench', description: '翻译设备手册和规格书，图表与版式始终作为基准保留。' },
+      { title: '跨境商务文件', icon: 'briefcase', description: '把英文合同和报告变成逐行可核对的双语文件。' },
+    ],
+    faq: [
+      { question: '我的 PDF 会被上传到服务器吗？', answer: '不会。PDF 完全在浏览器内解析和渲染，只有提取出的文本会发送到在线翻译服务。' },
+      { question: '为什么译文文字不能选中？', answer: '当前版本把译文页合成为高分辨率图片，保证中文、日文、韩文在任何设备上都正确显示。如需在结果上批注，可使用本站其他工具。' },
+      { question: '支持扫描件吗？', answer: '不支持。扫描页没有可提取的文字层，请先用 OCR 工具识别后再翻译。' },
+      { question: '支持哪些语言？', answer: '英语、简体中文、日语、韩语、西班牙语、法语、德语、葡萄牙语、俄语任意互译，源语言可自动检测。' },
+      { question: '有页数或大小限制吗？', answer: '当前版本支持最大 50 MB、前 50 页。更大的文档可能触发浏览器内存限制。' },
+    ],
+  },
+
 };
 
