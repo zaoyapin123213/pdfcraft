@@ -5,7 +5,7 @@
 // the JSON with same-origin CORS. Endpoints are tried in order; each returns
 // the same shape: [[ [translated, original, ...], ... ], ...] like Google's
 // translate_a/single, normalized by the client.
-type Upstream = { url: string; parse: (body: string) => string };
+type Upstream = { url: (q: string, sl: string, tl: string) => string; parse: (body: string) => string };
 
 const UPSTREAMS: Upstream[] = [
   {
