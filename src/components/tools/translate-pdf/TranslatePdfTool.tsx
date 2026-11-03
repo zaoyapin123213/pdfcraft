@@ -60,8 +60,12 @@ async function translateChunk(
   tl: string,
   signal?: AbortSignal,
 ): Promise<string> {
+  // Same-origin Pages Function proxy (/functions/api/translate.ts): direct
+  // browser calls to translate.googleapis.com fail for visitors behind
+  // networks that block Google (e.g. mainland China); the proxy runs on
+  // Cloudflare's edge where Google is reachable.
   const url =
-    'https://translate.googleapis.com/translate_a/single?client=gtx&dt=t' +
+    '/api/translate?client=gtx&dt=t' +
     `&sl=${encodeURIComponent(sl)}&tl=${encodeURIComponent(tl)}&q=${encodeURIComponent(text)}`;
   let lastErr: unknown;
   for (let attempt = 0; attempt < 3; attempt++) {
