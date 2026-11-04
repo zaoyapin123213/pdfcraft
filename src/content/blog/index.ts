@@ -35,8 +35,14 @@ import { hipaaCompliantPdfEditor } from './posts/hipaa-compliant-pdf-editor';
 import { portablePdfEditor } from './posts/portable-pdf-editor';
 import { howToTranslateAScannedPdf } from './posts/how-to-translate-scanned-pdf';
 import { canAdobeTranslateAPdf } from './posts/can-adobe-translate-a-pdf';
+import { howToTranslatePdfOnMac } from './posts/how-to-translate-pdf-on-mac';
+import { canGoogleTranslatePdfDocuments } from './posts/can-google-translate-pdf-documents';
+import { translatePdfFrenchToEnglish } from './posts/translate-pdf-french-to-english';
 
 export const blogPosts: BlogPost[] = [
+  translatePdfFrenchToEnglish,
+  canGoogleTranslatePdfDocuments,
+  howToTranslatePdfOnMac,
   canAdobeTranslateAPdf,
   howToTranslateAScannedPdf,
   howToChangeFontColorInPdf,

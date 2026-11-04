@@ -54,8 +54,6 @@ Current Acrobat offers two working paths, and both start the same way: open your
 
 **The legacy fallback: export and translate.** On setups without these features, the classic method still works. Export the PDF to Word (Acrobat Pro does this well), then use Word's built-in Translate tab. It is clunkier, and complex layouts rarely survive the round trip cleanly.
 
-**The legacy fallback: export and translate.** On setups without these features, the classic method still works. Export the PDF to Word (Acrobat Pro does this well), then use Word's built-in Translate tab. It is clunkier, and complex layouts rarely survive the round trip cleanly.
-
 ### Step by Step: Translating a PDF With Acrobat's AI Assistant
 
 For readers who have the feature in their plan, here is the exact flow.
