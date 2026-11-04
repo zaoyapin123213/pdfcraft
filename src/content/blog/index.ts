@@ -33,8 +33,10 @@ import { pdfToDesignGuide } from './posts/pdf-to-design-guide';
 import { perpetualLicensePdfEditors } from './posts/perpetual-license-pdf-editors';
 import { hipaaCompliantPdfEditor } from './posts/hipaa-compliant-pdf-editor';
 import { portablePdfEditor } from './posts/portable-pdf-editor';
+import { howToTranslateAScannedPdf } from './posts/how-to-translate-scanned-pdf';
 
 export const blogPosts: BlogPost[] = [
+  howToTranslateAScannedPdf,
   howToChangeFontColorInPdf,
   howToChangeFontInPdf,
   howToChangeFontSizeInPdf,
