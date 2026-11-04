@@ -38,11 +38,11 @@ export const howToTranslatePdfOnMac: BlogPost = {
 
 **Quick answer:** to translate a PDF on Mac, use one of three methods. Short passages: select text in Preview, control-click, and choose Translate. Whole files with layout kept: open the free [Translate PDF](/en/tools/translate-pdf/) tool in your browser, drop the PDF in, and download the translated or bilingual copy. Whole files with any size up to 10 MB: upload to Google Translate's Documents tab and accept that the layout will change.
 
-You found a PDF in French, Japanese, or German, and you are working on a Mac. Maybe it is a contract from a supplier, a research paper, or an invoice with numbers you cannot guess your way through. The obvious move is to right-click the file and look for a Translate option, and Preview does not offer one.
+Translate a whole PDF on Mac by opening the [Translate PDF](/en/tools/translate-pdf/) tool in your browser and dropping the file in, or upload it to Google Translate's Documents tab. For a single paragraph, select the text in Preview, control-click, and choose Translate. Those are the three working methods, and none of them needs a purchase.
 
-That surprises people, because Safari translates web pages and iPhones translate messages. But a PDF is a document format, not a web page, and Apple never shipped a tool that translates a whole PDF file. What Apple did ship is a system translation feature that works on text you select, and that distinction shapes every method below.
+The surprise for most Mac users is that there is no fourth option: right-clicking the file in Preview offers no Translate command for whole documents, even though Safari translates web pages and iPhones translate messages. Apple ships a system translation feature that works on selected text only, and that distinction shapes every method below.
 
-This guide walks through all three ways to translate a PDF on Mac, in the order you should try them. You will see exact steps for each, the limits to know before you start, and a short way to decide which method fits your file.
+Maybe the file in front of you is a contract from a supplier, a research paper, or an invoice in a language you cannot guess your way through. This guide walks through all three ways to translate a PDF on Mac, in the order you should try them, with exact steps, the limits to know before you start, and a short way to decide which method fits your file.
 
 ## Does Mac Have a Built-In PDF Translator?
 
@@ -123,7 +123,9 @@ Because the tool keeps the original pages as the visual base, tables, columns, s
 
 ## When Should You Use DeepL for Mac Instead?
 
-Use DeepL when the translation quality matters more than convenience, especially for European languages. DeepL has a native Mac app and a web uploader that translates PDF files while keeping the formatting, and it is widely regarded as strong on French, German, and Spanish [DeepL document translation](https://www.deepl.com/en/features/document-translation).
+Use DeepL when the translation quality matters more than convenience, especially for European languages. DeepL has a native Mac app and a web uploader that translates PDF files while keeping the formatting, and it is widely regarded as strong on French, German, and Spanish [DeepL document translation](https://www.deepl.com/en/features/document-translation). On the desktop app, one shortcut is worth learning: select text anywhere on your Mac and press Command-C twice, and DeepL pops up a translation without switching apps, with a longer press letting you pick the target language on the fly.
+
+If you prefer translation inside a native Mac PDF app, PDF Expert adds a Translate command to its toolbar that works on whole documents, including text inside images on the Mac version, as a premium feature with a 7-day free trial [PDF Expert translation guide](https://pdfexpert.com/how-to-translate-pdf). It is the polished paid route, and the free methods above cover the same ground for occasional use.
 
 The free tier has real limits, so check them before you build a workflow around it. A free account covers document translation up to 5 MB per file, with a monthly cap on total characters, and paid plans lift those limits [DeepL translator files](https://www.deepl.com/en/translator/files). For an occasional contract or a cover letter, the free allowance is usually enough. For steady work, the subscription pays for itself in time saved on cleanup.
 

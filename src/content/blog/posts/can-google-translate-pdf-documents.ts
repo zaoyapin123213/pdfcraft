@@ -40,9 +40,9 @@ export const canGoogleTranslatePdfDocuments: BlogPost = {
 
 **Quick answer:** Google Translate does translate PDF documents through its web Documents tab, with a 10 MB size cap, a 300-page cap, and support for four formats (.docx, .pdf, .pptx, .xlsx). Upload, pick languages, click Translate, and a translated file downloads. Scanned PDFs need OCR first, and complex layouts come back simplified.
 
-It is one of the first questions people ask when a document lands in the wrong language: can the free Google tool everyone already has handle the whole file, not just pasted paragraphs? The answer is yes, and it has quietly become one of the most used document translation services on earth, backed by the largest language coverage of any free tool after Google added 110 languages in 2024 [Google Translate new languages](https://blog.google/products-and-platforms/products/translate/google-translate-new-languages-2024).
+Yes. Google Translate translates whole PDF documents through the Documents tab at translate.google.com, free, with no account, in up to 249 languages. Upload the file, pick two languages, and a translated copy downloads about a minute later, which has quietly made it one of the most used document translation services on earth, backed by the largest language coverage of any free tool after Google added 110 languages in 2024 [Google Translate new languages](https://blog.google/products-and-platforms/products/translate/google-translate-new-languages-2024).
 
-But "yes" comes with fine print that decides whether the result is usable. Size caps, format limits, the scanned-file problem, and what happens to your carefully designed pages all matter once you try it on a real document. This guide walks through exactly how the feature works, every limit that is easy to hit, what the output actually looks like, and the newer Google paths (Gemini in Drive, Chrome) that are starting to change the picture.
+The fine print decides whether the result is usable, though: size caps, format limits, the scanned-file problem, and what happens to your carefully designed pages. This guide walks through exactly how the feature works, every limit that is easy to hit, what the output actually looks like, and the newer Google paths (Gemini in Drive, Chrome) that are starting to change the picture.
 
 ## How Does Google Translate PDF Documents?
 
@@ -75,7 +75,7 @@ If your file is just over the line, shrink it before you translate it. The free 
 
 ## Can Google Translate Handle Scanned PDFs?
 
-No, and this is the failure people hit most often. Google's uploader reads the text layer inside the PDF, and a scanned page has none: it is a photograph of text, not text [what a scanned PDF is](/en/blog/how-to-translate-scanned-pdf/). Upload a scan and the translation typically comes back empty or fails outright.
+No, and this is the failure people hit most often. Google's uploader reads the text layer inside the PDF, and a scanned page has none: it is a photograph of text, not text [what a scanned PDF is](/en/blog/how-to-translate-scanned-pdf/). Google's own documentation is direct about the outcome: text inside images and scanned pages shows up in the translated file, but it is not translated [translate documents](https://support.google.com/translate/answer/2534559). In practice the English result keeps the foreign-language pictures and reads as mostly blank or unchanged.
 
 The fix is the same two-step pairing used everywhere else in document translation:
 

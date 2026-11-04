@@ -2,7 +2,7 @@ import { BlogPost } from '../types';
 
 export const translatePdfFrenchToEnglish: BlogPost = {
   slug: 'translate-pdf-french-to-english',
-  title: 'How to Translate a PDF Document From French to English (3 Free Ways)',
+  title: 'Translate a PDF Document From French to English: 3 Free Ways',
   h1: 'How to Translate a PDF Document From French to English',
   description:
     'Three free ways to translate a PDF document from French to English: a browser tool that keeps the layout, Google Translate for long plain reports, and DeepL for the best French phrasing. Steps and limits for each.',
@@ -40,9 +40,9 @@ export const translatePdfFrenchToEnglish: BlogPost = {
 
 **Quick answer:** the fastest free method is a browser tool: open [Translate PDF](/en/tools/translate-pdf/), drop in the French file, choose English as the target language, and download the translated or bilingual copy in about two minutes, no account needed. Google Translate's Documents tab is the second option for long plain reports, and DeepL is the third when phrasing quality matters most.
 
-A French PDF lands on your desk more often than you would think. It might be a facture from a French supplier, a lease for an apartment in Paris, a birth certificate from Quebec, or an academic transcript from Lyon. The document is due, the French is beyond your high school vocabulary, and you need the English version now.
+Drop the French PDF into the free [Translate PDF](/en/tools/translate-pdf/) browser tool, choose English as the target, and download the translated file with the layout intact. That is the fastest method, it takes about two minutes, and it needs no account. Google Translate and DeepL are the two alternatives this guide also covers, each with its own limits.
 
-This guide gives you three working methods, all free, with the exact steps and the limits of each. It also covers the two things specific to French that generic guides skip: what to do with scanned French pages full of accents, and when a French document actually needs a certified human translation instead of a machine one.
+French documents land on more desks than you would think: a facture from a French supplier, a lease for an apartment in Paris, a birth certificate from Quebec, or an academic transcript from Lyon. This guide gives you three working methods, all free, with exact steps, the limits of each, and the two things specific to French that generic guides skip: what to do with scanned pages full of accents, and when a French document actually needs a certified human translation instead of a machine one.
 
 ## What Is the Fastest Way to Translate a PDF From French to English?
 
