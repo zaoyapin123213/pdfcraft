@@ -37,13 +37,11 @@ export const howToTranslateAScannedPdf: BlogPost = {
 
 ---
 
-You receive an important document. It might be a contract from an overseas partner, an academic paper, a birth certificate or an old engineering drawing. Someone scanned it into a PDF, and it happens to be in a language you cannot read well.
+To translate a scanned PDF, recover its text with OCR first, then run the recovered file through a translator. That is the whole method. A scan is a picture of a page, so translators cannot see any words until OCR converts the picture back into real characters. The free workflow below uses two browser tools, the [OCR PDF](/en/tools/ocr-pdf/) tool and the [Translate PDF](/en/tools/translate-pdf/) tool, takes about two minutes for a typical page, supports nine target languages with automatic source detection, and produces a bilingual edition where every original page sits next to its translation.
 
-You paste it into an online translator. Nothing happens.
+If you have ever pasted a scanned file into an online translator and gotten nothing back, that failure is exactly what the steps above prevent. The letters you see on a scan are just ink in a photo. Press Ctrl+F on a scanned page and the search finds nothing, because there is no text inside a photo of a newspaper.
 
-That moment of confusion is one of the most common problems in document work, and it has a simple technical cause. A scanner (or a phone camera) captures a picture. To a computer, that PDF is just a grid of colored dots. There are no letters inside it to translate, the same way there is no text inside a photo of a newspaper.
-
-The fix is a two-step habit: recover the text with OCR, then translate it. This guide walks through both steps with free browser tools, shows what results to expect, and covers the small details that separate a clean translation from a mess. If you want to jump straight in, the [Translate PDF](/en/tools/translate-pdf/) tool and the [OCR PDF](/en/tools/ocr-pdf/) tool are both free and run entirely on your own device.
+This guide walks through both steps in detail, shows what results to expect, and covers the small details that separate a clean translation from a mess. Everything runs on your own device, with no account and no watermark.
 
 **Quick answer:** to translate a scanned PDF, first recover its text with the [OCR PDF](/en/tools/ocr-pdf/) tool, then open the recovered file in [Translate PDF](/en/tools/translate-pdf/), choose your target language, and download the bilingual or translated-only result. Both tools are free and run in your browser.
 
@@ -63,7 +61,7 @@ OCR stands for Optical Character Recognition. It is software that looks at the p
 
 ## How Do You Translate a Scanned PDF Step by Step?
 
-The complete workflow is: run the scanned file through OCR to recover its text layer, then feed the recovered file to a translation tool, then download either the translated edition or a bilingual edition that pairs each original page with its translation. On a typical one-page scan the whole process takes under two minutes, and it runs entirely in your browser.
+The complete workflow is: run the scanned file through OCR to recover its text layer, then feed the recovered file to a translation tool, then download either the translated edition or a bilingual edition that pairs each original page with its translation. On a typical one-page scan the whole process takes under two minutes, it runs entirely in your browser, and it is completely free with no account required.
 
 We tested this exact workflow on a one-page English scan and watched it finish in seconds: parse, translate, compose, done. Here are the steps in detail.
 
