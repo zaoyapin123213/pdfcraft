@@ -44,6 +44,8 @@
     "navigation": {
       "home": "ホーム",
       "tools": "ツール",
+      "translatePdf": "PDF 翻訳",
+      "workflow": "ワークフロー",
       "about": "概要",
       "faq": "よくある質問",
       "privacy": "プライバシー",
@@ -1850,8 +1852,5 @@
       "errorPdfOnly": "PDFファイルをアップロードしてください。",
       "errorTooLarge": "ファイルが大きすぎます。最大50MBです。"
     }
-  },
-  "navigation": {
-    "translatePdf": "PDF 翻訳"
   }
 }

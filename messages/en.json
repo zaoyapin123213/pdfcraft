@@ -44,6 +44,7 @@
     "navigation": {
       "home": "Home",
       "tools": "Tools",
+      "translatePdf": "Translate PDF",
       "workflow": "Workflow",
       "about": "About",
       "faq": "FAQ",
@@ -2088,8 +2089,5 @@
       "errorPdfOnly": "Please upload a PDF file.",
       "errorTooLarge": "File is too large. Maximum size is 50 MB."
     }
-  },
-  "navigation": {
-    "translatePdf": "Translate PDF"
   }
 }

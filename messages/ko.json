@@ -44,6 +44,8 @@
     "navigation": {
       "home": "홈",
       "tools": "도구",
+      "translatePdf": "PDF 번역",
+      "workflow": "워크플로우",
       "about": "소개",
       "faq": "자주 묻는 질문",
       "privacy": "개인정보",
@@ -1850,8 +1852,5 @@
       "errorPdfOnly": "PDF 파일을 업로드해 주세요.",
       "errorTooLarge": "파일이 너무 큽니다. 최대 50MB입니다."
     }
-  },
-  "navigation": {
-    "translatePdf": "PDF 번역"
   }
 }

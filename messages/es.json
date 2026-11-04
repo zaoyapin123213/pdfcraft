@@ -44,6 +44,8 @@
     "navigation": {
       "home": "Inicio",
       "tools": "Herramientas",
+      "translatePdf": "Traducir PDF",
+      "workflow": "Flujo de trabajo",
       "about": "Acerca de",
       "faq": "Preguntas Frecuentes",
       "privacy": "Privacidad",
@@ -1850,8 +1852,5 @@
       "errorPdfOnly": "Sube un archivo PDF.",
       "errorTooLarge": "El archivo es demasiado grande. Máximo 50 MB."
     }
-  },
-  "navigation": {
-    "translatePdf": "Traducir PDF"
   }
 }

@@ -44,6 +44,8 @@
     "navigation": {
       "home": "Startseite",
       "tools": "Werkzeuge",
+      "translatePdf": "PDF übersetzen",
+      "workflow": "Workflow",
       "about": "Über uns",
       "faq": "FAQ",
       "privacy": "Datenschutz",
@@ -1850,8 +1852,5 @@
       "errorPdfOnly": "Bitte eine PDF-Datei hochladen.",
       "errorTooLarge": "Datei ist zu groß. Maximum 50 MB."
     }
-  },
-  "navigation": {
-    "translatePdf": "PDF übersetzen"
   }
 }

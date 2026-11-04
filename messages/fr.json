@@ -44,6 +44,8 @@
     "navigation": {
       "home": "Accueil",
       "tools": "Outils",
+      "translatePdf": "Traduire un PDF",
+      "workflow": "Flux de travail",
       "about": "À propos",
       "faq": "FAQ",
       "privacy": "Confidentialité",
@@ -1850,8 +1852,5 @@
       "errorPdfOnly": "Veuillez télécharger un fichier PDF.",
       "errorTooLarge": "Fichier trop volumineux. Maximum 50 Mo."
     }
-  },
-  "navigation": {
-    "translatePdf": "Traduire un PDF"
   }
 }

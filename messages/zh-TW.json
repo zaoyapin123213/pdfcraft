@@ -44,6 +44,8 @@
     "navigation": {
       "home": "首頁",
       "tools": "工具",
+      "translatePdf": "翻譯 PDF",
+      "workflow": "工作流程",
       "about": "關於",
       "faq": "常見問題",
       "privacy": "隱私",
@@ -1857,8 +1859,5 @@
       "errorPdfOnly": "請上傳 PDF 檔案。",
       "errorTooLarge": "檔案過大，最大支援 50 MB。"
     }
-  },
-  "navigation": {
-    "translatePdf": "翻譯 PDF"
   }
 }

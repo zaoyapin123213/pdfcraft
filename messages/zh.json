@@ -44,6 +44,7 @@
     "navigation": {
       "home": "首页",
       "tools": "工具",
+      "translatePdf": "翻译 PDF",
       "workflow": "工作流",
       "about": "关于",
       "faq": "常见问题",
@@ -2079,8 +2080,5 @@
       "errorPdfOnly": "请上传 PDF 文件。",
       "errorTooLarge": "文件过大，最大支持 50 MB。"
     }
-  },
-  "navigation": {
-    "translatePdf": "翻译 PDF"
   }
 }
