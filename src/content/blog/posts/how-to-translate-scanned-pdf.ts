@@ -13,6 +13,8 @@ export const howToTranslateAScannedPdf: BlogPost = {
     'scanned pdf translation',
     'ocr translate pdf',
     'translate pdf from scan',
+    'how can i translate scanned documents',
+    'translate scanned documents',
   ],
   datePublished: '2026-11-04',
   dateModified: '2026-11-04',
@@ -30,6 +32,7 @@ export const howToTranslateAScannedPdf: BlogPost = {
     { question: 'What languages can I translate a scanned PDF into?', answer: 'Nine languages in any direction: English, Simplified Chinese, Japanese, Korean, Spanish, French, German, Portuguese and Russian. The source language can be detected automatically.' },
     { question: 'Will the translated PDF keep pictures and tables?', answer: 'Yes. The tool renders each original page as the base image, so photos, charts, stamps and signatures stay exactly where they were. Only the text areas are covered with translated wording.' },
     { question: 'Can I get a bilingual version instead of a translated-only file?', answer: 'Yes. Turn on the bilingual option before you translate. The output interleaves every original page with its translated page, which is ideal for checking terminology line by line.' },
+    { question: 'How can I translate scanned documents without paying for software?', answer: 'Use the same two-step pairing on PDFEditorFree: run the scan through the free OCR PDF tool to recover the text layer, then open the result in Translate PDF and pick your target language. The translated and bilingual editions download directly, with no account, no page quota and no watermark.' },
     { question: 'Is it safe to translate confidential scans this way?', answer: 'The PDF file never leaves your device: parsing, rendering and composition all run in your browser. Only the extracted text strings are sent to the online translation service, and the tool shows this disclosure before you start.' },
   ],
   body: `
@@ -43,7 +46,7 @@ If you have ever pasted a scanned file into an online translator and gotten noth
 
 This guide walks through both steps in detail, shows what results to expect, and covers the small details that separate a clean translation from a mess. Everything runs on your own device, with no account and no watermark.
 
-**Quick answer:** to translate a scanned PDF, first recover its text with the [OCR PDF](/en/tools/ocr-pdf/) tool, then open the recovered file in [Translate PDF](/en/tools/translate-pdf/), choose your target language, and download the bilingual or translated-only result. Both tools are free and run in your browser.
+**Quick answer:** to translate a scanned PDF, first recover its text with the [OCR PDF](/en/tools/ocr-pdf/) tool, then open the recovered file in [Translate PDF](/en/tools/translate-pdf/), choose your target language, and download the bilingual or translated-only result. Both tools are free and run in your browser. So if you are asking 'how can I translate scanned documents' for free without installing anything, this two-step pairing is the answer, and the rest of this guide covers the details.
 
 ## What Is a Scanned PDF and Why Won't Normal Translation Tools Work on It?
 

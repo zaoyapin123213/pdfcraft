@@ -34,8 +34,10 @@ import { perpetualLicensePdfEditors } from './posts/perpetual-license-pdf-editor
 import { hipaaCompliantPdfEditor } from './posts/hipaa-compliant-pdf-editor';
 import { portablePdfEditor } from './posts/portable-pdf-editor';
 import { howToTranslateAScannedPdf } from './posts/how-to-translate-scanned-pdf';
+import { canAdobeTranslateAPdf } from './posts/can-adobe-translate-a-pdf';
 
 export const blogPosts: BlogPost[] = [
+  canAdobeTranslateAPdf,
   howToTranslateAScannedPdf,
   howToChangeFontColorInPdf,
   howToChangeFontInPdf,
