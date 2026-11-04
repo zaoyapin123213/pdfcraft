@@ -167,6 +167,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
   const navItems = [
     { href: `/${locale}`, label: t('navigation.home') },
     { href: `/${locale}/tools`, label: t('navigation.tools') },
+    { href: `/${locale}/tools/translate-pdf`, label: t('navigation.translatePdf') || 'Translate PDF' },
     // Blog lives in English only
     ...(locale === 'en' ? [{ href: '/en/blog', label: 'Blog' }] : []),
     { href: `/${locale}/workflow`, label: t('navigation.workflow') || 'Workflow' },

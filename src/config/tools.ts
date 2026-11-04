@@ -1185,7 +1185,7 @@ export const tools: Tool[] = [
     id: 'translate-pdf',
     slug: 'translate-pdf',
     icon: 'languages',
-    category: 'convert-from-pdf',
+    category: 'translate',
     acceptedFormats: ['.pdf'],
     outputFormat: '.pdf',
     maxFileSize: DEFAULT_MAX_FILE_SIZE,

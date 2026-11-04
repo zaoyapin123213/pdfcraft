@@ -441,7 +441,8 @@
       "convertFromPdf": "Convertir PDF a otros formatos",
       "organizeManage": "Organizar, unir, dividir y gestionar páginas PDF",
       "optimizeRepair": "Comprimir, optimizar y reparar archivos PDF",
-      "securePdf": "Cifrar, descifrar y asegurar archivos PDF"
+      "securePdf": "Cifrar, descifrar y asegurar archivos PDF",
+      "translate": "Traduce documentos PDF a tu idioma conservando el diseño original."
     },
     "stats": {
       "pdfTools": "Herramientas PDF",
@@ -456,7 +457,14 @@
       "convertFromPdf": "Convertir desde PDF",
       "organizeManage": "Organizar y Gestionar",
       "optimizeRepair": "Optimizar y Reparar",
-      "securePdf": "PDF Seguro"
+      "securePdf": "PDF Seguro",
+      "translate": "Traducir"
+    },
+    "translateFeature": {
+      "badge": "NUEVO",
+      "title": "Traducir PDF",
+      "description": "Traduce cualquier PDF a 9 idiomas conservando el diseño original. Edición bilingüe para lectura paralela — gratis, en tu navegador.",
+      "cta": "Traducir ahora"
     }
   },
   "workflow": {
@@ -1842,5 +1850,8 @@
       "errorPdfOnly": "Sube un archivo PDF.",
       "errorTooLarge": "El archivo es demasiado grande. Máximo 50 MB."
     }
+  },
+  "navigation": {
+    "translatePdf": "Traducir PDF"
   }
 }

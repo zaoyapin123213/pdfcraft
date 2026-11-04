@@ -455,7 +455,8 @@
       "convertFromPdf": "将 PDF 转换为其他格式",
       "organizeManage": "组织、合并、拆分和管理 PDF 页面",
       "optimizeRepair": "压缩、优化和修复 PDF 文件",
-      "securePdf": "加密、解密和保护 PDF 文件"
+      "securePdf": "加密、解密和保护 PDF 文件",
+      "translate": "把 PDF 文档翻译成你的语言，保留原始排版。"
     },
     "stats": {
       "pdfTools": "PDF 工具",
@@ -470,7 +471,14 @@
       "convertFromPdf": "从PDF转换",
       "organizeManage": "整理与管理",
       "optimizeRepair": "优化与修复",
-      "securePdf": "PDF安全"
+      "securePdf": "PDF安全",
+      "translate": "PDF 翻译"
+    },
+    "translateFeature": {
+      "badge": "新功能",
+      "title": "PDF 翻译",
+      "description": "把任意 PDF 翻译成 9 种语言并保留原始排版，支持双语对照版下载——免费，浏览器内完成。",
+      "cta": "立即翻译"
     }
   },
   "workflow": {
@@ -2063,5 +2071,8 @@
       "errorPdfOnly": "请上传 PDF 文件。",
       "errorTooLarge": "文件过大，最大支持 50 MB。"
     }
+  },
+  "navigation": {
+    "translatePdf": "翻译 PDF"
   }
 }

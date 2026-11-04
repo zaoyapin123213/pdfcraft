@@ -15,6 +15,7 @@ export const howToEditAReadOnlyPdf: BlogPost = {
   category: 'Tutorials',
   readingMinutes: 17,
   relatedTools: [
+    { title: 'Translate PDF', href: '/en/tools/translate-pdf/', description: 'Translate the finished document into 9 languages while keeping the original layout.' },
     { title: 'Remove Restrictions', href: '/en/tools/remove-restrictions/', description: 'Lift owner-password editing locks from PDFs you are allowed to modify.' },
     { title: 'Edit PDF', href: '/en/tools/edit-pdf/', description: 'Cover-and-retype text even when a file refuses native editing.' },
     { title: 'PDF to Word', href: '/en/tools/pdf-to-docx/', description: 'Convert any openable PDF into an editable DOCX.' },

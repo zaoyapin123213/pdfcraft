@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { homeSeoHeading, homeSeoParagraphs, homeFaqs } from '@/content/homeFaq';
 import Link from 'next/link';
-import { ArrowRight, Zap, Wrench, Lock, Sparkles, Edit, FileImage, FolderOpen, Settings, ShieldCheck, Star } from 'lucide-react';
+import { ArrowRight, Zap, Wrench, Lock, Sparkles, Edit, FileImage, FolderOpen, Settings, ShieldCheck, Star, Languages } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ToolGrid } from '@/components/tools/ToolGrid';
@@ -55,6 +55,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
 
   // Category icons mapping
   const categoryIcons: Record<ToolCategory, typeof Edit> = {
+    'translate': Languages,
     'edit-annotate': Edit,
     'convert-to-pdf': FileImage,
     'convert-from-pdf': FileImage,
@@ -70,6 +71,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
     'organize-manage': 'organizeManage',
     'optimize-repair': 'optimizeRepair',
     'secure-pdf': 'securePdf',
+    'translate': 'translate',
   };
 
   // Category sections to display
@@ -182,6 +184,40 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                 {t('home.popularTools.description')}
               </p>
             </div>
+            {/* Featured: Translate PDF — first position, high-emphasis card */}
+            <Link
+              href={`/${locale}/tools/translate-pdf`}
+              prefetch={false}
+              className="group block mb-8"
+              data-testid="featured-translate-card"
+            >
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 p-[2px] shadow-xl shadow-primary/30 transition-transform duration-300 group-hover:-translate-y-1">
+                <div className="rounded-[14px] bg-[hsl(var(--color-card))]/95 px-6 py-7 sm:px-10 sm:py-8 flex flex-col md:flex-row md:items-center gap-6">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center shadow-lg">
+                    <Languages className="h-8 w-8 text-white" aria-hidden="true" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide bg-[hsl(var(--color-primary))] text-white">
+                        {t('home.translateFeature.badge')}
+                      </span>
+                      <span className="text-sm font-semibold text-[hsl(var(--color-foreground))]">
+                        {t('home.translateFeature.title')}
+                      </span>
+                    </div>
+                    <p className="text-sm md:text-base text-[hsl(var(--color-muted-foreground))] leading-relaxed">
+                      {t('home.translateFeature.description')}
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <span className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-violet-600 text-white font-semibold shadow-lg transition-all group-hover:shadow-xl group-hover:scale-105">
+                      {t('home.translateFeature.cta')}
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </Link>
             <ToolGrid
               tools={popularTools}
               locale={locale}

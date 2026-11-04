@@ -47,6 +47,7 @@ export function ToolGrid({
     'organize-manage': 'organizeManage',
     'optimize-repair': 'optimizeRepair',
     'secure-pdf': 'securePdf',
+    'translate': 'translate',
   };
 
   // Filter tools by category if specified
@@ -84,6 +85,7 @@ export function ToolGrid({
     }
 
     const groups: Record<ToolCategory, Tool[]> = {
+      'translate': [],
       'edit-annotate': [],
       'convert-to-pdf': [],
       'convert-from-pdf': [],

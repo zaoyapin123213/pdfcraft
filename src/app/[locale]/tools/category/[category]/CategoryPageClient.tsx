@@ -28,6 +28,7 @@ export default function CategoryPageClient({ locale, category, localizedToolCont
         'organize-manage': 'organizeManage',
         'optimize-repair': 'optimizeRepair',
         'secure-pdf': 'securePdf',
+    'translate': 'translate',
     };
 
     const categoryName = t(`home.categories.${categoryTranslationKeys[category]}`);

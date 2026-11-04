@@ -441,7 +441,8 @@
       "convertFromPdf": "PDFから他の形式への変換",
       "organizeManage": "PDFページの整理、結合、分割、管理",
       "optimizeRepair": "PDFファイルの圧縮、最適化、修復",
-      "securePdf": "PDFファイルの暗号化、復号化、保護"
+      "securePdf": "PDFファイルの暗号化、復号化、保護",
+      "translate": "元のレイアウトを保ったまま PDF を目的の言語に翻訳します。"
     },
     "stats": {
       "pdfTools": "PDFツール",
@@ -456,7 +457,14 @@
       "convertFromPdf": "PDFから変換",
       "organizeManage": "整理 & 管理",
       "optimizeRepair": "最適化 & 修復",
-      "securePdf": "PDFセキュリティ"
+      "securePdf": "PDFセキュリティ",
+      "translate": "PDF 翻訳"
+    },
+    "translateFeature": {
+      "badge": "新機能",
+      "title": "PDF 翻訳",
+      "description": "あらゆる PDF をレイアウトを維持したまま 9 言語に翻訳。バイリンガル版のダウンロードにも対応——無料、ブラウザ内で完結。",
+      "cta": "今すぐ翻訳"
     }
   },
   "workflow": {
@@ -1842,5 +1850,8 @@
       "errorPdfOnly": "PDFファイルをアップロードしてください。",
       "errorTooLarge": "ファイルが大きすぎます。最大50MBです。"
     }
+  },
+  "navigation": {
+    "translatePdf": "PDF 翻訳"
   }
 }

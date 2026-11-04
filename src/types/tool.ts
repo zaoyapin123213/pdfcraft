@@ -7,7 +7,8 @@ export type ToolCategory =
   | 'convert-from-pdf'
   | 'organize-manage'
   | 'optimize-repair'
-  | 'secure-pdf';
+  | 'secure-pdf'
+  | 'translate';
 
 /**
  * All valid tool categories as an array for validation
@@ -19,6 +20,7 @@ export const TOOL_CATEGORIES: ToolCategory[] = [
   'organize-manage',
   'optimize-repair',
   'secure-pdf',
+  'translate',
 ];
 
 /**
@@ -70,6 +72,12 @@ export const CATEGORY_INFO: Record<ToolCategory, CategoryInfo> = {
     name: 'Secure PDF',
     description: 'Encrypt, decrypt, and secure PDF files',
     icon: 'shield',
+  },
+  'translate': {
+    id: 'translate',
+    name: 'Translate',
+    description: 'Translate PDF documents between languages',
+    icon: 'languages',
   },
 };
 

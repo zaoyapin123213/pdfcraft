@@ -36,6 +36,7 @@ export default function ToolsPageClient({ locale, localizedToolContent }: ToolsP
     'organize-manage': 'organizeManage',
     'optimize-repair': 'optimizeRepair',
     'secure-pdf': 'securePdf',
+    'translate': 'translate',
   };
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -84,6 +85,7 @@ export default function ToolsPageClient({ locale, localizedToolContent }: ToolsP
     { value: 'edit-annotate', label: t('home.categories.editAnnotate') },
     { value: 'convert-to-pdf', label: t('home.categories.convertToPdf') },
     { value: 'convert-from-pdf', label: t('home.categories.convertFromPdf') },
+    { value: 'translate', label: t('home.categories.translate') },
     { value: 'organize-manage', label: t('home.categories.organizeManage') },
     { value: 'optimize-repair', label: t('home.categories.optimizeRepair') },
     { value: 'secure-pdf', label: t('home.categories.securePdf') },

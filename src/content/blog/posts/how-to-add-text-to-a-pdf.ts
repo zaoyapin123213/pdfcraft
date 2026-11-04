@@ -12,6 +12,7 @@ export const howToAddTextToAPdf: BlogPost = {
   category: 'Text & Fonts',
   readingMinutes: 17,
   relatedTools: [
+    { title: 'Translate PDF', href: '/en/tools/translate-pdf/', description: 'Translate the finished document into 9 languages while keeping the original layout.' },
     { title: 'Edit PDF', href: '/en/tools/edit-pdf/', description: 'Type text anywhere on a PDF - font, size and color of your choice.' },
     { title: 'Text to PDF', href: '/en/tools/txt-to-pdf/', description: 'Turn typed content into a brand-new PDF document.' },
     { title: 'PDF to Word', href: '/en/tools/pdf-to-docx/', description: 'Convert to DOCX when you need to add whole paragraphs.' },
