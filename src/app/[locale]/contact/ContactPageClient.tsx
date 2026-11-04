@@ -21,7 +21,7 @@ type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 //   email client (mailto) with the message pre-filled.
 // - With a Web3Forms access key (free at web3forms.com), submissions POST
 //   directly and arrive in that account's email inbox and dashboard.
-const WEB3FORMS_ACCESS_KEY = '';
+const WEB3FORMS_ACCESS_KEY = '6ee29cc1-d633-4924-9e3a-903d014c6b4e';
 const CONTACT_EMAIL = 'peter@hengxang.com';
 
 export default function ContactPageClient({ locale }: ContactPageClientProps) {
