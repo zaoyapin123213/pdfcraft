@@ -38,8 +38,16 @@ import { canAdobeTranslateAPdf } from './posts/can-adobe-translate-a-pdf';
 import { howToTranslatePdfOnMac } from './posts/how-to-translate-pdf-on-mac';
 import { canGoogleTranslatePdfDocuments } from './posts/can-google-translate-pdf-documents';
 import { translatePdfFrenchToEnglish } from './posts/translate-pdf-french-to-english';
+import { separatePdfIntoIndividualPages } from './posts/separate-pdf-into-individual-pages';
+import { deletePdfPagesForFree } from './posts/delete-pdf-pages-for-free';
+import { convertPdfToEbook } from './posts/convert-pdf-to-ebook';
+import { transferPdfToWordDocument } from './posts/transfer-pdf-to-word-document';
 
 export const blogPosts: BlogPost[] = [
+  transferPdfToWordDocument,
+  convertPdfToEbook,
+  deletePdfPagesForFree,
+  separatePdfIntoIndividualPages,
   translatePdfFrenchToEnglish,
   canGoogleTranslatePdfDocuments,
   howToTranslatePdfOnMac,
