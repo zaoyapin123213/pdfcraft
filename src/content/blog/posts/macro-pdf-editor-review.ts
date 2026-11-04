@@ -12,7 +12,7 @@ export const macroPdfEditorReview: BlogPost = {
   category: 'Editor Reviews',
   readingMinutes: 16,
   relatedTools: [
-    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '95 free tools - merge, split, convert, edit, sign - all in your browser.' },
+    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '96 free tools - merge, split, convert, edit, sign - all in your browser.' },
     { title: 'Edit PDF', href: '/en/tools/edit-pdf/', description: 'Free browser-based editing for everyday PDF changes.' },
     { title: 'OCR PDF', href: '/en/tools/ocr-pdf/', description: 'Make scans searchable - free and local.' },
     { title: 'Sign PDF', href: '/en/tools/sign-pdf/', description: 'Add signatures without any subscription.' },
@@ -24,7 +24,7 @@ export const macroPdfEditorReview: BlogPost = {
     { question: 'What is Macro PDF editor best for?', answer: 'Teams whose work is document-dense: reviewing long contracts, extracting data from stacks of PDFs, summarizing filings, collaborating on document sets. The AI layer (ask questions of a document, auto-extract fields) is the differentiator versus traditional editors.' },
     { question: 'What are Macro\'s main limitations?', answer: 'The typical SaaS trade-offs: your documents process on their servers (consider confidentiality policies for sensitive files), the best features sit behind subscriptions, and deep print/prepress or offline use is not the focus. For lightweight personal PDF tasks, a full workspace is more tool than the job needs.' },
     { question: 'Is Macro safe for confidential documents?', answer: 'Macro is an established SaaS vendor with standard cloud security practices; the question to ask for your documents is about your own compliance rules. If policy or NDA requires files to never leave your device, local-processing tools (browser-based PDFEditorFree) are the compatible choice.' },
-    { question: 'What is the best free alternative to Macro?', answer: 'For editing tasks: PDFEditorFree\'s free browser toolbox (95 tools, local processing, no signup). For the AI-document-workflow layer Macro specializes in, alternatives include Adobe\'s AI Assistant in Acrobat and various AI-document startups - that category is inherently subscription SaaS.' },
+    { question: 'What is the best free alternative to Macro?', answer: 'For editing tasks: PDFEditorFree\'s free browser toolbox (96 tools, local processing, no signup). For the AI-document-workflow layer Macro specializes in, alternatives include Adobe\'s AI Assistant in Acrobat and various AI-document startups - that category is inherently subscription SaaS.' },
     { question: 'Do I need an AI PDF editor at all?', answer: 'Honestly assess the volume: if you regularly digest long documents (contracts, filings, reports) and answer questions about them, AI assistance pays for itself in time. If you occasionally merge, sign and convert PDFs, it is overhead - a free toolbox does those jobs in seconds without any account.' },
   ],
   body: `
@@ -246,7 +246,7 @@ SaaS trade-offs: server-side processing (a policy question for confidential file
 Established vendor, standard cloud security - but the decisive question is whether your own compliance rules permit cloud processing at all. If files must never leave the device, local-processing tools are the compatible choice.
 
 **What is the best free alternative to Macro?**
-For operations: PDFEditorFree's free toolbox (95 tools, local, no signup). For the AI-comprehension layer specifically, that category is inherently subscription SaaS - Adobe's AI Assistant and peers compete there.
+For operations: PDFEditorFree's free toolbox (96 tools, local, no signup). For the AI-comprehension layer specifically, that category is inherently subscription SaaS - Adobe's AI Assistant and peers compete there.
 
 **Do I need an AI PDF editor at all?**
 If you regularly digest long documents and answer questions about them, trial one with your real files. If you occasionally merge, sign and convert, a free toolbox does the job in seconds.

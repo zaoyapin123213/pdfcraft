@@ -1462,6 +1462,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>OCR PDF使用光学字符识别从PDF中的扫描文档和图像中提取文本。将基于图像的PDF转换为可搜索、可选择文本的文档。</p>
       <p>支持多种语言，确保无论文档语言如何都能准确识别文本。在添加可搜索文本层的同时保留原始布局。</p>
       <p>所有OCR处理都在您的浏览器中进行，确保您的文档保持私密。</p>
+          <p>OCR 恢复文字层后，可用 <a href="/zh/tools/translate-pdf/">PDF 翻译</a> 工具把整份文档翻译成其他语言，识别出的排版原样保留。</p>
     `,
     howToUse: [
       { step: 1, title: '上传扫描的PDF', description: '拖放您的扫描PDF或点击选择。' },
@@ -2362,6 +2363,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>PDF 翻译工具把"对照阅读外文文档"变成两步操作：上传 PDF、选择目标语言，即可得到保留原始页面的译文文件——图表、公式、签名和扫描内容都停留在原来的位置。</p>
       <p>两种输出模式适应不同场景：<strong>双语对照版</strong>把原文页与译文页交错排列（适合学术阅读和术语核对），<strong>纯译文版</strong>则输出干净的翻译文件。</p>
       <p>与 PDFEditorFree 的所有工具一样，PDF 文件完全在你的浏览器内处理、从不上传服务器。为了翻译措辞，提取出的文本会发送到在线翻译服务——工具内会在开始前明确提示。</p>
+          <p>阅读外文文档时，可用 <a href="/zh/tools/translate-pdf/">PDF 翻译</a> 生成同文件的中文对照版本。</p>
     `,
     howToUse: [
       { step: 1, title: '上传 PDF', description: '拖入文本型 PDF（不支持无文字层的扫描件），选择源语言和目标语言。' },

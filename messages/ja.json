@@ -1,12 +1,12 @@
 {
   "metadata": {
     "home": {
-      "title": "無料PDF編集・95種のPDFツール | PDFEditorFree",
-      "description": "ブラウザで動く無料オンラインPDF編集ツール。95種のプロ機能でPDFの結合・分割・圧縮・変換・編集が可能。アップロード不要、登録不要、完全プライベート。"
+      "title": "無料PDF編集・96種のPDFツール | PDFEditorFree",
+      "description": "ブラウザで動く無料オンラインPDF編集ツール。96種のプロ機能でPDFの結合・分割・圧縮・変換・編集が可能。アップロード不要、登録不要、完全プライベート。"
     },
     "tools": {
       "title": "すべてのPDFツール",
-      "description": "95以上のプロフェッショナルPDFツールを閲覧。PDFファイルの結合、分割、圧縮、変換、編集、保護が無料で可能。"
+      "description": "96以上のプロフェッショナルPDFツールを閲覧。PDFファイルの結合、分割、圧縮、変換、編集、保護が無料で可能。"
     },
     "about": {
       "title": "私たちについて",
@@ -160,7 +160,7 @@
         "general": {
           "whatIs": {
             "question": "What is PDFEditorFree?",
-            "answer": "PDFEditorFree is a free, privacy-focused PDF toolkit that runs entirely in your browser. It offers 95 professional tools for editing, converting, merging, splitting, and securing PDF files without uploading them to any server."
+            "answer": "PDFEditorFree is a free, privacy-focused PDF toolkit that runs entirely in your browser. It offers 96 professional tools for editing, converting, merging, splitting, and securing PDF files without uploading them to any server."
           },
           "isFree": {
             "question": "Is PDFEditorFree really free?",
@@ -188,7 +188,7 @@
         "features": {
           "operations": {
             "question": "What PDF operations can I perform?",
-            "answer": "PDFEditorFree offers 95 tools including: merge, split, compress, convert (to/from images, text, JSON), edit, annotate, sign, add watermarks, encrypt/decrypt, OCR, and many more."
+            "answer": "PDFEditorFree offers 96 tools including: merge, split, compress, convert (to/from images, text, JSON), edit, annotate, sign, add watermarks, encrypt/decrypt, OCR, and many more."
           },
           "merge": {
             "question": "Can I merge multiple PDF files?",
@@ -422,7 +422,7 @@
       },
       "powerful": {
         "title": "強力なツール",
-        "description": "あらゆるニーズに対応する95以上のプロフェッショナルPDFツール。"
+        "description": "あらゆるニーズに対応する96以上のプロフェッショナルPDFツール。"
       }
     },
     "popularTools": {

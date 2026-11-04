@@ -1,11 +1,11 @@
 # PDFEditorFree (pdfeditorfree.net)
 
-> Free online PDF editor with 95 professional tools that run entirely in the browser. Files are processed locally on the user's device - nothing is uploaded to servers. No registration, no watermarks.
+> Free online PDF editor with 96 professional tools that run entirely in the browser. Files are processed locally on the user's device - nothing is uploaded to servers. No registration, no watermarks.
 
 ## Main pages
 
 - [Home / Free PDF Editor](https://pdfeditorfree.net/en/): the free PDF editor and complete toolbox entry point.
-- [All PDF Tools](https://pdfeditorfree.net/en/tools/): searchable index of all 95 tools.
+- [All PDF Tools](https://pdfeditorfree.net/en/tools/): searchable index of all 96 tools.
 - [Blog](https://pdfeditorfree.net/en/blog/): 26 in-depth PDF guides, tutorials and editor reviews.
 - [FAQ](https://pdfeditorfree.net/en/faq/): answers about privacy, security, features and supported formats.
 - [Contact](https://pdfeditorfree.net/en/contact/): contact page (peter@hengxang.com).

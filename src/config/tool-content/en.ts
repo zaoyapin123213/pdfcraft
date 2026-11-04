@@ -1472,6 +1472,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>OCR PDF uses Optical Character Recognition to extract text from scanned documents and images within PDFs. Convert image-based PDFs into searchable, selectable text documents.</p>
       <p>Support for multiple languages ensures accurate text recognition regardless of the document's language. The original layout is preserved while adding a searchable text layer.</p>
       <p>All OCR processing happens in your browser, ensuring your documents remain private.</p>
+          <p>After OCR recovers the text, <a href="/en/tools/translate-pdf/">Translate PDF</a> can render the whole document in another language while keeping the recognized layout intact.</p>
     `,
     howToUse: [
       { step: 1, title: 'Upload Scanned PDF', description: 'Drag and drop your scanned PDF or click to select.' },
@@ -2492,6 +2493,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>PDF Reader is a full-featured PDF viewer that lets you read and navigate PDF documents directly in your browser. No software installation required - just upload your PDF and start reading.</p>
       <p>Navigate between pages, zoom in and out, rotate the view, and use fullscreen mode for distraction-free reading. You can also print documents or download them for offline access.</p>
       <p>All viewing happens locally in your browser. Your documents are never uploaded to any server, ensuring complete privacy.</p>
+          <p>Reading a document in a foreign language? Open it with <a href="/en/tools/translate-pdf/">Translate PDF</a> to get a side-by-side bilingual version of the same file.</p>
     `,
     howToUse: [
       { step: 1, title: 'Open Your PDF', description: 'Click to upload or drag and drop a PDF file to open it in the reader.' },

@@ -1,12 +1,12 @@
 {
   "metadata": {
     "home": {
-      "title": "免費PDF編輯器 & 95款線上PDF工具 | PDFEditorFree",
-      "description": "免費線上PDF編輯器，內建95款專業工具。在瀏覽器中合併、分割、壓縮、轉換和編輯PDF檔案——無需上傳、無需註冊、100%隱私安全。"
+      "title": "免費PDF編輯器 & 96款線上PDF工具 | PDFEditorFree",
+      "description": "免費線上PDF編輯器，內建96款專業工具。在瀏覽器中合併、分割、壓縮、轉換和編輯PDF檔案——無需上傳、無需註冊、100%隱私安全。"
     },
     "tools": {
       "title": "所有 PDF 工具",
-      "description": "瀏覽 95 款專業 PDF 工具。免費合併、分割、壓縮、轉換、編輯和保護您的 PDF 檔案。"
+      "description": "瀏覽 96 款專業 PDF 工具。免費合併、分割、壓縮、轉換、編輯和保護您的 PDF 檔案。"
     },
     "about": {
       "title": "關於我們",
@@ -198,7 +198,7 @@
       "general": {
         "whatIs": {
           "question": "PDFEditorFree 是什麼？",
-          "answer": "PDFEditorFree 是一個免費、注重隱私的 PDF 工具包，完全在您的瀏覽器中執行。它提供 95 個專業工具，用於編輯、轉換、合併、分割和加密 PDF 檔案，而無需將其上傳到任何伺服器。"
+          "answer": "PDFEditorFree 是一個免費、注重隱私的 PDF 工具包，完全在您的瀏覽器中執行。它提供 96 個專業工具，用於編輯、轉換、合併、分割和加密 PDF 檔案，而無需將其上傳到任何伺服器。"
         },
         "isFree": {
           "question": "PDFEditorFree 真的免費嗎？",
@@ -226,7 +226,7 @@
       "features": {
         "operations": {
           "question": "我可以執行哪些 PDF 操作？",
-          "answer": "PDFEditorFree 提供 95 個工具，包括：合併、分割、壓縮、轉換（轉為/來自影象、文字、JSON）、編輯、註釋、簽名、新增水印、加密/解密、OCR 等等。"
+          "answer": "PDFEditorFree 提供 96 個工具，包括：合併、分割、壓縮、轉換（轉為/來自影象、文字、JSON）、編輯、註釋、簽名、新增水印、加密/解密、OCR 等等。"
         },
         "merge": {
           "question": "我可以合併多個 PDF 檔案嗎？",
@@ -267,6 +267,14 @@
         "change": {
           "question": "如何更改語言？",
           "answer": "您可以使用頂部的語言選擇器更改語言。您的偏好將被儲存以供將來訪問。"
+        },
+        "translate": {
+          "question": "可以翻譯 PDF 文件嗎？",
+          "answer": "可以。開啟 Translate PDF 工具，上傳文字型 PDF 並選擇目標語言。文字區塊會線上翻譯，同時保留原始排版、圖表和表格，還可下載原文與譯文逐頁對照的雙語版本。"
+        },
+        "translateScans": {
+          "question": "掃描件可以做 PDF 翻譯嗎？",
+          "answer": "不能直接翻譯。掃描頁沒有可選取的文字層，請先用 OCR 工具辨識文字；恢復文字層後即可像一般 PDF 一樣翻譯。"
         }
       }
     },
@@ -435,7 +443,7 @@
       },
       "powerful": {
         "title": "強大工具",
-        "description": "95專業PDF工具滿足您的所有需求。"
+        "description": "96專業PDF工具滿足您的所有需求。"
       }
     },
     "popularTools": {

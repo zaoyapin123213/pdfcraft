@@ -13,7 +13,7 @@ export interface HomeFAQ {
 export const homeSeoHeading = 'The free PDF editor that runs in your browser';
 
 export const homeSeoParagraphs = [
-  'PDFEditorFree is a free PDF editor with 95 professional tools that run entirely in your browser. There is no signup, no watermark and no hidden paywall: open a tool, drop in your file, and download the result. It works on Windows, Mac, Linux, Android and iPhone, because every task is processed by your own device rather than a remote server.',
+  'PDFEditorFree is a free PDF editor with 96 professional tools that run entirely in your browser. There is no signup, no watermark and no hidden paywall: open a tool, drop in your file, and download the result. It works on Windows, Mac, Linux, Android and iPhone, because every task is processed by your own device rather than a remote server.',
   'Editing stays private by design. Unlike upload-based online editors, each operation - merging, splitting, compressing, converting, signing, annotating - runs locally in your browser, so contracts, IDs and financial documents never leave your computer.',
   'The toolbox covers the full PDF workflow: edit text and images, merge and split files, convert to and from Word, Excel, PowerPoint and images, compress heavy attachments, fill and sign forms, encrypt sensitive documents and run OCR on scans.',
 ];
@@ -22,7 +22,7 @@ export const homeFaqs: HomeFAQ[] = [
   {
     question: 'Is PDFEditorFree really free?',
     answer:
-      'Yes. All 95 tools are free to use with no registration, no subscription and no watermarks. Processing happens on your own device, so there are no server costs to pass on.',
+      'Yes. All 96 tools are free to use with no registration, no subscription and no watermarks. Processing happens on your own device, so there are no server costs to pass on.',
   },
   {
     question: 'Is it safe to edit PDF files here?',

@@ -1,12 +1,12 @@
 {
   "metadata": {
     "home": {
-      "title": "무료 PDF 편집기 & 95개 온라인 PDF 도구 | PDFEditorFree",
-      "description": "브라우저에서 작동하는 무료 온라인 PDF 편집기. 95가지 전문 도구로 PDF 병합, 분할, 압축, 변환, 편집을 한 번에. 업로드 불필요, 회원가입 불필요, 100% 프라이빗."
+      "title": "무료 PDF 편집기 & 96개 온라인 PDF 도구 | PDFEditorFree",
+      "description": "브라우저에서 작동하는 무료 온라인 PDF 편집기. 96가지 전문 도구로 PDF 병합, 분할, 압축, 변환, 편집을 한 번에. 업로드 불필요, 회원가입 불필요, 100% 프라이빗."
     },
     "tools": {
       "title": "모든 PDF 도구",
-      "description": "95개 이상의 전문 PDF 도구를 찾아보세요. PDF 파일을 무료로 병합, 분할, 압축, 변환, 편집 및 보호하세요."
+      "description": "96개 이상의 전문 PDF 도구를 찾아보세요. PDF 파일을 무료로 병합, 분할, 압축, 변환, 편집 및 보호하세요."
     },
     "about": {
       "title": "회사 소개",
@@ -160,7 +160,7 @@
         "general": {
           "whatIs": {
             "question": "What is PDFEditorFree?",
-            "answer": "PDFEditorFree is a free, privacy-focused PDF toolkit that runs entirely in your browser. It offers 95 professional tools for editing, converting, merging, splitting, and securing PDF files without uploading them to any server."
+            "answer": "PDFEditorFree is a free, privacy-focused PDF toolkit that runs entirely in your browser. It offers 96 professional tools for editing, converting, merging, splitting, and securing PDF files without uploading them to any server."
           },
           "isFree": {
             "question": "Is PDFEditorFree really free?",
@@ -188,7 +188,7 @@
         "features": {
           "operations": {
             "question": "What PDF operations can I perform?",
-            "answer": "PDFEditorFree offers 95 tools including: merge, split, compress, convert (to/from images, text, JSON), edit, annotate, sign, add watermarks, encrypt/decrypt, OCR, and many more."
+            "answer": "PDFEditorFree offers 96 tools including: merge, split, compress, convert (to/from images, text, JSON), edit, annotate, sign, add watermarks, encrypt/decrypt, OCR, and many more."
           },
           "merge": {
             "question": "Can I merge multiple PDF files?",
@@ -422,7 +422,7 @@
       },
       "powerful": {
         "title": "강력한 도구",
-        "description": "모든 필요를 충족하는 95개 이상의 전문 PDF 도구."
+        "description": "모든 필요를 충족하는 96개 이상의 전문 PDF 도구."
       }
     },
     "popularTools": {

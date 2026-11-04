@@ -12,7 +12,7 @@ export const pi7PdfEditorReview: BlogPost = {
   category: 'Editor Reviews',
   readingMinutes: 15,
   relatedTools: [
-    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '95 free tools with zero uploads - processing stays on your device.' },
+    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '96 free tools with zero uploads - processing stays on your device.' },
     { title: 'Edit PDF', href: '/en/tools/edit-pdf/', description: 'Add text, images and annotations locally in your browser.' },
     { title: 'Merge PDF', href: '/en/tools/merge-pdf/', description: 'Combine files without uploading them anywhere.' },
     { title: 'PDF to Word', href: '/en/tools/pdf-to-docx/', description: 'Convert to editable DOCX, locally and free.' },
@@ -246,6 +246,6 @@ Non-sensitive documents with no personal, financial, medical or confidential con
 
 ## Do it locally, do it free
 
-Whatever brought you to Pi7 - a merge, a conversion, a quick edit - the same job runs free on your own device at [PDFEditorFree](/en/tools/): 95 tools, nothing uploaded, no signup. Start with [Edit PDF](/en/tools/edit-pdf/) or [Merge PDF](/en/tools/merge-pdf/) and keep the sensitive stuff sensitive.
+Whatever brought you to Pi7 - a merge, a conversion, a quick edit - the same job runs free on your own device at [PDFEditorFree](/en/tools/): 96 tools, nothing uploaded, no signup. Start with [Edit PDF](/en/tools/edit-pdf/) or [Merge PDF](/en/tools/merge-pdf/) and keep the sensitive stuff sensitive.
 `,
 };

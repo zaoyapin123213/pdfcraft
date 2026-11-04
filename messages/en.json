@@ -1,12 +1,12 @@
 {
   "metadata": {
     "home": {
-      "title": "Free PDF Editor & 95 Online PDF Tools | PDFEditorFree",
-      "description": "Free online PDF editor with 95 pro tools. Merge, split, compress, convert and edit PDF files in your browser - no upload, no signup, 100% private."
+      "title": "Free PDF Editor & 96 Online PDF Tools | PDFEditorFree",
+      "description": "Free online PDF editor with 96 pro tools. Merge, split, compress, convert and edit PDF files in your browser - no upload, no signup, 100% private."
     },
     "tools": {
       "title": "All PDF Tools & Free PDF Converter",
-      "description": "Browse all 95 free online PDF tools - the complete PDF converter, editor, merger, splitter and signer toolkit. No upload, no signup."
+      "description": "Browse all 96 free online PDF tools - the complete PDF converter, editor, merger, splitter and signer toolkit. No upload, no signup."
     },
     "about": {
       "title": "About",
@@ -169,7 +169,7 @@
   },
   "toolsPage": {
     "title": "Free Online PDF Tools & PDF Converter",
-    "subtitle": "95 free online PDF tools in one place. Use PDFEditorFree as your free PDF converter, PDF editor, merger and signer - no upload, no signup, no watermark.",
+    "subtitle": "96 free online PDF tools in one place. Use PDFEditorFree as your free PDF converter, PDF editor, merger and signer - no upload, no signup, no watermark.",
     "filters": "Filters",
     "allTools": "All Tools",
     "clearAll": "Clear all",
@@ -199,7 +199,7 @@
       "general": {
         "whatIs": {
           "question": "What is PDFEditorFree?",
-          "answer": "PDFEditorFree is a free, privacy-focused PDF toolkit that runs entirely in your browser. It offers 95 professional tools for editing, converting, merging, splitting, and securing PDF files without uploading them to any server."
+          "answer": "PDFEditorFree is a free, privacy-focused PDF toolkit that runs entirely in your browser. It offers 96 professional tools for editing, converting, merging, splitting, and securing PDF files without uploading them to any server."
         },
         "isFree": {
           "question": "Is PDFEditorFree really free?",
@@ -227,7 +227,7 @@
       "features": {
         "operations": {
           "question": "What PDF operations can I perform?",
-          "answer": "PDFEditorFree offers 95 tools including: merge, split, compress, convert (to/from images, text, JSON), edit, annotate, sign, add watermarks, encrypt/decrypt, OCR, and many more."
+          "answer": "PDFEditorFree offers 96 tools including: merge, split, compress, convert (to/from images, text, JSON), edit, annotate, sign, add watermarks, encrypt/decrypt, OCR, and many more."
         },
         "merge": {
           "question": "Can I merge multiple PDF files?",
@@ -268,6 +268,14 @@
         "change": {
           "question": "How do I change the language?",
           "answer": "You can change the language using the language selector in the header. Your preference will be saved for future visits."
+        },
+        "translate": {
+          "question": "Can I translate a PDF document?",
+          "answer": "Yes. Open the Translate PDF tool, upload a text-based PDF and pick a target language. Text blocks are translated online while the original layout, figures and tables stay intact, and you can download a bilingual edition with each original page paired with its translation."
+        },
+        "translateScans": {
+          "question": "Does PDF translation work on scanned documents?",
+          "answer": "Not directly. Scanned pages have no selectable text layer, so run the file through the OCR tool first; once the text is recovered, Translate PDF can translate it like any other PDF."
         }
       }
     },
@@ -421,7 +429,7 @@
   "home": {
     "hero": {
       "title": "Free PDF Editor",
-      "highlight": "& 95 Online PDF Tools",
+      "highlight": "& 96 Online PDF Tools",
       "subtitle": "PDFEditorFree is the free PDF editor for everyday documents: edit, merge, split, compress, convert and sign PDF files right in your browser - private, no signup. Your files never leave your device.",
       "cta": "Open the Free PDF Editor"
     },
@@ -436,7 +444,7 @@
       },
       "powerful": {
         "title": "Powerful Tools",
-        "description": "95 professional PDF tools for all your needs."
+        "description": "96 professional PDF tools for all your needs."
       }
     },
     "popularTools": {

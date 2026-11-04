@@ -12,7 +12,7 @@ export const portablePdfEditor: BlogPost = {
   category: 'Editor Reviews',
   readingMinutes: 16,
   relatedTools: [
-    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '95 tools that run on any machine via browser - nothing to install.' },
+    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '96 tools that run on any machine via browser - nothing to install.' },
     { title: 'Edit PDF', href: '/en/tools/edit-pdf/', description: 'Full editing wherever you are - files stay on the device.' },
     { title: 'Merge PDF', href: '/en/tools/merge-pdf/', description: 'Combine documents on borrowed machines instantly.' },
     { title: 'Encrypt PDF', href: '/en/tools/encrypt-pdf/', description: 'Protect files before they travel on any drive.' },
@@ -30,7 +30,7 @@ export const portablePdfEditor: BlogPost = {
   body: `
 A portable PDF editor in 2026 is your browser: open a local-processing toolbox like PDFEditorFree on any machine - borrowed, locked-down, hotel, client site - and you get full editing, merging, converting and signing with nothing installed, nothing left behind, and nothing uploaded. The classic USB portable-app route now survives only for fully offline environments. This guide covers both, plus the borrowed-computer workflow and transport security.
 
-**Quick verdict:** for editing PDFs on any machine - borrowed, locked-down, temporary - a local-processing browser toolbox (PDFEditorFree's 95 tools) is the portable editor: it opens like a web page, runs entirely on the machine in front of you, and never uploads your files. The USB-app route survives only for truly offline environments.
+**Quick verdict:** for editing PDFs on any machine - borrowed, locked-down, temporary - a local-processing browser toolbox (PDFEditorFree's 96 tools) is the portable editor: it opens like a web page, runs entirely on the machine in front of you, and never uploads your files. The USB-app route survives only for truly offline environments.
 
 ## On this page
 
@@ -52,7 +52,7 @@ The word carries two promises, and separating them clarifies every product claim
 
 **Footprint portability:** nothing installs, nothing persists, nothing to clean up on a machine that is not yours.
 
-The USB-era portable apps delivered both by carrying *software* on a drive. The browser era delivers both differently - by carrying a *URL*. Open the same toolbox on any computer and both promises are kept: the same 95 tools, the same workflow, and a host machine left exactly as found (browser tools write nothing to the system beyond cache a session clears).
+The USB-era portable apps delivered both by carrying *software* on a drive. The browser era delivers both differently - by carrying a *URL*. Open the same toolbox on any computer and both promises are kept: the same 96 tools, the same workflow, and a host machine left exactly as found (browser tools write nothing to the system beyond cache a session clears).
 
 The reframing matters because it changes where you look: instead of evaluating portable *applications* (downloads, scans, version drift on the drive), you evaluate the one tool you will use everywhere - and choose it for the properties that matter on borrowed machines: local processing (nothing about your documents on anyone's network), no signup (borrowed machines and account logins are a bad pairing), and full capability (the portable moment is rarely the moment to discover a tool's limits).
 

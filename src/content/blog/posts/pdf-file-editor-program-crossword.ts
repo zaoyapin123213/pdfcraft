@@ -13,7 +13,7 @@ export const pdfFileEditorProgramCrossword: BlogPost = {
   readingMinutes: 15,
   relatedTools: [
     { title: 'Free PDF Editor', href: '/en/tools/edit-pdf/', description: 'The actual PDF editor program - free, in your browser.' },
-    { title: 'All 95 PDF Tools', href: '/en/tools/', description: 'Merge, split, convert, sign and edit - every tool free.' },
+    { title: 'All 96 PDF Tools', href: '/en/tools/', description: 'Merge, split, convert, sign and edit - every tool free.' },
     { title: 'PDF to Word', href: '/en/tools/pdf-to-docx/', description: 'Convert PDFs to editable documents instantly.' },
     { title: 'Merge PDF', href: '/en/tools/merge-pdf/', description: 'Combine PDFs in seconds, locally in your browser.' },
   ],
@@ -22,7 +22,7 @@ export const pdfFileEditorProgramCrossword: BlogPost = {
     { question: 'What is the difference between Adobe and Acrobat in crossword clues?', answer: 'ADOBE is the company (and also the word for sun-dried brick - which is how the company got its name, from the Adobe Creek near its founders\' homes). ACROBAT is the company\'s PDF software product. Clues saying "PDF maker" or "PDF file editor program" can point to either; the letter count decides.' },
     { question: 'Are there other crossword answers for PDF editor clues?', answer: 'Occasionally: READER (as in Adobe Reader) appears in some grids, and non-PDF clues in the same family include EXCEL, POWERPOINT or WORD for office software clues. But ADOBE and ACROBAT cover the overwhelming majority of PDF-themed clues.' },
     { question: 'Why do crosswords love Adobe so much?', answer: 'Crossword grids reward short words with common letters and multiple vowels. ADOBE has two vowels plus the friendly D and B; it also has the pleasant property of meaning both a software company and an ancient building material, which lets constructors write tricky clues. It appears in puzzles constantly.' },
-    { question: 'What is the actual best PDF file editor program?', answer: 'For free editing in your browser, PDFEditorFree offers 95 tools - merge, split, convert, sign, annotate and edit - with files processed locally on your device. Desktop staples include Adobe Acrobat (subscription), Foxit and PDF-XChange. The best pick depends on whether you need quick edits (browser tools) or heavy workflow features (desktop suites).' },
+    { question: 'What is the actual best PDF file editor program?', answer: 'For free editing in your browser, PDFEditorFree offers 96 tools - merge, split, convert, sign, annotate and edit - with files processed locally on your device. Desktop staples include Adobe Acrobat (subscription), Foxit and PDF-XChange. The best pick depends on whether you need quick edits (browser tools) or heavy workflow features (desktop suites).' },
     { question: 'Is there a free alternative to Adobe Acrobat?', answer: 'Yes - browser-based tools like PDFEditorFree handle the everyday PDF tasks (merge, split, compress, convert, edit, sign) for free without installs or uploads, and desktop freeware like PDF-XChange Editor covers annotation and light editing offline.' },
     { question: 'What was Adobe Acrobat\'s history in brief?', answer: 'Adobe co-founded PDF in the early 1990s (Acrobat 1 shipped in 1993), and PDF became an ISO standard in 2008. Acrobat remains the reference implementation - which is why it owns the mental slot that crossword clues like this one tap into.' },
     { question: 'Do crosswords use tech clues often?', answer: 'Increasingly yes - modern puzzles freely mix ADOBE, PIXEL, EMACS, MODEM and APP with traditional fare. Software names with common letters (ADOBE, SIRI, ECID-like abbreviations) are constructor favorites because they interlock well with theme answers.' },
@@ -120,7 +120,7 @@ These five cover the overwhelming majority of software-name clues you will meet 
 
 A meaningful share of people searching this clue are not solving a puzzle - they need the software and phrased the need the way the clue phrased it. If that is you: welcome, and here is the straight answer.
 
-**For free, no-install editing in your browser:** [PDFEditorFree](/en/) runs 95 professional PDF tools entirely on your device - merge, split, compress, convert to and from Word/Excel/images, edit and annotate, sign, encrypt, OCR and more. Files never upload; everything processes locally via WebAssembly, so it is safe for contracts and confidential documents. No account, no watermark, no cost.
+**For free, no-install editing in your browser:** [PDFEditorFree](/en/) runs 96 professional PDF tools entirely on your device - merge, split, compress, convert to and from Word/Excel/images, edit and annotate, sign, encrypt, OCR and more. Files never upload; everything processes locally via WebAssembly, so it is safe for contracts and confidential documents. No account, no watermark, no cost.
 
 **For heavy desktop workflows:** Adobe Acrobat Pro remains the reference - native text editing, forms, redaction and preflight, at a subscription price. Foxit and PDF-XChange offer perpetual-license desktop alternatives with strong annotation and editing features at lower cost.
 
@@ -163,7 +163,7 @@ If your puzzle is mid-solve and you have a PDF emergency in the same session (li
 - **Need to combine or split files:** [Merge PDF](/en/tools/merge-pdf/) / [Split PDF](/en/tools/split-pdf/).
 - **Need a PDF as an editable document:** [PDF to Word](/en/tools/pdf-to-docx/).
 - **Need to sign something:** [Sign PDF](/en/tools/sign-pdf/).
-- **Everything else:** [the full toolbox](/en/tools/) - 95 tools, all free.
+- **Everything else:** [the full toolbox](/en/tools/) - 96 tools, all free.
 
 And for the puzzle itself: ADOBE for five, ACROBAT for seven. Good luck with the rest of the grid - and if the next clue is "spreadsheet program", you already know where to come back.
 
@@ -259,7 +259,7 @@ Rarely READER (as in the free viewing app), and adjacent grids use EXCEL, WORD, 
 Two vowels in five letters, friendly consonants, a famous double meaning (software company and sun-dried brick), and universal recognition - a constructor's dream word.
 
 **What is the actual best PDF file editor program?**
-For free browser-based editing with local privacy, PDFEditorFree's 95 tools cover merge, split, convert, edit, sign and more. For heavy professional workflows, Acrobat Pro, Foxit and PDF-XChange are the desktop staples.
+For free browser-based editing with local privacy, PDFEditorFree's 96 tools cover merge, split, convert, edit, sign and more. For heavy professional workflows, Acrobat Pro, Foxit and PDF-XChange are the desktop staples.
 
 **Is there a free alternative to Adobe Acrobat?**
 Yes - browser tools like PDFEditorFree handle everyday PDF tasks free with no uploads, and free desktop tiers like PDF-XChange cover offline annotation and light editing.

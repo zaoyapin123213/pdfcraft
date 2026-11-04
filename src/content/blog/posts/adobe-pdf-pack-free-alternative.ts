@@ -12,7 +12,7 @@ export const adobePdfPackFreeAlternative: BlogPost = {
   category: 'Editor Reviews',
   readingMinutes: 15,
   relatedTools: [
-    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: 'Every Pack function\'s free counterpart - 95 tools, no subscription.' },
+    { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: 'Every Pack function\'s free counterpart - 96 tools, no subscription.' },
     { title: 'Merge PDF', href: '/en/tools/merge-pdf/', description: 'Combine files - the Pack combine function, free.' },
     { title: 'PDF to Word', href: '/en/tools/pdf-to-docx/', description: 'Export PDFs to Office formats, free and local.' },
     { title: 'JPG to PDF', href: '/en/tools/jpg-to-pdf/', description: 'Create PDFs from images, free and local.' },
