@@ -39,6 +39,8 @@ export const convertPdfToEbook: BlogPost = {
 
 **Quick answer:** the no-install route is Google's: upload the PDF to Drive, open with Google Docs, then File > Download > EPUB Publication. The best-quality free route is Calibre, a desktop app that converts PDF to EPUB locally with cleanup options. Both are free. If the PDF is a scan, recover the text with the [OCR PDF](/en/tools/ocr-pdf/) tool first, or the ebook will contain pictures of pages instead of text.
 
+Convert a PDF to an ebook in three free ways: upload it to Google Drive, open it with Google Docs, and download as EPUB Publication; run it through Calibre on your desktop; or send it to an online converter like CloudConvert. All three produce an EPUB, the standard ebook format that reflows on any screen. The deciding factor is the source: text-based PDFs convert well, scanned PDFs need a free [OCR PDF](/en/tools/ocr-pdf/) pass first, and heavily designed files often should stay PDF.
+
 You have a book, a manual, or a long report trapped in PDF, and reading it on a phone or an e-reader means pinching, zooming, and losing your place on every page. The fix is EPUB, the format e-readers reflow to fit the screen, and getting there from PDF is free on every route below.
 
 This guide is honest about one thing first: converting PDF to ebook is a format translation, not a magic reskin. PDF freezes each page as artwork, while EPUB pours text into a flexible layout, so the quality of your ebook depends mostly on how clean your PDF's text layer is. That is why the guide covers preparation before conversion, the three conversion routes with exact steps, and the cases where converting is the wrong move entirely.

@@ -39,6 +39,8 @@ export const separatePdfIntoIndividualPages: BlogPost = {
 
 **Quick answer:** the fastest way is a browser tool: open [Split PDF](/en/tools/split-pdf/), drop the file in, pick **Every page**, and download one PDF per page, free and without signup. For chapters, split by page ranges instead. For just a few pages, use [Extract Pages](/en/tools/extract-pages/) to pull exactly those pages out.
 
+Separate a PDF into individual pages by opening the [Split PDF](/en/tools/split-pdf/) tool, dropping the file in, choosing the **Every page** mode, and downloading one PDF per page, free, with no signup and no upload. That is the whole method for the most common version of the job. For chapters, split by ranges; for a few loose pages, extract them; for offline one-offs, drag thumbnails out of macOS Preview.
+
 You need page 14 as its own file, or all 60 pages as 60 files, and the original PDF is not going to cooperate on its own. PDF pages feel like separate sheets in a viewer, but the file is one container, and separating it means writing new files that each hold one page or one group. The words matter less than the mechanics: nothing about the original changes, and the new files inherit everything their pages carry, text, images, annotations, and all.
 
 The good news: this is one of the simplest operations a PDF tool can perform, and it is free everywhere that matters. This guide covers four ways to do it, in the order you should try them: one file per page in a browser tool, splitting by ranges for chapters, extracting just a few pages, and the built-in tricks hiding in macOS Preview and your browser's print dialog. You will also see where quality, naming, and privacy come into play, because those are the details people ask about after the first attempt.

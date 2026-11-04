@@ -40,6 +40,8 @@ export const deletePdfPagesForFree: BlogPost = {
 
 **Quick answer:** the fastest free method is a browser tool: open [Delete Pages](/en/tools/delete-pages/), drop the PDF in, click the pages to remove in the grid, and download. It runs without an account and leaves no watermark. On Mac, Preview's thumbnail sidebar does the same job offline. On Windows, the print-to-PDF trick excludes page ranges without installing anything.
 
+Delete PDF pages for free by opening the [Delete Pages](/en/tools/delete-pages/) tool, clicking the pages you want gone, and downloading the trimmed file. No signup, no watermark, no cost, and the file is processed in your browser rather than uploaded. Offline alternatives cover the rest: Preview's thumbnail sidebar on Mac, the print-to-PDF trick on Windows, and genuinely free online tools like PDF24 when upload is acceptable.
+
 A scanned receipt from last year, a blank page the printer added, a chapter you are not allowed to share yet: pages get deleted for boring reasons, and the operation itself is one of the simplest in PDF work. The confusion is all about the word "free," because the tools that come to mind first, Acrobat and its online portal, sit behind accounts and subscriptions, and many people give up there. The rest of the market disagrees with that surrender: genuinely free deletion exists, some of it without even an upload, and this page collects the working routes in one place.
 
 This guide shows the genuinely free paths, ranked by how often they are the right choice. You get exact steps for each, a comparison of what free means at the popular online tools, and the three pitfalls that catch people after the delete already happened: signed documents, broken internal links, and page numbers that shift.
