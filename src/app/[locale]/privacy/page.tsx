@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
-import { generatePrivacyMetadata } from '@/lib/seo';
+import { generatePrivacyMetadata, generateStaticPageSchema } from '@/lib/seo';
+import { JsonLd } from '@/components/seo/JsonLd';
 import PrivacyPageClient from './PrivacyPageClient';
 
 export function generateStaticParams() {
@@ -29,9 +30,24 @@ interface PrivacyPageProps {
 
 export default async function PrivacyPage({ params }: PrivacyPageProps) {
   const { locale } = await params;
+  const validLocale = locales.includes(locale as Locale) ? (locale as Locale) : 'en';
 
   // Enable static rendering
-  setRequestLocale(locale);
+  setRequestLocale(validLocale);
 
-  return <PrivacyPageClient locale={locale as Locale} />;
+  const t = await getTranslations({ locale: validLocale, namespace: 'metadata' });
+  const pageSchema = generateStaticPageSchema(
+    validLocale,
+    '/privacy',
+    'WebPage',
+    t('privacy.title'),
+    t('privacy.description')
+  );
+
+  return (
+    <>
+      <JsonLd data={pageSchema} />
+      <PrivacyPageClient locale={validLocale} />
+    </>
+  );
 }

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
-import { generateBaseMetadata } from '@/lib/seo';
+import { generateBaseMetadata, generateStaticPageSchema } from '@/lib/seo';
+import { JsonLd } from '@/components/seo/JsonLd';
 import WorkflowPageClient from './WorkflowPageClient';
 
 export function generateStaticParams() {
@@ -32,9 +33,24 @@ export async function generateMetadata({
 
 export default async function WorkflowPage({ params }: WorkflowPageProps) {
     const { locale } = await params;
+    const validLocale = locales.includes(locale as Locale) ? (locale as Locale) : 'en';
 
     // Enable static rendering
-    setRequestLocale(locale);
+    setRequestLocale(validLocale);
 
-    return <WorkflowPageClient locale={locale as Locale} />;
+    const t = await getTranslations({ locale: validLocale, namespace: 'workflow' });
+    const pageSchema = generateStaticPageSchema(
+        validLocale,
+        '/workflow',
+        'WebPage',
+        t('metaTitle'),
+        t('metaDescription')
+    );
+
+    return (
+        <>
+            <JsonLd data={pageSchema} />
+            <WorkflowPageClient locale={validLocale} />
+        </>
+    );
 }

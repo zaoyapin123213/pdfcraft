@@ -34,6 +34,7 @@ export {
   generateToolPageStructuredData,
   generateHowToSchema,
   generateWebPageSchema,
+  generateStaticPageSchema,
   serializeStructuredData,
   validateSoftwareApplicationSchema,
   validateFAQPageSchema,

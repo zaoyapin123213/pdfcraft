@@ -66,7 +66,7 @@ export interface HowToSchema {
  */
 export interface WebPageSchema {
   '@context': 'https://schema.org';
-  '@type': 'WebPage';
+  '@type': 'WebPage' | 'AboutPage' | 'ContactPage';
   name: string;
   description: string;
   url: string;
@@ -164,7 +164,8 @@ export function generateSoftwareApplicationSchema(
     '@type': 'SoftwareApplication',
     name: content.title,
     description: content.metaDescription,
-    url: `${siteConfig.url}/${locale}/tools/${tool.slug}`,
+    // Trailing slash matches the site's canonical URL format (trailingSlash: true)
+    url: `${siteConfig.url}/${locale}/tools/${tool.slug}/`,
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Windows, macOS, Linux, iOS, Android, Chrome OS',
     offers: {
@@ -215,8 +216,52 @@ export function generateHowToSchema(
       position: step.step,
       name: step.title,
       text: step.description,
-      url: `${siteConfig.url}/${locale}/tools/${tool.slug}#step-${step.step}`,
+      url: `${siteConfig.url}/${locale}/tools/${tool.slug}/#step-${step.step}`,
     })),
+  };
+}
+
+/**
+ * schema.org locale → BCP47 language tag.
+ * Shared by every WebPage-family schema so inLanguage stays consistent.
+ */
+const LOCALE_TO_LANGUAGE: Record<Locale, string> = {
+  en: 'en-US',
+  ja: 'ja-JP',
+  ko: 'ko-KR',
+  es: 'es-ES',
+  fr: 'fr-FR',
+  de: 'de-DE',
+  zh: 'zh-CN',
+  'zh-TW': 'zh-TW',
+  pt: 'pt-BR',
+};
+
+/**
+ * Generate WebPage-family schema for a static page (about / contact /
+ * privacy / workflow). @type may narrow to AboutPage or ContactPage.
+ * URL uses the trailing-slash canonical format.
+ */
+export function generateStaticPageSchema(
+  locale: Locale,
+  path: string,
+  pageType: 'WebPage' | 'AboutPage' | 'ContactPage',
+  name: string,
+  description: string
+): WebPageSchema {
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': pageType,
+    name,
+    description,
+    url: `${siteConfig.url}/${locale}${cleanPath}/`,
+    inLanguage: LOCALE_TO_LANGUAGE[locale] || 'en-US',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: siteConfig.name,
+      url: `${siteConfig.url}/${locale}/`,
+    },
   };
 }
 
@@ -228,25 +273,14 @@ export function generateWebPageSchema(
   content: ToolContent,
   locale: Locale
 ): WebPageSchema {
-  const languageMap: Record<Locale, string> = {
-    en: 'en-US',
-    ja: 'ja-JP',
-    ko: 'ko-KR',
-    es: 'es-ES',
-    fr: 'fr-FR',
-    de: 'de-DE',
-    zh: 'zh-CN',
-    'zh-TW': 'zh-TW',
-    pt: 'pt-BR',
-  };
-
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: content.title,
     description: content.metaDescription,
-    url: `${siteConfig.url}/${locale}/tools/${tool.slug}`,
-    inLanguage: languageMap[locale] || 'en-US',
+    // Trailing slash matches the site's canonical URL format
+    url: `${siteConfig.url}/${locale}/tools/${tool.slug}/`,
+    inLanguage: LOCALE_TO_LANGUAGE[locale] || 'en-US',
     isPartOf: {
       '@type': 'WebSite',
       name: siteConfig.name,
@@ -289,7 +323,8 @@ export function generateWebSiteSchema(locale: Locale): WebSiteSchema {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: siteConfig.name,
-    url: `${siteConfig.url}/${locale}`,
+    // Trailing slash matches the locale homepage's canonical URL
+    url: `${siteConfig.url}/${locale}/`,
     description: siteConfig.description,
     // Note: SearchAction is omitted because the site has no crawlable
     // search results page (header search is client-side only). Declaring
