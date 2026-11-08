@@ -350,13 +350,27 @@ export async function extractTextLines(
 
 /** Find the text line containing the given point (top-left PDF space). */
 export function findLineAt(lines: TextLine[], pageIndex: number, x: number, yTop: number): TextLine | null {
+  // Exact hit first; then the closest line within a generous radius so
+  // clicks that land between lines (line-gap area) still select the
+  // nearest text. Falls back to null only when no text is nearby at all.
+  let best: TextLine | null = null;
+  let bestDist = Infinity;
   for (const l of lines) {
     if (l.pageIndex !== pageIndex) continue;
-    if (x >= l.x - 2 && x <= l.x + l.width + 2 && yTop >= l.yTop - 2 && yTop <= l.yTop + l.height + 2) {
+    const padX = Math.max(4, l.fontSize * 0.25);
+    const padY = Math.max(5, l.height * 0.45);
+    if (x >= l.x - padX && x <= l.x + l.width + padX && yTop >= l.yTop - padY && yTop <= l.yTop + l.height + padY) {
       return l;
     }
+    // near-miss distance for the closest-line fallback
+    if (x >= l.x - 14 && x <= l.x + l.width + 14 && yTop >= l.yTop - 12 && yTop <= l.yTop + l.height + 12) {
+      const cy = Math.min(Math.max(yTop, l.yTop), l.yTop + l.height);
+      const cx = Math.min(Math.max(x, l.x), l.x + l.width);
+      const d = (yTop - cy) * (yTop - cy) + (x - cx) * (x - cx);
+      if (d < bestDist) { bestDist = d; best = l; }
+    }
   }
-  return null;
+  return best;
 }
 
 export interface ReplacementEdit {

@@ -318,7 +318,9 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       redoStackRef.current = [];
       setResultBlob(null);
       setSelectedId(null);
-        setActiveTool('select');
+      // Sejda opens with the Text tool active — clicking any existing text
+      // works right away, no tool selection needed first.
+      setActiveTool('text');
       textLinesRef.current = new Map();
       void extractForms(buf);
       requestAnimationFrame(() => {
