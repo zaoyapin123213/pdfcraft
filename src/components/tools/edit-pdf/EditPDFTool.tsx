@@ -49,6 +49,7 @@ import {
   ChevronDown,
   Copy,
   ClipboardList,
+  Move,
 } from 'lucide-react';
 import { Button, Card, Modal } from '@/components/ui';
 import FileUploader from '@/components/tools/FileUploader';
@@ -153,6 +154,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   const hoverLineRef = useRef<TextLine | null>(null);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [draftText, setDraftText] = useState('');
+  const [moveMode, setMoveMode] = useState(false);
 
   // Style defaults for new objects
   const [styleFont, setStyleFont] = useState<FontId>('helvetica');
@@ -479,6 +481,37 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     setSelectedId(clone.id);
   }, [commit, objects, selected]);
 
+  /** Bounding box of any edit object in PDF space (top-left anchor). */
+  const objBBox = useCallback((o: EditObject): { x: number; yTop: number; w: number; h: number } => {
+    switch (o.kind) {
+      case 'line': case 'arrow':
+        return { x: Math.min(o.x1, o.x2), yTop: Math.min(o.yTop1, o.yTop2), w: Math.abs(o.x2 - o.x1) || 2, h: Math.abs(o.yTop2 - o.yTop1) || 2 };
+      case 'freehand': {
+        const xs = o.points.map((p) => p.x); const ys = o.points.map((p) => p.yTop);
+        return { x: Math.min(...xs), yTop: Math.min(...ys), w: Math.max(...xs) - Math.min(...xs) || 2, h: Math.max(...ys) - Math.min(...ys) || 2 };
+      }
+      case 'check': case 'cross': case 'dot':
+        return { x: o.x, yTop: o.yTop, w: o.size, h: o.size };
+      case 'stamp':
+        return { x: o.x, yTop: o.yTop, w: o.fontSize * 5, h: o.fontSize * 2 };
+      case 'text':
+        return { x: o.x, yTop: o.yTop, w: o.width, h: o.fontSize * 1.3 };
+      default:
+        return { x: o.x, yTop: o.yTop, w: o.width, h: o.height };
+    }
+  }, []);
+
+  const findObjectAt = useCallback((pageIndex: number, vx: number, vy: number): EditObject | null => {
+    for (let i = objects.length - 1; i >= 0; i--) {
+      const o = objects[i];
+      if (o.pageIndex !== pageIndex) continue;
+      const b = objBBox(o);
+      const pad = 3;
+      if (vx >= b.x - pad && vx <= b.x + b.w + pad && vy >= b.yTop - pad && vy <= b.yTop + b.h + pad) return o;
+    }
+    return null;
+  }, [objects, objBBox]);
+
   // ------------------------------------------------------------------
   // Object creation
   // ------------------------------------------------------------------
@@ -588,12 +621,31 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
 
     if (activeTool === 'select') {
+      if (moveMode && selected) {
+        const b = objBBox(selected);
+        const dx = pt.x - (b.x + b.w / 2);
+        const dy = pt.y - (b.yTop + b.h / 2);
+        const moved = { ...selected } as any;
+        if ('points' in moved) moved.points = moved.points.map((p: any) => ({ x: p.x + dx, yTop: p.yTop + dy }));
+        else if ('x1' in moved) { moved.x1 += dx; moved.x2 += dx; moved.yTop1 += dy; moved.yTop2 += dy; }
+        else { moved.x += dx; moved.yTop += dy; }
+        commit(objects.map((o) => (o.id === selected.id ? moved : o)));
+        setMoveMode(false);
+        return;
+      }
       if (editingId) commitTextEdit(); // clicking empty space finishes the edit
       setSelectedId(null);
       setEditingId(null);
         return;
     }
     if (activeTool === 'text') {
+      // Text mode also selects non-text objects (symbols, images, shapes…)
+      const objHit = findObjectAt(pageIndex, pt.x, pt.y);
+      if (objHit) {
+        setSelectedId(objHit.id);
+        setActiveTool('select');
+        return;
+      }
       // Race-safe: if the background pre-extraction has not finished yet,
       // extract now (cached after the first call) instead of missing the
       // click entirely.
@@ -625,7 +677,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     }
     dragRef.current = { mode: 'draw-rect', pageIndex, startVx: pt.x, startVy: pt.y };
     setDraftRect({ pageIndex, x: pt.x, yTop: pt.y, w: 0, h: 0 });
-  }, [activeTool, addTextAt, applying, commitTextEdit, editingId, placeAsset, toViewPt]);
+  }, [activeTool, addTextAt, applying, commitTextEdit, editingId, findObjectAt, moveMode, objects, placeAsset, selected, startLineEdit, toViewPt]);
 
   const onOverlayPointerUp = useCallback((e: React.PointerEvent) => {
     const drag = dragRef.current;
@@ -970,7 +1022,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
 
   const hint = (() => {
     switch (activeTool) {
-      case 'select': return s.hintSelect;
+      case 'select': return moveMode && selected ? s.hintMove : s.hintSelect;
       case 'text': return `${s.hintTextExisting} · ${s.hintText}`;
       case 'image': return pendingImage ? s.hintImage : s.toolImage;
       case 'link': return s.hintLink;
@@ -1499,6 +1551,15 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                         <Check className="h-3.5 w-3.5 mr-0.5" />{s.signClear === '清除' ? '完成' : 'Done'}
                       </Button>
                     )}
+                    <Button
+                      variant={moveMode ? 'primary' : 'ghost'}
+                      size="sm"
+                      className="h-7 w-7 p-0"
+                      title={s.toolSelect + ' · ' + s.hintMove}
+                      onClick={() => setMoveMode((v) => !v)}
+                    >
+                      <Move className="h-3.5 w-3.5" />
+                    </Button>
                     <Button variant="ghost" size="sm" className="h-7 w-7 p-0" title={s.duplicate} onClick={duplicateSelected}>
                       <Copy className="h-3.5 w-3.5" />
                     </Button>

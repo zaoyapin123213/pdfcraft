@@ -92,6 +92,7 @@ export type EditorStrings = {
   insertPage: string;
   editText: string;
   duplicate: string;
+  hintMove: string;
   formTextField: string;
   formTextarea: string;
   formDropdown: string;
@@ -195,6 +196,7 @@ const en: EditorStrings = {
   confirmReset: 'Remove the current file and start over?',
   editText: 'Edit text',
   formTextField: 'Text field', formTextarea: 'Text multiline', formDropdown: 'Drop-down list', formRadio: 'Radio button', formCheckbox: 'Checkbox', formSignatureBox: 'Signature box', formAddFields: 'Add new form fields', formFieldName: 'Field name', formDefaultValue: 'Default value', formOptions: 'Options (one per line)', formRequired: 'Field is mandatory', formDuplicateName: 'This name is already used by another field.', addBlankPage: 'Add blank page', done: 'Done',
+  hintMove: 'Move: click a new position on the page',
   reset: 'Start over',
 };
 
@@ -285,6 +287,7 @@ const zh: EditorStrings = {
   confirmReset: '移除当前文件并重新开始？',
   editText: '编辑文字',
   formTextField: '文本字段', formTextarea: '多行文本', formDropdown: '下拉列表', formRadio: '单选按钮', formCheckbox: '复选框', formSignatureBox: '签名框', formAddFields: '添加新表单字段', formFieldName: '字段名称', formDefaultValue: '默认值', formOptions: '选项（每行一个）', formRequired: '必填字段', formDuplicateName: '该名称已被其他字段使用。', addBlankPage: '添加空白页', done: '完成',
+  hintMove: '移动：点击页面上的新位置',
   reset: '重新开始',
 };
 
@@ -374,6 +377,7 @@ const zhTW: EditorStrings = {
   confirmReset: '移除目前檔案並重新開始？',
   editText: '編輯文字',
   formTextField: '文字欄位', formTextarea: '多行文字', formDropdown: '下拉清單', formRadio: '單選按鈕', formCheckbox: '核取方塊', formSignatureBox: '簽名框', formAddFields: '新增表單欄位', formFieldName: '欄位名稱', formDefaultValue: '預設值', formOptions: '選項（每行一個）', formRequired: '必填欄位', formDuplicateName: '該名稱已被其他欄位使用。', addBlankPage: '新增空白頁', done: '完成',
+  hintMove: '移動：點擊頁面上的新位置',
   reset: '重新開始',
 };
 
@@ -463,6 +467,7 @@ const ja: EditorStrings = {
   confirmReset: '現在のファイルを削除して最初からやり直しますか？',
   editText: '文字を編集',
   formTextField: 'テキスト欄', formTextarea: '複数行テキスト', formDropdown: 'ドロップダウン', formRadio: 'ラジオボタン', formCheckbox: 'チェックボックス', formSignatureBox: '署名欄', formAddFields: 'フォーム欄を追加', formFieldName: '欄名', formDefaultValue: '初期値', formOptions: '選択肢（1 行に 1 つ）', formRequired: '必須欄', formDuplicateName: 'その名前は既に使用されています。', addBlankPage: '空白ページを追加', done: '完了',
+  hintMove: '移動：ページ上の新しい位置をクリック',
   reset: 'やり直す',
 };
 
@@ -552,6 +557,7 @@ const ko: EditorStrings = {
   confirmReset: '현재 파일을 제거하고 처음부터 다시 시작할까요?',
   editText: '텍스트 편집',
   formTextField: '텍스트 필드', formTextarea: '여러 줄 텍스트', formDropdown: '드롭다운', formRadio: '라디오 버튼', formCheckbox: '체크박스', formSignatureBox: '서명란', formAddFields: '새 양식 필드 추가', formFieldName: '필드 이름', formDefaultValue: '기본값', formOptions: '옵션 (한 줄에 하나)', formRequired: '필수 필드', formDuplicateName: '이 이름은 이미 사용 중입니다.', addBlankPage: '빈 페이지 추가', done: '완료',
+  hintMove: '이동: 페이지에서 새 위치 클릭',
   reset: '다시 시작',
 };
 
@@ -642,6 +648,7 @@ const de: EditorStrings = {
   confirmReset: 'Aktuelle Datei entfernen und neu beginnen?',
   editText: 'Text bearbeiten',
   formTextField: 'Textfeld', formTextarea: 'Mehrzeiliger Text', formDropdown: 'Dropdown-Liste', formRadio: 'Optionsfeld', formCheckbox: 'Kontrollkästchen', formSignatureBox: 'Unterschriftsfeld', formAddFields: 'Neue Formularfelder', formFieldName: 'Feldname', formDefaultValue: 'Standardwert', formOptions: 'Optionen (eine pro Zeile)', formRequired: 'Pflichtfeld', formDuplicateName: 'Dieser Name wird bereits verwendet.', addBlankPage: 'Leere Seite hinzufügen', done: 'Fertig',
+  hintMove: 'Verschieben: neue Position auf der Seite anklicken',
   reset: 'Neu beginnen',
 };
 
@@ -732,6 +739,7 @@ const es: EditorStrings = {
   confirmReset: '¿Quitar el archivo actual y empezar de nuevo?',
   editText: 'Editar texto',
   formTextField: 'Campo de texto', formTextarea: 'Texto multilínea', formDropdown: 'Lista desplegable', formRadio: 'Botón de opción', formCheckbox: 'Casilla', formSignatureBox: 'Casilla de firma', formAddFields: 'Añadir campos de formulario', formFieldName: 'Nombre del campo', formDefaultValue: 'Valor predeterminado', formOptions: 'Opciones (una por línea)', formRequired: 'Campo obligatorio', formDuplicateName: 'Este nombre ya está en uso.', addBlankPage: 'Añadir página en blanco', done: 'Hecho',
+  hintMove: 'Mover: haz clic en una nueva posición de la página',
   reset: 'Empezar de nuevo',
 };
 
@@ -822,6 +830,7 @@ const fr: EditorStrings = {
   confirmReset: 'Retirer le fichier actuel et recommencer ?',
   editText: 'Modifier le texte',
   formTextField: 'Champ de texte', formTextarea: 'Texte multiligne', formDropdown: 'Liste déroulante', formRadio: 'Bouton radio', formCheckbox: 'Case à cocher', formSignatureBox: 'Zone de signature', formAddFields: 'Ajouter des champs', formFieldName: 'Nom du champ', formDefaultValue: 'Valeur par défaut', formOptions: 'Options (une par ligne)', formRequired: 'Champ obligatoire', formDuplicateName: 'Ce nom est déjà utilisé.', addBlankPage: 'Ajouter une page blanche', done: 'Terminé',
+  hintMove: 'Déplacer : cliquez sur une nouvelle position',
   reset: 'Recommencer',
 };
 
@@ -912,6 +921,7 @@ const pt: EditorStrings = {
   confirmReset: 'Remover o arquivo atual e começar de novo?',
   editText: 'Editar texto',
   formTextField: 'Campo de texto', formTextarea: 'Texto multilinhas', formDropdown: 'Lista suspensa', formRadio: 'Botão de opção', formCheckbox: 'Caixa de seleção', formSignatureBox: 'Campo de assinatura', formAddFields: 'Adicionar novos campos', formFieldName: 'Nome do campo', formDefaultValue: 'Valor padrão', formOptions: 'Opções (uma por linha)', formRequired: 'Campo obrigatório', formDuplicateName: 'Este nome já está em uso.', addBlankPage: 'Adicionar página em branco', done: 'Concluído',
+  hintMove: 'Mover: clique em uma nova posição da página',
   reset: 'Começar de novo',
 };
 
