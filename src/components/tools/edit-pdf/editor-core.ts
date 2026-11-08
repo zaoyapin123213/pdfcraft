@@ -402,7 +402,9 @@ export function buildLinesFromSpans(
     const right = Math.max(...g.map((sp) => sp.leftPx + sp.widthPx));
     const top = Math.min(...g.map((sp) => sp.topPx));
     const bottom = Math.max(...g.map((sp) => sp.topPx + sp.heightPx));
-    const fontSizePx = Math.max(...g.map((sp) => sp.fontSizePx));
+    // span computed font-size can be scaled oddly by pdf.js; the rendered
+    // glyph height (span box height, line-height:1) tracks the true size.
+    const fontSizePx = Math.max(...g.map((sp) => sp.heightPx));
     const str = g.map((sp) => sp.text).join('');
     if (!str.trim()) continue;
     lines.push({
