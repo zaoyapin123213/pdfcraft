@@ -149,6 +149,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   const [hoverKey, setHoverKey] = useState<string | null>(null);
   const hoverLineRef = useRef<TextLine | null>(null);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [draftText, setDraftText] = useState('');
 
   // Style defaults for new objects
   const [styleFont, setStyleFont] = useState<FontId>('helvetica');
@@ -437,11 +438,26 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       text: line.str.replace(/\s+$/, ''), fontSize: line.fontSize,
       color: '#111111', bold: styleBold, italic: styleItalic, fontId: styleFont,
     };
+    console.log('[e2e-probe] startLineEdit', text.id, 'objects-before=', objects.length);
     commit([...objects, whiteout, text]);
     setSelectedId(text.id);
     setEditingId(text.id);
+    setDraftText(text.text);
     setActiveTool('select');
   }, [commit, objects, styleBold, styleFont, styleItalic]);
+
+  /** Commit the draft (Enter or the Done button). Blur is deliberately
+   *  inert: clicking the floating style bar must not close the editor. */
+  const commitTextEdit = useCallback(() => {
+    if (!editingId) return;
+    const t = draftText.trim();
+    if (!t) {
+      commit(objects.filter((x) => x.id !== editingId));
+    } else {
+      commit(objects.map((x) => (x.id === editingId ? { ...(x as TextObject), text: draftText } : x)));
+    }
+    setEditingId(null);
+  }, [commit, draftText, editingId, objects]);
 
   const duplicateSelected = useCallback(() => {
     if (!selected) return;
@@ -467,6 +483,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     commit([...objects, obj]);
     setSelectedId(obj.id);
     setEditingId(obj.id);
+    setDraftText('');
     setActiveTool('select');
   }, [commit, flash, objects, pageLocked, s.scanWarning, styleBold, styleColor, styleFont, styleItalic, styleSize]);
 
@@ -1224,17 +1241,39 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                     onPointerDown={(e, handle) => onObjectPointerDown(o, e, handle)}
                     onPointerMove={onObjectPointerMove}
                     onPointerUp={onObjectPointerUp}
-                    onCommitText={(text) => {
-                      if (!text.trim()) {
-                        commit(objects.filter((x) => x.id !== o.id));
-                      } else {
-                        commit(objects.map((x) => (x.id === o.id ? { ...(x as TextObject), text } : x)));
-                      }
-                      setEditingId(null);
-                    }}
                     onStartEdit={() => setEditingId(o.id)}
                   />
                 ))}
+
+                {/* Live textarea for the text object being edited (blur-inert:
+                    Enter or the Done button commits; clicking the style bar
+                    keeps the editor open) */}
+                {editingId && selected && selected.kind === 'text' && selected.pageIndex === idx && (() => {
+                  const t = selected as TextObject;
+                  const family = t.fontId === 'times' ? '"Times New Roman", serif'
+                    : t.fontId === 'courier' ? '"Courier New", monospace'
+                      : t.fontId === 'system-cjk' ? '"Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Malgun Gothic", "Yu Gothic", sans-serif'
+                        : 'Helvetica, Arial, sans-serif';
+                  return (
+                    <textarea
+                      autoFocus
+                      data-e2e="editing"
+                      className="absolute bg-white/85 border-2 border-blue-500 rounded-sm px-0.5 resize-none overflow-hidden z-10"
+                      style={{ left: t.x * zoom, top: t.yTop * zoom, width: Math.max(t.width, 60) * zoom, height: Math.max(t.fontSize * 1.5 * draftText.split('\n').length + 14, 30), fontSize: t.fontSize * zoom, fontFamily: family, fontWeight: t.bold ? 700 : 400, fontStyle: t.italic ? 'italic' : 'normal', color: t.color, lineHeight: 1.25 }}
+                      value={draftText}
+                      onChange={(e) => setDraftText(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                          e.preventDefault();
+                          commitTextEdit();
+                        }
+                        if (e.key === 'Escape') {
+                          setEditingId(null);
+                        }
+                      }}
+                    />
+                  );
+                })()}
 
                 {draftRect?.pageIndex === idx && (
                   <div className="absolute border-2 border-dashed border-blue-500 bg-blue-500/10 pointer-events-none"
@@ -1359,6 +1398,11 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                         onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as StampObject), text: e.target.value } : o)))}
                         title={s.stampText}
                       />
+                    )}
+                    {editingId === selected.id && (
+                      <Button variant="primary" size="sm" className="h-7 px-2 text-xs" onClick={commitTextEdit}>
+                        <Check className="h-3.5 w-3.5 mr-0.5" />{s.signClear === '清除' ? '完成' : 'Done'}
+                      </Button>
                     )}
                     <Button variant="ghost" size="sm" className="h-7 w-7 p-0" title={s.duplicate} onClick={duplicateSelected}>
                       <Copy className="h-3.5 w-3.5" />
@@ -1509,10 +1553,9 @@ function ObjectView(props: {
   onPointerDown: (e: React.PointerEvent, handle?: 'se') => void;
   onPointerMove: (e: React.PointerEvent) => void;
   onPointerUp: (e: React.PointerEvent) => void;
-  onCommitText: (text: string) => void;
   onStartEdit: () => void;
 }) {
-  const { obj, zoom, s, selected, editing, activeTool, onPointerDown, onPointerMove, onPointerUp, onCommitText, onStartEdit } = props;
+  const { obj, zoom, s, selected, editing, activeTool, onPointerDown, onPointerMove, onPointerUp, onStartEdit } = props;
   const interactive = activeTool === 'select';
   const base: React.CSSProperties = {
     position: 'absolute',
@@ -1533,21 +1576,13 @@ function ObjectView(props: {
           : obj.fontId === 'system-cjk' ? '"Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Malgun Gothic", "Yu Gothic", sans-serif'
             : 'Helvetica, Arial, sans-serif';
       if (editing) {
+        // The main component renders the live textarea on top of this
+        // placeholder (controlled draft — blur-inert by design).
         return (
-          <textarea
-            autoFocus
+          <div
             data-oid={obj.id}
-            className="absolute bg-white/90 border-2 border-blue-500 rounded-sm px-0.5 resize-none overflow-hidden"
-            style={{ left: obj.x * zoom, top: obj.yTop * zoom, width: Math.max(obj.width, 60) * zoom, height: Math.max(obj.fontSize * 1.4 * zoom, 28), fontSize: obj.fontSize * zoom, fontFamily: family, fontWeight: obj.bold ? 700 : 400, fontStyle: obj.italic ? 'italic' : 'normal', color: obj.color, lineHeight: 1.25 }}
-            defaultValue={obj.text}
-            onBlur={(e) => onCommitText(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                (e.target as HTMLTextAreaElement).blur();
-              }
-              if (e.key === 'Escape') onCommitText(obj.text);
-            }}
+            className="absolute border-2 border-blue-500 bg-white/40 rounded-sm"
+            style={{ left: obj.x * zoom, top: obj.yTop * zoom, width: Math.max(obj.width, 60) * zoom, height: Math.max(obj.fontSize * 1.4 * zoom, 28), pointerEvents: 'none' }}
           />
         );
       }
