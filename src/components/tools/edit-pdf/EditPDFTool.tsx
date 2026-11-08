@@ -146,7 +146,6 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   const [message, setMessage] = useState<string | null>(null);
 
   // Text selection (click-to-edit existing text)
-  const [selectedLine, setSelectedLine] = useState<TextLine | null>(null);
   const [hoverKey, setHoverKey] = useState<string | null>(null);
   const hoverLineRef = useRef<TextLine | null>(null);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -217,7 +216,6 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     setObjects(prev.objects);
     setPageOps(prev.pageOps);
     setSelectedId(null);
-    setSelectedLine(null);
     setResultBlob(null);
     setHistoryTick((t) => t + 1);
   }, [objects, pageOps]);
@@ -229,7 +227,6 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     setObjects(next.objects);
     setPageOps(next.pageOps);
     setSelectedId(null);
-    setSelectedLine(null);
     setResultBlob(null);
     setHistoryTick((t) => t + 1);
   }, [objects, pageOps]);
@@ -320,8 +317,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       redoStackRef.current = [];
       setResultBlob(null);
       setSelectedId(null);
-      setSelectedLine(null);
-      setActiveTool('select');
+        setActiveTool('select');
       textLinesRef.current = new Map();
       void extractForms(buf);
       requestAnimationFrame(() => {
@@ -369,7 +365,6 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     setPendingSign(null);
     setResultBlob(null);
     setError(null);
-    setSelectedLine(null);
     textLinesRef.current = new Map();
   }, [objects.length, s.confirmReset]);
 
@@ -431,22 +426,22 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     }
   }, [activeTool, hoverKey, toViewPt]);
 
-  /** Create whiteout + prefilled text object for the selected line, then
-   *  open the inline editor — the "Edit text" action. */
+  /** Sejda behaviour: a single click on existing text immediately turns it
+   *  into an editable object (whiteout + prefilled inline editor + the
+   *  floating style bar). No intermediate selection step. */
   const startLineEdit = useCallback((line: TextLine) => {
     const whiteout: EditObject = { id: nextObjectId(), kind: 'whiteout', pageIndex: line.pageIndex, x: line.x, yTop: line.yTop, width: line.width, height: line.height * 1.3 };
     const text: TextObject = {
       id: nextObjectId(), kind: 'text', pageIndex: line.pageIndex,
       x: line.x, yTop: line.yTop, width: Math.max(line.width, 40),
-      text: line.str.replace(/\s+$/, ''), fontSize: styleSize,
+      text: line.str.replace(/\s+$/, ''), fontSize: line.fontSize,
       color: '#111111', bold: styleBold, italic: styleItalic, fontId: styleFont,
     };
     commit([...objects, whiteout, text]);
-    setSelectedLine(null);
     setSelectedId(text.id);
     setEditingId(text.id);
     setActiveTool('select');
-  }, [commit, objects, styleBold, styleFont, styleItalic, styleSize]);
+  }, [commit, objects, styleBold, styleFont, styleItalic]);
 
   const duplicateSelected = useCallback(() => {
     if (!selected) return;
@@ -553,18 +548,22 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     if (activeTool === 'select') {
       setSelectedId(null);
       setEditingId(null);
-      setSelectedLine(null);
-      return;
+        return;
     }
     if (activeTool === 'text') {
-      const lines = textLinesRef.current.get(pageIndex);
-      const hit = lines ? findLineAt(lines, pageIndex, pt.x, pt.y) : null;
-      if (hit) {
-        setSelectedLine(hit); // blue selection + floating toolbar (no whiteout yet)
-      } else {
-        setSelectedLine(null);
-        addTextAt(pageIndex, pt.x, pt.y);
-      }
+      // Race-safe: if the background pre-extraction has not finished yet,
+      // extract now (cached after the first call) instead of missing the
+      // click entirely.
+      void (async () => {
+        const lines = await getLines(pageIndex);
+        const pt2 = toViewPt(pageIndex, e.clientX, e.clientY);
+        const hit = findLineAt(lines, pageIndex, pt2.x, pt2.y);
+        if (hit) {
+                startLineEdit(hit); // single click = immediately editable (Sejda)
+        } else {
+          addTextAt(pageIndex, pt2.x, pt2.y);
+        }
+      })();
       return;
     }
     if (activeTool === 'image' || activeTool === 'sign' || activeTool === 'check' || activeTool === 'cross' || activeTool === 'dot' || activeTool === 'stamp') {
@@ -618,7 +617,6 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     setHistoryTick((t) => t + 1);
     dragRef.current = { mode: handle ? 'resize' : 'move', pageIndex: obj.pageIndex, startVx: pt.x, startVy: pt.y, objectId: obj.id, orig: { ...obj } };
     setSelectedId(obj.id);
-    setSelectedLine(null);
   }, [activeTool, applying, objects, pageOps, toViewPt]);
 
   const onObjectPointerMove = useCallback((e: React.PointerEvent) => {
@@ -665,19 +663,16 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
           e.preventDefault();
           commit(objects.filter((o) => o.id !== selectedId));
           setSelectedId(null);
-        } else if (selectedLine) {
-          setSelectedLine(null);
         }
       } else if (e.key === 'Escape') {
         setActiveTool('select');
         setEditingId(null);
-        setSelectedLine(null);
         setOpenMenu(null);
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [commit, objects, redo, selectedId, selectedLine, undo]);
+  }, [commit, objects, redo, selectedId, undo]);
 
   // ------------------------------------------------------------------
   // Page rotation & deletion
@@ -855,15 +850,10 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   const setTool = useCallback((t: ToolId) => {
     setActiveTool(t);
     setSelectedId(null);
-    setSelectedLine(null);
     setEditingId(null);
   }, []);
 
   const menuDefs: Array<{ id: Exclude<MenuId, null>; label: string; icon: any; active: boolean; items: Array<{ tool: ToolId; label: string; icon: any }> }> = [
-    {
-      id: 'text', label: s.toolText, icon: Type, active: activeTool === 'text',
-      items: [{ tool: 'find', label: s.toolFind, icon: Search }],
-    },
     {
       id: 'annotate', label: 'Annotate', icon: Highlighter, active: ['highlight', 'strikeout', 'underline', 'draw'].includes(activeTool),
       items: [
@@ -972,18 +962,20 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       {/* ===== Top toolbar (Sejda-style horizontal groups) ===== */}
       <div className="sticky top-16 z-30 -mx-4 px-4 py-2 bg-[hsl(var(--color-background))]/95 backdrop-blur border-b border-[hsl(var(--color-border))]">
         <div className="flex items-center gap-1 flex-wrap rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] px-2 py-1.5 shadow-sm">
+          {/* Text — direct button, single click = edit existing / add new */}
+          <button
+            type="button"
+            onClick={() => setTool('text')}
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm transition-colors ${activeTool === 'text' ? 'bg-[hsl(var(--color-primary))] text-white' : 'hover:bg-[hsl(var(--color-muted))]'}`}
+          >
+            <Type className="h-4 w-4" /> {s.toolText}
+          </button>
+
           {menuDefs.map((m) => (
             <div key={m.id} className="relative">
               <button
                 type="button"
-                onClick={() => {
-                  if (m.id === 'text') {
-                    if (openMenu === 'text') setOpenMenu(null);
-                    else { setOpenMenu('text'); setTool('text'); }
-                    return;
-                  }
-                  setOpenMenu(openMenu === m.id ? null : m.id);
-                }}
+                onClick={() => setOpenMenu(openMenu === m.id ? null : m.id)}
                 className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm transition-colors ${m.active ? 'bg-[hsl(var(--color-primary))] text-white' : 'hover:bg-[hsl(var(--color-muted))]'}`}
               >
                 <m.icon className="h-4 w-4" />
@@ -992,12 +984,6 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
               </button>
 
               {/* Dropdown panels */}
-              {openMenu === m.id && m.id === 'text' && (
-                <div className="absolute left-0 top-full mt-1 z-40 w-56 rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg p-1.5">
-                  <MenuItem icon={Type} label={s.hintTextExisting} onClick={() => { setTool('text'); setOpenMenu(null); }} active={activeTool === 'text'} />
-                  <MenuItem icon={Search} label={s.toolFind} onClick={() => { setTool('find'); setOpenMenu(null); }} active={activeTool === 'find'} />
-                </div>
-              )}
               {openMenu === m.id && m.id === 'annotate' && (
                 <div className="absolute left-0 top-full mt-1 z-40 w-48 rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg p-1.5">
                   {m.items.map((it) => (
@@ -1143,6 +1129,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
           </button>
 
           <div className="w-px h-6 bg-[hsl(var(--color-border))] mx-1" />
+          <Button variant={activeTool === 'find' ? 'primary' : 'ghost'} size="sm" onClick={() => setTool('find')} title={s.toolFind}><Search className="h-4 w-4" /></Button>
           <Button variant="ghost" size="sm" onClick={undo} disabled={undoStackRef.current.length === 0} title={s.undo}><Undo2 className="h-4 w-4" /></Button>
           <Button variant="ghost" size="sm" onClick={redo} disabled={redoStackRef.current.length === 0} title={s.redo}><Redo2 className="h-4 w-4" /></Button>
 
@@ -1267,54 +1254,8 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                   </svg>
                 )}
 
-                {/* Selected text line → blue overlay + floating toolbar */}
-                {selectedLine?.pageIndex === idx && (
-                  <>
-                    <div className="absolute bg-blue-600/75 pointer-events-none rounded-sm"
-                      style={{ left: selectedLine.x * zoom, top: selectedLine.yTop * zoom, width: selectedLine.width * zoom, height: selectedLine.height * zoom }} />
-                    <div
-                      data-floating
-                      className="absolute z-20 flex items-center gap-0.5 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg px-1 py-1 flex-wrap"
-                      style={{ left: Math.max(2, selectedLine.x * zoom), top: Math.max(2, selectedLine.yTop * zoom - 46), maxWidth: dispW - 4 }}
-                      onPointerDown={(e) => e.stopPropagation()}
-                    >
-                      <Button variant="primary" size="sm" className="h-7 px-2 text-xs" onClick={() => startLineEdit(selectedLine)}>
-                        <Type className="h-3.5 w-3.5 mr-1" />{s.editText}
-                      </Button>
-                      <StyleToggle active={styleBold} onClick={() => setStyleBold((v) => !v)} disabled={false} label="B" title={s.bold} />
-                      <StyleToggle active={styleItalic} onClick={() => setStyleItalic((v) => !v)} disabled={false} label="I" title={s.italic} />
-                      <select
-                        className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
-                        value={styleSize}
-                        onChange={(e) => setStyleSize(Number(e.target.value) || 14)}
-                        title={s.fontSize}
-                      >
-                        {[8, 9, 10, 11, 12, 14, 18, 24, 30, 36, 48, 60, 72].map((n) => <option key={n} value={n}>{n}</option>)}
-                      </select>
-                      <select
-                        className="h-7 max-w-24 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
-                        value={styleFont}
-                        onChange={(e) => setStyleFont(e.target.value as FontId)}
-                        title={s.font}
-                      >
-                        {FONT_OPTIONS.map((f) => <option key={f.id} value={f.id}>{f.label}</option>)}
-                      </select>
-                      <input
-                        type="color"
-                        className="h-7 w-7 rounded-md border border-[hsl(var(--color-border))]"
-                        value={styleColor}
-                        onChange={(e) => setStyleColor(e.target.value)}
-                        title={s.color}
-                      />
-                      <Button variant="ghost" size="sm" className="h-7 w-7 p-0" title={s.toolSelect} onClick={() => setSelectedLine(null)}>
-                        <X className="h-3.5 w-3.5" />
-                      </Button>
-                    </div>
-                  </>
-                )}
-
                 {/* Selected object → floating toolbar */}
-                {selected && selected.pageIndex === idx && !editingId && (
+                {selected && selected.pageIndex === idx && (
                   <div
                     data-floating
                     className="absolute z-20 flex items-center gap-0.5 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg px-1 py-1 flex-wrap"
