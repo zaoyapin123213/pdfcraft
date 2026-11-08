@@ -89,6 +89,9 @@ export type EditorStrings = {
   formsNone: string;
   confirmReset: string;
   reset: string;
+  insertPage: string;
+  editText: string;
+  duplicate: string;
 };
 
 const en: EditorStrings = {
@@ -173,7 +176,10 @@ const en: EditorStrings = {
   deleteObject: 'Delete selected object',
   formsFill: 'Fill form fields',
   formsNone: 'This PDF has no fillable form fields.',
+  insertPage: 'Insert blank page here',
+  duplicate: 'Duplicate',
   confirmReset: 'Remove the current file and start over?',
+  editText: 'Edit text',
   reset: 'Start over',
 };
 
@@ -259,7 +265,10 @@ const zh: EditorStrings = {
   deleteObject: '删除选中对象',
   formsFill: '填写表单字段',
   formsNone: '此 PDF 没有可填写的表单字段。',
+  insertPage: '在此处插入空白页',
+  duplicate: '复制',
   confirmReset: '移除当前文件并重新开始？',
+  editText: '编辑文字',
   reset: '重新开始',
 };
 
@@ -344,7 +353,10 @@ const zhTW: EditorStrings = {
   deleteObject: '刪除選取物件',
   formsFill: '填寫表單欄位',
   formsNone: '此 PDF 沒有可填寫的表單欄位。',
+  insertPage: '在此處插入空白頁',
+  duplicate: '複製',
   confirmReset: '移除目前檔案並重新開始？',
+  editText: '編輯文字',
   reset: '重新開始',
 };
 
@@ -429,7 +441,10 @@ const ja: EditorStrings = {
   deleteObject: '選択オブジェクトを削除',
   formsFill: 'フォームに入力',
   formsNone: 'この PDF には入力可能なフォームがありません。',
+  insertPage: 'ここに白紙ページを挿入',
+  duplicate: '複製',
   confirmReset: '現在のファイルを削除して最初からやり直しますか？',
+  editText: '文字を編集',
   reset: 'やり直す',
 };
 
@@ -514,7 +529,10 @@ const ko: EditorStrings = {
   deleteObject: '선택한 개체 삭제',
   formsFill: '양식 필드 채우기',
   formsNone: '이 PDF에는 작성 가능한 양식 필드가 없습니다.',
+  insertPage: '여기에 빈 페이지 삽입',
+  duplicate: '복제',
   confirmReset: '현재 파일을 제거하고 처음부터 다시 시작할까요?',
+  editText: '텍스트 편집',
   reset: '다시 시작',
 };
 
@@ -600,7 +618,10 @@ const de: EditorStrings = {
   deleteObject: 'Ausgewähltes Objekt löschen',
   formsFill: 'Formularfelder ausfüllen',
   formsNone: 'Dieses PDF enthält keine ausfüllbaren Formularfelder.',
+  insertPage: 'Hier Leerseite einfügen',
+  duplicate: 'Duplizieren',
   confirmReset: 'Aktuelle Datei entfernen und neu beginnen?',
+  editText: 'Text bearbeiten',
   reset: 'Neu beginnen',
 };
 
@@ -686,7 +707,10 @@ const es: EditorStrings = {
   deleteObject: 'Eliminar objeto seleccionado',
   formsFill: 'Rellenar campos del formulario',
   formsNone: 'Este PDF no tiene campos de formulario rellenables.',
+  insertPage: 'Insertar página en blanco aquí',
+  duplicate: 'Duplicar',
   confirmReset: '¿Quitar el archivo actual y empezar de nuevo?',
+  editText: 'Editar texto',
   reset: 'Empezar de nuevo',
 };
 
@@ -772,7 +796,10 @@ const fr: EditorStrings = {
   deleteObject: "Supprimer l'objet sélectionné",
   formsFill: 'Remplir les champs du formulaire',
   formsNone: "Ce PDF ne contient pas de champs de formulaire remplissables.",
+  insertPage: 'Insérer une page blanche ici',
+  duplicate: 'Dupliquer',
   confirmReset: 'Retirer le fichier actuel et recommencer ?',
+  editText: 'Modifier le texte',
   reset: 'Recommencer',
 };
 
@@ -858,7 +885,10 @@ const pt: EditorStrings = {
   deleteObject: 'Excluir objeto selecionado',
   formsFill: 'Preencher campos do formulário',
   formsNone: 'Este PDF não tem campos de formulário preenchíveis.',
+  insertPage: 'Inserir página em branco aqui',
+  duplicate: 'Duplicar',
   confirmReset: 'Remover o arquivo atual e começar de novo?',
+  editText: 'Editar texto',
   reset: 'Começar de novo',
 };
 

@@ -1,16 +1,19 @@
 'use client';
 
 /**
- * Edit PDF tool — a fully client-side PDF editor.
+ * Edit PDF tool — a fully client-side PDF editor with a Sejda-style
+ * workspace: a horizontal top toolbar with grouped dropdowns, a per-page
+ * tool row, click-to-select text with a floating context toolbar, and a
+ * floating Apply button. Rendering/export live in editor-core.ts.
  *
- * Architecture: pdf.js renders each page onto a canvas; a DOM overlay on
- * top holds the edit objects (text, images, shapes, whiteout, marks,
- * links, symbols, stamps, signatures). "Apply changes" runs the pdf-lib
- * export pipeline in editor-core.ts which draws the objects onto the
- * original (vector) document. Nothing ever leaves the browser.
- *
- * UI strings come from ./strings.ts (9 locales) — deliberately outside
- * messages/*.json so the shared locale files stay untouched.
+ * Interactions mirror the reference editor's model:
+ *  - Text tool: hover highlights the text line under the pointer; click
+ *    selects it (blue overlay + floating toolbar); "Edit text" covers the
+ *    line with whiteout and opens an inline editor prefilled with the
+ *    original string. Clicking empty space starts a new text box.
+ *  - Select tool: click an edit object to select it; the floating toolbar
+ *    offers style controls, duplicate and delete.
+ * All processing stays local; UI strings come from ./strings.ts (9 locales).
  */
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
@@ -43,6 +46,9 @@ import {
   RotateCw,
   Trash2,
   RefreshCw,
+  ChevronDown,
+  Copy,
+  ClipboardList,
 } from 'lucide-react';
 import { Button, Card } from '@/components/ui';
 import FileUploader from '@/components/tools/FileUploader';
@@ -52,7 +58,6 @@ import { getEditorStrings } from './strings';
 import {
   EDITOR_MAX_FILE_BYTES,
   FONT_OPTIONS,
-  fontSupportsStyle,
   buildReplacements,
   drawSignatureToDataUrl,
   estimateImageSize,
@@ -82,6 +87,8 @@ type ToolId =
   | 'highlight' | 'strikeout' | 'underline' | 'draw'
   | 'rect' | 'ellipse' | 'line' | 'arrow'
   | 'check' | 'cross' | 'dot' | 'sign' | 'stamp' | 'find';
+
+type MenuId = 'text' | 'forms' | 'images' | 'sign' | 'annotate' | 'shapes' | null;
 
 interface PageSize { w: number; h: number }
 
@@ -126,16 +133,23 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   const [formValues, setFormValues] = useState<FormValues>({});
   const undoStackRef = useRef<Snapshot[]>([]);
   const redoStackRef = useRef<Snapshot[]>([]);
-  const [historyTick, setHistoryTick] = useState(0); // re-render undo/redo buttons
+  const [, setHistoryTick] = useState(0);
 
   // UI state
   const [activeTool, setActiveTool] = useState<ToolId>('select');
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [openMenu, setOpenMenu] = useState<MenuId>(null);
   const [zoom, setZoom] = useState(1);
   const [fitZoom, setFitZoom] = useState(1);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+
+  // Text selection (click-to-edit existing text)
+  const [selectedLine, setSelectedLine] = useState<TextLine | null>(null);
+  const [hoverKey, setHoverKey] = useState<string | null>(null);
+  const hoverLineRef = useRef<TextLine | null>(null);
+  const [editingId, setEditingId] = useState<string | null>(null);
 
   // Style defaults for new objects
   const [styleFont, setStyleFont] = useState<FontId>('helvetica');
@@ -155,19 +169,12 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   const [stampText, setStampText] = useState('APPROVED');
   const [stampDate, setStampDate] = useState(true);
 
-  // Link draft (edited in the side panel after drawing)
-  const [linkType, setLinkType] = useState<'url' | 'email' | 'phone' | 'page'>('url');
-  const [linkValue, setLinkValue] = useState('');
-
   // Find & replace
   const [findText, setFindText] = useState('');
   const [replaceText, setReplaceText] = useState('');
   const [matchCase, setMatchCase] = useState(false);
   const [finding, setFinding] = useState(false);
   const textLinesRef = useRef<Map<number, TextLine[]>>(new Map());
-
-  // Text editing
-  const [editingId, setEditingId] = useState<string | null>(null);
 
   // Drag / preview
   const dragRef = useRef<DragState | null>(null);
@@ -186,7 +193,6 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   const pageRefs = useRef<Array<HTMLDivElement | null>>([]);
   const drawCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const drawStrokesRef = useRef<Array<Array<{ x: number; y: number }>>>([]);
-  const drawDirtyRef = useRef(false);
 
   const selected = objects.find((o) => o.id === selectedId) ?? null;
   const selectedPageHasObjects = useCallback(
@@ -200,7 +206,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     redoStackRef.current = [];
     setObjects(nextObjects);
     if (nextPageOps) setPageOps(nextPageOps);
-    setResultBlob(null); // further edits invalidate the previous export
+    setResultBlob(null);
     setHistoryTick((t) => t + 1);
   }, [objects, pageOps]);
 
@@ -211,6 +217,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     setObjects(prev.objects);
     setPageOps(prev.pageOps);
     setSelectedId(null);
+    setSelectedLine(null);
     setResultBlob(null);
     setHistoryTick((t) => t + 1);
   }, [objects, pageOps]);
@@ -222,6 +229,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     setObjects(next.objects);
     setPageOps(next.pageOps);
     setSelectedId(null);
+    setSelectedLine(null);
     setResultBlob(null);
     setHistoryTick((t) => t + 1);
   }, [objects, pageOps]);
@@ -231,8 +239,12 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     window.setTimeout(() => setMessage(null), 3500);
   }, []);
 
+  const updateObject = useCallback((id: string, patch: Partial<EditObject>) => {
+    setObjects((prev) => prev.map((o) => (o.id === id ? ({ ...o, ...patch } as EditObject) : o)));
+  }, []);
+
   // ------------------------------------------------------------------
-  // File loading
+  // File loading (+ background text-layer extraction)
   // ------------------------------------------------------------------
 
   const extractForms = useCallback(async (bytes: ArrayBuffer) => {
@@ -308,6 +320,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       redoStackRef.current = [];
       setResultBlob(null);
       setSelectedId(null);
+      setSelectedLine(null);
       setActiveTool('select');
       textLinesRef.current = new Map();
       void extractForms(buf);
@@ -319,6 +332,19 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
           setZoom(fit);
         }
       });
+      // Pre-extract text lines in the background so click-to-edit responds
+      // instantly on every page.
+      void (async () => {
+        for (let i = 0; i < n; i++) {
+          try {
+            const page = await doc.getPage(i + 1);
+            const lines = await extractTextLines(page, i);
+            textLinesRef.current.set(i, lines);
+          } catch {
+            // page without a text layer — click-to-edit simply won't hit
+          }
+        }
+      })();
     } catch (e) {
       void e;
       setError(s.errorLoad);
@@ -343,11 +369,12 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     setPendingSign(null);
     setResultBlob(null);
     setError(null);
+    setSelectedLine(null);
     textLinesRef.current = new Map();
   }, [objects.length, s.confirmReset]);
 
   // ------------------------------------------------------------------
-  // Coordinate helpers (visual space == PDF pt space for unlocked pages)
+  // Coordinates / helpers
   // ------------------------------------------------------------------
 
   const toViewPt = useCallback((pageIndex: number, clientX: number, clientY: number) => {
@@ -362,14 +389,6 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     [initialRots, pageOps]
   );
 
-  const updateObject = useCallback((id: string, patch: Partial<EditObject>) => {
-    setObjects((prev) => prev.map((o) => (o.id === id ? ({ ...o, ...patch } as EditObject) : o)));
-  }, []);
-
-  // ------------------------------------------------------------------
-  // Text lines (existing text) — lazy per page
-  // ------------------------------------------------------------------
-
   const getLines = useCallback(async (pageIndex: number): Promise<TextLine[]> => {
     const cached = textLinesRef.current.get(pageIndex);
     if (cached) return cached;
@@ -382,37 +401,79 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   }, []);
 
   // ------------------------------------------------------------------
-  // Object creation helpers
+  // Text: hover highlight, click select, edit/duplicate
   // ------------------------------------------------------------------
 
-  const addTextAt = useCallback(async (pageIndex: number, vx: number, vy: number) => {
+  const onOverlayPointerMove = useCallback((pageIndex: number, e: React.PointerEvent) => {
+    const drag = dragRef.current;
+    if (drag) {
+      const pt = toViewPt(drag.pageIndex, e.clientX, e.clientY);
+      if (drag.mode === 'freehand') {
+        setDraftPoints((prev) => (prev ? { ...prev, pts: [...prev.pts, { x: pt.x, yTop: pt.y }] } : prev));
+      } else if (drag.mode === 'draw-line') {
+        setDraftLine({ pageIndex: drag.pageIndex, x1: drag.startVx, yTop1: drag.startVy, x2: pt.x, yTop2: pt.y });
+      } else if (drag.mode === 'draw-rect') {
+        setDraftRect({ pageIndex: drag.pageIndex, x: Math.min(drag.startVx, pt.x), yTop: Math.min(drag.startVy, pt.y), w: Math.abs(pt.x - drag.startVx), h: Math.abs(pt.y - drag.startVy) });
+      }
+      return;
+    }
+    if (activeTool !== 'text') {
+      if (hoverKey) { setHoverKey(null); hoverLineRef.current = null; }
+      return;
+    }
+    const pt = toViewPt(pageIndex, e.clientX, e.clientY);
+    const lines = textLinesRef.current.get(pageIndex);
+    const hit = lines ? findLineAt(lines, pageIndex, pt.x, pt.y) : null;
+    const key = hit ? `${pageIndex}:${hit.x.toFixed(0)}:${hit.yTop.toFixed(0)}` : null;
+    if (key !== hoverKey) {
+      setHoverKey(key);
+      hoverLineRef.current = hit;
+    }
+  }, [activeTool, hoverKey, toViewPt]);
+
+  /** Create whiteout + prefilled text object for the selected line, then
+   *  open the inline editor — the "Edit text" action. */
+  const startLineEdit = useCallback((line: TextLine) => {
+    const whiteout: EditObject = { id: nextObjectId(), kind: 'whiteout', pageIndex: line.pageIndex, x: line.x, yTop: line.yTop, width: line.width, height: line.height * 1.3 };
+    const text: TextObject = {
+      id: nextObjectId(), kind: 'text', pageIndex: line.pageIndex,
+      x: line.x, yTop: line.yTop, width: Math.max(line.width, 40),
+      text: line.str.replace(/\s+$/, ''), fontSize: styleSize,
+      color: '#111111', bold: styleBold, italic: styleItalic, fontId: styleFont,
+    };
+    commit([...objects, whiteout, text]);
+    setSelectedLine(null);
+    setSelectedId(text.id);
+    setEditingId(text.id);
+    setActiveTool('select');
+  }, [commit, objects, styleBold, styleFont, styleItalic, styleSize]);
+
+  const duplicateSelected = useCallback(() => {
+    if (!selected) return;
+    const clone = { ...selected, id: nextObjectId() } as EditObject;
+    if ('yTop' in clone) (clone as any).yTop = (clone as any).yTop + 24;
+    else if ('yTop1' in clone) { (clone as any).yTop1 += 24; (clone as any).yTop2 += 24; }
+    else if ('points' in clone) (clone as any).points = (clone as any).points.map((p: any) => ({ ...p, yTop: p.yTop + 24 }));
+    commit([...objects, clone]);
+    setSelectedId(clone.id);
+  }, [commit, objects, selected]);
+
+  // ------------------------------------------------------------------
+  // Object creation
+  // ------------------------------------------------------------------
+
+  const addTextAt = useCallback((pageIndex: number, vx: number, vy: number) => {
     if (pageLocked(pageIndex)) { flash(s.scanWarning); return; }
-    const lines = await getLines(pageIndex);
-    const hit = findLineAt(lines, pageIndex, vx, vy);
-    const obj: TextObject = hit
-      ? {
-          id: nextObjectId(), kind: 'text', pageIndex,
-          x: hit.x, yTop: hit.yTop, width: hit.width,
-          text: hit.str, fontSize: hit.fontSize, color: '#111111',
-          bold: false, italic: false, fontId: 'helvetica',
-        }
-      : {
-          id: nextObjectId(), kind: 'text', pageIndex,
-          x: vx, yTop: vy, width: 200, text: '', fontSize: styleSize,
-          color: styleColor, bold: styleBold, italic: styleItalic, fontId: styleFont,
-        };
-    const next: EditObject[] = hit
-      ? [
-          ...objects.map((o) => o),
-          { id: nextObjectId(), kind: 'whiteout', pageIndex, x: hit!.x, yTop: hit!.yTop, width: hit!.width, height: hit!.height * 1.3 },
-          obj,
-        ]
-      : [...objects, obj];
-    commit(next);
+    const obj: TextObject = {
+      id: nextObjectId(), kind: 'text', pageIndex,
+      x: vx, yTop: vy, width: 200, text: '', fontSize: styleSize,
+      color: styleColor, bold: styleBold, italic: styleItalic, fontId: styleFont,
+    };
+    commit([...objects, obj]);
     setSelectedId(obj.id);
     setEditingId(obj.id);
     setActiveTool('select');
-  }, [commit, flash, getLines, objects, pageLocked, s.scanWarning, styleBold, styleColor, styleFont, styleItalic, styleSize]);
+  }, [commit, flash, objects, pageLocked, s.scanWarning, styleBold, styleColor, styleFont, styleItalic, styleSize]);
 
   const placeAsset = useCallback((pageIndex: number, vx: number, vy: number) => {
     if (pageLocked(pageIndex)) { flash(s.scanWarning); return; }
@@ -420,15 +481,16 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     let newId = '';
     if (activeTool === 'image' && pendingImage) {
       newId = nextObjectId();
-      // default placement: 40% of page width, aspect kept (height fixed by estimate)
       const w = Math.min(220, pageSizes[pageIndex].w * 0.4);
       next = [...objects, { id: newId, kind: 'image', pageIndex, x: vx, yTop: vy, width: w, height: w * 0.66, src: pendingImage }];
       setPendingImage(null);
+      setActiveTool('select');
     } else if (activeTool === 'sign' && pendingSign) {
       newId = nextObjectId();
       const w = 160;
       next = [...objects, { id: newId, kind: 'image', pageIndex, x: vx, yTop: vy, width: w, height: w * 0.4, src: pendingSign }];
       setPendingSign(null);
+      setActiveTool('select');
     } else if (activeTool === 'check' || activeTool === 'cross' || activeTool === 'dot') {
       newId = nextObjectId();
       const size = 18;
@@ -441,7 +503,6 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     }
     commit(next);
     if (newId) setSelectedId(newId);
-    if (activeTool === 'image' || activeTool === 'sign') setActiveTool('select');
   }, [activeTool, commit, flash, objects, pageLocked, pageSizes, pendingImage, pendingSign, s.scanWarning, stampDate, stampText, styleColor, styleStroke]);
 
   const finishRectDrag = useCallback((pageIndex: number, x1: number, y1: number, x2: number, y2: number) => {
@@ -466,7 +527,6 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     }
     commit([...objects, obj]);
     setSelectedId(obj.id);
-    if (activeTool === 'link') setActiveTool('select');
   }, [activeTool, commit, flash, objects, pageLocked, s.scanWarning, styleFill, styleStroke, styleStrokeWidth]);
 
   const finishLineDrag = useCallback((pageIndex: number, x1: number, y1: number, x2: number, y2: number) => {
@@ -478,23 +538,33 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   }, [activeTool, commit, flash, objects, pageLocked, s.scanWarning, styleStroke, styleStrokeWidth]);
 
   // ------------------------------------------------------------------
-  // Pointer handlers on page overlays
+  // Pointer handlers
   // ------------------------------------------------------------------
 
   const onOverlayPointerDown = useCallback((pageIndex: number, e: React.PointerEvent) => {
     if (applying) return;
+    setOpenMenu(null);
     const target = e.target as HTMLElement;
-    if (target.closest('[data-oid]')) return; // objects handle their own events
+    if (target.closest('[data-floating]')) return;
+    if (target.closest('[data-oid]')) return;
     const pt = toViewPt(pageIndex, e.clientX, e.clientY);
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
 
     if (activeTool === 'select') {
       setSelectedId(null);
       setEditingId(null);
+      setSelectedLine(null);
       return;
     }
     if (activeTool === 'text') {
-      void addTextAt(pageIndex, pt.x, pt.y);
+      const lines = textLinesRef.current.get(pageIndex);
+      const hit = lines ? findLineAt(lines, pageIndex, pt.x, pt.y) : null;
+      if (hit) {
+        setSelectedLine(hit); // blue selection + floating toolbar (no whiteout yet)
+      } else {
+        setSelectedLine(null);
+        addTextAt(pageIndex, pt.x, pt.y);
+      }
       return;
     }
     if (activeTool === 'image' || activeTool === 'sign' || activeTool === 'check' || activeTool === 'cross' || activeTool === 'dot' || activeTool === 'stamp') {
@@ -511,23 +581,9 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       setDraftLine({ pageIndex, x1: pt.x, yTop1: pt.y, x2: pt.x, yTop2: pt.y });
       return;
     }
-    // rect-family tools
     dragRef.current = { mode: 'draw-rect', pageIndex, startVx: pt.x, startVy: pt.y };
     setDraftRect({ pageIndex, x: pt.x, yTop: pt.y, w: 0, h: 0 });
   }, [activeTool, addTextAt, applying, placeAsset, toViewPt]);
-
-  const onOverlayPointerMove = useCallback((e: React.PointerEvent) => {
-    const drag = dragRef.current;
-    if (!drag) return;
-    const pt = toViewPt(drag.pageIndex, e.clientX, e.clientY);
-    if (drag.mode === 'freehand') {
-      setDraftPoints((prev) => (prev ? { ...prev, pts: [...prev.pts, { x: pt.x, yTop: pt.y }] } : prev));
-    } else if (drag.mode === 'draw-line') {
-      setDraftLine({ pageIndex: drag.pageIndex, x1: drag.startVx, yTop1: drag.startVy, x2: pt.x, yTop2: pt.y });
-    } else if (drag.mode === 'draw-rect') {
-      setDraftRect({ pageIndex: drag.pageIndex, x: Math.min(drag.startVx, pt.x), yTop: Math.min(drag.startVy, pt.y), w: Math.abs(pt.x - drag.startVx), h: Math.abs(pt.y - drag.startVy) });
-    }
-  }, [toViewPt]);
 
   const onOverlayPointerUp = useCallback((e: React.PointerEvent) => {
     const drag = dragRef.current;
@@ -551,7 +607,6 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     }
   }, [commit, draftLine, draftPoints, draftRect, finishLineDrag, finishRectDrag, objects, pageLocked, styleStroke, styleStrokeWidth, toViewPt]);
 
-  // Object move/resize via pointer events on object elements
   const onObjectPointerDown = useCallback((obj: EditObject, e: React.PointerEvent, handle?: 'se') => {
     if (activeTool !== 'select' || applying) return;
     e.stopPropagation();
@@ -563,6 +618,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     setHistoryTick((t) => t + 1);
     dragRef.current = { mode: handle ? 'resize' : 'move', pageIndex: obj.pageIndex, startVx: pt.x, startVy: pt.y, objectId: obj.id, orig: { ...obj } };
     setSelectedId(obj.id);
+    setSelectedLine(null);
   }, [activeTool, applying, objects, pageOps, toViewPt]);
 
   const onObjectPointerMove = useCallback((e: React.PointerEvent) => {
@@ -573,19 +629,10 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     const dy = pt.y - drag.startVy;
     const o = drag.orig;
     if (drag.mode === 'move') {
-      switch (o.kind) {
-        case 'text': updateObject(o.id, { x: o.x + dx, yTop: o.yTop + dy } as Partial<TextObject>); break;
-        case 'whiteout': case 'highlight': case 'strikeout': case 'underline': case 'link':
-          updateObject(o.id, { x: o.x + dx, yTop: o.yTop + dy }); break;
-        case 'image': updateObject(o.id, { x: o.x + dx, yTop: o.yTop + dy }); break;
-        case 'rect': case 'ellipse': updateObject(o.id, { x: o.x + dx, yTop: o.yTop + dy }); break;
-        case 'check': case 'cross': case 'dot': updateObject(o.id, { x: o.x + dx, yTop: o.yTop + dy }); break;
-        case 'stamp': updateObject(o.id, { x: o.x + dx, yTop: o.yTop + dy }); break;
-        default: break;
-      }
+      if ('x' in o && 'yTop' in o) updateObject(o.id, { x: o.x + dx, yTop: o.yTop + dy } as Partial<EditObject>);
     } else if (drag.mode === 'resize') {
       switch (o.kind) {
-        case 'text': updateObject(o.id, { width: Math.max(30, (o as TextObject).width + dx), fontSize: Math.max(6, (o as TextObject).fontSize + dy * 0.2) } as Partial<TextObject>); break;
+        case 'text': updateObject(o.id, { width: Math.max(30, (o as TextObject).width + dx), fontSize: Math.max(6, (o as TextObject).fontSize + dy * 0.2) } as Partial<EditObject>); break;
         case 'image': updateObject(o.id, { width: Math.max(20, o.width + dx), height: Math.max(20, o.height + dy) }); break;
         case 'rect': case 'ellipse': case 'whiteout': case 'highlight': case 'strikeout': case 'underline': case 'link':
           updateObject(o.id, { width: Math.max(5, o.width + dx), height: Math.max(5, o.height + dy) }); break;
@@ -618,15 +665,19 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
           e.preventDefault();
           commit(objects.filter((o) => o.id !== selectedId));
           setSelectedId(null);
+        } else if (selectedLine) {
+          setSelectedLine(null);
         }
       } else if (e.key === 'Escape') {
         setActiveTool('select');
         setEditingId(null);
+        setSelectedLine(null);
+        setOpenMenu(null);
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [commit, objects, redo, selectedId, undo]);
+  }, [commit, objects, redo, selectedId, selectedLine, undo]);
 
   // ------------------------------------------------------------------
   // Page rotation & deletion
@@ -686,7 +737,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   }, [commit, findText, flash, getLines, matchCase, objects, pageSizes, replaceText, s.noMatches, s.replacements]);
 
   // ------------------------------------------------------------------
-  // Image upload for pending placement
+  // Image / signature inputs
   // ------------------------------------------------------------------
 
   const onImagePicked = useCallback(async (f: File) => {
@@ -695,14 +746,11 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       await estimateImageSize(url);
       setPendingImage(url);
       setError(null);
+      setActiveTool('image');
     } catch {
       setError(s.errorImage);
     }
   }, [s.errorImage]);
-
-  // ------------------------------------------------------------------
-  // Signature drawing pad
-  // ------------------------------------------------------------------
 
   useEffect(() => {
     if (signMode !== 'draw') return;
@@ -722,7 +770,6 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     const y = (e.clientY - rect.top) * (canvas.height / rect.height);
     canvas.setPointerCapture(e.pointerId);
     drawStrokesRef.current.push([{ x, y }]);
-    drawDirtyRef.current = true;
   }, []);
 
   const onDrawPadPointerMove = useCallback((e: React.PointerEvent<HTMLCanvasElement>) => {
@@ -754,13 +801,13 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
 
   const saveDrawSignature = useCallback(() => {
     const url = drawSignatureToDataUrl(drawStrokesRef.current, 360, 120);
-    if (url) setPendingSign(url);
+    if (url) { setPendingSign(url); setActiveTool('sign'); }
   }, []);
 
   const saveTypeSignature = useCallback(async () => {
     if (!signName.trim()) return;
     const url = await typeSignatureToDataUrl(signName.trim(), '"Segoe Script", "Brush Script MT", "Comic Sans MS", cursive');
-    if (url) setPendingSign(url);
+    if (url) { setPendingSign(url); setActiveTool('sign'); }
   }, [signName]);
 
   const onSignFilePicked = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -768,6 +815,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     if (!f) return;
     try {
       setPendingSign(await fileToDataUrl(f));
+      setActiveTool('sign');
     } catch {
       setError(s.errorImage);
     }
@@ -801,43 +849,71 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   }, [file, formValues, objects, pageOps, s.errorExport]);
 
   // ------------------------------------------------------------------
-  // Render helpers
+  // Toolbar model
   // ------------------------------------------------------------------
 
-  const tools: Array<{ id: ToolId; icon: any; label: string; group: number }> = [
-    { id: 'select', icon: MousePointer2, label: s.toolSelect, group: 0 },
-    { id: 'text', icon: Type, label: s.toolText, group: 0 },
-    { id: 'image', icon: ImageIcon, label: s.toolImage, group: 0 },
-    { id: 'link', icon: Link2, label: s.toolLink, group: 0 },
-    { id: 'sign', icon: PenTool, label: s.toolSign, group: 0 },
-    { id: 'whiteout', icon: Eraser, label: s.toolWhiteout, group: 1 },
-    { id: 'highlight', icon: Highlighter, label: s.toolHighlight, group: 1 },
-    { id: 'strikeout', icon: Strikethrough, label: s.toolStrikeout, group: 1 },
-    { id: 'underline', icon: UnderlineIcon, label: s.toolUnderline, group: 1 },
-    { id: 'draw', icon: Pencil, label: s.toolDraw, group: 1 },
-    { id: 'rect', icon: Square, label: s.toolRectangle, group: 2 },
-    { id: 'ellipse', icon: Circle, label: s.toolEllipse, group: 2 },
-    { id: 'line', icon: Minus, label: s.toolLine, group: 2 },
-    { id: 'arrow', icon: MoveUpRight, label: s.toolArrow, group: 2 },
-    { id: 'check', icon: Check, label: s.toolCheck, group: 3 },
-    { id: 'cross', icon: X, label: s.toolCross, group: 3 },
-    { id: 'dot', icon: Dot, label: s.toolDot, group: 3 },
-    { id: 'stamp', icon: Stamp, label: s.toolStamp, group: 3 },
-    { id: 'find', icon: Search, label: s.toolFind, group: 4 },
+  const setTool = useCallback((t: ToolId) => {
+    setActiveTool(t);
+    setSelectedId(null);
+    setSelectedLine(null);
+    setEditingId(null);
+  }, []);
+
+  const menuDefs: Array<{ id: Exclude<MenuId, null>; label: string; icon: any; active: boolean; items: Array<{ tool: ToolId; label: string; icon: any }> }> = [
+    {
+      id: 'text', label: s.toolText, icon: Type, active: activeTool === 'text',
+      items: [{ tool: 'find', label: s.toolFind, icon: Search }],
+    },
+    {
+      id: 'annotate', label: 'Annotate', icon: Highlighter, active: ['highlight', 'strikeout', 'underline', 'draw'].includes(activeTool),
+      items: [
+        { tool: 'highlight', label: s.toolHighlight, icon: Highlighter },
+        { tool: 'strikeout', label: s.toolStrikeout, icon: Strikethrough },
+        { tool: 'underline', label: s.toolUnderline, icon: UnderlineIcon },
+        { tool: 'draw', label: s.toolDraw, icon: Pencil },
+      ],
+    },
+    {
+      id: 'shapes', label: 'Shapes', icon: Square, active: ['rect', 'ellipse', 'line', 'arrow'].includes(activeTool),
+      items: [
+        { tool: 'rect', label: s.toolRectangle, icon: Square },
+        { tool: 'ellipse', label: s.toolEllipse, icon: Circle },
+        { tool: 'line', label: s.toolLine, icon: Minus },
+        { tool: 'arrow', label: s.toolArrow, icon: MoveUpRight },
+      ],
+    },
+    {
+      id: 'images', label: s.toolImage, icon: ImageIcon, active: activeTool === 'image',
+      items: [],
+    },
+    {
+      id: 'sign', label: s.toolSign, icon: PenTool, active: activeTool === 'sign' || activeTool === 'stamp',
+      items: [
+        { tool: 'stamp', label: s.toolStamp, icon: Stamp },
+      ],
+    },
+    {
+      id: 'forms', label: 'Forms', icon: ClipboardList, active: ['check', 'cross', 'dot'].includes(activeTool),
+      items: [
+        { tool: 'check', label: s.toolCheck, icon: Check },
+        { tool: 'cross', label: s.toolCross, icon: X },
+        { tool: 'dot', label: s.toolDot, icon: Dot },
+      ],
+    },
   ];
 
   const hint = (() => {
     switch (activeTool) {
       case 'select': return s.hintSelect;
-      case 'text': return `${s.hintText} ${s.hintTextExisting}`;
-      case 'image': return s.hintImage;
+      case 'text': return `${s.hintTextExisting} · ${s.hintText}`;
+      case 'image': return pendingImage ? s.hintImage : s.toolImage;
       case 'link': return s.hintLink;
       case 'whiteout': return s.hintWhiteout;
       case 'highlight': case 'strikeout': case 'underline': return s.hintAnnotate;
       case 'draw': return s.hintDraw;
       case 'rect': case 'ellipse': case 'line': case 'arrow': return s.hintShape;
       case 'check': case 'cross': case 'dot': case 'stamp': return s.hintSymbol;
-      case 'sign': return s.hintSign;
+      case 'sign': return pendingSign ? s.hintSign : s.signType;
       default: return '';
     }
   })();
@@ -873,8 +949,8 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
         <Card className="mt-6 p-5">
           <h3 className="font-semibold mb-2">What you can do</h3>
           <ul className="text-sm text-[hsl(var(--color-muted-foreground))] space-y-1 list-disc pl-5">
+            <li>Click any existing text to select it, then edit or replace it</li>
             <li>Add text with fonts, sizes, colors — including Chinese, Japanese and Korean</li>
-            <li>Click existing text to replace it; find and replace across the document</li>
             <li>Add images, links, shapes, check marks and signatures</li>
             <li>Highlight, strike out, underline and whiteout areas</li>
             <li>Fill form fields, rotate or delete pages</li>
@@ -893,510 +969,519 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
 
   return (
     <div className={`w-full ${className ?? ''}`}>
-      {/* Top bar */}
-      <div className="flex flex-wrap items-center gap-2 mb-2">
-        <span className="text-sm font-medium truncate max-w-[200px]" title={file.name}>{file.name}</span>
-        <div className="flex items-center gap-1">
-          <Button variant="ghost" size="sm" onClick={() => setZoom((z) => Math.max(MIN_ZOOM, +(z - 0.2).toFixed(2)))} title={s.zoomOut}><ZoomOut className="h-4 w-4" /></Button>
-          <span className="text-xs w-12 text-center">{Math.round(zoom * 100)}%</span>
-          <Button variant="ghost" size="sm" onClick={() => setZoom((z) => Math.min(MAX_ZOOM, +(z + 0.2).toFixed(2)))} title={s.zoomIn}><ZoomIn className="h-4 w-4" /></Button>
-          <Button variant="ghost" size="sm" onClick={() => setZoom(fitZoom)} title="Fit"><Square className="h-4 w-4" /></Button>
-        </div>
-        <div className="flex items-center gap-1">
+      {/* ===== Top toolbar (Sejda-style horizontal groups) ===== */}
+      <div className="sticky top-16 z-30 -mx-4 px-4 py-2 bg-[hsl(var(--color-background))]/95 backdrop-blur border-b border-[hsl(var(--color-border))]">
+        <div className="flex items-center gap-1 flex-wrap rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] px-2 py-1.5 shadow-sm">
+          {menuDefs.map((m) => (
+            <div key={m.id} className="relative">
+              <button
+                type="button"
+                onClick={() => {
+                  if (m.id === 'text') {
+                    if (openMenu === 'text') setOpenMenu(null);
+                    else { setOpenMenu('text'); setTool('text'); }
+                    return;
+                  }
+                  setOpenMenu(openMenu === m.id ? null : m.id);
+                }}
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm transition-colors ${m.active ? 'bg-[hsl(var(--color-primary))] text-white' : 'hover:bg-[hsl(var(--color-muted))]'}`}
+              >
+                <m.icon className="h-4 w-4" />
+                {m.label}
+                {(m.items.length > 0 || m.id === 'images' || m.id === 'sign') && <ChevronDown className="h-3 w-3 opacity-70" />}
+              </button>
+
+              {/* Dropdown panels */}
+              {openMenu === m.id && m.id === 'text' && (
+                <div className="absolute left-0 top-full mt-1 z-40 w-56 rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg p-1.5">
+                  <MenuItem icon={Type} label={s.hintTextExisting} onClick={() => { setTool('text'); setOpenMenu(null); }} active={activeTool === 'text'} />
+                  <MenuItem icon={Search} label={s.toolFind} onClick={() => { setTool('find'); setOpenMenu(null); }} active={activeTool === 'find'} />
+                </div>
+              )}
+              {openMenu === m.id && m.id === 'annotate' && (
+                <div className="absolute left-0 top-full mt-1 z-40 w-48 rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg p-1.5">
+                  {m.items.map((it) => (
+                    <MenuItem key={it.tool} icon={it.icon} label={it.label} onClick={() => { setTool(it.tool); setOpenMenu(null); }} active={activeTool === it.tool} />
+                  ))}
+                </div>
+              )}
+              {openMenu === m.id && m.id === 'shapes' && (
+                <div className="absolute left-0 top-full mt-1 z-40 w-44 rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg p-1.5">
+                  {m.items.map((it) => (
+                    <MenuItem key={it.tool} icon={it.icon} label={it.label} onClick={() => { setTool(it.tool); setOpenMenu(null); }} active={activeTool === it.tool} />
+                  ))}
+                </div>
+              )}
+              {openMenu === m.id && m.id === 'images' && (
+                <div className="absolute left-0 top-full mt-1 z-40 w-56 rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg p-2.5 space-y-2">
+                  <input
+                    type="file"
+                    accept="image/png,image/jpeg"
+                    className="w-full text-xs"
+                    onChange={(e) => { const f = e.target.files?.[0]; if (f) void onImagePicked(f); setOpenMenu(null); }}
+                  />
+                  {pendingImage && (
+                    <div className="rounded-md border border-[hsl(var(--color-border))] p-1.5">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={pendingImage} alt="" className="max-h-14 mx-auto" />
+                      <p className="text-[10px] text-center text-[hsl(var(--color-muted-foreground))] mt-1">{s.hintImage}</p>
+                    </div>
+                  )}
+                </div>
+              )}
+              {openMenu === m.id && m.id === 'sign' && (
+                <div className="absolute left-0 top-full mt-1 z-40 w-72 rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg p-2.5 space-y-2">
+                  <div className="flex gap-1">
+                    {(['type', 'draw', 'upload'] as const).map((mode) => (
+                      <button
+                        key={mode}
+                        type="button"
+                        onClick={() => setSignMode(mode)}
+                        className={`flex-1 rounded-md border px-1 py-1 text-xs ${signMode === mode ? 'bg-[hsl(var(--color-primary))] text-white border-transparent' : 'border-[hsl(var(--color-border))]'}`}
+                      >
+                        {mode === 'type' ? s.signType : mode === 'draw' ? s.signDraw : s.signUpload}
+                      </button>
+                    ))}
+                  </div>
+                  {signMode === 'type' && (
+                    <div className="flex gap-1">
+                      <input
+                        type="text"
+                        className="flex-1 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
+                        placeholder={s.signName}
+                        value={signName}
+                        onChange={(e) => setSignName(e.target.value)}
+                      />
+                      <Button variant="secondary" size="sm" onClick={() => void saveTypeSignature()} disabled={!signName.trim()}>{s.signType}</Button>
+                    </div>
+                  )}
+                  {signMode === 'draw' && (
+                    <div className="space-y-1.5">
+                      <canvas
+                        ref={drawCanvasRef}
+                        width={360}
+                        height={120}
+                        className="w-full rounded-md border border-[hsl(var(--color-border))] bg-white touch-none"
+                        onPointerDown={onDrawPadPointerDown}
+                        onPointerMove={onDrawPadPointerMove}
+                      />
+                      <div className="flex gap-1">
+                        <Button variant="secondary" size="sm" className="flex-1" onClick={clearDrawPad}>{s.signClear}</Button>
+                        <Button variant="primary" size="sm" className="flex-1" onClick={saveDrawSignature}>OK</Button>
+                      </div>
+                    </div>
+                  )}
+                  {signMode === 'upload' && (
+                    <input type="file" accept="image/png,image/jpeg" className="w-full text-xs" onChange={onSignFilePicked} />
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => { setTool('stamp'); setOpenMenu(null); }}
+                    className={`w-full flex items-center gap-1.5 rounded-md px-2 py-1.5 text-xs ${activeTool === 'stamp' ? 'bg-[hsl(var(--color-primary))] text-white' : 'hover:bg-[hsl(var(--color-muted))]'}`}
+                  >
+                    <Stamp className="h-3.5 w-3.5" /> {s.toolStamp}
+                  </button>
+                  {pendingSign && (
+                    <div className="rounded-md border border-[hsl(var(--color-border))] p-1.5 bg-white">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={pendingSign} alt="" className="max-h-12 mx-auto" />
+                      <p className="text-[10px] text-center text-[hsl(var(--color-muted-foreground))] mt-1">{s.hintSign}</p>
+                    </div>
+                  )}
+                </div>
+              )}
+              {openMenu === m.id && m.id === 'forms' && (
+                <div className="absolute left-0 top-full mt-1 z-40 w-44 rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg p-1.5">
+                  {m.items.map((it) => (
+                    <MenuItem key={it.tool} icon={it.icon} label={it.label} onClick={() => { setTool(it.tool); setOpenMenu(null); }} active={activeTool === it.tool} />
+                  ))}
+                  {formFields.length > 0 && (
+                    <div className="border-t border-[hsl(var(--color-border))] mt-1 pt-1.5 max-h-52 overflow-y-auto">
+                      <p className="px-2 py-1 text-[10px] uppercase tracking-wide text-[hsl(var(--color-muted-foreground))]">{s.formsFill}</p>
+                      {formFields.map((f) => (
+                        <div key={f.name} className="px-2 py-1 space-y-0.5">
+                          <label className="block text-[10px] text-[hsl(var(--color-muted-foreground))] truncate" title={f.name}>{f.name}</label>
+                          {f.type === 'checkbox' ? (
+                            <input
+                              type="checkbox"
+                              checked={Boolean(formValues[f.name])}
+                              onChange={(e) => setFormValues((prev) => ({ ...prev, [f.name]: e.target.checked }))}
+                            />
+                          ) : f.type === 'dropdown' || f.type === 'radio' || f.type === 'optionlist' ? (
+                            <select
+                              className="w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1.5 py-1 text-xs"
+                              value={String(formValues[f.name] ?? '')}
+                              onChange={(e) => setFormValues((prev) => ({ ...prev, [f.name]: e.target.value }))}
+                            >
+                              <option value="">—</option>
+                              {(f.options ?? []).map((opt) => <option key={opt} value={opt}>{opt}</option>)}
+                            </select>
+                          ) : (
+                            <input
+                              type="text"
+                              className="w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1.5 py-1 text-xs"
+                              value={String(formValues[f.name] ?? '')}
+                              onChange={(e) => setFormValues((prev) => ({ ...prev, [f.name]: e.target.value }))}
+                            />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* Whiteout — direct button like Sejda */}
+          <button
+            type="button"
+            onClick={() => setTool('whiteout')}
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm transition-colors ${activeTool === 'whiteout' ? 'bg-[hsl(var(--color-primary))] text-white' : 'hover:bg-[hsl(var(--color-muted))]'}`}
+          >
+            <Eraser className="h-4 w-4" /> {s.toolWhiteout}
+          </button>
+
+          <div className="w-px h-6 bg-[hsl(var(--color-border))] mx-1" />
           <Button variant="ghost" size="sm" onClick={undo} disabled={undoStackRef.current.length === 0} title={s.undo}><Undo2 className="h-4 w-4" /></Button>
           <Button variant="ghost" size="sm" onClick={redo} disabled={redoStackRef.current.length === 0} title={s.redo}><Redo2 className="h-4 w-4" /></Button>
+
+          <div className="flex-1" />
+          <div className="flex items-center gap-1">
+            <Button variant="ghost" size="sm" onClick={() => setZoom((z) => Math.max(MIN_ZOOM, +(z - 0.2).toFixed(2)))} title={s.zoomOut}><ZoomOut className="h-4 w-4" /></Button>
+            <span className="text-xs w-11 text-center">{Math.round(zoom * 100)}%</span>
+            <Button variant="ghost" size="sm" onClick={() => setZoom((z) => Math.min(MAX_ZOOM, +(z + 0.2).toFixed(2)))} title={s.zoomIn}><ZoomIn className="h-4 w-4" /></Button>
+            <Button variant="ghost" size="sm" onClick={reset} title={s.reset}><RefreshCw className="h-4 w-4" /></Button>
+          </div>
         </div>
-        {selectedId && (
-          <Button variant="ghost" size="sm" onClick={() => { commit(objects.filter((o) => o.id !== selectedId)); setSelectedId(null); }} title={s.deleteObject}>
-            <Trash2 className="h-4 w-4" />
-          </Button>
-        )}
-        <div className="flex-1" />
-        <Button variant="ghost" size="sm" onClick={reset} title={s.reset}><RefreshCw className="h-4 w-4" /><span className="ml-1 hidden sm:inline">{s.reset}</span></Button>
-        {resultBlob ? (
-          <DownloadButton file={resultBlob} filename={resultName} label={s.apply.replace(/&.*/, '').trim() || 'Download'} />
-        ) : (
-          <Button variant="primary" size="sm" onClick={() => void applyChanges()} disabled={applying || objects.length === 0}>
-            {applying ? s.applying : s.apply}
-          </Button>
-        )}
+        <div className="mt-1 h-5 flex items-center px-1">
+          <p className="text-xs text-[hsl(var(--color-muted-foreground))]">{hint}</p>
+          {message && <p className="ml-3 text-xs font-medium text-[hsl(var(--color-primary))]">{message}</p>}
+        </div>
       </div>
 
       {applying && (
-        <div className="h-1.5 w-full bg-[hsl(var(--color-muted))] rounded-full overflow-hidden mb-2">
+        <div className="h-1.5 w-full bg-[hsl(var(--color-muted))] rounded-full overflow-hidden mt-2">
           <div className="h-full bg-[hsl(var(--color-primary))] transition-all" style={{ width: `${progress}%` }} />
         </div>
       )}
-      {message && (
-        <div className="mb-2 rounded-lg bg-[hsl(var(--color-muted))] px-3 py-1.5 text-sm">{message}</div>
-      )}
       {error && (
-        <div className="mb-2 rounded-lg bg-red-50 border border-red-200 px-3 py-1.5 text-sm text-red-700">{error}</div>
+        <div className="mt-2 rounded-lg bg-red-50 border border-red-200 px-3 py-1.5 text-sm text-red-700">{error}</div>
       )}
 
-      <div className="flex gap-2">
-        {/* Tool rail */}
-        <div className="flex flex-col gap-1 p-1 rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] self-start sticky top-20 max-h-[70vh] overflow-y-auto">
-          {tools.map((t) => (
-            <button
-              key={t.id}
-              type="button"
-              onClick={() => { setActiveTool(t.id); if (t.id !== 'select') { setSelectedId(null); setEditingId(null); } }}
-              title={t.label}
-              className={`p-2 rounded-lg transition-colors ${activeTool === t.id ? 'bg-[hsl(var(--color-primary))] text-white' : 'hover:bg-[hsl(var(--color-muted))]'}`}
-            >
-              <t.icon className="h-4 w-4" />
-            </button>
-          ))}
-        </div>
-
-        {/* Pages */}
-        <div ref={scrollRef} className="flex-1 overflow-auto rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-muted))] p-4 max-h-[76vh]">
-          {pageSizes.map((ps, idx) => {
-            const op = pageOps[idx];
-            if (op?.deleted) {
-              return (
-                <div key={`del-${idx}`} className="mx-auto mb-4 max-w-md rounded-lg border border-dashed border-[hsl(var(--color-border))] p-3 text-center text-sm text-[hsl(var(--color-muted-foreground))]">
-                  {s.pageDelete} · Page {idx + 1}
-                </div>
-              );
-            }
-            const rot = ((initialRots[idx] + (op?.rotationDelta ?? 0)) % 360 + 360) % 360;
-            const rotated = rot === 90 || rot === 270;
-            const dispW = (rotated ? ps.h : ps.w) * zoom;
-            const dispH = (rotated ? ps.w : ps.h) * zoom;
+      {/* ===== Pages ===== */}
+      <div ref={scrollRef} className="mt-3 overflow-auto rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-muted))] p-4 pb-24 max-h-[72vh]">
+        {pageSizes.map((ps, idx) => {
+          const op = pageOps[idx];
+          if (op?.deleted) {
             return (
-              <div key={idx} className="mx-auto mb-6" style={{ width: dispW }}>
-                <PageCanvas
-                  pdfDoc={pdfDocRef.current}
-                  pageIndex={idx}
-                  zoom={zoom}
-                  rotation={rot}
-                  dispW={dispW}
-                  dispH={dispH}
-                  registerRef={(el) => { pageRefs.current[idx] = el; }}
-                />
-                {/* Overlay */}
-                <div
-                  className={`relative bg-transparent ${activeTool === 'select' ? 'cursor-default' : 'cursor-crosshair'}`}
-                  style={{ width: dispW, height: dispH, marginTop: -dispH, touchAction: 'none' }}
-                  onPointerDown={(e) => onOverlayPointerDown(idx, e)}
-                  onPointerMove={onOverlayPointerMove}
-                  onPointerUp={onOverlayPointerUp}
-                >
-                  {objects.filter((o) => o.pageIndex === idx).map((o) => (
-                    <ObjectView
-                      key={o.id}
-                      obj={o}
-                      zoom={zoom}
-                      s={s}
-                      selected={o.id === selectedId}
-                      editing={o.id === editingId}
-                      activeTool={activeTool}
-                      onSelect={() => { if (activeTool === 'select') setSelectedId(o.id); }}
-                      onPointerDown={(e, handle) => onObjectPointerDown(o, e, handle)}
-                      onPointerMove={onObjectPointerMove}
-                      onPointerUp={onObjectPointerUp}
-                      onCommitText={(text) => {
-                        if (!text.trim()) {
-                          // new empty text dropped; also drop paired whiteout? keep simple: remove text only
-                          commit(objects.filter((x) => x.id !== o.id));
-                        } else {
-                          commit(objects.map((x) => (x.id === o.id ? { ...(x as TextObject), text } : x)));
-                        }
-                        setEditingId(null);
-                      }}
-                      onStartEdit={() => setEditingId(o.id)}
-                    />
-                  ))}
-                  {draftRect?.pageIndex === idx && (
-                    <div className="absolute border-2 border-dashed border-blue-500 bg-blue-500/10 pointer-events-none"
-                      style={{ left: draftRect.x * zoom, top: draftRect.yTop * zoom, width: draftRect.w * zoom, height: draftRect.h * zoom }} />
-                  )}
-                  {draftLine?.pageIndex === idx && (
-                    <svg className="absolute inset-0 pointer-events-none" width={dispW} height={dispH}>
-                      <line x1={draftLine.x1 * zoom} y1={draftLine.yTop1 * zoom} x2={draftLine.x2 * zoom} y2={draftLine.yTop2 * zoom} stroke={styleStroke} strokeWidth={styleStrokeWidth} />
-                    </svg>
-                  )}
-                  {draftPoints?.pageIndex === idx && (
-                    <svg className="absolute inset-0 pointer-events-none" width={dispW} height={dispH}>
-                      <polyline
-                        points={draftPoints.pts.map((p) => `${p.x * zoom},${p.yTop * zoom}`).join(' ')}
-                        fill="none" stroke={styleStroke} strokeWidth={styleStrokeWidth} strokeLinecap="round" strokeLinejoin="round"
-                      />
-                    </svg>
-                  )}
-                </div>
-                {/* Page footer controls */}
-                <div className="flex items-center justify-center gap-2 mt-1 text-xs text-[hsl(var(--color-muted-foreground))]">
-                  <span>{s.pageLabel} {idx + 1} {s.pageOf} {pageSizes.length}</span>
-                  <Button variant="ghost" size="sm" disabled={selectedPageHasObjects(idx)} title={selectedPageHasObjects(idx) ? s.pageLocked : s.pageRotateLeft} onClick={() => rotatePage(idx, -90)}>
-                    <RotateCcw className="h-3.5 w-3.5" />
-                  </Button>
-                  <Button variant="ghost" size="sm" disabled={selectedPageHasObjects(idx)} title={selectedPageHasObjects(idx) ? s.pageLocked : s.pageRotateRight} onClick={() => rotatePage(idx, 90)}>
-                    <RotateCw className="h-3.5 w-3.5" />
-                  </Button>
-                  <Button variant="ghost" size="sm" disabled={selectedPageHasObjects(idx) || pageSizes.length <= 1} title={selectedPageHasObjects(idx) ? s.pageLocked : s.pageDelete} onClick={() => deletePage(idx)}>
-                    <Trash2 className="h-3.5 w-3.5" />
-                  </Button>
-                </div>
+              <div key={`del-${idx}`} className="mx-auto mb-4 max-w-md rounded-lg border border-dashed border-[hsl(var(--color-border))] p-3 text-center text-sm text-[hsl(var(--color-muted-foreground))]">
+                {s.pageDelete} · {s.pageLabel} {idx + 1}
               </div>
             );
-          })}
-        </div>
-
-        {/* Side panel */}
-        <div className="w-60 shrink-0 self-start sticky top-20 max-h-[76vh] overflow-y-auto flex flex-col gap-3">
-          {/* Tool hint */}
-          <Card className="p-3">
-            <p className="text-xs text-[hsl(var(--color-muted-foreground))]">{hint}</p>
-          </Card>
-
-          {/* Text defaults / selected text */}
-          {(activeTool === 'text' || selected?.kind === 'text') && (
-            <Card className="p-3 space-y-2">
-              <p className="text-xs font-semibold">{s.toolText}</p>
-              <label className="block text-xs">{s.font}
-                <select
-                  className="mt-1 w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
-                  value={selected?.kind === 'text' ? selected.fontId : styleFont}
-                  onChange={(e) => {
-                    const v = e.target.value as FontId;
-                    if (selected?.kind === 'text') { commit(objects.map((o) => (o.id === selected.id ? { ...selected, fontId: v } : o))); }
-                    else setStyleFont(v);
-                  }}
-                >
-                  {FONT_OPTIONS.map((f) => <option key={f.id} value={f.id}>{f.label}</option>)}
-                </select>
-              </label>
-              <div className="flex gap-2">
-                <label className="block text-xs flex-1">{s.fontSize}
-                  <input
-                    type="number" min={6} max={96}
-                    className="mt-1 w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
-                    value={selected?.kind === 'text' ? Math.round(selected.fontSize) : styleSize}
-                    onChange={(e) => {
-                      const v = Math.max(6, Math.min(96, Number(e.target.value) || 14));
-                      if (selected?.kind === 'text') { commit(objects.map((o) => (o.id === selected.id ? { ...selected, fontSize: v } : o))); }
-                      else setStyleSize(v);
-                    }}
-                  />
-                </label>
-                <label className="block text-xs w-20">{s.color}
-                  <input
-                    type="color"
-                    className="mt-1 w-full h-7 rounded-md border border-[hsl(var(--color-border))]"
-                    value={selected?.kind === 'text' ? selected.color : styleColor}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      if (selected?.kind === 'text') { commit(objects.map((o) => (o.id === selected.id ? { ...selected, color: v } : o))); }
-                      else setStyleColor(v);
-                    }}
-                  />
-                </label>
+          }
+          const rot = ((initialRots[idx] + (op?.rotationDelta ?? 0)) % 360 + 360) % 360;
+          const rotated = rot === 90 || rot === 270;
+          const dispW = (rotated ? ps.h : ps.w) * zoom;
+          const dispH = (rotated ? ps.w : ps.h) * zoom;
+          return (
+            <div key={idx} className="mx-auto mb-8" style={{ width: dispW }}>
+              {/* Page tool row */}
+              <div className="flex items-center justify-center gap-1 mb-2 text-xs text-[hsl(var(--color-muted-foreground))]">
+                <span className="font-medium">{idx + 1}</span>
+                <Button variant="ghost" size="sm" disabled={selectedPageHasObjects(idx)} title={selectedPageHasObjects(idx) ? s.pageLocked : s.pageDelete} onClick={() => deletePage(idx)}>
+                  <Trash2 className="h-3.5 w-3.5" />
+                </Button>
+                <Button variant="ghost" size="sm" disabled={selectedPageHasObjects(idx)} title={selectedPageHasObjects(idx) ? s.pageLocked : s.pageRotateLeft} onClick={() => rotatePage(idx, -90)}>
+                  <RotateCcw className="h-3.5 w-3.5" />
+                </Button>
+                <Button variant="ghost" size="sm" disabled={selectedPageHasObjects(idx)} title={selectedPageHasObjects(idx) ? s.pageLocked : s.pageRotateRight} onClick={() => rotatePage(idx, 90)}>
+                  <RotateCw className="h-3.5 w-3.5" />
+                </Button>
+                <span className="ml-1">{s.pageOf} {pageSizes.length}</span>
               </div>
-              <div className="flex gap-2">
-                {(['bold', 'italic'] as const).map((k) => {
-                  const effFont = selected?.kind === 'text' ? selected.fontId : styleFont;
-                  const active = selected?.kind === 'text' ? selected[k] : k === 'bold' ? styleBold : styleItalic;
-                  return (
-                    <button
-                      key={k}
-                      type="button"
-                      disabled={!fontSupportsStyle(effFont)}
-                      title={fontSupportsStyle(effFont) ? (k === 'bold' ? s.bold : s.italic) : 'Noto fonts ship regular weight only'}
-                      onClick={() => {
-                        if (selected?.kind === 'text') commit(objects.map((o) => (o.id === selected.id ? ({ ...selected, [k]: !selected[k] } as TextObject) : o)));
-                        else if (k === 'bold') setStyleBold((v) => !v);
-                        else setStyleItalic((v) => !v);
-                      }}
-                      className={`flex-1 rounded-md border px-2 py-1 text-xs ${active ? 'bg-[hsl(var(--color-primary))] text-white border-transparent' : 'border-[hsl(var(--color-border))]'}`}
-                    >
-                      {k === 'bold' ? 'B' : 'I'}
-                    </button>
-                  );
-                })}
-              </div>
-            </Card>
-          )}
 
-          {/* Shape style */}
-          {(selected?.kind === 'rect' || selected?.kind === 'ellipse' || selected?.kind === 'line' || selected?.kind === 'arrow' || selected?.kind === 'freehand' || ['rect', 'ellipse', 'line', 'arrow'].includes(activeTool)) && (
-            <Card className="p-3 space-y-2">
-              <p className="text-xs font-semibold">{s.toolRectangle}/{s.toolEllipse}/{s.toolLine}</p>
-              <div className="flex gap-2">
-                <label className="block text-xs flex-1">{s.color}
-                  <input
-                    type="color"
-                    className="mt-1 w-full h-7 rounded-md border border-[hsl(var(--color-border))]"
-                    value={selected && 'stroke' in selected ? selected.stroke : styleStroke}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      if (selected && 'stroke' in selected) commit(objects.map((o) => (o.id === selected.id ? { ...selected, stroke: v } : o)));
-                      else setStyleStroke(v);
+              <PageCanvas
+                pdfDoc={pdfDocRef.current}
+                pageIndex={idx}
+                zoom={zoom}
+                rotation={rot}
+                dispW={dispW}
+                dispH={dispH}
+                registerRef={(el) => { pageRefs.current[idx] = el; }}
+              />
+
+              {/* Overlay */}
+              <div
+                className={`relative ${activeTool === 'text' && hoverKey ? 'cursor-text' : activeTool === 'select' ? 'cursor-default' : 'cursor-crosshair'}`}
+                style={{ width: dispW, height: dispH, marginTop: -dispH, touchAction: 'none' }}
+                onPointerDown={(e) => onOverlayPointerDown(idx, e)}
+                onPointerMove={(e) => onOverlayPointerMove(idx, e)}
+                onPointerUp={onOverlayPointerUp}
+              >
+                {/* Hover highlight (Text tool) */}
+                {activeTool === 'text' && hoverLineRef.current?.pageIndex === idx && (
+                  <div className="absolute bg-blue-400/20 border border-blue-400/60 pointer-events-none rounded-sm"
+                    style={{ left: hoverLineRef.current.x * zoom, top: hoverLineRef.current.yTop * zoom, width: hoverLineRef.current.width * zoom, height: hoverLineRef.current.height * zoom }} />
+                )}
+
+                {objects.filter((o) => o.pageIndex === idx).map((o) => (
+                  <ObjectView
+                    key={o.id}
+                    obj={o}
+                    zoom={zoom}
+                    s={s}
+                    selected={o.id === selectedId}
+                    editing={o.id === editingId}
+                    activeTool={activeTool}
+                    onPointerDown={(e, handle) => onObjectPointerDown(o, e, handle)}
+                    onPointerMove={onObjectPointerMove}
+                    onPointerUp={onObjectPointerUp}
+                    onCommitText={(text) => {
+                      if (!text.trim()) {
+                        commit(objects.filter((x) => x.id !== o.id));
+                      } else {
+                        commit(objects.map((x) => (x.id === o.id ? { ...(x as TextObject), text } : x)));
+                      }
+                      setEditingId(null);
                     }}
+                    onStartEdit={() => setEditingId(o.id)}
                   />
-                </label>
-                {(!selected || selected.kind === 'rect' || selected.kind === 'ellipse') && (
-                  <label className="block text-xs flex-1">Fill
-                    <select
-                      className="mt-1 w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 py-1 text-xs"
-                      value={selected?.kind === 'rect' || selected?.kind === 'ellipse' ? selected.fill : styleFill}
-                      onChange={(e) => {
-                        const v = e.target.value;
-                        if (selected && (selected.kind === 'rect' || selected.kind === 'ellipse')) commit(objects.map((o) => (o.id === selected.id ? { ...selected, fill: v } : o)));
-                        else setStyleFill(v);
-                      }}
+                ))}
+
+                {draftRect?.pageIndex === idx && (
+                  <div className="absolute border-2 border-dashed border-blue-500 bg-blue-500/10 pointer-events-none"
+                    style={{ left: draftRect.x * zoom, top: draftRect.yTop * zoom, width: draftRect.w * zoom, height: draftRect.h * zoom }} />
+                )}
+                {draftLine?.pageIndex === idx && (
+                  <svg className="absolute inset-0 pointer-events-none" width={dispW} height={dispH}>
+                    <line x1={draftLine.x1 * zoom} y1={draftLine.yTop1 * zoom} x2={draftLine.x2 * zoom} y2={draftLine.yTop2 * zoom} stroke={styleStroke} strokeWidth={styleStrokeWidth} />
+                  </svg>
+                )}
+                {draftPoints?.pageIndex === idx && (
+                  <svg className="absolute inset-0 pointer-events-none" width={dispW} height={dispH}>
+                    <polyline
+                      points={draftPoints.pts.map((p) => `${p.x * zoom},${p.yTop * zoom}`).join(' ')}
+                      fill="none" stroke={styleStroke} strokeWidth={styleStrokeWidth} strokeLinecap="round" strokeLinejoin="round"
+                    />
+                  </svg>
+                )}
+
+                {/* Selected text line → blue overlay + floating toolbar */}
+                {selectedLine?.pageIndex === idx && (
+                  <>
+                    <div className="absolute bg-blue-600/75 pointer-events-none rounded-sm"
+                      style={{ left: selectedLine.x * zoom, top: selectedLine.yTop * zoom, width: selectedLine.width * zoom, height: selectedLine.height * zoom }} />
+                    <div
+                      data-floating
+                      className="absolute z-20 flex items-center gap-0.5 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg px-1 py-1 flex-wrap"
+                      style={{ left: Math.max(2, selectedLine.x * zoom), top: Math.max(2, selectedLine.yTop * zoom - 46), maxWidth: dispW - 4 }}
+                      onPointerDown={(e) => e.stopPropagation()}
                     >
-                      <option value="none">none</option>
-                      <option value="#fde047">yellow</option>
-                      <option value="#93c5fd">blue</option>
-                      <option value="#86efac">green</option>
-                      <option value="#fca5a5">red</option>
-                      <option value="#111111">black</option>
-                    </select>
-                  </label>
+                      <Button variant="primary" size="sm" className="h-7 px-2 text-xs" onClick={() => startLineEdit(selectedLine)}>
+                        <Type className="h-3.5 w-3.5 mr-1" />{s.editText}
+                      </Button>
+                      <StyleToggle active={styleBold} onClick={() => setStyleBold((v) => !v)} disabled={false} label="B" title={s.bold} />
+                      <StyleToggle active={styleItalic} onClick={() => setStyleItalic((v) => !v)} disabled={false} label="I" title={s.italic} />
+                      <select
+                        className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+                        value={styleSize}
+                        onChange={(e) => setStyleSize(Number(e.target.value) || 14)}
+                        title={s.fontSize}
+                      >
+                        {[8, 9, 10, 11, 12, 14, 18, 24, 30, 36, 48, 60, 72].map((n) => <option key={n} value={n}>{n}</option>)}
+                      </select>
+                      <select
+                        className="h-7 max-w-24 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+                        value={styleFont}
+                        onChange={(e) => setStyleFont(e.target.value as FontId)}
+                        title={s.font}
+                      >
+                        {FONT_OPTIONS.map((f) => <option key={f.id} value={f.id}>{f.label}</option>)}
+                      </select>
+                      <input
+                        type="color"
+                        className="h-7 w-7 rounded-md border border-[hsl(var(--color-border))]"
+                        value={styleColor}
+                        onChange={(e) => setStyleColor(e.target.value)}
+                        title={s.color}
+                      />
+                      <Button variant="ghost" size="sm" className="h-7 w-7 p-0" title={s.toolSelect} onClick={() => setSelectedLine(null)}>
+                        <X className="h-3.5 w-3.5" />
+                      </Button>
+                    </div>
+                  </>
+                )}
+
+                {/* Selected object → floating toolbar */}
+                {selected && selected.pageIndex === idx && !editingId && (
+                  <div
+                    data-floating
+                    className="absolute z-20 flex items-center gap-0.5 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg px-1 py-1 flex-wrap"
+                    style={{
+                      left: Math.max(2, ('x' in selected ? selected.x : Math.min((selected as LineObject).x1, (selected as LineObject).x2)) * zoom),
+                      top: Math.max(2, ('yTop' in selected ? selected.yTop : Math.min((selected as LineObject).yTop1, (selected as LineObject).yTop2)) * zoom - 44),
+                    }}
+                    onPointerDown={(e) => e.stopPropagation()}
+                  >
+                    {selected.kind === 'text' && (
+                      <>
+                        <StyleToggle active={(selected as TextObject).bold} onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), bold: !(selected as TextObject).bold } : o)))} disabled={false} label="B" title={s.bold} />
+                        <StyleToggle active={(selected as TextObject).italic} onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), italic: !(selected as TextObject).italic } : o)))} disabled={false} label="I" title={s.italic} />
+                        <select
+                          className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+                          value={Math.round((selected as TextObject).fontSize)}
+                          onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), fontSize: Number(e.target.value) || 14 } : o)))}
+                        >
+                          {[8, 9, 10, 11, 12, 14, 18, 24, 30, 36, 48, 60, 72].map((n) => <option key={n} value={n}>{n}</option>)}
+                        </select>
+                        <select
+                          className="h-7 max-w-24 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+                          value={(selected as TextObject).fontId}
+                          onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), fontId: e.target.value as FontId } : o)))}
+                        >
+                          {FONT_OPTIONS.map((f) => <option key={f.id} value={f.id}>{f.label}</option>)}
+                        </select>
+                      </>
+                    )}
+                    {'stroke' in selected && (
+                      <>
+                        <input
+                          type="color"
+                          className="h-7 w-7 rounded-md border border-[hsl(var(--color-border))]"
+                          value={selected.stroke}
+                          onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, stroke: e.target.value } : o)))}
+                          title={s.color}
+                        />
+                        {(selected.kind === 'rect' || selected.kind === 'ellipse') && (
+                          <select
+                            className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+                            value={(selected as ShapeObject).fill}
+                            onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as ShapeObject), fill: e.target.value } : o)))}
+                            title="Fill"
+                          >
+                            <option value="none">none</option>
+                            <option value="#fde047">yellow</option>
+                            <option value="#93c5fd">blue</option>
+                            <option value="#86efac">green</option>
+                            <option value="#fca5a5">red</option>
+                            <option value="#111111">black</option>
+                          </select>
+                        )}
+                      </>
+                    )}
+                    {selected.kind === 'highlight' && (
+                      <input
+                        type="color"
+                        className="h-7 w-7 rounded-md border border-[hsl(var(--color-border))]"
+                        value={selected.color}
+                        onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, color: e.target.value } : o)))}
+                        title={s.color}
+                      />
+                    )}
+                    {selected.kind === 'link' && (
+                      <>
+                        <select
+                          className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+                          value={selected.linkType}
+                          onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, linkType: e.target.value as 'url' | 'email' | 'phone' | 'page' } : o)))}
+                        >
+                          <option value="url">{s.linkUrl}</option>
+                          <option value="email">{s.linkEmail}</option>
+                          <option value="phone">{s.linkPhone}</option>
+                          <option value="page">{s.linkPage}</option>
+                        </select>
+                        {selected.linkType === 'page' ? (
+                          <select
+                            className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+                            value={selected.value || '1'}
+                            onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, value: e.target.value } : o)))}
+                          >
+                            {pageSizes.map((_, i) => <option key={i} value={String(i + 1)}>{i + 1}</option>)}
+                          </select>
+                        ) : (
+                          <input
+                            type="text"
+                            className="h-7 w-36 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1.5 text-xs"
+                            placeholder={s.linkPlaceholder}
+                            value={selected.value}
+                            onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, value: e.target.value } : o)))}
+                          />
+                        )}
+                      </>
+                    )}
+                    {selected.kind === 'stamp' && (
+                      <input
+                        type="text"
+                        className="h-7 w-28 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1.5 text-xs"
+                        value={(selected as StampObject).text}
+                        onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as StampObject), text: e.target.value } : o)))}
+                        title={s.stampText}
+                      />
+                    )}
+                    <Button variant="ghost" size="sm" className="h-7 w-7 p-0" title={s.duplicate} onClick={duplicateSelected}>
+                      <Copy className="h-3.5 w-3.5" />
+                    </Button>
+                    <Button variant="ghost" size="sm" className="h-7 w-7 p-0" title={s.deleteObject} onClick={() => { commit(objects.filter((o) => o.id !== selected.id)); setSelectedId(null); }}>
+                      <Trash2 className="h-3.5 w-3.5" />
+                    </Button>
+                  </div>
                 )}
               </div>
-              <label className="block text-xs">Width
-                <input
-                  type="number" min={1} max={20}
-                  className="mt-1 w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
-                  value={selected && 'strokeWidth' in selected ? selected.strokeWidth : styleStrokeWidth}
-                  onChange={(e) => {
-                    const v = Math.max(1, Math.min(20, Number(e.target.value) || 2));
-                    if (selected && 'strokeWidth' in selected) commit(objects.map((o) => (o.id === selected.id ? { ...selected, strokeWidth: v } : o)));
-                    else setStyleStrokeWidth(v);
-                  }}
-                />
-              </label>
-            </Card>
-          )}
-
-          {/* Link target */}
-          {selected?.kind === 'link' && (
-            <Card className="p-3 space-y-2">
-              <p className="text-xs font-semibold">{s.toolLink}</p>
-              <select
-                className="w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
-                value={selected.linkType}
-                onChange={(e) => {
-                  const v = e.target.value as 'url' | 'email' | 'phone' | 'page';
-                  commit(objects.map((o) => (o.id === selected.id ? { ...selected, linkType: v } : o)));
-                  setLinkType(v);
-                }}
-              >
-                <option value="url">{s.linkUrl}</option>
-                <option value="email">{s.linkEmail}</option>
-                <option value="phone">{s.linkPhone}</option>
-                <option value="page">{s.linkPage}</option>
-              </select>
-              {selected.linkType === 'page' ? (
-                <select
-                  className="w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
-                  value={selected.value || '1'}
-                  onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, value: e.target.value } : o)))}
-                >
-                  {pageSizes.map((_, i) => <option key={i} value={String(i + 1)}>{i + 1}</option>)}
-                </select>
-              ) : (
-                <input
-                  type="text"
-                  className="w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
-                  placeholder={linkType === 'url' ? s.linkPlaceholder : linkType === 'email' ? 'name@example.com' : '+1 234 567 890'}
-                  value={selected.value}
-                  onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, value: e.target.value } : o)))}
-                />
-              )}
-            </Card>
-          )}
-
-          {/* Stamp props */}
-          {(activeTool === 'stamp' || selected?.kind === 'stamp') && (
-            <Card className="p-3 space-y-2">
-              <p className="text-xs font-semibold">{s.toolStamp}</p>
-              <input
-                type="text"
-                className="w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
-                value={selected?.kind === 'stamp' ? selected.text : stampText}
-                onChange={(e) => {
-                  const v = e.target.value;
-                  if (selected?.kind === 'stamp') commit(objects.map((o) => (o.id === selected.id ? { ...selected, text: v } : o)));
-                  else setStampText(v);
-                }}
-              />
-              <label className="flex items-center gap-2 text-xs">
-                <input
-                  type="checkbox"
-                  checked={selected?.kind === 'stamp' ? selected.includeDate : stampDate}
-                  onChange={(e) => {
-                    const v = e.target.checked;
-                    if (selected?.kind === 'stamp') commit(objects.map((o) => (o.id === selected.id ? { ...selected, includeDate: v } : o)));
-                    else setStampDate(v);
-                  }}
-                />
-                {s.stampDate}
-              </label>
-            </Card>
-          )}
-
-          {/* Image picker */}
-          {activeTool === 'image' && (
-            <Card className="p-3 space-y-2">
-              <p className="text-xs font-semibold">{s.toolImage}</p>
-              <input
-                type="file"
-                accept="image/png,image/jpeg"
-                className="w-full text-xs"
-                onChange={(e) => { const f = e.target.files?.[0]; if (f) void onImagePicked(f); }}
-              />
-              {pendingImage && (
-                <div className="rounded-md border border-[hsl(var(--color-border))] p-2">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={pendingImage} alt="pending" className="max-h-20 mx-auto" />
-                  <p className="text-[10px] text-center text-[hsl(var(--color-muted-foreground))] mt-1">{s.hintImage}</p>
-                </div>
-              )}
-            </Card>
-          )}
-
-          {/* Signature panel */}
-          {activeTool === 'sign' && (
-            <Card className="p-3 space-y-2">
-              <p className="text-xs font-semibold">{s.toolSign}</p>
-              <div className="flex gap-1">
-                {(['type', 'draw', 'upload'] as const).map((m) => (
-                  <button
-                    key={m}
-                    type="button"
-                    onClick={() => { setSignMode(m); setPendingSign(null); }}
-                    className={`flex-1 rounded-md border px-1 py-1 text-xs ${signMode === m ? 'bg-[hsl(var(--color-primary))] text-white border-transparent' : 'border-[hsl(var(--color-border))]'}`}
-                  >
-                    {m === 'type' ? s.signType : m === 'draw' ? s.signDraw : s.signUpload}
-                  </button>
-                ))}
-              </div>
-              {signMode === 'type' && (
-                <div className="space-y-2">
-                  <input
-                    type="text"
-                    className="w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
-                    placeholder={s.signName}
-                    value={signName}
-                    onChange={(e) => setSignName(e.target.value)}
-                  />
-                  <Button variant="secondary" size="sm" className="w-full" onClick={() => void saveTypeSignature()} disabled={!signName.trim()}>
-                    {s.signType}
-                  </Button>
-                </div>
-              )}
-              {signMode === 'draw' && (
-                <div className="space-y-2">
-                  <canvas
-                    ref={drawCanvasRef}
-                    width={360}
-                    height={120}
-                    className="w-full rounded-md border border-[hsl(var(--color-border))] bg-white touch-none"
-                    onPointerDown={onDrawPadPointerDown}
-                    onPointerMove={onDrawPadPointerMove}
-                  />
-                  <div className="flex gap-1">
-                    <Button variant="secondary" size="sm" className="flex-1" onClick={clearDrawPad}>{s.signClear}</Button>
-                    <Button variant="primary" size="sm" className="flex-1" onClick={saveDrawSignature}>OK</Button>
-                  </div>
-                </div>
-              )}
-              {signMode === 'upload' && (
-                <input type="file" accept="image/png,image/jpeg" className="w-full text-xs" onChange={onSignFilePicked} />
-              )}
-              {pendingSign && (
-                <div className="rounded-md border border-[hsl(var(--color-border))] p-2 bg-white">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={pendingSign} alt="signature" className="max-h-16 mx-auto" />
-                  <p className="text-[10px] text-center text-[hsl(var(--color-muted-foreground))] mt-1">{s.hintSign}</p>
-                </div>
-              )}
-            </Card>
-          )}
-
-          {/* Find & replace */}
-          {activeTool === 'find' && (
-            <Card className="p-3 space-y-2">
-              <p className="text-xs font-semibold">{s.toolFind}</p>
-              <input
-                type="text"
-                className="w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
-                placeholder={s.findPlaceholder}
-                value={findText}
-                onChange={(e) => setFindText(e.target.value)}
-              />
-              <input
-                type="text"
-                className="w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
-                placeholder={s.replacePlaceholder}
-                value={replaceText}
-                onChange={(e) => setReplaceText(e.target.value)}
-              />
-              <label className="flex items-center gap-2 text-xs">
-                <input type="checkbox" checked={matchCase} onChange={(e) => setMatchCase(e.target.checked)} />
-                {s.matchCase}
-              </label>
-              <Button variant="primary" size="sm" className="w-full" onClick={() => void replaceAll()} disabled={!findText || finding}>
-                {finding ? '…' : s.replaceAll}
-              </Button>
-              <p className="text-[10px] text-[hsl(var(--color-muted-foreground))]">{s.replaceInlineOnly}</p>
-            </Card>
-          )}
-
-          {/* Form fields */}
-          {formFields.length > 0 && (
-            <Card className="p-3 space-y-2">
-              <p className="text-xs font-semibold">{s.formsFill}</p>
-              {formFields.map((f) => (
-                <div key={f.name} className="space-y-1">
-                  <label className="block text-[10px] text-[hsl(var(--color-muted-foreground))] truncate" title={f.name}>{f.name}</label>
-                  {f.type === 'checkbox' ? (
-                    <input
-                      type="checkbox"
-                      checked={Boolean(formValues[f.name])}
-                      onChange={(e) => setFormValues((prev) => ({ ...prev, [f.name]: e.target.checked }))}
-                    />
-                  ) : f.type === 'dropdown' || f.type === 'radio' || f.type === 'optionlist' ? (
-                    <select
-                      className="w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
-                      value={String(formValues[f.name] ?? '')}
-                      onChange={(e) => setFormValues((prev) => ({ ...prev, [f.name]: e.target.value }))}
-                    >
-                      <option value="">—</option>
-                      {(f.options ?? []).map((opt) => <option key={opt} value={opt}>{opt}</option>)}
-                    </select>
-                  ) : (
-                    <input
-                      type="text"
-                      className="w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
-                      value={String(formValues[f.name] ?? '')}
-                      onChange={(e) => setFormValues((prev) => ({ ...prev, [f.name]: e.target.value }))}
-                    />
-                  )}
-                </div>
-              ))}
-            </Card>
-          )}
-
-          {/* Whiteout honesty note */}
-          {(activeTool === 'whiteout' || selected?.kind === 'whiteout') && (
-            <Card className="p-3">
-              <p className="text-[10px] text-amber-700">{s.whiteoutWarning}</p>
-            </Card>
-          )}
-        </div>
+            </div>
+          );
+        })}
       </div>
 
-      {/* Editor size guard */}
+      {/* Whiteout honesty note */}
+      {activeTool === 'whiteout' && (
+        <div className="mt-2 rounded-lg bg-amber-50 border border-amber-200 px-3 py-1.5 text-xs text-amber-800">
+          {s.whiteoutWarning}
+        </div>
+      )}
+
       <p className="mt-2 text-[10px] text-[hsl(var(--color-muted-foreground))]">
         {EDITOR_MAX_FILE_BYTES / (1024 * 1024)} MB max · runs 100% in your browser
       </p>
+
+      {/* ===== Floating Apply button (bottom center) ===== */}
+      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40">
+        {resultBlob ? (
+          <DownloadButton file={resultBlob} filename={resultName} label="Download" />
+        ) : (
+          <Button variant="primary" onClick={() => void applyChanges()} disabled={applying || objects.length === 0} className="shadow-lg">
+            {applying ? `${s.applying} ${progress}%` : s.apply}
+          </Button>
+        )}
+      </div>
     </div>
+  );
+}
+
+function MenuItem({ icon: Icon, label, onClick, active }: { icon: any; label: string; onClick: () => void; active: boolean }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`w-full flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-left ${active ? 'bg-[hsl(var(--color-primary))] text-white' : 'hover:bg-[hsl(var(--color-muted))]'}`}
+    >
+      <Icon className="h-3.5 w-3.5 shrink-0" />
+      <span className="truncate">{label}</span>
+    </button>
+  );
+}
+
+function StyleToggle({ active, onClick, disabled, label, title }: { active: boolean; onClick: () => void; disabled: boolean; label: string; title: string }) {
+  return (
+    <button
+      type="button"
+      disabled={disabled}
+      title={title}
+      onClick={onClick}
+      className={`h-7 min-w-7 rounded-md border px-1.5 text-xs font-semibold ${active ? 'bg-[hsl(var(--color-primary))] text-white border-transparent' : 'border-[hsl(var(--color-border))]'}`}
+    >
+      {label}
+    </button>
   );
 }
 
@@ -1480,14 +1565,13 @@ function ObjectView(props: {
   selected: boolean;
   editing: boolean;
   activeTool: ToolId;
-  onSelect: () => void;
   onPointerDown: (e: React.PointerEvent, handle?: 'se') => void;
   onPointerMove: (e: React.PointerEvent) => void;
   onPointerUp: (e: React.PointerEvent) => void;
   onCommitText: (text: string) => void;
   onStartEdit: () => void;
 }) {
-  const { obj, zoom, s, selected, editing, activeTool, onSelect, onPointerDown, onPointerMove, onPointerUp, onCommitText, onStartEdit } = props;
+  const { obj, zoom, s, selected, editing, activeTool, onPointerDown, onPointerMove, onPointerUp, onCommitText, onStartEdit } = props;
   const interactive = activeTool === 'select';
   const base: React.CSSProperties = {
     position: 'absolute',
@@ -1646,9 +1730,6 @@ function ObjectView(props: {
             style={{ pointerEvents: interactive ? 'stroke' : 'none', cursor: 'move' }}
             {...commonHandlers}
           />
-          {obj.kind === 'arrow' && interactive && (
-            <circle cx={x2} cy={y2} r={6} fill="transparent" style={{ pointerEvents: 'all' }} {...commonHandlers} />
-          )}
         </svg>
       );
     }

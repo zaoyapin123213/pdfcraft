@@ -127,6 +127,7 @@ export type EditObject =
 export interface PageOp {
   rotationDelta: number; // 0 | 90 | 180 | 270 (clockwise, added to existing /Rotate)
   deleted: boolean;
+  insertAfter?: boolean; // insert a blank page right after this one
 }
 
 export interface FormFieldValue {
@@ -269,8 +270,9 @@ interface RawItem {
 
 function clusterIntoLines(items: RawItem[], pageIndex: number, pageHeight: number): TextLine[] {
   // Group items whose baselines are within 2pt, sort left-to-right inside
-  // each group, then merge neighbours whose gap is small relative to font
-  // size (word spacing artifacts).
+  // each group, then merge neighbours. pdf.js item widths include trailing
+  // spaces, so neighbouring fragments often OVERLAP (large negative gap) —
+  // any gap below the tolerance therefore merges, negative included.
   const sorted = [...items].sort((a, b) => (a.baselineY === b.baselineY ? a.x - b.x : b.baselineY - a.baselineY));
   const groups: RawItem[][] = [];
   for (const it of sorted) {
@@ -281,27 +283,14 @@ function clusterIntoLines(items: RawItem[], pageIndex: number, pageHeight: numbe
   const lines: TextLine[] = [];
   for (const g of groups) {
     g.sort((a, b) => a.x - b.x);
-    const merged: RawItem[] = [];
-    for (const it of g) {
-      const prev = merged[merged.length - 1];
-      const gap = prev ? it.x - (prev.x + prev.width) : Infinity;
-      const tolerance = Math.max(prev?.fontSize ?? it.fontSize, it.fontSize) * 1.2;
-      if (prev && gap < tolerance && gap > -prev.width * 0.5) {
-        merged.push(it);
-      } else {
-        merged.push(it);
-        // mark boundary: we handle merging below by walking runs
-      }
-    }
-    // Build runs with the gap rule
     const runs: RawItem[][] = [];
-    let run: RawItem[] = [merged[0]];
-    for (let i = 1; i < merged.length; i++) {
-      const prev = merged[i - 1];
-      const it = merged[i];
+    let run: RawItem[] = [g[0]];
+    for (let i = 1; i < g.length; i++) {
+      const prev = g[i - 1];
+      const it = g[i];
       const gap = it.x - (prev.x + prev.width);
       const tolerance = Math.max(prev.fontSize, it.fontSize) * 1.2;
-      if (gap < tolerance && gap > -prev.width * 0.5) run.push(it);
+      if (gap < tolerance) run.push(it);
       else {
         runs.push(run);
         run = [it];
@@ -916,6 +905,33 @@ export async function exportEditedPdf(options: ExportOptions): Promise<ExportRes
         break;
       }
     }
+  }
+  onProgress?.(90, 'Restructuring pages');
+
+  // Page-level structural ops run AFTER drawing so object coordinates
+  // (bound to original page indices) stay valid throughout the loop.
+  // Insertions and deletions both walk descending indices.
+  const structIdxs = Object.keys(pageOps).map((k) => parseInt(k, 10)).sort((a, b) => b - a);
+  for (const idx of structIdxs) {
+    const op = pageOps[idx];
+    if (!op) continue;
+    if (op.insertAfter && !op.deleted) {
+      const src = pages[idx];
+      if (src) {
+        const { width, height } = src.getSize();
+        pdfDoc.insertPage(idx + 1, [width, height]);
+      }
+    }
+    if (op.deleted) {
+      try {
+        pdfDoc.removePage(idx);
+      } catch {
+        // never remove the last remaining page
+      }
+    }
+  }
+  if (pages.length <= 1 && structIdxs.some((i) => pageOps[i]?.deleted)) {
+    // caller UI prevents deleting the final page; nothing to do here
   }
   onProgress?.(95, 'Saving');
 
