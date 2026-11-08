@@ -102,6 +102,22 @@ export interface SymbolObject extends BaseObject {
   color: string;
 }
 
+export type FormFieldType = 'text' | 'textarea' | 'dropdown' | 'radio' | 'checkbox' | 'signature';
+
+export interface FormFieldObject extends BaseObject {
+  kind: 'formfield';
+  fieldType: FormFieldType;
+  x: number;
+  yTop: number;
+  width: number;
+  height: number;
+  name: string;
+  value?: string;
+  options?: string[];
+  required?: boolean;
+  checked?: boolean;
+}
+
 export interface StampObject extends BaseObject {
   kind: 'stamp';
   x: number;
@@ -122,7 +138,8 @@ export type EditObject =
   | FreehandObject
   | AreaMarkObject
   | SymbolObject
-  | StampObject;
+  | StampObject
+  | FormFieldObject;
 
 export interface PageOp {
   rotationDelta: number; // 0 | 90 | 180 | 270 (clockwise, added to existing /Rotate)
@@ -558,6 +575,8 @@ export interface ExportOptions {
   objects: EditObject[];
   pageOps: Record<number, PageOp>;
   formValues: FormValues;
+  /** Total pages shown in the editor, incl. blank pages appended there. */
+  displayPageCount?: number;
   onProgress?: (pct: number, message: string) => void;
 }
 
@@ -631,6 +650,14 @@ export async function exportEditedPdf(options: ExportOptions): Promise<ExportRes
       const current = page.getRotation().angle;
       page.setRotation(pdfLib.degrees((current + op.rotationDelta + 360) % 360));
     }
+  }
+
+  // Blank pages appended in the editor (virtual pages beyond the original count)
+  const displayCount = options.displayPageCount ?? pages.length;
+  while (pages.length < displayCount) {
+    const last = pages[pages.length - 1];
+    const size = last ? last.getSize() : { width: 595, height: 842 };
+    pages.push(pdfDoc.addPage([size.width, size.height]));
   }
 
   // Draw edit objects (skip those on deleted pages)
@@ -910,6 +937,42 @@ export async function exportEditedPdf(options: ExportOptions): Promise<ExportRes
           yScale: obj.size / 2,
           color: rgb(c.r, c.g, c.b),
         });
+        break;
+      }
+      case 'formfield': {
+        try {
+          const form = pdfDoc.getForm();
+          const box = { x: obj.x, y: ph - obj.yTop - obj.height, width: obj.width, height: obj.height };
+          if (obj.fieldType === 'text' || obj.fieldType === 'textarea') {
+            const tf = form.createTextField(obj.name);
+            if (obj.value) tf.setText(obj.value);
+            if (obj.fieldType === 'textarea') tf.enableMultiline();
+            if (obj.required) tf.enableRequired();
+            tf.addToPage(page, box);
+          } else if (obj.fieldType === 'dropdown') {
+            const dd = form.createDropdown(obj.name);
+            if (obj.options?.length) dd.addOptions(obj.options);
+            if (obj.value) dd.select(obj.value);
+            if (obj.required) dd.enableRequired();
+            dd.addToPage(page, box);
+          } else if (obj.fieldType === 'checkbox') {
+            const cb = form.createCheckBox(obj.name);
+            cb.addToPage(page, box);
+            if (obj.value === 'true' || obj.checked) cb.check();
+          } else if (obj.fieldType === 'radio') {
+            const rg = form.createRadioGroup(obj.name);
+            rg.addOptionToPage(obj.value || 'Option 1', page, box);
+          } else if (obj.fieldType === 'signature') {
+            // pdf-lib has no createSignatureField; a signature box is a
+            // bordered placeholder the user later signs with the Sign tool.
+            page.drawRectangle({
+              x: box.x, y: box.y, width: box.width, height: box.height,
+              borderColor: undefined, borderWidth: 1,
+            });
+          }
+        } catch {
+          // duplicate field name or unsupported — skip silently (UI checks names)
+        }
         break;
       }
       case 'link': {

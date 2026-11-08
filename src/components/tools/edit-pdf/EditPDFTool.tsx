@@ -50,7 +50,7 @@ import {
   Copy,
   ClipboardList,
 } from 'lucide-react';
-import { Button, Card } from '@/components/ui';
+import { Button, Card, Modal } from '@/components/ui';
 import FileUploader from '@/components/tools/FileUploader';
 import DownloadButton from '@/components/tools/DownloadButton';
 import { loadPdfjs } from '@/lib/pdf/loader';
@@ -70,6 +70,8 @@ import {
   validatePdfFile,
   type EditObject,
   type FontId,
+  type FormFieldObject,
+  type FormFieldType,
   type FormFieldValue,
   type FormValues,
   type LineObject,
@@ -86,7 +88,8 @@ type ToolId =
   | 'select' | 'text' | 'image' | 'link' | 'whiteout'
   | 'highlight' | 'strikeout' | 'underline' | 'draw'
   | 'rect' | 'ellipse' | 'line' | 'arrow'
-  | 'check' | 'cross' | 'dot' | 'sign' | 'stamp' | 'find';
+  | 'check' | 'cross' | 'dot' | 'sign' | 'stamp' | 'find'
+  | 'formfield';
 
 type MenuId = 'text' | 'forms' | 'images' | 'sign' | 'annotate' | 'shapes' | null;
 
@@ -167,6 +170,10 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   const [signMode, setSignMode] = useState<'type' | 'draw' | 'upload'>('type');
   const [signName, setSignName] = useState('');
   const [stampText, setStampText] = useState('APPROVED');
+  const [formFieldType, setFormFieldType] = useState<FormFieldType>('text');
+  const [pendingField, setPendingField] = useState<FormFieldObject | null>(null);
+  const [fieldOptions, setFieldOptions] = useState('');
+  const [originalPageCount, setOriginalPageCount] = useState(0);
   const [stampDate, setStampDate] = useState(true);
 
   // Find & replace
@@ -309,6 +316,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       }
       setPageSizes(sizes);
       setInitialRots(rots);
+      setOriginalPageCount(n);
       setFile(f);
       setObjects([]);
       setPageOps({});
@@ -505,6 +513,21 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       next = [...objects, { id: newId, kind: 'image', pageIndex, x: vx, yTop: vy, width: w, height: w * 0.4, src: pendingSign }];
       setPendingSign(null);
       setActiveTool('select');
+    } else if (activeTool === 'formfield') {
+      const dims: Record<FormFieldType, [number, number]> = {
+        text: [170, 26], textarea: [190, 64], dropdown: [150, 26],
+        radio: [22, 22], checkbox: [22, 22], signature: [170, 50],
+      };
+      const [w, h] = dims[formFieldType];
+      setPendingField({
+        id: nextObjectId(), kind: 'formfield', pageIndex, x: vx, yTop: vy,
+        width: w, height: h, fieldType: formFieldType,
+        name: `${formFieldType}_${pageIndex + 1}_${Math.round(vy)}`,
+        value: formFieldType === 'checkbox' ? 'false' : '',
+        options: formFieldType === 'dropdown' ? ['Option 1', 'Option 2'] : undefined,
+      });
+      setFieldOptions(formFieldType === 'dropdown' ? 'Option 1\nOption 2' : '');
+      return;
     } else if (activeTool === 'check' || activeTool === 'cross' || activeTool === 'dot') {
       newId = nextObjectId();
       const size = 18;
@@ -517,7 +540,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     }
     commit(next);
     if (newId) setSelectedId(newId);
-  }, [activeTool, commit, flash, objects, pageLocked, pageSizes, pendingImage, pendingSign, s.scanWarning, stampDate, stampText, styleColor, styleStroke]);
+  }, [activeTool, commit, flash, formFieldType, objects, pageLocked, pageSizes, pendingImage, pendingSign, s.scanWarning, stampDate, stampText, styleColor, styleStroke]);
 
   const finishRectDrag = useCallback((pageIndex: number, x1: number, y1: number, x2: number, y2: number) => {
     if (pageLocked(pageIndex)) { flash(s.scanWarning); return; }
@@ -586,7 +609,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       })();
       return;
     }
-    if (activeTool === 'image' || activeTool === 'sign' || activeTool === 'check' || activeTool === 'cross' || activeTool === 'dot' || activeTool === 'stamp') {
+    if (activeTool === 'image' || activeTool === 'sign' || activeTool === 'check' || activeTool === 'cross' || activeTool === 'dot' || activeTool === 'stamp' || activeTool === 'formfield') {
       placeAsset(pageIndex, pt.x, pt.y);
       return;
     }
@@ -852,6 +875,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
         objects,
         pageOps,
         formValues,
+        displayPageCount: pageSizes.length,
         onProgress: (p) => setProgress(p),
       });
       setResultBlob(out.blob);
@@ -864,6 +888,37 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   }, [file, formValues, objects, pageOps, s.errorExport]);
 
   // ------------------------------------------------------------------
+  // Form field dialog confirm + blank page
+  // ------------------------------------------------------------------
+
+  const confirmField = useCallback(() => {
+    if (!pendingField) return;
+    const nameTaken = objects.some((o) => o.kind === 'formfield' && o.name === pendingField.name) ||
+      formFields.some((f) => f.name === pendingField.name);
+    if (nameTaken) { flash(s.formDuplicateName); return; }
+    const opts = fieldOptions.split('\n').map((o) => o.trim()).filter(Boolean);
+    const obj: FormFieldObject = {
+      ...pendingField,
+      value: pendingField.fieldType === 'checkbox' ? 'false' : pendingField.value,
+      options: pendingField.fieldType === 'dropdown' || pendingField.fieldType === 'radio' ? opts : undefined,
+    };
+    commit([...objects, obj]);
+    setSelectedId(obj.id);
+    setPendingField(null);
+    setActiveTool('select');
+  }, [commit, fieldOptions, flash, formFields, objects, pendingField, s.formDuplicateName]);
+
+  const addBlankPage = useCallback(() => {
+    setPageSizes((prev) => [...prev, { w: 595, h: 842 }]);
+    setInitialRots((prev) => [...prev, 0]);
+    // jump scroll to the new page
+    requestAnimationFrame(() => {
+      const el = pageRefs.current[pageSizes.length];
+      el?.scrollIntoView({ behavior: 'smooth' });
+    });
+  }, [pageSizes.length]);
+
+  // ------------------------------------------------------------------
   // Toolbar model
   // ------------------------------------------------------------------
 
@@ -873,7 +928,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     setEditingId(null);
   }, []);
 
-  const menuDefs: Array<{ id: Exclude<MenuId, null>; label: string; icon: any; active: boolean; items: Array<{ tool: ToolId; label: string; icon: any }> }> = [
+  const menuDefs: Array<{ id: Exclude<MenuId, null>; label: string; icon: any; active: boolean; items: Array<{ tool: ToolId; label: string; icon: any }>; colors?: string[] }> = [
     {
       id: 'annotate', label: 'Annotate', icon: Highlighter, active: ['highlight', 'strikeout', 'underline', 'draw'].includes(activeTool),
       items: [
@@ -882,6 +937,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
         { tool: 'underline', label: s.toolUnderline, icon: UnderlineIcon },
         { tool: 'draw', label: s.toolDraw, icon: Pencil },
       ],
+      colors: ['#fde047', '#86efac', '#93c5fd', '#fca5a5', '#111111'],
     },
     {
       id: 'shapes', label: 'Shapes', icon: Square, active: ['rect', 'ellipse', 'line', 'arrow'].includes(activeTool),
@@ -903,7 +959,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       ],
     },
     {
-      id: 'forms', label: 'Forms', icon: ClipboardList, active: ['check', 'cross', 'dot'].includes(activeTool),
+      id: 'forms', label: 'Forms', icon: ClipboardList, active: ['check', 'cross', 'dot', 'formfield'].includes(activeTool),
       items: [
         { tool: 'check', label: s.toolCheck, icon: Check },
         { tool: 'cross', label: s.toolCross, icon: X },
@@ -1005,9 +1061,23 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
 
               {/* Dropdown panels */}
               {openMenu === m.id && m.id === 'annotate' && (
-                <div className="absolute left-0 top-full mt-1 z-40 w-48 rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg p-1.5">
+                <div className="absolute left-0 top-full mt-1 z-40 w-52 rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg p-1.5">
                   {m.items.map((it) => (
-                    <MenuItem key={it.tool} icon={it.icon} label={it.label} onClick={() => { setTool(it.tool); setOpenMenu(null); }} active={activeTool === it.tool} />
+                    <div key={it.tool} className="flex items-center gap-1">
+                      <div className="flex-1 min-w-0">
+                        <MenuItem icon={it.icon} label={it.label} onClick={() => { setTool(it.tool); setOpenMenu(null); }} active={activeTool === it.tool} />
+                      </div>
+                      {(m.colors ?? []).map((c) => (
+                        <button
+                          key={c}
+                          type="button"
+                          title={c}
+                          onClick={() => { setStyleColor(c); setTool(it.tool); setOpenMenu(null); }}
+                          className="h-3.5 w-3.5 rounded-full border border-[hsl(var(--color-border))] shrink-0"
+                          style={{ background: c }}
+                        />
+                      ))}
+                    </div>
                   ))}
                 </div>
               )}
@@ -1097,9 +1167,25 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                 </div>
               )}
               {openMenu === m.id && m.id === 'forms' && (
-                <div className="absolute left-0 top-full mt-1 z-40 w-44 rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg p-1.5">
+                <div className="absolute left-0 top-full mt-1 z-40 w-52 rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg p-1.5">
+                  <p className="px-2 pt-1 pb-0.5 text-[10px] uppercase tracking-wide text-[hsl(var(--color-muted-foreground))]">Symbols</p>
                   {m.items.map((it) => (
                     <MenuItem key={it.tool} icon={it.icon} label={it.label} onClick={() => { setTool(it.tool); setOpenMenu(null); }} active={activeTool === it.tool} />
+                  ))}
+                  <p className="px-2 pt-1.5 pb-0.5 text-[10px] uppercase tracking-wide text-[hsl(var(--color-muted-foreground))]">{s.formAddFields}</p>
+                  {([
+                    ['text', s.formTextField], ['textarea', s.formTextarea], ['dropdown', s.formDropdown],
+                    ['radio', s.formRadio], ['checkbox', s.formCheckbox], ['signature', s.formSignatureBox],
+                  ] as const).map(([ft, label]) => (
+                    <button
+                      key={ft}
+                      type="button"
+                      onClick={() => { setFormFieldType(ft); setTool('formfield'); setOpenMenu(null); }}
+                      className={`w-full flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-left ${activeTool === 'formfield' && formFieldType === ft ? 'bg-[hsl(var(--color-primary))] text-white' : 'hover:bg-[hsl(var(--color-muted))]'}`}
+                    >
+                      <ClipboardList className="h-3.5 w-3.5 shrink-0" />
+                      <span className="truncate">{label}</span>
+                    </button>
                   ))}
                   {formFields.length > 0 && (
                     <div className="border-t border-[hsl(var(--color-border))] mt-1 pt-1.5 max-h-52 overflow-y-auto">
@@ -1205,6 +1291,11 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                 <Button variant="ghost" size="sm" disabled={selectedPageHasObjects(idx)} title={selectedPageHasObjects(idx) ? s.pageLocked : s.pageRotateRight} onClick={() => rotatePage(idx, 90)}>
                   <RotateCw className="h-3.5 w-3.5" />
                 </Button>
+                {idx === pageSizes.length - 1 && (
+                  <Button variant="ghost" size="sm" title={s.addBlankPage} onClick={addBlankPage}>
+                    <Copy className="h-3.5 w-3.5 rotate-90" />
+                  </Button>
+                )}
                 <span className="ml-1">{s.pageOf} {pageSizes.length}</span>
               </div>
 
@@ -1215,6 +1306,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                 rotation={rot}
                 dispW={dispW}
                 dispH={dispH}
+                originalPageCount={originalPageCount}
                 registerRef={(el) => { pageRefs.current[idx] = el; }}
               />
 
@@ -1432,6 +1524,65 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
         {EDITOR_MAX_FILE_BYTES / (1024 * 1024)} MB max · runs 100% in your browser
       </p>
 
+      {/* ===== Form field property dialog ===== */}
+      <Modal isOpen={pendingField !== null} onClose={() => setPendingField(null)} title={s.formAddFields}>
+        {pendingField && (
+          <div className="p-5 space-y-3 w-80">
+            <h3 className="font-semibold">{s.formAddFields}</h3>
+            <label className="block text-xs">
+              {s.formFieldName}
+              <input
+                type="text"
+                className="mt-1 w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1.5 text-sm"
+                value={pendingField.name}
+                onChange={(e) => setPendingField({ ...pendingField, name: e.target.value })}
+              />
+            </label>
+            {(pendingField.fieldType === 'text' || pendingField.fieldType === 'textarea' || pendingField.fieldType === 'dropdown') && (
+              <label className="block text-xs">
+                {s.formDefaultValue}
+                {pendingField.fieldType === 'textarea' ? (
+                  <textarea
+                    className="mt-1 w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1.5 text-sm h-20"
+                    value={pendingField.value ?? ''}
+                    onChange={(e) => setPendingField({ ...pendingField, value: e.target.value })}
+                  />
+                ) : (
+                  <input
+                    type="text"
+                    className="mt-1 w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1.5 text-sm"
+                    value={pendingField.value ?? ''}
+                    onChange={(e) => setPendingField({ ...pendingField, value: e.target.value })}
+                  />
+                )}
+              </label>
+            )}
+            {(pendingField.fieldType === 'dropdown' || pendingField.fieldType === 'radio') && (
+              <label className="block text-xs">
+                {s.formOptions}
+                <textarea
+                  className="mt-1 w-full rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1.5 text-sm h-20"
+                  value={fieldOptions}
+                  onChange={(e) => setFieldOptions(e.target.value)}
+                />
+              </label>
+            )}
+            <label className="flex items-center gap-2 text-xs">
+              <input
+                type="checkbox"
+                checked={Boolean(pendingField.required)}
+                onChange={(e) => setPendingField({ ...pendingField, required: e.target.checked })}
+              />
+              {s.formRequired}
+            </label>
+            <div className="flex gap-2 pt-1">
+              <Button variant="secondary" size="sm" className="flex-1" onClick={() => setPendingField(null)}>Cancel</Button>
+              <Button variant="primary" size="sm" className="flex-1" onClick={confirmField}>{s.done}</Button>
+            </div>
+          </div>
+        )}
+      </Modal>
+
       {/* ===== Floating Apply button (bottom center) ===== */}
       <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40">
         {resultBlob ? (
@@ -1484,9 +1635,10 @@ function PageCanvas(props: {
   rotation: number;
   dispW: number;
   dispH: number;
+  originalPageCount: number;
   registerRef: (el: HTMLDivElement | null) => void;
 }) {
-  const { pdfDoc, pageIndex, zoom, rotation, dispW, dispH, registerRef } = props;
+  const { pdfDoc, pageIndex, zoom, rotation, dispW, dispH, originalPageCount, registerRef } = props;
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(pageIndex < 2);
@@ -1511,13 +1663,24 @@ function PageCanvas(props: {
   }, []);
 
   useLayoutEffect(() => {
-    if (!visible || !pdfDoc) return;
+    if (!visible) return;
+    if (!pdfDoc) return;
     const key = `${pageIndex}|${zoom.toFixed(3)}|${rotation}`;
     if (renderedRef.current === key) return;
     renderedRef.current = key;
     let cancelled = false;
     void (async () => {
       try {
+        if (pageIndex + 1 > originalPageCount) {
+          // blank virtual page — no pdf.js backing
+          const canvas = canvasRef.current;
+          if (!canvas || cancelled) return;
+          canvas.width = Math.floor(dispW * Math.min(window.devicePixelRatio || 1, 2));
+          canvas.height = Math.floor(dispH * Math.min(window.devicePixelRatio || 1, 2));
+          const ctx = canvas.getContext('2d');
+          if (ctx) { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, canvas.width, canvas.height); }
+          return;
+        }
         const page = await pdfDoc.getPage(pageIndex + 1);
         const dpr = Math.min(typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1, 2);
         const viewport = page.getViewport({ scale: zoom * dpr, rotation });
@@ -1533,7 +1696,7 @@ function PageCanvas(props: {
       }
     })();
     return () => { cancelled = true; };
-  }, [visible, pdfDoc, pageIndex, zoom, rotation]);
+  }, [visible, pdfDoc, pageIndex, zoom, rotation, originalPageCount, dispW, dispH]);
 
   return (
     <div ref={(el) => { wrapRef.current = el; registerRef(el); }} style={{ width: dispW, height: dispH }} className="relative bg-white shadow-md rounded-sm overflow-hidden">
@@ -1789,6 +1952,21 @@ function ObjectView(props: {
           {selected && <HandleSE onPointerDown={onPointerDown} />}
         </div>
       );
+    case 'formfield': {
+      const label = { text: s.formTextField, textarea: s.formTextarea, dropdown: s.formDropdown, radio: s.formRadio, checkbox: s.formCheckbox, signature: s.formSignatureBox }[obj.fieldType];
+      return (
+        <div
+          data-oid={obj.id}
+          className={`absolute border-2 border-dashed border-violet-500 bg-violet-500/5 cursor-move flex items-center px-1.5 gap-1${ring}`}
+          style={{ ...base, left: obj.x * zoom, top: obj.yTop * zoom, width: obj.width * zoom, height: obj.height * zoom }}
+          {...commonHandlers}
+        >
+          <ClipboardList className="h-3 w-3 text-violet-600 shrink-0" />
+          <span className="text-[10px] text-violet-700 truncate">{obj.name || label}</span>
+          {selected && <HandleSE onPointerDown={onPointerDown} />}
+        </div>
+      );
+    }
     default:
       return null;
   }
