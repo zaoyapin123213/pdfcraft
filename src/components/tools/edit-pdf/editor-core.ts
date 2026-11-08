@@ -10,7 +10,7 @@
 
 import { getEditorStrings } from './strings';
 
-export type FontId = 'helvetica' | 'times' | 'courier' | 'noto-sc' | 'noto-tc' | 'noto-jp' | 'noto-kr';
+export type FontId = 'helvetica' | 'times' | 'courier' | 'system-cjk';
 
 export interface BaseObject {
   id: string;
@@ -148,6 +148,10 @@ export interface TextLine {
   width: number;
   height: number;
   fontSize: number;
+  /** Native pdf.js fragments inside this line — replacement positioning
+   *  uses these (per-fragment char width is far more accurate than the
+   *  whole-line average when a "line" spans table columns). */
+  items: Array<{ str: string; x: number; width: number }>;
 }
 
 const MAX_FILE_BYTES = 50 * 1024 * 1024;
@@ -167,7 +171,7 @@ export function nextObjectId(): string {
 const CJK_RE = /[\u2E80-\u2EFF\u3000-\u303F\u3040-\u30FF\u3130-\u318F\u3400-\u4DBF\u4E00-\u9FFF\uAC00-\uD7AF\uF900-\uFAFF\uFF00-\uFFEF]/;
 
 export function isNotoFont(fontId: FontId): boolean {
-  return fontId.startsWith('noto-');
+  return fontId === 'system-cjk';
 }
 
 /** Standard-font family used by the export pipeline and the CSS preview. */
@@ -175,127 +179,78 @@ export function isStandardFont(fontId: FontId): boolean {
   return fontId === 'helvetica' || fontId === 'times' || fontId === 'courier';
 }
 
-/** Noto has a single Regular weight — bold/italic controls are disabled. */
+/** CJK text is exported as a high-DPI image (see renderTextObjectToPng). */
 export function fontSupportsStyle(fontId: FontId): boolean {
-  return isStandardFont(fontId);
+  return true; // system-cjk renders bold/italic via canvas font weight/style
 }
 
 export const FONT_OPTIONS: Array<{ id: FontId; label: string }> = [
   { id: 'helvetica', label: 'Helvetica (Arial)' },
   { id: 'times', label: 'Times New Roman' },
   { id: 'courier', label: 'Courier (Mono)' },
-  { id: 'noto-sc', label: 'Noto Sans 简体中文' },
-  { id: 'noto-tc', label: 'Noto Sans 繁體中文' },
-  { id: 'noto-jp', label: 'Noto Sans 日本語' },
-  { id: 'noto-kr', label: 'Noto Sans 한국어' },
+  { id: 'system-cjk', label: '中文 / 日本語 / 한국어' },
 ];
 
 /**
- * Pick the effective font for a text run. When a standard font was chosen
- * but the text contains CJK characters, fall back to the Noto variant for
- * the detected script so the exported file is not full of blank glyphs.
+ * Pick the effective font for a text run. Any text containing CJK
+ * characters uses the system-CJK path: pdf-lib's font subsetting cannot
+ * handle CJK OTF/TTF files (glyphs silently drop), so CJK runs are
+ * rendered through the canvas system stack and embedded as a high-DPI
+ * image — visually identical, no font download, tiny output.
  */
 export function resolveFontId(fontId: FontId, text: string): FontId {
-  if (isStandardFont(fontId) && CJK_RE.test(text)) {
-    if (/[\u3040-\u30FF\u4E00-\u9FFF]/.test(text) && !/[\uAC00-\uD7AF]/.test(text)) {
-      // CJK ideographs and/or kana — cannot distinguish zh/jp reliably; use SC
-      return 'noto-sc';
-    }
-    if (/[\uAC00-\uD7AF]/.test(text)) return 'noto-kr';
-    if (/[\u3000-\u303F\u30A0-\u30FF]/.test(text)) return 'noto-jp';
-    return 'noto-sc';
-  }
+  if (fontId !== 'system-cjk' && CJK_RE.test(text)) return 'system-cjk';
   return fontId;
-}
-
-function detectScriptForPreview(text: string): 'noto-sc' | 'noto-tc' | 'noto-jp' | 'noto-kr' {
-  if (/[\uAC00-\uD7AF]/.test(text)) return 'noto-kr';
-  if (/[\u3040-\u309F\u30A0-\u30FF]/.test(text)) return 'noto-jp';
-  // Traditional-Chinese specific characters (rough heuristic)
-  if (/[\u5091\u5C0D\u8A71\u7D05\u7DB2\u7D66\u5B78\u6703\u9AD4\u6A23\u6B77\u61C9\u8A72\u5B8C\u5168\u5DF2\u7D93]/.test(text)) return 'noto-tc';
-  return 'noto-sc';
 }
 
 export function resolveFontIdForPreview(fontId: FontId, text: string): FontId {
-  if (isStandardFont(fontId) && CJK_RE.test(text)) {
-    return detectScriptForPreview(text);
-  }
-  return fontId;
+  return resolveFontId(fontId, text);
 }
 
-// Noto CJK OTFs — same source the site's text-to-pdf processor uses, and
-// cached in the same IndexedDB store so both tools share the download.
-const NOTO_URLS: Record<string, string> = {
-  'noto-sc': 'https://raw.githack.com/googlefonts/noto-cjk/main/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf',
-  'noto-tc': 'https://raw.githack.com/googlefonts/noto-cjk/main/Sans/OTF/TraditionalChinese/NotoSansCJKtc-Regular.otf',
-  'noto-jp': 'https://raw.githack.com/googlefonts/noto-cjk/main/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf',
-  'noto-kr': 'https://raw.githack.com/googlefonts/noto-cjk/main/Sans/OTF/Korean/NotoSansCJKkr-Regular.otf',
-};
+// ---------------------------------------------------------------------------
+// CJK text → high-DPI PNG (system font stack, no font downloads)
+// ---------------------------------------------------------------------------
 
-const FONT_DB_NAME = 'pdfcraft-fonts';
-const FONT_STORE = 'fonts';
-const memoryFontCache = new Map<string, ArrayBuffer>();
+const CJK_FONT_STACK = '"Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Malgun Gothic", "Yu Gothic", sans-serif';
 
-function idbGet(key: string): Promise<ArrayBuffer | null> {
-  return new Promise((resolve) => {
-    try {
-      const req = indexedDB.open(FONT_DB_NAME);
-      req.onsuccess = () => {
-        const db = req.result;
-        try {
-          const tx = db.transaction(FONT_STORE, 'readonly');
-          const get = tx.objectStore(FONT_STORE).get(key);
-          get.onsuccess = () => resolve((get.result as ArrayBuffer | undefined) ?? null);
-          get.onerror = () => resolve(null);
-        } catch {
-          resolve(null);
-        }
-      };
-      req.onerror = () => resolve(null);
-    } catch {
-      resolve(null);
-    }
-  });
-}
+/**
+ * Render a (possibly multi-line) text run with the system CJK font stack
+ * onto a transparent canvas at 3x resolution and return a PNG data URL.
+ * Returns null when canvas is unavailable (SSR / tests).
+ */
+export function renderCjkTextToPng(
+  text: string,
+  fontSize: number,
+  color: string,
+  bold: boolean,
+  italic: boolean
+): { dataUrl: string; widthPt: number; heightPt: number } | null {
+  if (typeof document === 'undefined') return null;
+  const SCALE = 3;
+  const lineHeight = fontSize * 1.35;
+  const lines = text.split('\n');
+  const measure = document.createElement('canvas').getContext('2d');
+  if (!measure) return null;
+  const weight = bold ? '700 ' : '400 ';
+  const style = italic ? 'italic ' : '';
+  const fontSpec = `${style}${weight}${fontSize}px ${CJK_FONT_STACK}`;
+  measure.font = fontSpec;
+  let maxW = 0;
+  for (const l of lines) maxW = Math.max(maxW, measure.measureText(l || ' ').width);
 
-function idbPut(key: string, value: ArrayBuffer): Promise<void> {
-  return new Promise((resolve) => {
-    try {
-      const req = indexedDB.open(FONT_DB_NAME);
-      req.onsuccess = () => {
-        const db = req.result;
-        try {
-          const tx = db.transaction(FONT_STORE, 'readwrite');
-          tx.objectStore(FONT_STORE).put(value, key);
-          tx.oncomplete = () => resolve();
-          tx.onerror = () => resolve();
-        } catch {
-          resolve();
-        }
-      };
-      req.onerror = () => resolve();
-    } catch {
-      resolve();
-    }
-  });
-}
-
-export async function loadNotoFontBytes(fontId: string): Promise<ArrayBuffer> {
-  const cached = memoryFontCache.get(fontId);
-  if (cached) return cached;
-  const idb = await idbGet(fontId);
-  if (idb) {
-    memoryFontCache.set(fontId, idb);
-    return idb;
-  }
-  const url = NOTO_URLS[fontId];
-  if (!url) throw new Error(`unknown font ${fontId}`);
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`font download failed (${res.status})`);
-  const buf = await res.arrayBuffer();
-  memoryFontCache.set(fontId, buf);
-  void idbPut(fontId, buf);
-  return buf;
+  const wPt = Math.max(maxW + fontSize * 0.2, fontSize);
+  const hPt = lineHeight * lines.length;
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.ceil(wPt * SCALE);
+  canvas.height = Math.ceil(hPt * SCALE);
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return null;
+  ctx.scale(SCALE, SCALE);
+  ctx.font = fontSpec;
+  ctx.fillStyle = color;
+  ctx.textBaseline = 'top';
+  lines.forEach((l, i) => ctx.fillText(l, fontSize * 0.1, i * lineHeight + fontSize * 0.12));
+  return { dataUrl: canvas.toDataURL('image/png'), widthPt: wPt, heightPt: hPt };
 }
 
 // ---------------------------------------------------------------------------
@@ -369,6 +324,7 @@ function clusterIntoLines(items: RawItem[], pageIndex: number, pageHeight: numbe
         width,
         height,
         fontSize,
+        items: r.map((it) => ({ str: it.str, x: it.x, width: it.width })),
       });
     }
   }
@@ -414,20 +370,17 @@ export function findLineAt(lines: TextLine[], pageIndex: number, x: number, yTop
   return null;
 }
 
-/** Char-width estimate used to box a substring inside a line. */
-function charWidthOf(line: TextLine): number {
-  return line.str.length > 0 ? line.width / line.str.length : line.fontSize * 0.5;
-}
-
 export interface ReplacementEdit {
   whiteout: WhiteoutObject;
   text: TextObject;
 }
 
 /**
- * Build whiteout + replacement-text objects for every line-local match of
- * `find`. Matches that cross line boundaries are skipped (the UI states
- * this limitation explicitly).
+ * Build whiteout + replacement-text objects for every match of `find`.
+ * Positioning happens at the pdf.js item (fragment) level: a fragment's own
+ * width over its own length gives an accurate char width even when the
+ * surrounding "line" merges table columns. Matches spanning fragments or
+ * lines are skipped (the UI states this limitation).
  */
 export function buildReplacements(
   lines: TextLine[],
@@ -440,41 +393,46 @@ export function buildReplacements(
   if (!find) return { edits, count: 0 };
   const needle = matchCase ? find : find.toLowerCase();
   for (const line of lines) {
-    const haystack = matchCase ? line.str : line.str.toLowerCase();
-    let searchFrom = 0;
-    for (;;) {
-      const idx = haystack.indexOf(needle, searchFrom);
-      if (idx === -1) break;
-      searchFrom = idx + needle.length;
-      const cw = charWidthOf(line);
-      const startX = line.x + idx * cw;
-      const matchWidth = Math.max(needle.length * cw, 2);
-      const height = line.height;
-      const whiteout: WhiteoutObject = {
-        id: nextObjectId(),
-        kind: 'whiteout',
-        pageIndex: line.pageIndex,
-        x: startX,
-        yTop: line.yTop,
-        width: matchWidth,
-        height,
-      };
-      const text: TextObject = {
-        id: nextObjectId(),
-        kind: 'text',
-        pageIndex: line.pageIndex,
-        x: startX,
-        yTop: line.yTop,
-        width: Math.max(replaceWith.length * cw, matchWidth),
-        text: replaceWith,
-        fontSize: line.fontSize,
-        color: '#111111',
-        bold: false,
-        italic: false,
-        fontId: 'helvetica',
-      };
-      void pageHeights;
-      edits.push({ whiteout, text });
+    for (const item of line.items) {
+      const haystack = matchCase ? item.str : item.str.toLowerCase();
+      let searchFrom = 0;
+      for (;;) {
+        const idx = haystack.indexOf(needle, searchFrom);
+        if (idx === -1) break;
+        searchFrom = idx + needle.length;
+        if (item.str.length === 0) continue;
+        const cw = item.width / item.str.length;
+        const startX = item.x + idx * cw;
+        const matchWidth = Math.max(needle.length * cw, 2);
+        // +30% height covers descenders and baseline jitter so no ghost of
+        // the covered text peeks out below the whiteout.
+        const height = line.height * 1.3;
+        const whiteout: WhiteoutObject = {
+          id: nextObjectId(),
+          kind: 'whiteout',
+          pageIndex: line.pageIndex,
+          x: startX,
+          yTop: line.yTop,
+          width: matchWidth,
+          height,
+        };
+        const text: TextObject = {
+          id: nextObjectId(),
+          kind: 'text',
+          pageIndex: line.pageIndex,
+          x: startX,
+          yTop: line.yTop,
+          width: Math.max(replaceWith.length * cw, matchWidth),
+          text: replaceWith,
+          fontSize: line.fontSize,
+          color: '#111111',
+          bold: false,
+          italic: false,
+          fontId: 'helvetica',
+        };
+        void pageHeights;
+        edits.push({ whiteout, text });
+      }
     }
   }
   return { edits, count: edits.length };
@@ -514,11 +472,11 @@ interface ExportPdfLib {
   PDFOptionList: typeof import('pdf-lib').PDFOptionList;
 }
 
-/** Map a FontId + style flags to an embedded pdf-lib font. */
+/** Map a FontId + style flags to an embedded pdf-lib standard font.
+ *  CJK runs never reach here — they are exported as canvas-rendered PNGs. */
 async function embedFontFor(
   pdfLib: ExportPdfLib,
   pdfDoc: import('pdf-lib').PDFDocument,
-  fontkit: unknown,
   fontId: FontId,
   bold: boolean,
   italic: boolean,
@@ -529,15 +487,6 @@ async function embedFontFor(
   const key = `${effective}|${bold ? 'b' : ''}${italic ? 'i' : ''}`;
   const hit = embeddedFonts.get(key);
   if (hit) return hit;
-
-  if (isNotoFont(effective)) {
-    if (!fontkit) throw new Error('fontkit missing');
-    (pdfDoc as unknown as { registerFontkit: (f: unknown) => void }).registerFontkit(fontkit);
-    const bytes = await loadNotoFontBytes(effective);
-    const font = await pdfDoc.embedFont(bytes, { subset: false });
-    embeddedFonts.set(key, font);
-    return font;
-  }
 
   const S = pdfLib.StandardFonts;
   const table: Record<string, import('pdf-lib').StandardFonts> = {
@@ -682,15 +631,6 @@ export async function exportEditedPdf(options: ExportOptions): Promise<ExportRes
   }
 
   // Draw edit objects (skip those on deleted pages)
-  const needsFontkit = objects.some(
-    (o) => (o.kind === 'text' && isNotoFont(resolveFontId(o.fontId, o.text))) || o.kind === 'stamp' && isNotoFont(resolveFontId('helvetica', (o as StampObject).text))
-  );
-  let fontkit: unknown = null;
-  if (needsFontkit) {
-    const fk = await import('@pdf-lib/fontkit');
-    fontkit = fk.default ?? fk;
-  }
-
   const embeddedFonts = new Map<string, import('pdf-lib').PDFFont>();
   const embeddedImages = new Map<string, import('pdf-lib').PDFImage>();
   // Rotated pages never receive edit objects (locked in the UI, matching
@@ -750,7 +690,33 @@ export async function exportEditedPdf(options: ExportOptions): Promise<ExportRes
         break;
       }
       case 'text': {
-        const font = await embedFontFor(pdfLib, pdfDoc, fontkit, obj.fontId, obj.bold, obj.italic, obj.text, embeddedFonts);
+        const effective = resolveFontId(obj.fontId, obj.text);
+        if (effective === 'system-cjk') {
+          // CJK: render with the system font stack and embed as a high-DPI
+          // image. pdf-lib's font subsetting drops CJK glyphs, and embedding
+          // a full Noto CJK would add ~16 MB — this path is lossless, needs
+          // no download and keeps the output small.
+          const rendered = renderCjkTextToPng(obj.text, obj.fontSize, obj.color, obj.bold, obj.italic);
+          if (rendered) {
+            const { bytes, isPng } = await dataUrlToBytes(rendered.dataUrl);
+            const cacheKey = `cjk:${rendered.dataUrl.length}:${rendered.widthPt}x${rendered.heightPt}`;
+            let img = embeddedImages.get(cacheKey);
+            if (!img) {
+              img = isPng ? await pdfDoc.embedPng(bytes) : await pdfDoc.embedJpg(bytes);
+              embeddedImages.set(cacheKey, img);
+            }
+            page.drawImage(img, {
+              x: obj.x,
+              y: ph - obj.yTop - rendered.heightPt,
+              width: rendered.widthPt,
+              height: rendered.heightPt,
+            });
+            break;
+          }
+          // canvas unavailable — fall through to standard font (glyph loss
+          // only affects non-Latin chars; better than dropping the edit)
+        }
+        const font = await embedFontFor(pdfLib, pdfDoc, obj.fontId, obj.bold, obj.italic, obj.text, embeddedFonts);
         const c = hexToRgbRgb(obj.color);
         const lines = obj.text.split('\n');
         const lineHeight = obj.fontSize * 1.25;
@@ -783,9 +749,24 @@ export async function exportEditedPdf(options: ExportOptions): Promise<ExportRes
       }
       case 'stamp': {
         const effFont = resolveFontId('helvetica', obj.text);
-        const font = await embedFontFor(pdfLib, pdfDoc, fontkit, effFont, false, false, obj.text, embeddedFonts);
         const c = hexToRgbRgb(obj.color);
         const dateStr = obj.includeDate ? new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+        if (effFont === 'system-cjk') {
+          // CJK stamp: render text+date as an image, frame it with a rectangle
+          const stampTextFull = dateStr ? `${obj.text}\n${dateStr}` : obj.text;
+          const rendered = renderCjkTextToPng(stampTextFull, obj.fontSize, obj.color, false, false);
+          if (rendered) {
+            const boxW = rendered.widthPt + 12;
+            const boxH = rendered.heightPt + 10;
+            const yBox = ph - obj.yTop - boxH;
+            page.drawRectangle({ x: obj.x, y: yBox, width: boxW, height: boxH, borderColor: rgb(c.r, c.g, c.b), borderWidth: 1.5 });
+            const { bytes, isPng } = await dataUrlToBytes(rendered.dataUrl);
+            const img = await pdfDoc.embedPng(bytes);
+            page.drawImage(img, { x: obj.x + 6, y: yBox + 5, width: rendered.widthPt, height: rendered.heightPt });
+            break;
+          }
+        }
+        const font = await embedFontFor(pdfLib, pdfDoc, effFont, false, false, obj.text, embeddedFonts);
         const textW = Math.max(font.widthOfTextAtSize(obj.text, obj.fontSize), dateStr ? font.widthOfTextAtSize(dateStr, obj.fontSize * 0.8) : 0);
         const boxW = textW + 12;
         const boxH = obj.fontSize * (dateStr ? 2.6 : 1.6);

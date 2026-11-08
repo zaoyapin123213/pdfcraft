@@ -404,7 +404,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     const next: EditObject[] = hit
       ? [
           ...objects.map((o) => o),
-          { id: nextObjectId(), kind: 'whiteout', pageIndex, x: hit!.x, yTop: hit!.yTop, width: hit!.width, height: hit!.height },
+          { id: nextObjectId(), kind: 'whiteout', pageIndex, x: hit!.x, yTop: hit!.yTop, width: hit!.width, height: hit!.height * 1.3 },
           obj,
         ]
       : [...objects, obj];
@@ -1505,11 +1505,8 @@ function ObjectView(props: {
     case 'text': {
       const family = obj.fontId === 'times' ? '"Times New Roman", serif'
         : obj.fontId === 'courier' ? '"Courier New", monospace'
-          : obj.fontId === 'noto-sc' ? '"Noto Sans SC", sans-serif'
-            : obj.fontId === 'noto-tc' ? '"Noto Sans TC", sans-serif'
-              : obj.fontId === 'noto-jp' ? '"Noto Sans JP", sans-serif'
-                : obj.fontId === 'noto-kr' ? '"Noto Sans KR", sans-serif'
-                  : 'Helvetica, Arial, sans-serif';
+          : obj.fontId === 'system-cjk' ? '"Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Malgun Gothic", "Yu Gothic", sans-serif'
+            : 'Helvetica, Arial, sans-serif';
       if (editing) {
         return (
           <textarea
