@@ -563,6 +563,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
 
     if (activeTool === 'select') {
+      if (editingId) commitTextEdit(); // clicking empty space finishes the edit
       setSelectedId(null);
       setEditingId(null);
         return;
@@ -599,7 +600,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     }
     dragRef.current = { mode: 'draw-rect', pageIndex, startVx: pt.x, startVy: pt.y };
     setDraftRect({ pageIndex, x: pt.x, yTop: pt.y, w: 0, h: 0 });
-  }, [activeTool, addTextAt, applying, placeAsset, toViewPt]);
+  }, [activeTool, addTextAt, applying, commitTextEdit, editingId, placeAsset, toViewPt]);
 
   const onOverlayPointerUp = useCallback((e: React.PointerEvent) => {
     const drag = dragRef.current;
