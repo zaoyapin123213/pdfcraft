@@ -59,6 +59,7 @@ import { getEditorStrings } from './strings';
 import {
   EDITOR_MAX_FILE_BYTES,
   FONT_OPTIONS,
+  buildLinesFromSpans,
   buildReplacements,
   drawSignatureToDataUrl,
   estimateImageSize,
@@ -79,6 +80,7 @@ import {
   type PageOp,
   type ShapeObject,
   type StampObject,
+  type SpanInfo,
   type TextLine,
   type TextObject,
 } from './editor-core';
@@ -119,7 +121,17 @@ export interface EditPDFToolProps {
   className?: string;
 }
 
+let textLayerCssInstalled = false;
+function installTextLayerCss() {
+  if (textLayerCssInstalled || typeof document === 'undefined') return;
+  const st = document.createElement('style');
+  st.textContent = '.pdfjs-textlayer span{position:absolute;white-space:pre;transform-origin:0% 0%;color:transparent;cursor:text;line-height:1;}';
+  document.head.appendChild(st);
+  textLayerCssInstalled = true;
+}
+
 export function EditPDFTool({ className }: EditPDFToolProps) {
+  installTextLayerCss();
   const locale = useLocale();
   const s = useMemo(() => getEditorStrings(locale), [locale]);
 
@@ -341,14 +353,16 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
           setZoom(fit);
         }
       });
-      // Pre-extract text lines in the background so click-to-edit responds
-      // instantly on every page.
+      // Fallback pre-extraction (transform-based) for pages whose canvas
+      // has not rendered yet; DOM-accurate lines arrive from the text layer
+      // and override these as each page renders.
       void (async () => {
         for (let i = 0; i < n; i++) {
           try {
-            const page = await doc.getPage(i + 1);
-            const lines = await extractTextLines(page, i);
-            textLinesRef.current.set(i, lines);
+            if (textLinesRef.current.has(i)) continue;
+            const pg = await doc.getPage(i + 1);
+            const lines = await extractTextLines(pg, i);
+            if (!textLinesRef.current.has(i)) textLinesRef.current.set(i, lines);
           } catch {
             // page without a text layer — click-to-edit simply won't hit
           }
@@ -768,6 +782,10 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [commit, objects, redo, selectedId, undo]);
+
+  const handleLinesReady = useCallback((pi: number, lines: TextLine[]) => {
+    textLinesRef.current.set(pi, lines);
+  }, []);
 
   // ------------------------------------------------------------------
   // Page rotation & deletion
@@ -1360,6 +1378,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                 dispH={dispH}
                 originalPageCount={originalPageCount}
                 registerRef={(el) => { pageRefs.current[idx] = el; }}
+                onLinesReady={handleLinesReady}
               />
 
               {/* Overlay */}
@@ -1698,9 +1717,11 @@ function PageCanvas(props: {
   dispH: number;
   originalPageCount: number;
   registerRef: (el: HTMLDivElement | null) => void;
+  onLinesReady?: (pageIndex: number, lines: TextLine[]) => void;
 }) {
-  const { pdfDoc, pageIndex, zoom, rotation, dispW, dispH, originalPageCount, registerRef } = props;
+  const { pdfDoc, pageIndex, zoom, rotation, dispW, dispH, originalPageCount, registerRef, onLinesReady } = props;
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const textLayerRef = useRef<HTMLDivElement | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(pageIndex < 2);
   const renderedRef = useRef('');
@@ -1752,16 +1773,58 @@ function PageCanvas(props: {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
         await page.render({ canvasContext: ctx, viewport }).promise;
+        // Browser-laid-out text layer: spans are pixel-aligned with the
+        // canvas, so line boxes derived from their DOM rects can never
+        // drift the way transform-based estimates do.
+        const layerDiv = textLayerRef.current;
+        console.warn('[tl-debug] stage0 layerDiv=', !!layerDiv, 'onLinesReady=', !!onLinesReady);
+        if (layerDiv && onLinesReady) {
+          try {
+            layerDiv.innerHTML = '';
+            layerDiv.style.setProperty('--scale-factor', String(zoom));
+            const pdfjsMod = await import('pdfjs-dist');
+            console.warn('[tl-debug] stage1 mod=', typeof pdfjsMod.TextLayer);
+            const tl = new pdfjsMod.TextLayer({
+              textContentSource: page.streamTextContent(),
+              container: layerDiv,
+              viewport: page.getViewport({ scale: zoom, rotation }),
+            });
+            console.warn('[tl-debug] stage2 constructed');
+            await tl.render();
+            console.warn('[tl-debug] stage3 rendered spans=', layerDiv.querySelectorAll('span').length);
+            const spans = [...layerDiv.querySelectorAll('span')].map((sp) => {
+              const r = sp.getBoundingClientRect();
+              const w0 = wrapRef.current?.getBoundingClientRect();
+              return {
+                text: sp.textContent || '',
+                leftPx: r.left - (w0?.left ?? 0),
+                topPx: r.top - (w0?.top ?? 0),
+                widthPx: r.width,
+                heightPx: r.height,
+                fontSizePx: parseFloat(getComputedStyle(sp).fontSize) || 0,
+              } as SpanInfo;
+            });
+            const lines = buildLinesFromSpans(spans, pageIndex, zoom);
+            if (lines.length > 0) onLinesReady(pageIndex, lines);
+          } catch {
+            // text layer is an enhancement; canvas editing still works
+          }
+        }
       } catch {
         // render failures leave the previous frame in place
       }
     })();
     return () => { cancelled = true; };
-  }, [visible, pdfDoc, pageIndex, zoom, rotation, originalPageCount, dispW, dispH]);
+  }, [visible, pdfDoc, pageIndex, zoom, rotation, originalPageCount, dispW, dispH, onLinesReady]);
 
   return (
     <div ref={(el) => { wrapRef.current = el; registerRef(el); }} style={{ width: dispW, height: dispH }} className="relative bg-white shadow-md rounded-sm overflow-hidden">
       <canvas ref={canvasRef} style={{ width: dispW, height: dispH, display: 'block' }} />
+      <div
+        ref={textLayerRef}
+        className="pdfjs-textlayer absolute inset-0"
+        style={{ '--scale-factor': zoom } as React.CSSProperties}
+      />
     </div>
   );
 }

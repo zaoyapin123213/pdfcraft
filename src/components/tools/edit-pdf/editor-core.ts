@@ -365,6 +365,60 @@ export async function extractTextLines(
   return clusterIntoLines(items, pageIndex, viewport.height);
 }
 
+/** Minimal info collected from the pdf.js text layer DOM. */
+export interface SpanInfo {
+  text: string;
+  leftPx: number;  // relative to the page wrap, CSS px
+  topPx: number;
+  widthPx: number;
+  heightPx: number;
+  fontSizePx: number;
+}
+
+/**
+ * Cluster text-layer spans (browser-laid-out, therefore pixel-perfect with
+ * the canvas) into TextLine records. Coordinates are converted back to PDF
+ * points via /zoom so the rest of the pipeline is unchanged — but the line
+ * boxes now sit exactly where the browser drew the text, eliminating the
+ * transform-based estimation drift.
+ */
+export function buildLinesFromSpans(
+  spans: SpanInfo[],
+  pageIndex: number,
+  zoom: number
+): TextLine[] {
+  const usable = spans.filter((sp) => sp.text.trim().length > 0);
+  const sorted = [...usable].sort((a, b) => (a.topPx === b.topPx ? a.leftPx - b.leftPx : a.topPx - b.topPx));
+  const groups: SpanInfo[][] = [];
+  for (const sp of sorted) {
+    const g = groups.find((grp) => Math.abs(grp[0].topPx - sp.topPx) <= Math.max(3, sp.heightPx * 0.6));
+    if (g) g.push(sp);
+    else groups.push([sp]);
+  }
+  const lines: TextLine[] = [];
+  for (const g of groups) {
+    g.sort((a, b) => a.leftPx - b.leftPx);
+    const left = Math.min(...g.map((sp) => sp.leftPx));
+    const right = Math.max(...g.map((sp) => sp.leftPx + sp.widthPx));
+    const top = Math.min(...g.map((sp) => sp.topPx));
+    const bottom = Math.max(...g.map((sp) => sp.topPx + sp.heightPx));
+    const fontSizePx = Math.max(...g.map((sp) => sp.fontSizePx));
+    const str = g.map((sp) => sp.text).join('');
+    if (!str.trim()) continue;
+    lines.push({
+      pageIndex,
+      str,
+      x: left / zoom,
+      yTop: top / zoom,
+      width: (right - left) / zoom,
+      height: (bottom - top) / zoom,
+      fontSize: fontSizePx / zoom,
+      items: g.map((sp) => ({ str: sp.text, x: sp.leftPx / zoom, width: sp.widthPx / zoom })),
+    });
+  }
+  return lines;
+}
+
 /** Find the text line containing the given point (top-left PDF space). */
 export function findLineAt(lines: TextLine[], pageIndex: number, x: number, yTop: number): TextLine | null {
   // Exact hit first; then the closest line within a generous radius so
