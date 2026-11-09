@@ -372,7 +372,7 @@ export interface SpanInfo {
   topPx: number;
   widthPx: number;
   heightPx: number;
-  fontSizePx: number;
+  fontSizePt: number; // parsed from the pdf.js calc() font-size (already in pt)
 }
 
 /**
@@ -386,9 +386,12 @@ export function buildLinesFromSpans(
   spans: SpanInfo[],
   pageIndex: number,
   zoom: number
-): TextLine[] {
+): { lines: TextLine[]; spanLineIndex: number[] } {
   const usable = spans.filter((sp) => sp.text.trim().length > 0);
   const sorted = [...usable].sort((a, b) => (a.topPx === b.topPx ? a.leftPx - b.leftPx : a.topPx - b.topPx));
+  const spanLineIndex: number[] = new Array(usable.length).fill(0);
+  const posOf = new Map<SpanInfo, number>();
+  usable.forEach((sp, i) => posOf.set(sp, i));
   const groups: SpanInfo[][] = [];
   for (const sp of sorted) {
     const g = groups.find((grp) => Math.abs(grp[0].topPx - sp.topPx) <= Math.max(3, sp.heightPx * 0.6));
@@ -402,10 +405,10 @@ export function buildLinesFromSpans(
     const right = Math.max(...g.map((sp) => sp.leftPx + sp.widthPx));
     const top = Math.min(...g.map((sp) => sp.topPx));
     const bottom = Math.max(...g.map((sp) => sp.topPx + sp.heightPx));
-    // span computed font-size can be scaled oddly by pdf.js; the rendered
-    // glyph height (span box height, line-height:1) tracks the true size.
-    const fontSizePx = Math.max(...g.map((sp) => sp.heightPx));
+    const fontSizePt = Math.max(...g.map((sp) => sp.fontSizePt));
     const str = g.map((sp) => sp.text).join('');
+    const li = lines.length;
+    for (const sp of g) spanLineIndex[posOf.get(sp) ?? 0] = li;
     if (!str.trim()) continue;
     lines.push({
       pageIndex,
@@ -414,11 +417,11 @@ export function buildLinesFromSpans(
       yTop: top / zoom,
       width: (right - left) / zoom,
       height: (bottom - top) / zoom,
-      fontSize: fontSizePx / zoom,
+      fontSize: fontSizePt,
       items: g.map((sp) => ({ str: sp.text, x: sp.leftPx / zoom, width: sp.widthPx / zoom })),
     });
   }
-  return lines;
+  return { lines, spanLineIndex };
 }
 
 /** Find the text line containing the given point (top-left PDF space). */

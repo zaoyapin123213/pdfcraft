@@ -167,6 +167,11 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [draftText, setDraftText] = useState('');
   const [moveMode, setMoveMode] = useState(false);
+  useEffect(() => {
+    if (objects.length > 0) {
+      console.warn('[probe-obj]', JSON.stringify(objects.map((o) => ({ k: o.kind, fs: o.kind === 'text' ? (o as TextObject).fontSize : undefined, id: o.id.slice(-4) }))));
+    }
+  }, [objects]);
 
   // Style defaults for new objects
   const [styleFont, setStyleFont] = useState<FontId>('helvetica');
@@ -443,20 +448,32 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       if (hoverKey) { setHoverKey(null); hoverLineRef.current = null; }
       return;
     }
-    const pt = toViewPt(pageIndex, e.clientX, e.clientY);
-    const lines = textLinesRef.current.get(pageIndex);
-    const hit = lines ? findLineAt(lines, pageIndex, pt.x, pt.y) : null;
+    // Zoom-proof: the text-layer span under the pointer knows its line —
+    // native elementFromPoint needs no coordinate math at all.
+    const el = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement | null;
+    const liAttr = el?.closest?.('[data-li]')?.getAttribute('data-li');
+    let hit: TextLine | null = null;
+    if (liAttr !== null && liAttr !== undefined && liAttr !== '-1') {
+      const lines = textLinesRef.current.get(pageIndex);
+      hit = lines?.[Number(liAttr)] ?? null;
+    }
+    if (!hit) {
+      const pt = toViewPt(pageIndex, e.clientX, e.clientY);
+      const lines = textLinesRef.current.get(pageIndex);
+      hit = lines ? findLineAt(lines, pageIndex, pt.x, pt.y) : null;
+    }
     const key = hit ? `${pageIndex}:${hit.x.toFixed(0)}:${hit.yTop.toFixed(0)}` : null;
     if (key !== hoverKey) {
       setHoverKey(key);
       hoverLineRef.current = hit;
     }
-  }, [activeTool, hoverKey, toViewPt]);
+  }, [activeTool, hoverKey, findLineAt, toViewPt]);
 
   /** Sejda behaviour: a single click on existing text immediately turns it
    *  into an editable object (whiteout + prefilled inline editor + the
    *  floating style bar). No intermediate selection step. */
   const startLineEdit = useCallback((line: TextLine) => {
+    console.warn('[probe-line]', JSON.stringify({ str: line.str.slice(0, 24), fs: line.fontSize, x: line.x, yTop: line.yTop }));
     const whiteout: EditObject = { id: nextObjectId(), kind: 'whiteout', pageIndex: line.pageIndex, x: line.x, yTop: line.yTop, width: line.width, height: line.height * 1.3 };
     const text: TextObject = {
       id: nextObjectId(), kind: 'text', pageIndex: line.pageIndex,
@@ -659,6 +676,17 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
         setSelectedId(objHit.id);
         setActiveTool('select');
         return;
+      }
+      // Zoom-proof line hit: the span under the pointer knows its line.
+      const el = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement | null;
+      const liAttr = el?.closest?.('[data-li]')?.getAttribute('data-li');
+      if (liAttr !== null && liAttr !== undefined && liAttr !== '-1') {
+        const lines = textLinesRef.current.get(pageIndex);
+        const hit = lines?.[Number(liAttr)] ?? null;
+        if (hit) {
+          startLineEdit(hit);
+          return;
+        }
       }
       // Race-safe: if the background pre-extraction has not finished yet,
       // extract now (cached after the first call) instead of missing the
@@ -1391,7 +1419,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
               >
                 {/* Hover highlight (Text tool) */}
                 {activeTool === 'text' && hoverLineRef.current?.pageIndex === idx && (
-                  <div className="absolute bg-blue-400/20 border border-blue-400/60 pointer-events-none rounded-sm"
+                  <div className="absolute bg-blue-500/25 border-2 border-blue-500 pointer-events-none rounded-sm"
                     style={{ left: hoverLineRef.current.x * zoom, top: hoverLineRef.current.yTop * zoom, width: hoverLineRef.current.width * zoom, height: hoverLineRef.current.height * zoom }} />
                 )}
 
@@ -1479,7 +1507,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                           value={Math.round((selected as TextObject).fontSize)}
                           onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), fontSize: Number(e.target.value) || 14 } : o)))}
                         >
-                          {[8, 9, 10, 11, 12, 14, 18, 24, 30, 36, 48, 60, 72].map((n) => <option key={n} value={n}>{n}</option>)}
+                          {sizeOptionsWith((selected as TextObject).fontSize).map((n) => <option key={n} value={n}>{n}</option>)}
                         </select>
                         <select
                           className="h-7 max-w-24 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
@@ -1677,6 +1705,13 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   );
 }
 
+const SIZE_STEPS = [8, 9, 10, 11, 12, 14, 18, 24, 30, 36, 48, 60, 72];
+/** Font-size options with the current value merged in, so a line whose
+ *  original size is not on the steps still displays its true size. */
+function sizeOptionsWith(current: number): number[] {
+  return [...new Set([...SIZE_STEPS, Math.round(current)])].sort((a, b) => a - b);
+}
+
 function MenuItem({ icon: Icon, label, onClick, active }: { icon: any; label: string; onClick: () => void; active: boolean }) {
   return (
     <button
@@ -1795,17 +1830,31 @@ function PageCanvas(props: {
             const spans = [...layerDiv.querySelectorAll('span')].map((sp) => {
               const r = sp.getBoundingClientRect();
               const w0 = wrapRef.current?.getBoundingClientRect();
+              // pdf.js sets font-size as calc(var(--scale-factor)*<N>px) where
+              // <N> is the size in PDF points — parse it straight out.
+              const fsCalc = /calc\([^)]*?([0-9.]+)px\)/.exec(sp.style.fontSize || '');
+              const fontSizePt = fsCalc ? parseFloat(fsCalc[1]) : r.height / zoom;
               return {
                 text: sp.textContent || '',
                 leftPx: r.left - (w0?.left ?? 0),
                 topPx: r.top - (w0?.top ?? 0),
                 widthPx: r.width,
                 heightPx: r.height,
-                fontSizePx: parseFloat(getComputedStyle(sp).fontSize) || 0,
+                fontSizePt,
               } as SpanInfo;
             });
-            const lines = buildLinesFromSpans(spans, pageIndex, zoom);
-            if (lines.length > 0) onLinesReady(pageIndex, lines);
+            const { lines, spanLineIndex } = buildLinesFromSpans(spans, pageIndex, zoom);
+            if (lines.length > 0) {
+              const domSpans = [...layerDiv.querySelectorAll('span')];
+              let ui = 0;
+              for (const sp of domSpans) {
+                const txt = sp.textContent || '';
+                if (!txt.trim()) { sp.dataset.li = '-1'; continue; }
+                sp.dataset.li = String(spanLineIndex[ui] ?? 0);
+                ui += 1;
+              }
+              onLinesReady(pageIndex, lines);
+            }
           } catch {
             // text layer is an enhancement; canvas editing still works
           }
