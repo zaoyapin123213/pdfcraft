@@ -50,6 +50,7 @@ import {
   Copy,
   ClipboardList,
   Move,
+  MessageSquare,
 } from 'lucide-react';
 import { Button, Card, Modal } from '@/components/ui';
 import FileUploader from '@/components/tools/FileUploader';
@@ -74,6 +75,7 @@ import {
   type FontId,
   type FormFieldObject,
   type FormFieldType,
+  type NoteObject,
   type FormFieldValue,
   type FormValues,
   type LineObject,
@@ -92,7 +94,7 @@ type ToolId =
   | 'highlight' | 'strikeout' | 'underline' | 'draw'
   | 'rect' | 'ellipse' | 'line' | 'arrow'
   | 'check' | 'cross' | 'dot' | 'sign' | 'stamp' | 'find'
-  | 'formfield';
+  | 'formfield' | 'note';
 
 type MenuId = 'text' | 'forms' | 'images' | 'sign' | 'annotate' | 'shapes' | null;
 
@@ -523,6 +525,8 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       }
       case 'check': case 'cross': case 'dot':
         return { x: o.x, yTop: o.yTop, w: o.size, h: o.size };
+      case 'note':
+        return { x: o.x, yTop: o.yTop, w: 24, h: 24 };
       case 'stamp':
         return { x: o.x, yTop: o.yTop, w: o.fontSize * 5, h: o.fontSize * 2 };
       case 'text':
@@ -592,6 +596,9 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       });
       setFieldOptions(formFieldType === 'dropdown' ? 'Option 1\nOption 2' : '');
       return;
+    } else if (activeTool === 'note') {
+      newId = nextObjectId();
+      next = [...objects, { id: newId, kind: 'note', pageIndex, x: vx, yTop: vy, text: '', author: 'Me', createdAt: new Date().toISOString() } as NoteObject];
     } else if (activeTool === 'check' || activeTool === 'cross' || activeTool === 'dot') {
       newId = nextObjectId();
       const size = 18;
@@ -703,7 +710,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       })();
       return;
     }
-    if (activeTool === 'image' || activeTool === 'sign' || activeTool === 'check' || activeTool === 'cross' || activeTool === 'dot' || activeTool === 'stamp' || activeTool === 'formfield') {
+    if (activeTool === 'image' || activeTool === 'sign' || activeTool === 'check' || activeTool === 'cross' || activeTool === 'dot' || activeTool === 'stamp' || activeTool === 'formfield' || activeTool === 'note') {
       placeAsset(pageIndex, pt.x, pt.y);
       return;
     }
@@ -1030,6 +1037,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     {
       id: 'annotate', label: 'Annotate', icon: Highlighter, active: ['highlight', 'strikeout', 'underline', 'draw'].includes(activeTool),
       items: [
+        { tool: 'note', label: s.toolNote, icon: MessageSquare },
         { tool: 'highlight', label: s.toolHighlight, icon: Highlighter },
         { tool: 'strikeout', label: s.toolStrikeout, icon: Strikethrough },
         { tool: 'underline', label: s.toolUnderline, icon: UnderlineIcon },
@@ -1076,6 +1084,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       case 'highlight': case 'strikeout': case 'underline': return s.hintAnnotate;
       case 'draw': return s.hintDraw;
       case 'rect': case 'ellipse': case 'line': case 'arrow': return s.hintShape;
+      case 'note': return s.hintNote;
       case 'check': case 'cross': case 'dot': case 'stamp': return s.hintSymbol;
       case 'sign': return pendingSign ? s.hintSign : s.signType;
       default: return '';
@@ -1466,6 +1475,46 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                         }
                       }}
                     />
+                  );
+                })()}
+
+                {/* Sticky note editor popover */}
+                {selected && selected.kind === 'note' && selected.pageIndex === idx && (() => {
+                  const n = selected as NoteObject;
+                  return (
+                    <div
+                      data-floating
+                      className="absolute z-30 w-64 rounded-lg border border-amber-300 bg-amber-50 shadow-lg p-2.5"
+                      style={{ left: Math.min(n.x * zoom + 28, dispW - 260), top: n.yTop * zoom }}
+                      onPointerDown={(e) => e.stopPropagation()}
+                    >
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="text-[10px] font-semibold text-amber-800">{n.author} · {new Date(n.createdAt).toLocaleDateString()}</span>
+                        <button
+                          type="button"
+                          className="text-amber-700 hover:text-amber-900"
+                          title={s.deleteObject}
+                          onClick={() => { commit(objects.filter((o) => o.id !== n.id)); setSelectedId(null); }}
+                        >
+                          <Trash2 className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                      <textarea
+                        autoFocus
+                        className="w-full h-20 rounded-md border border-amber-300 bg-white px-2 py-1.5 text-sm resize-none"
+                        placeholder={s.hintNote}
+                        value={n.text}
+                        onChange={(e) => updateObject(n.id, { text: e.target.value } as Partial<NoteObject>)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Escape') setSelectedId(null);
+                        }}
+                      />
+                      <div className="mt-1.5 text-right">
+                        <Button variant="primary" size="sm" className="h-7 px-2 text-xs" onClick={() => { commit(objects.map((o) => o.id === n.id ? { ...n } : o)); setSelectedId(null); }}>
+                          {s.done}
+                        </Button>
+                      </div>
+                    </div>
                   );
                 })()}
 
@@ -2125,6 +2174,29 @@ function ObjectView(props: {
           {selected && <HandleSE onPointerDown={onPointerDown} />}
         </div>
       );
+    case 'note': {
+      const size = 24 * zoom;
+      return (
+        <div
+          data-oid={obj.id}
+          className={`absolute cursor-move${ring}`}
+          style={{ ...base, left: obj.x * zoom, top: obj.yTop * zoom, width: size, height: size }}
+          {...commonHandlers}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <svg width={size} height={size} viewBox="0 0 24 24">
+            <path
+              d="M4 4h16v12H8l-4 4z"
+              fill={obj.text.trim() ? '#f59e0b' : '#e5e7eb'}
+              stroke="#92400e"
+              strokeWidth={1.5}
+            />
+            <path d="M8 8h8M8 11h6" stroke="#92400e" strokeWidth={1.2} />
+          </svg>
+          {selected && <HandleSE onPointerDown={onPointerDown} />}
+        </div>
+      );
+    }
     case 'formfield': {
       const label = { text: s.formTextField, textarea: s.formTextarea, dropdown: s.formDropdown, radio: s.formRadio, checkbox: s.formCheckbox, signature: s.formSignatureBox }[obj.fieldType];
       return (

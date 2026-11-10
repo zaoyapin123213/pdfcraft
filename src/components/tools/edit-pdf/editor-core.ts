@@ -118,6 +118,15 @@ export interface FormFieldObject extends BaseObject {
   checked?: boolean;
 }
 
+export interface NoteObject extends BaseObject {
+  kind: 'note';
+  x: number;
+  yTop: number;
+  text: string;
+  author: string;
+  createdAt: string; // ISO date
+}
+
 export interface StampObject extends BaseObject {
   kind: 'stamp';
   x: number;
@@ -139,7 +148,8 @@ export type EditObject =
   | AreaMarkObject
   | SymbolObject
   | StampObject
-  | FormFieldObject;
+  | FormFieldObject
+  | NoteObject;
 
 export interface PageOp {
   rotationDelta: number; // 0 | 90 | 180 | 270 (clockwise, added to existing /Rotate)
@@ -1032,6 +1042,30 @@ export async function exportEditedPdf(options: ExportOptions): Promise<ExportRes
         } catch {
           // duplicate field name or unsupported — skip silently (UI checks names)
         }
+        break;
+      }
+      case 'note': {
+        // Real PDF text annotation (sticky note) — Adobe Reader renders it
+        // with its own note icon and popup.
+        const ctx = pdfDoc.context;
+        const annot = ctx.obj({
+          Type: 'Annot',
+          Subtype: 'Text',
+          Rect: ctx.obj([obj.x, ph - obj.yTop - 24, obj.x + 24, ph - obj.yTop]),
+          Contents: pdfLib.PDFString.of(obj.text),
+          M: pdfLib.PDFString.of(`D:${obj.createdAt.replace(/[-:]/g, '').slice(0, 14)}`),
+          T: pdfLib.PDFString.of(obj.author),
+          Name: ctx.obj('Comment'),
+          F: 4,
+          Open: false,
+        });
+        const { PDFName, PDFArray } = pdfLib;
+        let annots = page.node.lookupMaybe(PDFName.of('Annots'), PDFArray);
+        if (!annots) {
+          annots = ctx.obj([]);
+          page.node.set(PDFName.of('Annots'), annots);
+        }
+        annots.push(annot);
         break;
       }
       case 'link': {
