@@ -28,6 +28,10 @@ export interface TextObject extends BaseObject {
   bold: boolean;
   italic: boolean;
   fontId: FontId;
+  underline?: boolean;
+  align?: 'left' | 'center' | 'right';
+  lineHeightRatio?: number; // default 1.25
+  script?: 'normal' | 'super' | 'sub';
 }
 
 export interface WhiteoutObject extends BaseObject {
@@ -818,16 +822,35 @@ export async function exportEditedPdf(options: ExportOptions): Promise<ExportRes
         const font = await embedFontFor(pdfLib, pdfDoc, obj.fontId, obj.bold, obj.italic, obj.text, embeddedFonts);
         const c = hexToRgbRgb(obj.color);
         const lines = obj.text.split('\n');
-        const lineHeight = obj.fontSize * 1.25;
+        // Acrobat-style format properties (Format panel): line-height ratio,
+        // alignment, underline, super/subscript.
+        const ratio = obj.lineHeightRatio && obj.lineHeightRatio > 0 ? obj.lineHeightRatio : 1.25;
+        const script = obj.script ?? 'normal';
+        const size = script === 'normal' ? obj.fontSize : obj.fontSize * 0.65;
+        const baselineStep = obj.fontSize * ratio;
         for (let li = 0; li < lines.length; li++) {
-          const baseline = ph - obj.yTop - obj.fontSize * (li + 1) + obj.fontSize * 0.22;
+          let drawX = obj.x;
+          const w = font.widthOfTextAtSize(lines[li], size);
+          if (obj.align === 'center') drawX = obj.x + Math.max(0, (obj.width - w) / 2);
+          else if (obj.align === 'right') drawX = obj.x + Math.max(0, obj.width - w);
+          let baseline = ph - obj.yTop - baselineStep * (li + 1) + obj.fontSize * 0.22;
+          if (script === 'super') baseline += obj.fontSize * 0.33;
+          else if (script === 'sub') baseline -= obj.fontSize * 0.15;
           page.drawText(lines[li], {
-            x: obj.x,
+            x: drawX,
             y: baseline,
-            size: obj.fontSize,
+            size,
             font,
             color: rgb(c.r, c.g, c.b),
           });
+          if (obj.underline && lines[li].length > 0) {
+            page.drawLine({
+              start: { x: drawX, y: baseline - size * 0.12 },
+              end: { x: drawX + w, y: baseline - size * 0.12 },
+              thickness: Math.max(0.6, size * 0.05),
+              color: rgb(c.r, c.g, c.b),
+            });
+          }
         }
         break;
       }

@@ -51,6 +51,12 @@ import {
   ClipboardList,
   Move,
   MessageSquare,
+  Underline as UnderlineIcon2,
+  Superscript,
+  Subscript,
+  AlignLeft,
+  AlignCenter,
+  AlignRight,
 } from 'lucide-react';
 import { Button, Card, Modal } from '@/components/ui';
 import FileUploader from '@/components/tools/FileUploader';
@@ -1551,6 +1557,27 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                       <>
                         <StyleToggle active={(selected as TextObject).bold} onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), bold: !(selected as TextObject).bold } : o)))} disabled={false} label="B" title={s.bold} />
                         <StyleToggle active={(selected as TextObject).italic} onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), italic: !(selected as TextObject).italic } : o)))} disabled={false} label="I" title={s.italic} />
+                        <StyleToggle
+                          active={Boolean((selected as TextObject).underline)}
+                          onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), underline: !(selected as TextObject).underline } : o)))}
+                          disabled={false}
+                          label="U"
+                          title={s.toolUnderline}
+                        />
+                        <StyleToggle
+                          active={(selected as TextObject).script === 'super'}
+                          onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), script: (selected as TextObject).script === 'super' ? 'normal' : 'super' } : o)))}
+                          disabled={false}
+                          label="x²"
+                          title="Superscript"
+                        />
+                        <StyleToggle
+                          active={(selected as TextObject).script === 'sub'}
+                          onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), script: (selected as TextObject).script === 'sub' ? 'normal' : 'sub' } : o)))}
+                          disabled={false}
+                          label="x₂"
+                          title="Subscript"
+                        />
                         <select
                           className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
                           value={Math.round((selected as TextObject).fontSize)}
@@ -1564,6 +1591,27 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                           onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), fontId: e.target.value as FontId } : o)))}
                         >
                           {FONT_OPTIONS.map((f) => <option key={f.id} value={f.id}>{f.label}</option>)}
+                        </select>
+                        <div className="flex items-center gap-0.5">
+                          {([['left', AlignLeft], ['center', AlignCenter], ['right', AlignRight]] as const).map(([al, Icon]) => (
+                            <button
+                              key={al}
+                              type="button"
+                              title={`Align ${al}`}
+                              onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), align: al } : o)))}
+                              className={`h-7 w-7 flex items-center justify-center rounded-md border ${((selected as TextObject).align ?? 'left') === al ? 'bg-[hsl(var(--color-primary))] text-white border-transparent' : 'border-[hsl(var(--color-border))]'}`}
+                            >
+                              <Icon className="h-3.5 w-3.5" />
+                            </button>
+                          ))}
+                        </div>
+                        <select
+                          className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+                          value={String((selected as TextObject).lineHeightRatio ?? 1.25)}
+                          onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), lineHeightRatio: Number(e.target.value) || 1.25 } : o)))}
+                          title="Line spacing"
+                        >
+                          {[1, 1.15, 1.25, 1.5, 2].map((n) => <option key={n} value={n}>{n}</option>)}
                         </select>
                       </>
                     )}
@@ -1978,7 +2026,7 @@ function ObjectView(props: {
         <div
           data-oid={obj.id}
           className={`absolute whitespace-pre-wrap break-words cursor-move select-none${ring}`}
-          style={{ ...base, left: obj.x * zoom, top: obj.yTop * zoom, width: Math.max(obj.width, 20) * zoom, fontSize: obj.fontSize * zoom, fontFamily: family, fontWeight: obj.bold ? 700 : 400, fontStyle: obj.italic ? 'italic' : 'normal', color: obj.color, lineHeight: 1.25, minHeight: obj.fontSize * 1.25 * zoom }}
+          style={{ ...base, left: obj.x * zoom, top: obj.yTop * zoom, width: Math.max(obj.width, 20) * zoom, fontSize: (obj.script === 'normal' || !obj.script ? obj.fontSize : obj.fontSize * 0.65) * zoom, fontFamily: family, fontWeight: obj.bold ? 700 : 400, fontStyle: obj.italic ? 'italic' : 'normal', color: obj.color, lineHeight: String(obj.lineHeightRatio ?? 1.25), textAlign: obj.align ?? 'left', textDecoration: obj.underline ? 'underline' : undefined, transform: obj.script === 'super' ? 'translateY(-12%)' : obj.script === 'sub' ? 'translateY(8%)' : undefined, minHeight: obj.fontSize * (obj.lineHeightRatio ?? 1.25) * zoom }}
           {...commonHandlers}
           onDoubleClick={onStartEdit}
         >
