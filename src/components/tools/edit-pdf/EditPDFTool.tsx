@@ -1165,6 +1165,175 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     <div className={`w-full ${className ?? ''}`}>
       {/* ===== Top toolbar (Sejda-style horizontal groups) ===== */}
       <div className="sticky top-16 z-30 -mx-4 px-4 py-2 bg-[hsl(var(--color-background))]/95 backdrop-blur border-b border-[hsl(var(--color-border))]">
+        {/* Object format bar — docked above the Text button (Acrobat panel style) */}
+        {selected && (
+          <div className="flex items-center gap-0.5 flex-wrap rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-sm px-1 py-1 mb-1">
+            <div
+data-floating
+className="flex items-center gap-0.5 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-sm px-1 py-1 flex-wrap"
+onPointerDown={(e) => e.stopPropagation()}
+  >
+{selected.kind === 'text' && (
+  <>
+    <StyleToggle active={(selected as TextObject).bold} onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), bold: !(selected as TextObject).bold } : o)))} disabled={false} label="B" title={s.bold} />
+    <StyleToggle active={(selected as TextObject).italic} onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), italic: !(selected as TextObject).italic } : o)))} disabled={false} label="I" title={s.italic} />
+    <StyleToggle
+      active={Boolean((selected as TextObject).underline)}
+      onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), underline: !(selected as TextObject).underline } : o)))}
+      disabled={false}
+      label="U"
+      title={s.toolUnderline}
+    />
+    <StyleToggle
+      active={(selected as TextObject).script === 'super'}
+      onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), script: (selected as TextObject).script === 'super' ? 'normal' : 'super' } : o)))}
+      disabled={false}
+      label="x²"
+      title="Superscript"
+    />
+    <StyleToggle
+      active={(selected as TextObject).script === 'sub'}
+      onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), script: (selected as TextObject).script === 'sub' ? 'normal' : 'sub' } : o)))}
+      disabled={false}
+      label="x₂"
+      title="Subscript"
+    />
+    <select
+      className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+      value={Math.round((selected as TextObject).fontSize)}
+      onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), fontSize: Number(e.target.value) || 14 } : o)))}
+    >
+      {sizeOptionsWith((selected as TextObject).fontSize).map((n) => <option key={n} value={n}>{n}</option>)}
+    </select>
+    <select
+      className="h-7 max-w-24 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+      value={(selected as TextObject).fontId}
+      onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), fontId: e.target.value as FontId } : o)))}
+    >
+      {FONT_OPTIONS.map((f) => <option key={f.id} value={f.id}>{f.label}</option>)}
+    </select>
+    <div className="flex items-center gap-0.5">
+      {([['left', AlignLeft], ['center', AlignCenter], ['right', AlignRight]] as const).map(([al, Icon]) => (
+        <button
+          key={al}
+          type="button"
+          title={`Align ${al}`}
+          onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), align: al } : o)))}
+          className={`h-7 w-7 flex items-center justify-center rounded-md border ${((selected as TextObject).align ?? 'left') === al ? 'bg-[hsl(var(--color-primary))] text-white border-transparent' : 'border-[hsl(var(--color-border))]'}`}
+        >
+          <Icon className="h-3.5 w-3.5" />
+        </button>
+      ))}
+    </div>
+    <select
+      className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+      value={String((selected as TextObject).lineHeightRatio ?? 1.25)}
+      onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), lineHeightRatio: Number(e.target.value) || 1.25 } : o)))}
+      title="Line spacing"
+    >
+      {[1, 1.15, 1.25, 1.5, 2].map((n) => <option key={n} value={n}>{n}</option>)}
+    </select>
+  </>
+)}
+{'stroke' in selected && (
+  <>
+    <input
+      type="color"
+      className="h-7 w-7 rounded-md border border-[hsl(var(--color-border))]"
+      value={selected.stroke}
+      onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, stroke: e.target.value } : o)))}
+      title={s.color}
+    />
+    {(selected.kind === 'rect' || selected.kind === 'ellipse') && (
+      <select
+        className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+        value={(selected as ShapeObject).fill}
+        onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as ShapeObject), fill: e.target.value } : o)))}
+        title="Fill"
+      >
+        <option value="none">none</option>
+        <option value="#fde047">yellow</option>
+        <option value="#93c5fd">blue</option>
+        <option value="#86efac">green</option>
+        <option value="#fca5a5">red</option>
+        <option value="#111111">black</option>
+      </select>
+    )}
+  </>
+)}
+{selected.kind === 'highlight' && (
+  <input
+    type="color"
+    className="h-7 w-7 rounded-md border border-[hsl(var(--color-border))]"
+    value={selected.color}
+    onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, color: e.target.value } : o)))}
+    title={s.color}
+  />
+)}
+{selected.kind === 'link' && (
+  <>
+    <select
+      className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+      value={selected.linkType}
+      onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, linkType: e.target.value as 'url' | 'email' | 'phone' | 'page' } : o)))}
+    >
+      <option value="url">{s.linkUrl}</option>
+      <option value="email">{s.linkEmail}</option>
+      <option value="phone">{s.linkPhone}</option>
+      <option value="page">{s.linkPage}</option>
+    </select>
+    {selected.linkType === 'page' ? (
+      <select
+        className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
+        value={selected.value || '1'}
+        onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, value: e.target.value } : o)))}
+      >
+        {pageSizes.map((_, i) => <option key={i} value={String(i + 1)}>{i + 1}</option>)}
+      </select>
+    ) : (
+      <input
+        type="text"
+        className="h-7 w-36 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1.5 text-xs"
+        placeholder={s.linkPlaceholder}
+        value={selected.value}
+        onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, value: e.target.value } : o)))}
+      />
+    )}
+  </>
+)}
+{selected.kind === 'stamp' && (
+  <input
+    type="text"
+    className="h-7 w-28 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1.5 text-xs"
+    value={(selected as StampObject).text}
+    onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as StampObject), text: e.target.value } : o)))}
+    title={s.stampText}
+  />
+)}
+{editingId === selected.id && (
+  <Button variant="primary" size="sm" className="h-7 px-2 text-xs" onClick={commitTextEdit}>
+    <Check className="h-3.5 w-3.5 mr-0.5" />{s.signClear === '清除' ? '完成' : 'Done'}
+  </Button>
+)}
+<Button
+  variant={moveMode ? 'primary' : 'ghost'}
+  size="sm"
+  className="h-7 w-7 p-0"
+  title={s.toolSelect + ' · ' + s.hintMove}
+  onClick={() => setMoveMode((v) => !v)}
+>
+  <Move className="h-3.5 w-3.5" />
+</Button>
+<Button variant="ghost" size="sm" className="h-7 w-7 p-0" title={s.duplicate} onClick={duplicateSelected}>
+  <Copy className="h-3.5 w-3.5" />
+</Button>
+<Button variant="ghost" size="sm" className="h-7 w-7 p-0" title={s.deleteObject} onClick={() => { commit(objects.filter((o) => o.id !== selected.id)); setSelectedId(null); }}>
+  <Trash2 className="h-3.5 w-3.5" />
+</Button>
+  </div>
+          </div>
+        )}
+
         <div className="flex items-center gap-1 flex-wrap rounded-xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] px-2 py-1.5 shadow-sm">
           {/* Text — direct button, single click = edit existing / add new */}
           <button
@@ -1560,176 +1729,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                   </svg>
                 )}
 
-                {/* Selected object → floating toolbar */}
-                {selected && selected.pageIndex === idx && (
-                  <div
-                    data-floating
-                    className="absolute z-20 flex items-center gap-0.5 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] shadow-lg px-1 py-1 flex-wrap"
-                    style={{
-                      left: Math.max(2, ('x' in selected ? selected.x : Math.min((selected as LineObject).x1, (selected as LineObject).x2)) * zoom),
-                      top: Math.max(2, ('yTop' in selected ? selected.yTop : Math.min((selected as LineObject).yTop1, (selected as LineObject).yTop2)) * zoom - 44),
-                    }}
-                    onPointerDown={(e) => e.stopPropagation()}
-                  >
-                    {selected.kind === 'text' && (
-                      <>
-                        <StyleToggle active={(selected as TextObject).bold} onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), bold: !(selected as TextObject).bold } : o)))} disabled={false} label="B" title={s.bold} />
-                        <StyleToggle active={(selected as TextObject).italic} onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), italic: !(selected as TextObject).italic } : o)))} disabled={false} label="I" title={s.italic} />
-                        <StyleToggle
-                          active={Boolean((selected as TextObject).underline)}
-                          onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), underline: !(selected as TextObject).underline } : o)))}
-                          disabled={false}
-                          label="U"
-                          title={s.toolUnderline}
-                        />
-                        <StyleToggle
-                          active={(selected as TextObject).script === 'super'}
-                          onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), script: (selected as TextObject).script === 'super' ? 'normal' : 'super' } : o)))}
-                          disabled={false}
-                          label="x²"
-                          title="Superscript"
-                        />
-                        <StyleToggle
-                          active={(selected as TextObject).script === 'sub'}
-                          onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), script: (selected as TextObject).script === 'sub' ? 'normal' : 'sub' } : o)))}
-                          disabled={false}
-                          label="x₂"
-                          title="Subscript"
-                        />
-                        <select
-                          className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
-                          value={Math.round((selected as TextObject).fontSize)}
-                          onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), fontSize: Number(e.target.value) || 14 } : o)))}
-                        >
-                          {sizeOptionsWith((selected as TextObject).fontSize).map((n) => <option key={n} value={n}>{n}</option>)}
-                        </select>
-                        <select
-                          className="h-7 max-w-24 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
-                          value={(selected as TextObject).fontId}
-                          onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), fontId: e.target.value as FontId } : o)))}
-                        >
-                          {FONT_OPTIONS.map((f) => <option key={f.id} value={f.id}>{f.label}</option>)}
-                        </select>
-                        <div className="flex items-center gap-0.5">
-                          {([['left', AlignLeft], ['center', AlignCenter], ['right', AlignRight]] as const).map(([al, Icon]) => (
-                            <button
-                              key={al}
-                              type="button"
-                              title={`Align ${al}`}
-                              onClick={() => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), align: al } : o)))}
-                              className={`h-7 w-7 flex items-center justify-center rounded-md border ${((selected as TextObject).align ?? 'left') === al ? 'bg-[hsl(var(--color-primary))] text-white border-transparent' : 'border-[hsl(var(--color-border))]'}`}
-                            >
-                              <Icon className="h-3.5 w-3.5" />
-                            </button>
-                          ))}
-                        </div>
-                        <select
-                          className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
-                          value={String((selected as TextObject).lineHeightRatio ?? 1.25)}
-                          onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as TextObject), lineHeightRatio: Number(e.target.value) || 1.25 } : o)))}
-                          title="Line spacing"
-                        >
-                          {[1, 1.15, 1.25, 1.5, 2].map((n) => <option key={n} value={n}>{n}</option>)}
-                        </select>
-                      </>
-                    )}
-                    {'stroke' in selected && (
-                      <>
-                        <input
-                          type="color"
-                          className="h-7 w-7 rounded-md border border-[hsl(var(--color-border))]"
-                          value={selected.stroke}
-                          onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, stroke: e.target.value } : o)))}
-                          title={s.color}
-                        />
-                        {(selected.kind === 'rect' || selected.kind === 'ellipse') && (
-                          <select
-                            className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
-                            value={(selected as ShapeObject).fill}
-                            onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as ShapeObject), fill: e.target.value } : o)))}
-                            title="Fill"
-                          >
-                            <option value="none">none</option>
-                            <option value="#fde047">yellow</option>
-                            <option value="#93c5fd">blue</option>
-                            <option value="#86efac">green</option>
-                            <option value="#fca5a5">red</option>
-                            <option value="#111111">black</option>
-                          </select>
-                        )}
-                      </>
-                    )}
-                    {selected.kind === 'highlight' && (
-                      <input
-                        type="color"
-                        className="h-7 w-7 rounded-md border border-[hsl(var(--color-border))]"
-                        value={selected.color}
-                        onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, color: e.target.value } : o)))}
-                        title={s.color}
-                      />
-                    )}
-                    {selected.kind === 'link' && (
-                      <>
-                        <select
-                          className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
-                          value={selected.linkType}
-                          onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, linkType: e.target.value as 'url' | 'email' | 'phone' | 'page' } : o)))}
-                        >
-                          <option value="url">{s.linkUrl}</option>
-                          <option value="email">{s.linkEmail}</option>
-                          <option value="phone">{s.linkPhone}</option>
-                          <option value="page">{s.linkPage}</option>
-                        </select>
-                        {selected.linkType === 'page' ? (
-                          <select
-                            className="h-7 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1 text-xs"
-                            value={selected.value || '1'}
-                            onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, value: e.target.value } : o)))}
-                          >
-                            {pageSizes.map((_, i) => <option key={i} value={String(i + 1)}>{i + 1}</option>)}
-                          </select>
-                        ) : (
-                          <input
-                            type="text"
-                            className="h-7 w-36 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1.5 text-xs"
-                            placeholder={s.linkPlaceholder}
-                            value={selected.value}
-                            onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, value: e.target.value } : o)))}
-                          />
-                        )}
-                      </>
-                    )}
-                    {selected.kind === 'stamp' && (
-                      <input
-                        type="text"
-                        className="h-7 w-28 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1.5 text-xs"
-                        value={(selected as StampObject).text}
-                        onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...(selected as StampObject), text: e.target.value } : o)))}
-                        title={s.stampText}
-                      />
-                    )}
-                    {editingId === selected.id && (
-                      <Button variant="primary" size="sm" className="h-7 px-2 text-xs" onClick={commitTextEdit}>
-                        <Check className="h-3.5 w-3.5 mr-0.5" />{s.signClear === '清除' ? '完成' : 'Done'}
-                      </Button>
-                    )}
-                    <Button
-                      variant={moveMode ? 'primary' : 'ghost'}
-                      size="sm"
-                      className="h-7 w-7 p-0"
-                      title={s.toolSelect + ' · ' + s.hintMove}
-                      onClick={() => setMoveMode((v) => !v)}
-                    >
-                      <Move className="h-3.5 w-3.5" />
-                    </Button>
-                    <Button variant="ghost" size="sm" className="h-7 w-7 p-0" title={s.duplicate} onClick={duplicateSelected}>
-                      <Copy className="h-3.5 w-3.5" />
-                    </Button>
-                    <Button variant="ghost" size="sm" className="h-7 w-7 p-0" title={s.deleteObject} onClick={() => { commit(objects.filter((o) => o.id !== selected.id)); setSelectedId(null); }}>
-                      <Trash2 className="h-3.5 w-3.5" />
-                    </Button>
-                  </div>
-                )}
+
               </div>
             </div>
           );
