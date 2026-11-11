@@ -179,6 +179,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   const [draftText, setDraftText] = useState('');
   const [moveMode, setMoveMode] = useState(false);
   const [selectedBlock, setSelectedBlock] = useState<TextBlock | null>(null);
+  const lastPressRef = useRef<{ t: number; x: number; y: number }>({ t: 0, x: 0, y: 0 });
   useEffect(() => {
     if (objects.length > 0) {
       console.warn('[probe-obj]', JSON.stringify(objects.map((o) => ({ k: o.kind, fs: o.kind === 'text' ? (o as TextObject).fontSize : undefined, id: o.id.slice(-4) }))));
@@ -365,9 +366,11 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       requestAnimationFrame(() => {
         const el = scrollRef.current;
         if (el && sizes[0]) {
+          // Open at 100% (Acrobat default). Fit-to-width stays available via
+          // the toolbar's Fit button; it is remembered as fitZoom for it.
           const fit = Math.min(1.4, Math.max(MIN_ZOOM, (el.clientWidth - 48) / sizes[0].w));
           setFitZoom(fit);
-          setZoom(fit);
+          setZoom(1);
         }
       });
       // Fallback pre-extraction (transform-based) for pages whose canvas
@@ -672,7 +675,12 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     if (target.closest('[data-floating]')) return;
     if (target.closest('[data-oid]')) return;
     const pt = toViewPt(pageIndex, e.clientX, e.clientY);
-    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    // Pointer capture is only needed for drag-drawing tools; capturing on
+    // click-select tools (select/text) swallows the browser's dblclick
+    // synthesis, so double-click-to-edit never fired.
+    if (activeTool !== 'select' && activeTool !== 'text') {
+      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    }
 
     if (activeTool === 'select') {
       if (moveMode && selected) {
@@ -696,7 +704,13 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     if (activeTool === 'text') {
       // Acrobat interaction: single click SELECTS the block (persistent
       // boundary), double click (or a second click on the selected block)
-      // enters in-place editing.
+      // enters in-place editing. Double-click is self-rolled (two presses
+      // < 400ms apart within 6px) because the browser's dblclick synthesis
+      // is unreliable after pointer-event handling on overlays.
+      const now = Date.now();
+      const last = lastPressRef.current;
+      const isDouble = now - last.t < 400 && Math.abs(e.clientX - last.x) < 6 && Math.abs(e.clientY - last.y) < 6;
+      lastPressRef.current = { t: now, x: e.clientX, y: e.clientY };
       const objHit = findObjectAt(pageIndex, pt.x, pt.y);
       if (objHit) {
         setSelectedId(objHit.id);
@@ -719,8 +733,8 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       const blk = hitTest();
       if (blk) {
         if (editingId) return; // double-click's 2nd press: editor already open
-        if (selectedBlock && sameBlock(selectedBlock, blk)) {
-          startBlockEdit(blk); // second click on the selected block = edit
+        if (isDouble || (selectedBlock && sameBlock(selectedBlock, blk))) {
+          startBlockEdit(blk); // double click / second click on selected block
         } else {
           setSelectedBlock(blk); // first click: persistent selection
         }
@@ -737,7 +751,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
           const blk2 = blocksByPage.get(pageIndex)?.find((b) => b.lines.some((l) => l === hit)) ??
             ({ ...hit, lineHeightRatio: 1.25 } as unknown as TextBlock);
           if (editingId) return;
-          if (selectedBlock && sameBlock(selectedBlock, blk2)) {
+          if (isDouble || (selectedBlock && sameBlock(selectedBlock, blk2))) {
             startBlockEdit(blk2);
           } else {
             setSelectedBlock(blk2);
@@ -842,6 +856,9 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
         e.preventDefault();
         redo();
       } else if (e.key === 'Delete' || e.key === 'Backspace') {
+        const active = document.activeElement;
+        const inEditor = active instanceof HTMLElement && (active.tagName === 'TEXTAREA' || active.tagName === 'INPUT' || active.isContentEditable);
+        if (inEditor) return; // let the textarea handle its own text selection edits
         if (selectedId) {
           e.preventDefault();
           commit(objects.filter((o) => o.id !== selectedId));
@@ -1701,6 +1718,8 @@ onPointerDown={(e) => e.stopPropagation()}
                     <textarea
                       autoFocus
                       data-e2e="editing"
+                      data-floating
+                      onPointerDown={(e) => e.stopPropagation()}
                       className="absolute bg-white/85 border-2 border-blue-500 rounded-sm px-0.5 resize-none overflow-hidden z-10"
                       style={{ left: t.x * zoom, top: t.yTop * zoom, width: Math.max(t.width, 60) * zoom, height: Math.max(t.fontSize * 1.5 * draftText.split('\n').length + 14, 30), fontSize: t.fontSize * zoom, fontFamily: family, fontWeight: t.bold ? 700 : 400, fontStyle: t.italic ? 'italic' : 'normal', color: t.color, lineHeight: 1.25 }}
                       value={draftText}
