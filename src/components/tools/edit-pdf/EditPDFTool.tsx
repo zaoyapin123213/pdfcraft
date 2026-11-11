@@ -178,6 +178,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [draftText, setDraftText] = useState('');
   const [moveMode, setMoveMode] = useState(false);
+  const [selectedBlock, setSelectedBlock] = useState<TextBlock | null>(null);
   useEffect(() => {
     if (objects.length > 0) {
       console.warn('[probe-obj]', JSON.stringify(objects.map((o) => ({ k: o.kind, fs: o.kind === 'text' ? (o as TextObject).fontSize : undefined, id: o.id.slice(-4) }))));
@@ -490,6 +491,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
    *  block (Acrobat's dashed boundary), whites out the block area and opens
    *  a prefilled block editor that re-flows on export. */
   const startBlockEdit = useCallback((block: TextBlock) => {
+    if (editingId) return; // already editing — a dblclick's 2nd click lands here
     const whiteout: EditObject = { id: nextObjectId(), kind: 'whiteout', pageIndex: block.pageIndex, x: block.x, yTop: block.yTop, width: block.width, height: block.height * 1.15 };
     const text: TextObject = {
       id: nextObjectId(), kind: 'text', pageIndex: block.pageIndex,
@@ -503,7 +505,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     setEditingId(text.id);
     setDraftText(text.text);
     setActiveTool('select');
-  }, [commit, objects, styleBold, styleFont, styleItalic]);
+  }, [commit, editingId, objects, styleBold, styleFont, styleItalic]);
 
   /** Commit the draft (Enter or the Done button). Blur is deliberately
    *  inert: clicking the floating style bar must not close the editor. */
@@ -688,27 +690,41 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       if (editingId) commitTextEdit(); // clicking empty space finishes the edit
       setSelectedId(null);
       setEditingId(null);
+      setSelectedBlock(null);
         return;
     }
     if (activeTool === 'text') {
-      // Text mode also selects non-text objects (symbols, images, shapes…)
+      // Acrobat interaction: single click SELECTS the block (persistent
+      // boundary), double click (or a second click on the selected block)
+      // enters in-place editing.
       const objHit = findObjectAt(pageIndex, pt.x, pt.y);
       if (objHit) {
         setSelectedId(objHit.id);
         setActiveTool('select');
         return;
       }
-      // Zoom-proof line hit: the span under the pointer knows its line.
-      const el = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement | null;
-      const liAttr = el?.closest?.('[data-li]')?.getAttribute('data-li');
-      if (liAttr !== null && liAttr !== undefined && liAttr !== '-1') {
-        const lines = textLinesRef.current.get(pageIndex);
-        const hit = lines?.[Number(liAttr)] ?? null;
-        if (hit) {
-          const blk = blocksByPage.get(pageIndex)?.find((b) => b.lines.some((l) => l === hit));
-          startBlockEdit(blk ?? ({ ...hit, lineHeightRatio: 1.25 } as unknown as TextBlock));
-          return;
+      const hitTest = (): TextBlock | null => {
+        const el = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement | null;
+        const liAttr = el?.closest?.('[data-li]')?.getAttribute('data-li');
+        if (liAttr !== null && liAttr !== undefined && liAttr !== '-1') {
+          const lines = textLinesRef.current.get(pageIndex);
+          const hit = lines?.[Number(liAttr)] ?? null;
+          if (hit) {
+            return blocksByPage.get(pageIndex)?.find((b) => b.lines.some((l) => l === hit)) ??
+              ({ ...hit, lineHeightRatio: 1.25 } as unknown as TextBlock);
+          }
         }
+        return null;
+      };
+      const blk = hitTest();
+      if (blk) {
+        if (editingId) return; // double-click's 2nd press: editor already open
+        if (selectedBlock && sameBlock(selectedBlock, blk)) {
+          startBlockEdit(blk); // second click on the selected block = edit
+        } else {
+          setSelectedBlock(blk); // first click: persistent selection
+        }
+        return;
       }
       // Race-safe: if the background pre-extraction has not finished yet,
       // extract now (cached after the first call) instead of missing the
@@ -718,9 +734,16 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
         const pt2 = toViewPt(pageIndex, e.clientX, e.clientY);
         const hit = findLineAt(lines, pageIndex, pt2.x, pt2.y);
         if (hit) {
-          const blk = blocksByPage.get(pageIndex)?.find((b) => b.lines.some((l) => l === hit));
-          startBlockEdit(blk ?? ({ ...hit, lineHeightRatio: 1.25 } as unknown as TextBlock)); // single click = block editable (Acrobat)
+          const blk2 = blocksByPage.get(pageIndex)?.find((b) => b.lines.some((l) => l === hit)) ??
+            ({ ...hit, lineHeightRatio: 1.25 } as unknown as TextBlock);
+          if (editingId) return;
+          if (selectedBlock && sameBlock(selectedBlock, blk2)) {
+            startBlockEdit(blk2);
+          } else {
+            setSelectedBlock(blk2);
+          }
         } else {
+          setSelectedBlock(null);
           addTextAt(pageIndex, pt2.x, pt2.y);
         }
       })();
@@ -742,7 +765,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     }
     dragRef.current = { mode: 'draw-rect', pageIndex, startVx: pt.x, startVy: pt.y };
     setDraftRect({ pageIndex, x: pt.x, yTop: pt.y, w: 0, h: 0 });
-  }, [activeTool, addTextAt, applying, blocksByPage, commitTextEdit, editingId, findObjectAt, moveMode, objects, placeAsset, selected, startBlockEdit, toViewPt]);
+  }, [activeTool, addTextAt, applying, blocksByPage, commitTextEdit, editingId, findObjectAt, moveMode, objects, placeAsset, selected, selectedBlock, startBlockEdit, toViewPt]);
 
   const onOverlayPointerUp = useCallback((e: React.PointerEvent) => {
     const drag = dragRef.current;
@@ -827,6 +850,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       } else if (e.key === 'Escape') {
         setActiveTool('select');
         setEditingId(null);
+        setSelectedBlock(null);
         setOpenMenu(null);
       }
     };
@@ -1052,6 +1076,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     setActiveTool(t);
     setSelectedId(null);
     setEditingId(null);
+    setSelectedBlock(null);
   }, []);
 
   const menuDefs: Array<{ id: Exclude<MenuId, null>; label: string; icon: any; active: boolean; items: Array<{ tool: ToolId; label: string; icon: any }>; colors?: string[] }> = [
@@ -1615,7 +1640,29 @@ onPointerDown={(e) => e.stopPropagation()}
                 onPointerDown={(e) => onOverlayPointerDown(idx, e)}
                 onPointerMove={(e) => onOverlayPointerMove(idx, e)}
                 onPointerUp={onOverlayPointerUp}
+                onDoubleClick={(e) => {
+                  const el = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement | null;
+                  const liAttr = el?.closest?.('[data-li]')?.getAttribute('data-li');
+                  if (liAttr !== null && liAttr !== undefined && liAttr !== '-1') {
+                    const lines = textLinesRef.current.get(idx);
+                    const hit = lines?.[Number(liAttr)] ?? null;
+                    if (hit) {
+                      const blk = blocksByPage.get(idx)?.find((b) => b.lines.some((l) => l === hit)) ??
+                        ({ ...hit, lineHeightRatio: 1.25 } as unknown as TextBlock);
+                      startBlockEdit(blk);
+                    }
+                  }
+                }}
               >
+                {/* Persistent block selection (single click) */}
+                {activeTool === 'text' && selectedBlock?.pageIndex === idx && (() => {
+                  const b = selectedBlock;
+                  return (
+                    <div className="absolute border-2 border-blue-600 bg-blue-500/10 pointer-events-none rounded-sm"
+                      style={{ left: b.x * zoom, top: b.yTop * zoom, width: b.width * zoom, height: b.height * zoom }} />
+                  );
+                })()}
+
                 {/* Hover highlight (Text tool) */}
                 {activeTool === 'text' && hoverBlockRef.current?.pageIndex === idx && (() => {
                   const b = hoverBlockRef.current;
@@ -1825,6 +1872,11 @@ const SIZE_STEPS = [8, 9, 10, 11, 12, 14, 18, 24, 30, 36, 48, 60, 72];
  *  original size is not on the steps still displays its true size. */
 function sizeOptionsWith(current: number): number[] {
   return [...new Set([...SIZE_STEPS, Math.round(current)])].sort((a, b) => a - b);
+}
+
+/** Identity compare for block selection (same page + same origin). */
+function sameBlock(a: TextBlock, b: TextBlock): boolean {
+  return a.pageIndex === b.pageIndex && Math.abs(a.x - b.x) < 1 && Math.abs(a.yTop - b.yTop) < 1;
 }
 
 function MenuItem({ icon: Icon, label, onClick, active }: { icon: any; label: string; onClick: () => void; active: boolean }) {
