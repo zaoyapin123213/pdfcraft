@@ -1590,6 +1590,33 @@ onPointerDown={(e) => e.stopPropagation()}
           <p className="text-xs text-[hsl(var(--color-muted-foreground))]">{hint}</p>
           {message && <p className="ml-3 text-xs font-medium text-[hsl(var(--color-primary))]">{message}</p>}
         </div>
+        {/* Find & Replace panel (the toolbar Find button is dead without it) */}
+        {activeTool === 'find' && (
+          <div className="mt-1 flex items-center gap-2 flex-wrap rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] px-2 py-1.5">
+            <input
+              type="text"
+              className="w-44 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
+              placeholder={s.findPlaceholder}
+              value={findText}
+              onChange={(e) => setFindText(e.target.value)}
+            />
+            <input
+              type="text"
+              className="w-44 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
+              placeholder={s.replacePlaceholder}
+              value={replaceText}
+              onChange={(e) => setReplaceText(e.target.value)}
+            />
+            <label className="flex items-center gap-1.5 text-xs">
+              <input type="checkbox" checked={matchCase} onChange={(e) => setMatchCase(e.target.checked)} />
+              {s.matchCase}
+            </label>
+            <Button variant="primary" size="sm" onClick={() => void replaceAll()} disabled={!findText || finding}>
+              {finding ? '…' : s.replaceAll}
+            </Button>
+            <p className="text-[10px] text-[hsl(var(--color-muted-foreground))]">{s.replaceInlineOnly}</p>
+          </div>
+        )}
       </div>
 
       {applying && (
