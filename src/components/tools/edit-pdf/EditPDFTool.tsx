@@ -66,6 +66,7 @@ import { getEditorStrings } from './strings';
 import {
   EDITOR_MAX_FILE_BYTES,
   FONT_OPTIONS,
+  buildBlocksFromLines,
   buildLinesFromSpans,
   buildReplacements,
   drawSignatureToDataUrl,
@@ -89,6 +90,7 @@ import {
   type ShapeObject,
   type StampObject,
   type SpanInfo,
+  type TextBlock,
   type TextLine,
   type TextObject,
 } from './editor-core';
@@ -171,7 +173,8 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
 
   // Text selection (click-to-edit existing text)
   const [hoverKey, setHoverKey] = useState<string | null>(null);
-  const hoverLineRef = useRef<TextLine | null>(null);
+  const [blocksByPage, setBlocksByPage] = useState<Map<number, TextBlock[]>>(new Map());
+  const hoverBlockRef = useRef<TextBlock | null>(null);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [draftText, setDraftText] = useState('');
   const [moveMode, setMoveMode] = useState(false);
@@ -453,43 +456,48 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       return;
     }
     if (activeTool !== 'text') {
-      if (hoverKey) { setHoverKey(null); hoverLineRef.current = null; }
+      if (hoverKey) { setHoverKey(null); hoverBlockRef.current = null; }
       return;
     }
     // Zoom-proof: the text-layer span under the pointer knows its line —
     // native elementFromPoint needs no coordinate math at all.
     const el = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement | null;
     const liAttr = el?.closest?.('[data-li]')?.getAttribute('data-li');
-    let hit: TextLine | null = null;
+    let hitLine: TextLine | null = null;
     if (liAttr !== null && liAttr !== undefined && liAttr !== '-1') {
       const lines = textLinesRef.current.get(pageIndex);
-      hit = lines?.[Number(liAttr)] ?? null;
+      hitLine = lines?.[Number(liAttr)] ?? null;
     }
-    if (!hit) {
+    if (!hitLine) {
       const pt = toViewPt(pageIndex, e.clientX, e.clientY);
       const lines = textLinesRef.current.get(pageIndex);
-      hit = lines ? findLineAt(lines, pageIndex, pt.x, pt.y) : null;
+      hitLine = lines ? findLineAt(lines, pageIndex, pt.x, pt.y) : null;
     }
-    const key = hit ? `${pageIndex}:${hit.x.toFixed(0)}:${hit.yTop.toFixed(0)}` : null;
+    // Upgrade to block: lines of the same page that cluster with the hit
+    let hitBlock: TextBlock | null = null;
+    if (hitLine) {
+      const blocks = blocksByPage.get(pageIndex);
+      hitBlock = blocks?.find((b) => b.lines.some((l) => l === hitLine)) ?? null;
+    }
+    const key = hitLine ? `${pageIndex}:${(hitBlock ?? hitLine).x.toFixed(0)}:${(hitBlock ?? hitLine).yTop.toFixed(0)}` : null;
     if (key !== hoverKey) {
       setHoverKey(key);
-      hoverLineRef.current = hit;
+      hoverBlockRef.current = hitBlock;
     }
-  }, [activeTool, hoverKey, findLineAt, toViewPt]);
+  }, [activeTool, blocksByPage, hoverKey, findLineAt, toViewPt]);
 
-  /** Sejda behaviour: a single click on existing text immediately turns it
-   *  into an editable object (whiteout + prefilled inline editor + the
-   *  floating style bar). No intermediate selection step. */
-  const startLineEdit = useCallback((line: TextLine) => {
-    console.warn('[probe-line]', JSON.stringify({ str: line.str.slice(0, 24), fs: line.fontSize, x: line.x, yTop: line.yTop }));
-    const whiteout: EditObject = { id: nextObjectId(), kind: 'whiteout', pageIndex: line.pageIndex, x: line.x, yTop: line.yTop, width: line.width, height: line.height * 1.3 };
+  /** Acrobat behaviour: a single click on existing text selects the whole
+   *  block (Acrobat's dashed boundary), whites out the block area and opens
+   *  a prefilled block editor that re-flows on export. */
+  const startBlockEdit = useCallback((block: TextBlock) => {
+    const whiteout: EditObject = { id: nextObjectId(), kind: 'whiteout', pageIndex: block.pageIndex, x: block.x, yTop: block.yTop, width: block.width, height: block.height * 1.15 };
     const text: TextObject = {
-      id: nextObjectId(), kind: 'text', pageIndex: line.pageIndex,
-      x: line.x, yTop: line.yTop, width: Math.max(line.width, 40),
-      text: line.str.replace(/\s+$/, ''), fontSize: line.fontSize,
+      id: nextObjectId(), kind: 'text', pageIndex: block.pageIndex,
+      x: block.x, yTop: block.yTop, width: Math.max(block.width, 40),
+      text: block.text, fontSize: block.fontSize,
       color: '#111111', bold: styleBold, italic: styleItalic, fontId: styleFont,
+      lineHeightRatio: block.lineHeightRatio, wrap: true,
     };
-    console.log('[e2e-probe] startLineEdit', text.id, 'objects-before=', objects.length);
     commit([...objects, whiteout, text]);
     setSelectedId(text.id);
     setEditingId(text.id);
@@ -697,7 +705,8 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
         const lines = textLinesRef.current.get(pageIndex);
         const hit = lines?.[Number(liAttr)] ?? null;
         if (hit) {
-          startLineEdit(hit);
+          const blk = blocksByPage.get(pageIndex)?.find((b) => b.lines.some((l) => l === hit));
+          startBlockEdit(blk ?? ({ ...hit, lineHeightRatio: 1.25 } as unknown as TextBlock));
           return;
         }
       }
@@ -709,7 +718,8 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
         const pt2 = toViewPt(pageIndex, e.clientX, e.clientY);
         const hit = findLineAt(lines, pageIndex, pt2.x, pt2.y);
         if (hit) {
-                startLineEdit(hit); // single click = immediately editable (Sejda)
+          const blk = blocksByPage.get(pageIndex)?.find((b) => b.lines.some((l) => l === hit));
+          startBlockEdit(blk ?? ({ ...hit, lineHeightRatio: 1.25 } as unknown as TextBlock)); // single click = block editable (Acrobat)
         } else {
           addTextAt(pageIndex, pt2.x, pt2.y);
         }
@@ -732,7 +742,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
     }
     dragRef.current = { mode: 'draw-rect', pageIndex, startVx: pt.x, startVy: pt.y };
     setDraftRect({ pageIndex, x: pt.x, yTop: pt.y, w: 0, h: 0 });
-  }, [activeTool, addTextAt, applying, commitTextEdit, editingId, findObjectAt, moveMode, objects, placeAsset, selected, startLineEdit, toViewPt]);
+  }, [activeTool, addTextAt, applying, blocksByPage, commitTextEdit, editingId, findObjectAt, moveMode, objects, placeAsset, selected, startBlockEdit, toViewPt]);
 
   const onOverlayPointerUp = useCallback((e: React.PointerEvent) => {
     const drag = dragRef.current;
@@ -826,6 +836,11 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
 
   const handleLinesReady = useCallback((pi: number, lines: TextLine[]) => {
     textLinesRef.current.set(pi, lines);
+    setBlocksByPage((prev) => {
+      const next = new Map(prev);
+      next.set(pi, buildBlocksFromLines(lines));
+      return next;
+    });
   }, []);
 
   // ------------------------------------------------------------------
@@ -1433,10 +1448,13 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
                 onPointerUp={onOverlayPointerUp}
               >
                 {/* Hover highlight (Text tool) */}
-                {activeTool === 'text' && hoverLineRef.current?.pageIndex === idx && (
-                  <div className="absolute bg-blue-500/25 border-2 border-blue-500 pointer-events-none rounded-sm"
-                    style={{ left: hoverLineRef.current.x * zoom, top: hoverLineRef.current.yTop * zoom, width: hoverLineRef.current.width * zoom, height: hoverLineRef.current.height * zoom }} />
-                )}
+                {activeTool === 'text' && hoverBlockRef.current?.pageIndex === idx && (() => {
+                  const b = hoverBlockRef.current;
+                  return (
+                    <div className="absolute bg-blue-500/15 border-2 border-dashed border-blue-500 pointer-events-none rounded-sm"
+                      style={{ left: b.x * zoom, top: b.yTop * zoom, width: b.width * zoom, height: b.height * zoom }} />
+                  );
+                })()}
 
                 {objects.filter((o) => o.pageIndex === idx).map((o) => (
                   <ObjectView

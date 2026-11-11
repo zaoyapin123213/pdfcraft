@@ -32,6 +32,8 @@ export interface TextObject extends BaseObject {
   align?: 'left' | 'center' | 'right';
   lineHeightRatio?: number; // default 1.25
   script?: 'normal' | 'super' | 'sub';
+  /** Block edits re-flow: lines longer than width wrap to the next line. */
+  wrap?: boolean;
 }
 
 export interface WhiteoutObject extends BaseObject {
@@ -420,7 +422,17 @@ export function buildLinesFromSpans(
     const top = Math.min(...g.map((sp) => sp.topPx));
     const bottom = Math.max(...g.map((sp) => sp.topPx + sp.heightPx));
     const fontSizePt = Math.max(...g.map((sp) => sp.fontSizePt));
-    const str = g.map((sp) => sp.text).join('');
+    // pdf.js text-layer spans are word-level: rebuild word spacing from the
+    // span gaps (a gap > ~20% of the font size means a space was there).
+    let str = '';
+    let prevRight = -Infinity;
+    for (const sp of g) {
+      if (str && sp.leftPx - prevRight > fontSizePt * 0.2 && !str.endsWith(' ') && !sp.text.startsWith(' ')) {
+        str += ' ';
+      }
+      str += sp.text;
+      prevRight = sp.leftPx + sp.widthPx;
+    }
     const li = lines.length;
     for (const sp of g) spanLineIndex[posOf.get(sp) ?? 0] = li;
     if (!str.trim()) continue;
@@ -436,6 +448,97 @@ export function buildLinesFromSpans(
     });
   }
   return { lines, spanLineIndex };
+}
+
+export interface TextBlock {
+  pageIndex: number;
+  lines: TextLine[];
+  /** Union bbox of the member lines (PDF pt, top-left anchor). */
+  x: number;
+  yTop: number;
+  width: number;
+  height: number;
+  text: string; // lines joined with 
+
+  fontSize: number;
+  lineHeightRatio: number;
+}
+
+/**
+ * Merge consecutive text lines into paragraph blocks (Acrobat's block
+ * detection): a line joins the current block when it is vertically close
+ * (gap < 0.8x line height) and horizontally overlapping.
+ */
+export function buildBlocksFromLines(lines: TextLine[]): TextBlock[] {
+  const sorted = [...lines].sort((a, b) => a.yTop - b.yTop);
+  const blocks: Array<{ lines: TextLine[]; x: number; right: number; top: number; bottom: number }> = [];
+  for (const l of sorted) {
+    const lh = l.height || l.fontSize * 1.25;
+    const b = blocks[blocks.length - 1];
+    const overlap = b ? Math.min(b.right, l.x + l.width) - Math.max(b.x, l.x) : -1;
+    // Break on large font-size change (headings / table text differ from
+    // body) so blocks do not swallow neighbouring sections.
+    const sizeJump = b ? Math.abs(b.lines[b.lines.length - 1].fontSize - l.fontSize) / Math.max(l.fontSize, 1) : 0;
+    if (
+      b &&
+      sizeJump < 0.3 &&
+      l.yTop - b.bottom < lh * 0.7 &&
+      l.yTop - b.bottom > -lh &&
+      overlap > Math.min(b.right - b.x, l.width) * 0.3
+    ) {
+      b.lines.push(l);
+      b.x = Math.min(b.x, l.x);
+      b.right = Math.max(b.right, l.x + l.width);
+      b.bottom = Math.max(b.bottom, l.yTop + l.height);
+    } else {
+      blocks.push({ lines: [l], x: l.x, right: l.x + l.width, top: l.yTop, bottom: l.yTop + l.height });
+    }
+  }
+  return blocks.map((b) => {
+    const fontSize = Math.max(...b.lines.map((l) => l.fontSize));
+    const gaps: number[] = [];
+    for (let i = 1; i < b.lines.length; i++) {
+      gaps.push(b.lines[i].yTop - b.lines[i - 1].yTop);
+    }
+    const avgGap = gaps.length ? gaps.reduce((a, c) => a + c, 0) / gaps.length : fontSize * 1.25;
+    const ratio = Math.max(1, Math.min(2.2, avgGap / fontSize));
+    return {
+      pageIndex: b.lines[0].pageIndex,
+      lines: b.lines,
+      x: b.x,
+      yTop: b.top,
+      width: b.right - b.x,
+      height: b.bottom - b.top,
+      text: b.lines.map((l) => l.str.replace(/\s+$/, '')).join('\n'),
+      fontSize,
+      lineHeightRatio: ratio,
+    };
+  });
+}
+
+/**
+ * Break text into lines that fit maxWidth (word-aware, single-
+ kept).
+ * Used for block re-flow on export.
+ */
+export function wrapTextToWidth(
+  text: string,
+  measure: (s: string) => number,
+  maxWidth: number
+): string[] {
+  const out: string[] = [];
+  for (const para of text.split('\n')) {
+    if (!para) { out.push(''); continue; }
+    const words = para.split(/\s+/);
+    let cur = '';
+    for (const w of words) {
+      const cand = cur ? `${cur} ${w}` : w;
+      if (measure(cand) <= maxWidth || !cur) cur = cand;
+      else { out.push(cur); cur = w; }
+    }
+    out.push(cur);
+  }
+  return out;
 }
 
 /** Find the text line containing the given point (top-left PDF space). */
@@ -821,7 +924,11 @@ export async function exportEditedPdf(options: ExportOptions): Promise<ExportRes
         }
         const font = await embedFontFor(pdfLib, pdfDoc, obj.fontId, obj.bold, obj.italic, obj.text, embeddedFonts);
         const c = hexToRgbRgb(obj.color);
-        const lines = obj.text.split('\n');
+        // Acrobat-style block re-flow: wrapped block edits re-break lines to
+        // the object width (word-aware), like the desktop engine's reflow.
+        const lines = obj.wrap
+          ? wrapTextToWidth(obj.text, (t) => font.widthOfTextAtSize(t, obj.fontSize), obj.width)
+          : obj.text.split('\n');
         // Acrobat-style format properties (Format panel): line-height ratio,
         // alignment, underline, super/subscript.
         const ratio = obj.lineHeightRatio && obj.lineHeightRatio > 0 ? obj.lineHeightRatio : 1.25;
