@@ -521,6 +521,9 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       commit(objects.map((x) => (x.id === editingId ? { ...(x as TextObject), text: draftText } : x)));
     }
     setEditingId(null);
+    // Keep the Text tool active (Acrobat/Sejda behaviour): the user can
+    // immediately double-click another block to edit it.
+    setActiveTool('text');
   }, [commit, draftText, editingId, objects]);
 
   const duplicateSelected = useCallback(() => {
