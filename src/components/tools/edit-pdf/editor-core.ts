@@ -477,11 +477,14 @@ export function buildBlocksFromLines(lines: TextLine[]): TextBlock[] {
     const b = blocks[blocks.length - 1];
     const overlap = b ? Math.min(b.right, l.x + l.width) - Math.max(b.x, l.x) : -1;
     // Break on large font-size change (headings / table text differ from
-    // body) so blocks do not swallow neighbouring sections.
+    // body) so blocks do not swallow neighbouring sections. A tight 15%
+    // threshold keeps headings separate from body text — the block edit
+    // renders the whole block at one size, so mixed sizes would visibly
+    // inflate the smaller text.
     const sizeJump = b ? Math.abs(b.lines[b.lines.length - 1].fontSize - l.fontSize) / Math.max(l.fontSize, 1) : 0;
     if (
       b &&
-      sizeJump < 0.3 &&
+      sizeJump < 0.15 &&
       l.yTop - b.bottom < lh * 0.7 &&
       l.yTop - b.bottom > -lh &&
       overlap > Math.min(b.right - b.x, l.width) * 0.3
@@ -495,7 +498,13 @@ export function buildBlocksFromLines(lines: TextLine[]): TextBlock[] {
     }
   }
   return blocks.map((b) => {
-    const fontSize = Math.max(...b.lines.map((l) => l.fontSize));
+    // Character-count-weighted size: matches what the eye sees (a block of
+    // mostly 9pt text with one 10pt fragment should read as ~9pt), and avoids
+    // the MAX() behaviour that inflated edited text above the original.
+    const totalChars = b.lines.reduce((acc, l) => acc + Math.max(l.str.length, 1), 0);
+    const fontSize = Math.round(
+      (b.lines.reduce((acc, l) => acc + l.fontSize * Math.max(l.str.length, 1), 0) / totalChars) * 10
+    ) / 10;
     const gaps: number[] = [];
     for (let i = 1; i < b.lines.length; i++) {
       gaps.push(b.lines[i].yTop - b.lines[i - 1].yTop);

@@ -1748,7 +1748,7 @@ onPointerDown={(e) => e.stopPropagation()}
                       data-floating
                       onPointerDown={(e) => e.stopPropagation()}
                       className="absolute bg-white/85 border-2 border-blue-500 rounded-sm px-0.5 resize-none overflow-hidden z-10"
-                      style={{ left: t.x * zoom, top: t.yTop * zoom, width: Math.max(t.width, 60) * zoom, height: Math.max(t.fontSize * 1.5 * draftText.split('\n').length + 14, 30), fontSize: t.fontSize * zoom, fontFamily: family, fontWeight: t.bold ? 700 : 400, fontStyle: t.italic ? 'italic' : 'normal', color: t.color, lineHeight: 1.25 }}
+                      style={{ left: t.x * zoom, top: t.yTop * zoom, width: Math.max(t.width, 60) * zoom, height: Math.max(t.fontSize * (t.lineHeightRatio ?? 1.25) * draftText.split('\n').length + 14, 30), fontSize: t.fontSize * zoom, fontFamily: family, fontWeight: t.bold ? 700 : 400, fontStyle: t.italic ? 'italic' : 'normal', color: t.color, lineHeight: t.lineHeightRatio ?? 1.25 }}
                       value={draftText}
                       onChange={(e) => setDraftText(e.target.value)}
                       onKeyDown={(e) => {
