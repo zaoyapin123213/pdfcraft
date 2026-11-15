@@ -174,27 +174,27 @@ export const toolContentEn: Record<string, ToolContent> = {
 
   'edit-pdf': {
     title: 'Edit PDF',
-    metaDescription: 'Free online PDF editor with full PDF annotation. Add text, images, highlights and shapes, or delete text from your PDF - no upload, no signup.',
+    metaDescription: 'Free online PDF editor with full PDF annotation. Add text, images, highlights and shapes, or cover text you want removed from your PDF - no upload, no signup.',
     keywords: ['edit pdf', 'pdf annotation', 'delete text from pdf free', 'pdf editor', 'annotate pdf', 'add text to pdf', 'pdf markup'],
     description: `
       <p>Edit PDF provides a comprehensive set of tools for modifying and annotating your PDF documents. Add text, images, shapes, highlights, comments, and more without needing expensive desktop software.</p>
-      <p>The intuitive editor interface makes it easy to mark up documents for review, add notes for collaboration, redact sensitive information, or enhance documents with additional content.</p>
+      <p>The intuitive editor interface makes it easy to mark up documents for review, add notes for collaboration, cover sensitive information before sharing, or enhance documents with additional content.</p>
       <p>All editing happens locally in your browser, ensuring complete privacy for your sensitive documents.</p>
           <p>You can also draw in PDF free-hand with the pencil and shape tools, annotate with highlights and comments, and delete text from PDF files by covering it - all free, with no account.</p>
     `,
     howToUse: [
       { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to edit.' },
-      { step: 2, title: 'Select Editing Tool', description: 'Choose from the toolbar: text, highlight, shapes, images, comments, or redaction tools.' },
+      { step: 2, title: 'Select Editing Tool', description: 'Choose from the toolbar: text, highlight, shapes, images, comments, or the Whiteout cover tool.' },
       { step: 3, title: 'Make Your Edits', description: 'Click on the document to add annotations, drag to position elements, and use the properties panel to customize.' },
       { step: 4, title: 'Save and Download', description: 'Click Save to apply your changes and download the edited PDF.' },
     ],
     useCases: [
       { title: 'Document Review', description: 'Add comments, highlights, and markup to documents for collaborative review processes.', icon: 'message-square' },
       { title: 'Form Completion', description: 'Fill in text fields, add signatures, and complete PDF forms without printing.', icon: 'edit-3' },
-      { title: 'Content Redaction', description: 'Permanently remove sensitive information from documents before sharing.', icon: 'eye-off' },
+      { title: 'Cover Sensitive Text', description: 'Cover sensitive information with white boxes before sharing — visually hidden, exactly what prints.', icon: 'eye-off' },
     ],
     faq: [
-      { question: 'Can I edit the original text in the PDF?', answer: 'This tool focuses on adding annotations and new content. For editing existing text, you may need to use the original source document.' },
+      { question: 'Can I edit the original text in the PDF?', answer: 'Yes. Double-click any text block to cover the original line and type your replacement on top of it — the result reads and prints as the corrected text. For sensitive removal, use the Whiteout tool.' },
       { question: 'Are my edits permanent?', answer: 'Annotations can be flattened to make them permanent, or kept as editable layers depending on your preference.' },
       { question: 'Can I undo my changes?', answer: 'Yes, the editor supports undo/redo functionality. You can also reset to the original document at any time before saving.' },
     ],

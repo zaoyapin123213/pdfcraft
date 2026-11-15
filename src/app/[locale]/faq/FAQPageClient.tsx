@@ -179,13 +179,14 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
                           <ChevronDown className="h-5 w-5 text-[hsl(var(--color-muted-foreground))] flex-shrink-0" />
                         )}
                       </button>
-                      {expandedItems.has(index) && (
-                        <div className="px-6 pb-4">
-                          <p className="text-[hsl(var(--color-muted-foreground))] leading-relaxed">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      )}
+                      {/* Answer stays in the static HTML (SEO/AI crawlers) and is
+                          shown/hidden by the accordion toggle — never conditionally
+                          mounted, so non-JS crawlers see all 16 answers. */}
+                      <div className="px-6 pb-4" hidden={!expandedItems.has(index)}>
+                        <p className="text-[hsl(var(--color-muted-foreground))] leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
                     </Card>
                   ))}
                 </div>

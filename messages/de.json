@@ -227,7 +227,7 @@
         },
         "edit": {
           "question": "Can I edit text in a PDF?",
-          "answer": "PDFEditorFree provides annotation and editing tools including highlighting, adding text, shapes, images, and signatures. For full text editing, the PDF Editor tool offers comprehensive annotation capabilities."
+          "answer": "PDFEditorFree provides annotation and editing tools including highlighting, adding text, shapes, images, and signatures. Yes - open the Edit PDF tool and double-click any text block to cover it and type your replacement in place."
         }
       },
       "technical": {

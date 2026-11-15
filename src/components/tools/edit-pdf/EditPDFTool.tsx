@@ -62,6 +62,7 @@ import { Button, Card, Modal } from '@/components/ui';
 import FileUploader from '@/components/tools/FileUploader';
 import DownloadButton from '@/components/tools/DownloadButton';
 import { loadPdfjs } from '@/lib/pdf/loader';
+import { PDFJS_CONFIG } from '@/lib/pdf/config';
 import { getEditorStrings } from './strings';
 import {
   EDITOR_MAX_FILE_BYTES,
@@ -335,7 +336,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
       const buf = await f.arrayBuffer();
       originalBytesRef.current = buf;
       const pdfjs = await loadPdfjs();
-      const doc = await pdfjs.getDocument({ data: new Uint8Array(buf.slice(0)) }).promise;
+      const doc = await pdfjs.getDocument({ data: new Uint8Array(buf.slice(0)), cMapUrl: PDFJS_CONFIG.cMapUrl, cMapPacked: PDFJS_CONFIG.cMapPacked, standardFontDataUrl: PDFJS_CONFIG.standardFontDataUrl }).promise;
       pdfDocRef.current = doc;
       const n = doc.numPages;
       const sizes: PageSize[] = [];
@@ -1186,7 +1187,7 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
           <Card className="mt-4 p-4 text-sm text-red-600 border-red-300">{error}</Card>
         )}
         <Card className="mt-6 p-5">
-          <h3 className="font-semibold mb-2">What you can do</h3>
+          <h2 className="font-semibold mb-2">What you can do</h2>
           <ul className="text-sm text-[hsl(var(--color-muted-foreground))] space-y-1 list-disc pl-5">
             <li>Click any existing text to select it, then edit or replace it</li>
             <li>Add text with fonts, sizes, colors — including Chinese, Japanese and Korean</li>
@@ -1340,6 +1341,7 @@ onPointerDown={(e) => e.stopPropagation()}
         type="text"
         className="h-7 w-36 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-1.5 text-xs"
         placeholder={s.linkPlaceholder}
+                            aria-label={s.linkUrl}
         value={selected.value}
         onChange={(e) => commit(objects.map((o) => (o.id === selected.id ? { ...selected, value: e.target.value } : o)))}
       />
@@ -1467,6 +1469,7 @@ onPointerDown={(e) => e.stopPropagation()}
                         type="text"
                         className="flex-1 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
                         placeholder={s.signName}
+                          aria-label={s.signName}
                         value={signName}
                         onChange={(e) => setSignName(e.target.value)}
                       />
@@ -1490,7 +1493,7 @@ onPointerDown={(e) => e.stopPropagation()}
                     </div>
                   )}
                   {signMode === 'upload' && (
-                    <input type="file" accept="image/png,image/jpeg" className="w-full text-xs" onChange={onSignFilePicked} />
+                    <input type="file" accept="image/png,image/jpeg" aria-label={s.signUpload} className="w-full text-xs" onChange={onSignFilePicked} />
                   )}
                   <button
                     type="button"
@@ -1600,6 +1603,7 @@ onPointerDown={(e) => e.stopPropagation()}
               type="text"
               className="w-44 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
               placeholder={s.findPlaceholder}
+                      aria-label={s.findPlaceholder}
               value={findText}
               onChange={(e) => setFindText(e.target.value)}
             />
@@ -1607,6 +1611,7 @@ onPointerDown={(e) => e.stopPropagation()}
               type="text"
               className="w-44 rounded-md border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] px-2 py-1 text-xs"
               placeholder={s.replacePlaceholder}
+                      aria-label={s.replacePlaceholder}
               value={replaceText}
               onChange={(e) => setReplaceText(e.target.value)}
             />
@@ -2028,21 +2033,17 @@ function PageCanvas(props: {
         // canvas, so line boxes derived from their DOM rects can never
         // drift the way transform-based estimates do.
         const layerDiv = textLayerRef.current;
-        console.warn('[tl-debug] stage0 layerDiv=', !!layerDiv, 'onLinesReady=', !!onLinesReady);
         if (layerDiv && onLinesReady) {
           try {
             layerDiv.innerHTML = '';
             layerDiv.style.setProperty('--scale-factor', String(zoom));
             const pdfjsMod = await import('pdfjs-dist');
-            console.warn('[tl-debug] stage1 mod=', typeof pdfjsMod.TextLayer);
             const tl = new pdfjsMod.TextLayer({
               textContentSource: page.streamTextContent(),
               container: layerDiv,
               viewport: page.getViewport({ scale: zoom, rotation }),
             });
-            console.warn('[tl-debug] stage2 constructed');
             await tl.render();
-            console.warn('[tl-debug] stage3 rendered spans=', layerDiv.querySelectorAll('span').length);
             const spans = [...layerDiv.querySelectorAll('span')].map((sp) => {
               const r = sp.getBoundingClientRect();
               const w0 = wrapRef.current?.getBoundingClientRect();

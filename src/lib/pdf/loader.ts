@@ -31,10 +31,9 @@ export function configurePdfjsWorker(pdfjsLib: PDFJSModule): void {
   if (workerConfigured) return;
   
   if (typeof window !== 'undefined') {
-    // Use the worker from pdfjs-dist package via CDN to ensure version match
-    // This avoids version mismatch between API and worker
-    const version = pdfjsLib.version;
-    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${version}/pdf.worker.min.mjs`;
+    // Self-hosted worker copied from the same pdfjs-dist package as the API —
+    // exact version match with no third-party request at file-select time.
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '/workers/pdf.worker.min.mjs';
     workerConfigured = true;
   }
 }

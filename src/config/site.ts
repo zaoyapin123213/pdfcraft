@@ -3,7 +3,7 @@
  */
 export const siteConfig = {
   name: 'PDFEditorFree',
-  description: 'Free online PDF editor with 95 professional tools. Merge, split, compress, convert, and edit PDF files in your browser - no upload, no registration, 100% private.',
+  description: 'Free online PDF editor with 96 professional tools. Merge, split, compress, convert, and edit PDF files in your browser - no upload, no registration, 100% private.',
   url: 'https://pdfeditorfree.net',
   ogImage: '/images/og-image.png',
   links: {
@@ -27,7 +27,7 @@ export const siteConfig = {
   // SEO-related settings
   seo: {
     titleTemplate: '%s | PDFEditorFree',
-    defaultTitle: 'Free PDF Editor & 95 Online PDF Tools | PDFEditorFree',
+    defaultTitle: 'Free PDF Editor & 96 Online PDF Tools | PDFEditorFree',
     twitterHandle: '@pdfcraft',
     locale: 'en_US',
   },

@@ -105,6 +105,6 @@ export function getBlogPostsForTool(toolSlug: string): Array<{
         (t) => t.href === `/en/tools/${toolSlug}/` || t.href === `/en/tools/${toolSlug}`
       )
     )
-    .slice(0, 2)
+    .slice(0, 4)
     .map((p) => ({ slug: p.slug, h1: p.h1, description: p.description }));
 }

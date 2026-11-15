@@ -69,9 +69,24 @@ export default async function BlogPostPage({ params }: BlogPostParams) {
   const url = `${SITE_URL}/en/blog/${post.slug}/`;
 
   // Topical cluster: sibling guides in the same category (crawl + ranking)
+  // Topical cluster: sibling guides ranked by keyword overlap (semantic, not
+  // date-ordered — all Tutorials posts no longer recommend the same 3).
+  // Posts whose keywords share the most terms with this post rank first;
+  // same-category posts are preferred as a tiebreaker.
   const relatedGuides = blogPosts
-    .filter((p) => p.slug !== post.slug && p.category === post.category)
-    .slice(0, 3);
+    .filter((p) => p.slug !== post.slug)
+    .map((p) => {
+      const shared = post.keywords.filter((k) => p.keywords.includes(k)).length;
+      const sharedWords = post.title
+        .toLowerCase()
+        .split(/\s+/)
+        .filter((w) => w.length > 3)
+        .filter((w) => p.title.toLowerCase().includes(w)).length;
+      return { post: p, score: shared * 3 + sharedWords + (p.category === post.category ? 1 : 0) };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map((x) => x.post);
 
   const schemas: object[] = [
     {
@@ -157,6 +172,13 @@ export default async function BlogPostPage({ params }: BlogPostParams) {
                 </Link>
               ))}
             </div>
+            {/* Cluster hub link: every post points into its tool-category hub
+                (the hubs reciprocally link back to related guides) */}
+            <p className="mt-3 text-sm">
+              <Link href="/en/tools/" className="text-[hsl(var(--color-primary))] hover:underline">
+                Browse all 96 PDF tools →
+              </Link>
+            </p>
           </section>
         )}
 

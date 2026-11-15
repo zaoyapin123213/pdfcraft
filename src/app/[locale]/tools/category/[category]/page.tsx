@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
 import { TOOL_CATEGORIES, type ToolCategory } from '@/types/tool';
@@ -115,6 +116,17 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
         locale as Locale
     );
 
+    // Hub reciprocates the cluster: link up to 4 guides whose relatedTools
+    // point at tools in this category (fixes the hub dead-end found in audit)
+    const { blogPosts } = await import('@/content/blog');
+    const relatedPosts = blogPosts
+        .filter((p) =>
+            p.relatedTools.some((t) =>
+                toolsInCategory.some((tool) => t.href === `/en/tools/${tool.slug}/` || t.href === `/en/tools/${tool.slug}`)
+            )
+        )
+        .slice(0, 4);
+
     return (
         <>
             <JsonLd data={[itemListSchema, breadcrumbSchema]} />
@@ -123,6 +135,24 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
                 category={category as ToolCategory}
                 localizedToolContent={localizedToolContent}
             />
+            {relatedPosts.length > 0 && (
+                <section className="max-w-4xl mx-auto px-4 pb-16 w-full" aria-labelledby="related-guides-hub">
+                    <h2 id="related-guides-hub" className="text-2xl font-bold mb-4">Related guides</h2>
+                    <ul className="grid gap-3 sm:grid-cols-2">
+                        {relatedPosts.map((p) => (
+                            <li key={p.slug}>
+                                <Link
+                                    href={`/${locale}/blog/${p.slug}/`}
+                                    className="block rounded-xl border border-[hsl(var(--color-border))] p-5 hover:border-[hsl(var(--color-primary))] transition-colors h-full"
+                                >
+                                    <p className="font-semibold mb-1">{p.h1}</p>
+                                    <p className="text-sm text-[hsl(var(--color-muted-foreground))]">{p.description}</p>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            )}
         </>
     );
 }

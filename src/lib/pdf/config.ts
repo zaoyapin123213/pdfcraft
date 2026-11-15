@@ -9,14 +9,17 @@
 /**
  * PDF.js configuration
  */
+export const pdfjsVersionForCdn = '4.8.69'; // matches installed pdfjs-dist
+
 export const PDFJS_CONFIG = {
-  // Worker source path - loaded from public directory
+  // Self-hosted worker (public/workers/, copied from pdfjs-dist each build)
   workerSrc: '/workers/pdf.worker.min.mjs',
-  // CMap URL for character mapping
-  cMapUrl: '/pdfjs/cmaps/',
+  // CMaps + standard fonts come from the version-matched cdnjs release
+  // (deploying ~3MB of binary assets to the repo is not worth it; these
+  // only load for PDFs with non-embedded CJK fonts)
+  cMapUrl: `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsVersionForCdn}/cmaps/`,
   cMapPacked: true,
-  // Standard fonts URL
-  standardFontDataUrl: '/pdfjs/standard_fonts/',
+  standardFontDataUrl: `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsVersionForCdn}/standard_fonts/`,
 } as const;
 
 /**

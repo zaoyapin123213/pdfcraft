@@ -72,9 +72,7 @@ export interface WebPageSchema {
   url: string;
   inLanguage: string;
   isPartOf: {
-    '@type': 'WebSite';
-    name: string;
-    url: string;
+    '@id': string;
   };
   about?: {
     '@type': 'Thing';
@@ -257,11 +255,7 @@ export function generateStaticPageSchema(
     description,
     url: `${siteConfig.url}/${locale}${cleanPath}/`,
     inLanguage: LOCALE_TO_LANGUAGE[locale] || 'en-US',
-    isPartOf: {
-      '@type': 'WebSite',
-      name: siteConfig.name,
-      url: `${siteConfig.url}/${locale}/`,
-    },
+    isPartOf: { '@id': `${siteConfig.url}/#website` },
   };
 }
 
@@ -281,11 +275,7 @@ export function generateWebPageSchema(
     // Trailing slash matches the site's canonical URL format
     url: `${siteConfig.url}/${locale}/tools/${tool.slug}/`,
     inLanguage: LOCALE_TO_LANGUAGE[locale] || 'en-US',
-    isPartOf: {
-      '@type': 'WebSite',
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
+    isPartOf: { '@id': `${siteConfig.url}/#website` },
     about: {
       '@type': 'Thing',
       name: 'PDF Processing',

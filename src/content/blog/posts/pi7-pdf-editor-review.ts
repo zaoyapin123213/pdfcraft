@@ -23,7 +23,7 @@ export const pi7PdfEditorReview: BlogPost = {
     { question: 'Is Pi7 safe to use for confidential PDFs?', answer: 'The important question with any upload-based tool is where your file goes: it travels to and is processed on the site\'s servers. For confidential documents - contracts, IDs, financial or medical files - local-processing tools are the safer architecture, because the file never leaves your device at all.' },
     { question: 'What can Pi7 PDF editor do?', answer: 'Free online tool sites in this category typically cover the everyday PDF tasks: adding text or images to pages, merging and splitting, format conversions, and basic page management. The exact tool list and depth changes over time - evaluate against your specific task rather than the category.' },
     { question: 'What are the limitations of free online PDF editors like Pi7?', answer: 'The category-wide limits: files must be uploaded (privacy consideration), practical size and task limits, ad-supported interfaces, and internet dependence. Tasks needing heavy files, offline work or strict confidentiality fit local tools better.' },
-    { question: 'What is the best alternative to Pi7?', answer: 'For the same everyday tasks without uploads, PDFEditorFree\'s free toolbox covers 95 operations - edit, merge, split, convert, sign, compress, OCR - processing entirely in your browser via WebAssembly, with no signup and no file-size anxiety.' },
+    { question: 'What is the best alternative to Pi7?', answer: 'For the same everyday tasks without uploads, PDFEditorFree\'s free toolbox covers 96 operations - edit, merge, split, convert, sign, compress, OCR - processing entirely in your browser via WebAssembly, with no signup and no file-size anxiety.' },
     { question: 'Do online PDF tools keep my files?', answer: 'Policies vary by site - reputable ones state they delete files after processing, but the upload itself is the structural exposure: the file existed on someone else\'s system. If that concerns you for any document class, local tools eliminate the question entirely.' },
     { question: 'Which tasks are fine to run on upload-based sites?', answer: 'Non-sensitive documents with no personal, financial, medical or confidential content are reasonable anywhere. The dividing line is simple: if the document embarrasses you or harms anyone by disclosure, process it locally.' },
   ],
@@ -236,7 +236,7 @@ Category-typical coverage: page editing, merge/split, conversions, page manageme
 Uploads required, size and task limits, ad-supported interfaces, connectivity dependence - the standard category edges that local tools do not share.
 
 **What is the best alternative to Pi7?**
-PDFEditorFree's free toolbox: 95 operations - edit, merge, split, convert, sign, compress, OCR - processed entirely in your browser, no signup, no uploads.
+PDFEditorFree's free toolbox: 96 operations - edit, merge, split, convert, sign, compress, OCR - processed entirely in your browser, no signup, no uploads.
 
 **Do online PDF tools keep my files?**
 Policies vary and reputable sites state deletion windows - but the structural fact is the file reached their system at all. Sensitive documents belong in local tools, where the question never arises.
