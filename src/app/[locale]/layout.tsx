@@ -75,6 +75,11 @@ export default async function LocaleLayout({
           with a different crossorigin value would NOT be deduped by the
           browser, so it was removed — re-add only if a next/font upgrade
           stops emitting the preload. */}
+      <head>
+        {/* RSL 1.0 license discovery (spec section 4.2 allows HTML <link>):
+            Cloudflare strips the HTTP Link header for its Early Hints feature */}
+        <link rel="license" href="/rsl.xml" />
+      </head>
       <div lang={locale} dir={direction} className={`${fontVariables} min-h-screen bg-background text-foreground antialiased font-sans`}>
         <SkipLink targetId="main-content">Skip to main content</SkipLink>
         {children}
