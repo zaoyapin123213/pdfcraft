@@ -203,7 +203,7 @@ export function PosterizePDFTool({ className = '' }: PosterizePDFToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('posterizePdf.uploadLabel') || 'Upload PDF File'}
+          label={tTools('posterizePdf.uploadLabel') || 'Add PDF file'}
           description={tTools('posterizePdf.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
         />
       )}

@@ -21,7 +21,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>すべての処理はブラウザ内で直接行われ、ドキュメントのプライバシーとセキュリティが確保されます。ファイルはサーバーにアップロードされません。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFを追加', description: 'PDFファイルをアップロードエリアにドラッグ＆ドロップするか、クリックしてデバイスからファイルを選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをツールにドラッグ＆ドロップするか、クリックしてデバイスからファイルを選択します。' },
       { step: 2, title: '操作を選択', description: '利用可能な操作から選択：結合、分割、整理、ページ削除、回転、空白ページ追加、ページ抽出。' },
       { step: 3, title: 'オプションを設定', description: 'ページ範囲、回転角度、結合順序など、選択した操作に固有の設定を調整します。' },
       { step: 4, title: '処理してダウンロード', description: '処理ボタンをクリックし、操作が完了したら変更されたPDFをダウンロードします。' },
@@ -48,7 +48,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>すべての結合はブラウザ内でローカルに行われ、機密ドキュメントの完全なプライバシーが確保されます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFファイルを追加', description: '複数のPDFファイルをアップロードエリアにドラッグ＆ドロップするか、クリックしてデバイスからファイルを選択します。' },
+      { step: 1, title: 'PDFファイルを追加', description: '複数のPDFファイルをツールにドラッグ＆ドロップするか、クリックしてデバイスからファイルを選択します。' },
       { step: 2, title: '順序を並べ替え', description: 'ファイルのサムネイルをドラッグ＆ドロップして希望の順序に並べ替えます。' },
       { step: 3, title: '結合してダウンロード', description: '結合ボタンをクリックしてすべてのファイルを結合し、結合されたPDFをダウンロードします。' },
     ],

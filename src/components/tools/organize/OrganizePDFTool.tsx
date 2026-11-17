@@ -334,7 +334,7 @@ export function OrganizePDFTool({ className = '' }: OrganizePDFToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('organizePdf.uploadLabel') || 'Upload PDF File'}
+          label={tTools('organizePdf.uploadLabel') || 'Add PDF file'}
           description={tTools('organizePdf.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
         />
       )}

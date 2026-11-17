@@ -286,7 +286,7 @@ export function DeletePagesTool({ className = '' }: DeletePagesToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('deletePages.uploadLabel') || 'Upload PDF File'}
+          label={tTools('deletePages.uploadLabel') || 'Add PDF file'}
           description={tTools('deletePages.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
         />
       )}

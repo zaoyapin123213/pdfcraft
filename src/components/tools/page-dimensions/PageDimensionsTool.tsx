@@ -174,7 +174,7 @@ export function PageDimensionsTool({ className = '' }: PageDimensionsToolProps) 
         onFilesSelected={handleFilesSelected}
         onError={handleUploadError}
         disabled={isProcessing}
-        label={tTools('pageDimensions.uploadLabel') || 'Upload PDF File'}
+        label={tTools('pageDimensions.uploadLabel') || 'Add PDF file'}
         description={tTools('pageDimensions.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
       />
 

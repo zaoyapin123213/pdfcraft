@@ -188,7 +188,7 @@ export function RemoveMetadataTool({ className = '' }: RemoveMetadataToolProps) 
         onFilesSelected={handleFilesSelected}
         onError={handleUploadError}
         disabled={isProcessing}
-        label={tTools('removeMetadata.uploadLabel') || 'Upload PDF File'}
+        label={tTools('removeMetadata.uploadLabel') || 'Add PDF file'}
         description={tTools('removeMetadata.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
       />
 

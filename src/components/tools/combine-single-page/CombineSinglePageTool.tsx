@@ -185,7 +185,7 @@ export function CombineSinglePageTool({ className = '' }: CombineSinglePageToolP
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('combineSinglePage.uploadLabel') || 'Upload PDF File'}
+          label={tTools('combineSinglePage.uploadLabel') || 'Add PDF file'}
           description={tTools('combineSinglePage.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
         />
       )}

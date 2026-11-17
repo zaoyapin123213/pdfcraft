@@ -355,7 +355,7 @@ export function CropPDFTool({ className = '' }: CropPDFToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={setError}
           disabled={isProcessing}
-          label={tTools('cropPdf.uploadLabel') || "Upload PDF File"}
+          label={tTools('cropPdf.uploadLabel') || 'Add PDF file'}
           description={tTools('cropPdf.uploadDescription') || "Drag and drop a PDF file to crop."}
         />
       )}

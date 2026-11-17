@@ -224,7 +224,7 @@ export function SignPDFTool({ className = '' }: SignPDFToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('signPdf.uploadLabel') || 'Upload PDF File'}
+          label={tTools('signPdf.uploadLabel') || 'Add PDF file'}
           description={tTools('signPdf.uploadDescription') || 'Drag and drop a PDF file to sign.'}
         />
       )}

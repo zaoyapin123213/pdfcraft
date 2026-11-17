@@ -433,7 +433,7 @@ export function BookmarkTool({ className = '' }: BookmarkToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={setError}
           disabled={isProcessing}
-          label={tTools('bookmark.uploadLabel') || 'Upload PDF File'}
+          label={tTools('bookmark.uploadLabel') || 'Add PDF file'}
           description={tTools('bookmark.uploadDescription') || 'Drag and drop a PDF file to edit bookmarks.'}
         />
       )}

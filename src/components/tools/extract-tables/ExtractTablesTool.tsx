@@ -123,7 +123,7 @@ export function ExtractTablesTool({ className = '' }: ExtractTablesToolProps) {
                 onFilesSelected={handleFilesSelected}
                 onError={handleUploadError}
                 disabled={isProcessing}
-                label={tTools('extractTables.uploadLabel') || 'Upload PDF File'}
+                label={tTools('extractTables.uploadLabel') || 'Add PDF file'}
                 description={tTools('extractTables.uploadDescription') || 'Drag and drop a PDF file to extract tables from.'}
             />
 

@@ -167,7 +167,7 @@ export function FixPageSizeTool({ className = '' }: FixPageSizeToolProps) {
         onFilesSelected={handleFilesSelected}
         onError={handleUploadError}
         disabled={isProcessing}
-        label={tTools('fixPageSize.uploadLabel') || 'Upload PDF File'}
+        label={tTools('fixPageSize.uploadLabel') || 'Add PDF file'}
         description={tTools('fixPageSize.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
       />
 

@@ -232,7 +232,7 @@ export function EditAttachmentsTool({ className = '' }: EditAttachmentsToolProps
         onFilesSelected={handlePdfSelected}
         onError={handleUploadError}
         disabled={isProcessing || isLoadingAttachments}
-        label={tTools('editAttachments.uploadLabel') || 'Upload PDF File'}
+        label={tTools('editAttachments.uploadLabel') || 'Add PDF file'}
         description={tTools('editAttachments.uploadDescription') || 'Select a PDF file to view and manage its attachments.'}
       />
 

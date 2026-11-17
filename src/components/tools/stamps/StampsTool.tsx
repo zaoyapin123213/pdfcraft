@@ -104,7 +104,7 @@ export function StampsTool({ className = '' }: StampsToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('uploadLabel') || 'Upload PDF File'}
+          label={tTools('uploadLabel') || 'Add PDF file'}
           description={tTools('uploadDescription') || 'Drag and drop a PDF file here.'}
         />
       )}

@@ -149,7 +149,7 @@ export function SanitizePDFTool({ className = '' }: SanitizePDFToolProps) {
         onFilesSelected={handleFilesSelected}
         onError={handleUploadError}
         disabled={isProcessing}
-        label={tTools('sanitizePdf.uploadLabel') || 'Upload PDF File'}
+        label={tTools('sanitizePdf.uploadLabel') || 'Add PDF file'}
         description={tTools('sanitizePdf.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
       />
 

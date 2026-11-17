@@ -266,7 +266,7 @@ export function RotatePDFTool({ className = '' }: RotatePDFToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('rotatePdf.uploadLabel') || 'Upload PDF File'}
+          label={tTools('rotatePdf.uploadLabel') || 'Add PDF file'}
           description={tTools('rotatePdf.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
         />
       )}

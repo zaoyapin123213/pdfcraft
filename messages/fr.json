@@ -586,7 +586,7 @@
       "successMessage": "PDFs merged successfully! Click the download button to save your file."
     },
     "splitPdf": {
-      "uploadLabel": "Télécharger un fichier PDF",
+      "uploadLabel": "Ajouter un fichier PDF",
       "uploadDescription": "Glissez-déposez un fichier PDF ici, ou cliquez pour parcourir.",
       "splitModeTitle": "Méthode de division",
       "splitModeLabel": "Mode de division",
@@ -654,7 +654,7 @@
       "successMessage": "PDF posterized successfully! Click the download button to save your file."
     },
     "pdfMultiTool": {
-      "uploadLabel": "Télécharger des fichiers PDF",
+      "uploadLabel": "Ajouter des fichiers PDF",
       "uploadDescription": "Glissez-déposez des fichiers PDF ici, ou cliquez pour parcourir. Vous pouvez télécharger plusieurs fichiers.",
       "addMoreFiles": "Ajouter d'autres fichiers PDF",
       "organize": "Organiser",
@@ -727,7 +727,7 @@
       "successMessage": "Metadata updated successfully! Click the download button to save your file."
     },
     "editPdf": {
-      "uploadLabel": "Upload PDF to Edit",
+      "uploadLabel": "Ajoutez le PDF à modifier",
       "uploadDescription": "Drag and drop a PDF file here, or click to browse.",
       "instructions": "How to use",
       "instructionsText": "Use the toolbar above the PDF to add text, draw, highlight, or add images. Click the download button (💾) in the toolbar to save your edited PDF.",
@@ -760,7 +760,7 @@
       }
     },
     "imageToPdf": {
-      "uploadLabel": "Upload Images",
+      "uploadLabel": "Ajouter des images",
       "uploadDescription": "Drag and drop images here, or click to browse. Supports JPG, PNG, WebP, BMP, TIFF, SVG, HEIC.",
       "imagesTitle": "Images",
       "reorderHint": "Drag and drop to reorder images. Images will appear in the PDF in the order shown.",
@@ -852,7 +852,7 @@
       "optionsTitle": "Crop Options"
     },
     "organizePdf": {
-      "uploadLabel": "Télécharger un fichier PDF",
+      "uploadLabel": "Ajouter un fichier PDF",
       "uploadDescription": "Glissez-déposez un fichier PDF pour organiser les pages.",
       "reorderTitle": "Glissez pour réorganiser les pages",
       "reverseOrder": "Inverser l'ordre",
@@ -886,7 +886,7 @@
       "successMessage": "Pages divided successfully!"
     },
     "extractAttachments": {
-      "uploadLabel": "Télécharger des fichiers PDF",
+      "uploadLabel": "Ajouter des fichiers PDF",
       "uploadDescription": "Sélectionnez des fichiers PDF pour extraire les pièces jointes.",
       "filesTitle": "Fichiers sélectionnés",
       "extractButton": "Extraire les pièces jointes",
@@ -895,7 +895,7 @@
       "successMessage": "Pièces jointes extraites avec succès !"
     },
     "extractImages": {
-      "uploadLabel": "Télécharger des fichiers PDF",
+      "uploadLabel": "Ajouter des fichiers PDF",
       "uploadDescription": "Sélectionnez des fichiers PDF pour extraire les images.",
       "filesTitle": "Fichiers sélectionnés",
       "filterTitle": "Options de filtre",
@@ -995,7 +995,7 @@
       "successMessage": "Page order reversed successfully! Click the download button to save your file."
     },
     "nUpPdf": {
-      "uploadLabel": "Télécharger un fichier PDF",
+      "uploadLabel": "Ajouter un fichier PDF",
       "uploadDescription": "Glissez-déposez un fichier PDF ici, ou cliquez pour parcourir.",
       "optionsTitle": "Options N-Up",
       "layout": "Mise en page",
@@ -1065,7 +1065,7 @@
     },
     "alternateMerge": {
       "uploadLabel": "Ajouter des fichiers PDF",
-      "uploadDescription": "Upload two or more PDF files to interleave their pages alternately.",
+      "uploadDescription": "Ajouter un fichier PDF",
       "filesTitle": "Files to Interleave",
       "reorderHint": "Drag and drop to reorder files. Pages will be interleaved in the order shown (1st page from file 1, 1st page from file 2, 2nd page from file 1, etc.).",
       "optionsTitle": "Interleave Options",
@@ -1097,7 +1097,7 @@
       "pdfUploadLabel": "Ajouter un fichier PDF",
       "pdfUploadDescription": "Select the PDF file to add attachments to.",
       "attachmentsTitle": "2. Select Files to Attach",
-      "attachmentsUploadLabel": "Upload Attachments",
+      "attachmentsUploadLabel": "Ajouter un fichier PDF",
       "attachmentsUploadDescription": "Select files to embed in the PDF. Any file type is supported.",
       "optionsTitle": "Attachment Options",
       "attachmentLevel": "Attachment Level",
@@ -1125,9 +1125,9 @@
     },
     "comparePdfs": {
       "file1Label": "First PDF (Original)",
-      "uploadFile1": "Upload First PDF",
+      "uploadFile1": "Ajouter un fichier PDF",
       "file2Label": "Second PDF (Modified)",
-      "uploadFile2": "Upload Second PDF",
+      "uploadFile2": "Ajouter un fichier PDF",
       "uploadDescription": "Drag and drop or click to browse",
       "compareButton": "Compare PDFs",
       "resultsTitle": "Comparison Results",
@@ -1158,7 +1158,7 @@
       "successMessage": "Successfully packaged PDF files into a ZIP archive. Click the download button to save your file."
     },
     "textToPdf": {
-      "uploadLabel": "Upload Text Files",
+      "uploadLabel": "Ajouter des fichiers PDF",
       "uploadDescription": "Drag and drop text files here, or click to browse.",
       "filesTitle": "Text Files",
       "preview": "Preview",
@@ -1173,7 +1173,7 @@
       "successMessage": "Text converted to PDF successfully! Click the download button to save your file."
     },
     "txtToPdf": {
-      "uploadLabel": "Upload Text Files",
+      "uploadLabel": "Ajouter des fichiers PDF",
       "uploadDescription": "Drag and drop text files here, or click to browse.",
       "filesTitle": "Text Files",
       "preview": "Preview",
@@ -1186,7 +1186,7 @@
       "wrapLines": "Wrap long lines",
       "convertButton": "Convert to PDF",
       "successMessage": "Text converted to PDF successfully! Click the download button to save your file.",
-      "modeUpload": "Upload Files",
+      "modeUpload": "Ajouter un fichier PDF",
       "modeText": "Enter Text",
       "enterText": "Enter Text",
       "textPlaceholder": "Type or paste your text here...",
@@ -1208,13 +1208,13 @@
       "languageHint": "Select languages used in your text for proper font support"
     },
     "jsonToPdf": {
-      "uploadLabel": "Upload JSON File",
+      "uploadLabel": "Ajouter un PDF",
       "uploadDescription": "Drag and drop a JSON file.",
       "convertButton": "Convert to PDF",
       "successMessage": "JSON converted to PDF successfully!"
     },
     "pdfToImage": {
-      "uploadLabel": "Télécharger un fichier PDF",
+      "uploadLabel": "Ajouter un fichier PDF",
       "uploadDescription": "Glissez-déposez un fichier PDF pour le convertir.",
       "optionsTitle": "Options de conversion",
       "format": "Format d'image",
@@ -1239,7 +1239,7 @@
       "successMessage": "PDF converti en images avec succès !"
     },
     "pdfToSvg": {
-      "uploadLabel": "Télécharger un fichier PDF",
+      "uploadLabel": "Ajouter un fichier PDF",
       "uploadDescription": "Glissez-déposez un fichier PDF pour le convertir en SVG.",
       "optionsTitle": "Options de conversion",
       "resolution": "Résolution",
@@ -1482,7 +1482,7 @@
       "successMessage": "Bookmarks saved successfully!"
     },
     "pageNumbers": {
-      "uploadLabel": "Télécharger un fichier PDF",
+      "uploadLabel": "Ajouter un fichier PDF",
       "uploadDescription": "Glissez-déposez un fichier PDF.",
       "optionsTitle": "Options de numérotation",
       "positionTitle": "Position",
@@ -1611,7 +1611,7 @@
       "successMessage": "Form saved successfully!"
     },
     "formCreator": {
-      "uploadLabel": "Télécharger un fichier PDF",
+      "uploadLabel": "Ajouter un fichier PDF",
       "uploadDescription": "Glissez-déposez un fichier PDF ici.",
       "toolbarTitle": "Barre d'outils",
       "selectTool": "Sélectionner",
@@ -1760,70 +1760,70 @@
     },
     "deskewPdf": {
       "uploadLabel": "Ajouter des fichiers PDF",
-      "uploadDescription": "Upload PDFs to straighten.",
+      "uploadDescription": "Ajouter un fichier PDF",
       "optionsTitle": "Options",
       "processButton": "Deskew PDF",
       "successMessage": "PDF deskewed!"
     },
     "pdfBooklet": {
-      "uploadLabel": "Upload PDF",
-      "uploadDescription": "Upload PDF for booklet.",
+      "uploadLabel": "Ajouter un PDF",
+      "uploadDescription": "Ajouter un fichier PDF",
       "optionsTitle": "Options",
       "createButton": "Create",
       "successMessage": "Booklet created!"
     },
     "rasterizePdf": {
-      "uploadLabel": "Upload PDFs",
-      "uploadDescription": "Upload to rasterize.",
+      "uploadLabel": "Ajouter un PDF",
+      "uploadDescription": "Ajouter un fichier PDF",
       "optionsTitle": "Options",
       "rasterizeButton": "Rasterize",
       "successMessage": "Rasterized!"
     },
     "markdownToPdf": {
-      "uploadLabel": "Upload Markdown",
-      "uploadDescription": "Upload .md file.",
+      "uploadLabel": "Ajouter un PDF",
+      "uploadDescription": "Ajouter un fichier PDF",
       "optionsTitle": "Options",
       "convertButton": "Convert",
       "successMessage": "Converted!"
     },
     "emailToPdf": {
-      "uploadLabel": "Upload Email",
-      "uploadDescription": "Upload .eml file.",
+      "uploadLabel": "Ajouter un PDF",
+      "uploadDescription": "Ajouter un fichier PDF",
       "optionsTitle": "Options",
       "convertButton": "Convert",
       "successMessage": "Converted!"
     },
     "cbzToPdf": {
-      "uploadLabel": "Upload CBZ",
-      "uploadDescription": "Upload comic.",
+      "uploadLabel": "Ajouter un PDF",
+      "uploadDescription": "Ajouter un fichier PDF",
       "optionsTitle": "Options",
       "convertButton": "Convert",
       "successMessage": "Converted!"
     },
     "pdfToPdfa": {
-      "uploadLabel": "Upload PDF",
-      "uploadDescription": "Upload for PDF/A.",
+      "uploadLabel": "Ajouter un PDF",
+      "uploadDescription": "Ajouter un fichier PDF",
       "optionsTitle": "Options",
       "convertButton": "Convert",
       "successMessage": "PDF/A created!"
     },
     "fontToOutline": {
-      "uploadLabel": "Upload PDFs",
-      "uploadDescription": "Upload to outline fonts.",
+      "uploadLabel": "Ajouter un PDF",
+      "uploadDescription": "Ajouter un fichier PDF",
       "optionsTitle": "Options",
       "convertButton": "Convert",
       "successMessage": "Fonts outlined!"
     },
     "extractTables": {
-      "uploadLabel": "Upload PDF",
-      "uploadDescription": "Upload to extract tables.",
+      "uploadLabel": "Ajouter un PDF",
+      "uploadDescription": "Ajouter un fichier PDF",
       "optionsTitle": "Options",
       "extractButton": "Extract",
       "successMessage": "Extracted!"
     },
     "ocgManager": {
-      "uploadLabel": "Upload PDF",
-      "uploadDescription": "Upload to manage layers.",
+      "uploadLabel": "Ajouter un PDF",
+      "uploadDescription": "Ajouter un fichier PDF",
       "layersTitle": "Layers",
       "noLayers": "No layers.",
       "addLayerLabel": "Add Layer",
@@ -1834,7 +1834,7 @@
       "uploadDescription": "Open PDF to read."
     },
     "translatePdf": {
-      "uploadLabel": "Téléchargez un PDF à traduire",
+      "uploadLabel": "Ajoutez un PDF à traduire",
       "uploadDescription": "Glissez-déposez un fichier PDF ici, ou cliquez pour parcourir. Le fichier est traité localement dans votre navigateur.",
       "sourceLang": "Langue source",
       "targetLang": "Traduire vers",

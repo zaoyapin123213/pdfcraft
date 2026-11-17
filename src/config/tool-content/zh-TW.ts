@@ -25,7 +25,7 @@ export const toolContentZhTw: Record<string, ToolContent> = {
       <p>所有處理都直接在您的瀏覽器中完成，確保您的文件保持私密和安全。不會將任何檔案上傳到伺服器。</p>
     `,
     howToUse: [
-      { step: 1, title: '新增PDF檔案', description: '將PDF檔案拖放到上傳區域，或點選瀏覽並從裝置中選擇檔案。' },
+      { step: 1, title: '新增PDF檔案', description: '將PDF檔案拖放到工具中，或點選瀏覽並從裝置中選擇檔案。' },
       { step: 2, title: '選擇操作', description: '從可用操作中選擇：合併、拆分、整理、刪除頁面、旋轉、新增空白頁或提取頁面。' },
       { step: 3, title: '配置選項', description: '根據所選操作調整設定，如頁面範圍、旋轉角度或合併順序。' },
       { step: 4, title: '處理並下載', description: '點選處理按鈕，操作完成後下載修改後的PDF。' },
@@ -52,7 +52,7 @@ export const toolContentZhTw: Record<string, ToolContent> = {
       <p>所有合併操作都在您的瀏覽器本地進行，確保敏感文件的完全隱私。</p>
     `,
     howToUse: [
-      { step: 1, title: '新增PDF檔案', description: '將多個PDF檔案拖放到上傳區域，或點選從裝置中選擇檔案。' },
+      { step: 1, title: '新增PDF檔案', description: '將多個PDF檔案拖放到工具中，或點選從裝置中選擇檔案。' },
       { step: 2, title: '排列順序', description: '拖放檔案縮圖以按所需順序排列。' },
       { step: 3, title: '合併並下載', description: '點選合併按鈕組合所有檔案，然後下載合併後的PDF。' },
     ],
@@ -1443,7 +1443,7 @@ export const toolContentZhTw: Record<string, ToolContent> = {
       <p>所有處理都在本地完成，確保您的設計和作品保留在裝置上，保持私密和安全。</p>
     `,
     howToUse: [
-      { step: 1, title: '新增PSD檔案', description: '將PSD檔案拖放到上傳區域。支援大檔案。' },
+      { step: 1, title: '新增PSD檔案', description: '將PSD檔案拖放到工具中。支援大檔案。' },
       { step: 2, title: '處理', description: '工具將讀取PSD資料並將其轉換為PDF格式。' },
       { step: 3, title: '下載', description: '立即下載轉換後的PDF檔案。' },
     ],

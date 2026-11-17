@@ -171,7 +171,7 @@ export function ReversePagesTool({ className = '' }: ReversePagesToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('reversePages.uploadLabel') || 'Upload PDF File'}
+          label={tTools('reversePages.uploadLabel') || 'Add PDF file'}
           description={tTools('reversePages.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
         />
       )}

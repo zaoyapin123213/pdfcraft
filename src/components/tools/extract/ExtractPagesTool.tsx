@@ -272,7 +272,7 @@ export function ExtractPagesTool({ className = '' }: ExtractPagesToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('extractPages.uploadLabel') || 'Upload PDF File'}
+          label={tTools('extractPages.uploadLabel') || 'Add PDF file'}
           description={tTools('extractPages.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
         />
       )}

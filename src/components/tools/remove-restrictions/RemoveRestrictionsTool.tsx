@@ -193,7 +193,7 @@ export function RemoveRestrictionsTool({ className = '' }: RemoveRestrictionsToo
         onFilesSelected={handleFilesSelected}
         onError={handleUploadError}
         disabled={isProcessing}
-        label={tTools('removeRestrictions.uploadLabel') || 'Upload PDF File'}
+        label={tTools('removeRestrictions.uploadLabel') || 'Add PDF file'}
         description={tTools('removeRestrictions.uploadDescription') || 'Drag and drop a restricted PDF file here, or click to browse.'}
       />
 

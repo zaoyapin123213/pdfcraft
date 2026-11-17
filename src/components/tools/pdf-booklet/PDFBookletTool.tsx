@@ -119,7 +119,7 @@ export function PDFBookletTool({ className = '' }: PDFBookletToolProps) {
                 onFilesSelected={handleFilesSelected}
                 onError={handleUploadError}
                 disabled={isProcessing}
-                label={tTools('pdfBooklet.uploadLabel') || 'Upload PDF File'}
+                label={tTools('pdfBooklet.uploadLabel') || 'Add PDF file'}
                 description={tTools('pdfBooklet.uploadDescription') || 'Drag and drop a PDF file to create a booklet layout.'}
             />
 

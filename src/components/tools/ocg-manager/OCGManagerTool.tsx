@@ -199,7 +199,7 @@ export function OCGManagerTool({ className = '' }: OCGManagerToolProps) {
                 onFilesSelected={handleFilesSelected}
                 onError={handleUploadError}
                 disabled={isProcessing}
-                label={tTools('ocgManager.uploadLabel') || 'Upload PDF File'}
+                label={tTools('ocgManager.uploadLabel') || 'Add PDF file'}
                 description={tTools('ocgManager.uploadDescription') || 'Drag and drop a PDF to manage its layers (OCG).'}
             />
 

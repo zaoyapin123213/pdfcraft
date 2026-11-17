@@ -193,7 +193,7 @@ export function DividePagesTool({ className = '' }: DividePagesToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('dividePages.uploadLabel') || 'Upload PDF File'}
+          label={tTools('dividePages.uploadLabel') || 'Add PDF file'}
           description={tTools('dividePages.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
         />
       )}

@@ -432,7 +432,7 @@ export function SplitPDFTool({ className = '' }: SplitPDFToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('splitPdf.uploadLabel') || 'Upload PDF File'}
+          label={tTools('splitPdf.uploadLabel') || 'Add PDF file'}
           description={tTools('splitPdf.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
         />
       )}

@@ -309,7 +309,7 @@ export function ViewMetadataTool({ className = '' }: ViewMetadataToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('viewMetadata.uploadLabel') || 'Upload PDF File'}
+          label={tTools('viewMetadata.uploadLabel') || 'Add PDF file'}
           description={tTools('viewMetadata.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
         />
       )}

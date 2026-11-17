@@ -282,7 +282,7 @@ export function RotateCustomTool({ className = '' }: RotateCustomToolProps) {
                     onFilesSelected={handleFilesSelected}
                     onError={handleUploadError}
                     disabled={isProcessing}
-                    label="Upload PDF File"
+                    label="Add PDF file"
                     description="Drag and drop a PDF file here, or click to browse."
                 />
             )}

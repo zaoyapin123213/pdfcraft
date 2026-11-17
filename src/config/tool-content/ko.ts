@@ -21,7 +21,7 @@ export const toolContentKo: Record<string, ToolContent> = {
       <p>모든 처리는 브라우저에서 직접 이루어지며, 문서의 개인 정보와 보안이 보장됩니다. 파일이 서버에 업로드되지 않습니다.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 업로드 영역에 드래그 앤 드롭하거나 클릭하여 장치에서 파일을 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 도구에 드래그 앤 드롭하거나 클릭하여 장치에서 파일을 선택합니다.' },
       { step: 2, title: '작업 선택', description: '사용 가능한 작업 중 선택: 병합, 분할, 정리, 페이지 삭제, 회전, 빈 페이지 추가, 페이지 추출.' },
       { step: 3, title: '옵션 구성', description: '페이지 범위, 회전 각도, 병합 순서 등 선택한 작업에 특정한 설정을 조정합니다.' },
       { step: 4, title: '처리 및 다운로드', description: '처리 버튼을 클릭하고 작업이 완료되면 수정된 PDF를 다운로드합니다.' },
@@ -44,7 +44,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 병합', 'pdf 결합', 'pdf 합치기', 'pdf 머저', 'pdf 연결'],
     description: `<p>PDF 병합을 사용하면 여러 PDF 문서를 빠르고 쉽게 하나의 파일로 결합할 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 파일 추가', description: '여러 PDF 파일을 업로드 영역에 드래그 앤 드롭하거나 클릭하여 장치에서 파일을 선택합니다.' },
+      { step: 1, title: 'PDF 파일 추가', description: '여러 PDF 파일을 도구에 드래그 앤 드롭하거나 클릭하여 장치에서 파일을 선택합니다.' },
       { step: 2, title: '순서 정렬', description: '파일 썸네일을 드래그 앤 드롭하여 원하는 순서로 정렬합니다.' },
       { step: 3, title: '병합 및 다운로드', description: '병합 버튼을 클릭하여 모든 파일을 결합하고 병합된 PDF를 다운로드합니다.' },
     ],

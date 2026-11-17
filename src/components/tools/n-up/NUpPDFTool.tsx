@@ -211,7 +211,7 @@ export function NUpPDFTool({ className = '' }: NUpPDFToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('nUpPdf.uploadLabel') || 'Upload PDF File'}
+          label={tTools('nUpPdf.uploadLabel') || 'Add PDF file'}
           description={tTools('nUpPdf.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
         />
       )}

@@ -147,7 +147,7 @@ export function FlattenPDFTool({ className = '' }: FlattenPDFToolProps) {
         onFilesSelected={handleFilesSelected}
         onError={handleUploadError}
         disabled={isProcessing}
-        label={tTools('flattenPdf.uploadLabel') || 'Upload PDF File'}
+        label={tTools('flattenPdf.uploadLabel') || 'Add PDF file'}
         description={tTools('flattenPdf.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
       />
 

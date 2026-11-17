@@ -190,7 +190,7 @@ export function AddAttachmentsTool({ className = '' }: AddAttachmentsToolProps) 
           onFilesSelected={handlePdfSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('addAttachments.pdfUploadLabel') || 'Upload PDF File'}
+          label={tTools('addAttachments.pdfUploadLabel') || 'Add PDF file'}
           description={tTools('addAttachments.pdfUploadDescription') || 'Select the PDF file to add attachments to.'}
         />
         {pdfFile && (

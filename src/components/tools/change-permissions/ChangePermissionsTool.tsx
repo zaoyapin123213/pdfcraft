@@ -239,7 +239,7 @@ export function ChangePermissionsTool({ className = '' }: ChangePermissionsToolP
         onFilesSelected={handleFilesSelected}
         onError={handleUploadError}
         disabled={isProcessing}
-        label={tTools('changePermissions.uploadLabel') || 'Upload PDF File'}
+        label={tTools('changePermissions.uploadLabel') || 'Add PDF file'}
         description={tTools('changePermissions.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
       />
 

@@ -21,7 +21,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Die gesamte Verarbeitung findet direkt in Ihrem Browser statt, was die Privatsphäre und Sicherheit Ihrer Dokumente gewährleistet. Es werden keine Dateien auf einen Server hochgeladen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hinzufügen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop in den Upload-Bereich oder klicken Sie, um Dateien von Ihrem Gerät auszuwählen.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop in das Werkzeug oder klicken Sie, um Dateien von Ihrem Gerät auszuwählen.' },
       { step: 2, title: 'Operation wählen', description: 'Wählen Sie aus den verfügbaren Operationen: Zusammenfügen, Teilen, Organisieren, Seiten löschen, Drehen oder Extrahieren.' },
       { step: 3, title: 'Optionen konfigurieren', description: 'Passen Sie die spezifischen Einstellungen an, wie z. B. Seitenbereiche, Drehwinkel oder die Reihenfolge beim Zusammenfügen.' },
       { step: 4, title: 'Verarbeiten und Herunterladen', description: 'Klicken Sie auf die Schaltfläche zum Verarbeiten und laden Sie Ihre modifizierte PDF-Datei herunter.' },
@@ -704,7 +704,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Kombinieren Sie mehrere Bilder zu einer einzigen PDF-Datei, ordnen Sie diese nach Belieben an und passen Sie Seitengröße sowie Ausrichtung individuell an.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Bilder hinzufügen', description: 'Ziehen Sie Bilder in den Upload-Bereich oder wählen Sie Dateien von Ihrem Gerät.' },
+      { step: 1, title: 'Bilder hinzufügen', description: 'Ziehen Sie Bilder in das Werkzeug oder wählen Sie Dateien von Ihrem Gerät.' },
       { step: 2, title: 'Anordnen & Konfigurieren', description: 'Sortieren Sie die Bilder und legen Sie das Seitenformat (z. B. A4 oder Originalgröße) fest.' },
       { step: 3, title: 'Konvertieren', description: 'Erstellen Sie Ihr PDF und laden Sie das Ergebnis sofort herunter.' },
     ],

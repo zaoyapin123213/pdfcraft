@@ -185,7 +185,7 @@ export function AddBlankPageTool({ className = '' }: AddBlankPageToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('addBlankPage.uploadLabel') || 'Upload PDF File'}
+          label={tTools('addBlankPage.uploadLabel') || 'Add PDF file'}
           description={tTools('addBlankPage.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
         />
       )}

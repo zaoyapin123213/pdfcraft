@@ -262,7 +262,7 @@ export function HeaderFooterTool({ className = '' }: HeaderFooterToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={setError}
           disabled={isProcessing}
-          label={tTools('headerFooter.uploadLabel') || 'Upload PDF File'}
+          label={tTools('headerFooter.uploadLabel') || 'Add PDF file'}
           description={tTools('headerFooter.uploadDescription') || 'Drag and drop a PDF file here.'}
         />
       )}

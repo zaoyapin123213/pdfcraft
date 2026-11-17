@@ -325,7 +325,7 @@ export function EditMetadataTool({ className = '' }: EditMetadataToolProps) {
           onFilesSelected={handleFilesSelected}
           onError={handleUploadError}
           disabled={isProcessing}
-          label={tTools('editMetadata.uploadLabel') || 'Upload PDF File'}
+          label={tTools('editMetadata.uploadLabel') || 'Add PDF file'}
           description={tTools('editMetadata.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
         />
       )}

@@ -52,7 +52,7 @@
       "contact": "聯絡我們"
     },
     "buttons": {
-      "upload": "上傳檔案",
+      "upload": "選擇檔案",
       "download": "下載",
       "process": "處理",
       "cancel": "取消",
@@ -81,7 +81,7 @@
     },
     "status": {
       "idle": "就緒",
-      "uploading": "上傳中...",
+      "uploading": "處理中...",
       "processing": "處理中...",
       "complete": "完成",
       "error": "錯誤",
@@ -471,7 +471,7 @@
       "pdfTools": "PDF 工具",
       "freeToUse": "免費使用",
       "languages": "支援語言",
-      "filesUploaded": "檔案上傳"
+      "filesUploaded": "檔案新增"
     },
     "categories": {
       "popular": "熱門工具",
@@ -731,7 +731,7 @@
     },
     "pdfMultiTool": {
       "uploadLabel": "新增PDF檔案",
-      "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。可以上傳多個檔案。",
+      "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。可以新增多個檔案。",
       "addMoreFiles": "新增更多PDF檔案",
       "organize": "整理",
       "delete": "刪除",
@@ -803,7 +803,7 @@
       "successMessage": "後設資料更新成功！點選下載按鈕儲存檔案。"
     },
     "editPdf": {
-      "uploadLabel": "上傳PDF進行編輯",
+      "uploadLabel": "新增PDF進行編輯",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "instructions": "使用說明",
       "instructionsText": "使用PDF上方的工具欄新增文字、繪圖、高亮或新增圖片。點選工具欄中的下載按鈕（💾）儲存編輯後的PDF。",
@@ -836,7 +836,7 @@
       }
     },
     "imageToPdf": {
-      "uploadLabel": "上傳圖片",
+      "uploadLabel": "新增圖片",
       "uploadDescription": "拖放圖片到此處，或點選瀏覽。支援JPG、PNG、WebP、BMP、TIFF、SVG、HEIC。",
       "imagesTitle": "圖片",
       "reorderHint": "拖放以重新排序圖片。圖片將按顯示順序出現在PDF中。",
@@ -1029,7 +1029,7 @@
     },
     "rotateCustom": {
       "title": "自定義旋轉",
-      "uploadLabel": "上傳 PDF 檔案",
+      "uploadLabel": "新增 PDF 檔案",
       "uploadDescription": "將 PDF 檔案拖放到此處，或點選瀏覽。",
       "setAllLabel": "將所有頁面設定為：",
       "applyToAll": "全部應用",
@@ -1059,7 +1059,7 @@
     },
     "alternateMerge": {
       "uploadLabel": "新增PDF檔案",
-      "uploadDescription": "上傳兩個或更多PDF檔案以交替合併頁面。",
+      "uploadDescription": "新增兩個或更多PDF檔案以交替合併頁面。",
       "filesTitle": "要交替合併的檔案",
       "reorderHint": "拖放以重新排序檔案。頁面將按顯示順序交替合併（檔案1的第1頁，檔案2的第1頁，檔案1的第2頁，依此類推）。",
       "optionsTitle": "交替合併選項",
@@ -1116,7 +1116,7 @@
       "successMessage": "PDF檔案已成功打包為ZIP壓縮包。點選下載按鈕儲存檔案。"
     },
     "jsonToPdf": {
-      "uploadLabel": "上傳JSON檔案",
+      "uploadLabel": "新增JSON檔案",
       "uploadDescription": "拖放JSON檔案到此處。",
       "convertButton": "轉換為PDF",
       "successMessage": "JSON已成功轉換為PDF！"
@@ -1428,7 +1428,7 @@
       "infoText": "OCR（光學字元識別）從掃描文件和影象中提取文字。為獲得最佳效果，請使用高質量掃描件並選擇正確的語言。"
     },
     "textToPdf": {
-      "uploadLabel": "上傳文字檔案",
+      "uploadLabel": "新增文字檔案",
       "uploadDescription": "拖放文字檔案到此處，或點選瀏覽。",
       "filesTitle": "文字檔案",
       "preview": "預覽",
@@ -1443,7 +1443,7 @@
       "successMessage": "文字已成功轉換為PDF！點選下載按鈕儲存檔案。"
     },
     "txtToPdf": {
-      "uploadLabel": "上傳文字檔案",
+      "uploadLabel": "新增文字檔案",
       "uploadDescription": "拖放文字檔案到此處，或點選瀏覽。",
       "filesTitle": "文字檔案",
       "preview": "預覽",
@@ -1456,7 +1456,7 @@
       "wrapLines": "自動換行",
       "convertButton": "轉換為PDF",
       "successMessage": "文字已成功轉換為PDF！點選下載按鈕儲存檔案。",
-      "modeUpload": "上傳檔案",
+      "modeUpload": "選擇檔案",
       "modeText": "輸入文字",
       "enterText": "輸入文字",
       "textPlaceholder": "在此輸入或貼上文字...",
@@ -1568,7 +1568,7 @@
       "pdfUploadLabel": "新增PDF檔案",
       "pdfUploadDescription": "選擇要新增附件的PDF檔案。",
       "attachmentsTitle": "2. 選擇要附加的檔案",
-      "attachmentsUploadLabel": "上傳附件",
+      "attachmentsUploadLabel": "新增附件",
       "attachmentsUploadDescription": "選擇要嵌入PDF的檔案。支援任何檔案型別。",
       "optionsTitle": "附件選項",
       "attachmentLevel": "附件級別",
@@ -1581,9 +1581,9 @@
     },
     "comparePdfs": {
       "file1Label": "第一個PDF（原始）",
-      "uploadFile1": "上傳第一個PDF",
+      "uploadFile1": "新增第一個PDF",
       "file2Label": "第二個PDF（修改後）",
-      "uploadFile2": "上傳第二個PDF",
+      "uploadFile2": "新增第二個PDF",
       "uploadDescription": "拖放或點選瀏覽",
       "compareButton": "比較PDF",
       "resultsTitle": "比較結果",
@@ -1700,61 +1700,61 @@
       "successMessage": "您的PDF已成功轉換為DOCX！點選下載按鈕儲存檔案。"
     },
     "wordToPdf": {
-      "uploadLabel": "上傳Word文件",
+      "uploadLabel": "新增Word文件",
       "uploadDescription": "拖放Word文件（.docx）到此處，或點選瀏覽。",
       "convertButton": "轉換為PDF",
       "successMessage": "您的Word文件已成功轉換為PDF！"
     },
     "psdToPdf": {
-      "uploadLabel": "上傳 PSD 檔案",
+      "uploadLabel": "新增 PSD 檔案",
       "uploadDescription": "將 PSD (Photoshop) 檔案拖放到此處，或點選瀏覽。",
       "convertButton": "轉換為 PDF",
       "successMessage": "PSD 已成功轉換為 PDF！點選下載按鈕儲存檔案。"
     },
     "excelToPdf": {
-      "uploadLabel": "上傳Excel檔案",
+      "uploadLabel": "新增Excel檔案",
       "uploadDescription": "拖放Excel檔案（.xlsx）到此處，或點選瀏覽。",
       "convertButton": "轉換為PDF",
       "successMessage": "您的Excel檔案已成功轉換為PDF！"
     },
     "pptxToPdf": {
-      "uploadLabel": "上傳PowerPoint檔案",
+      "uploadLabel": "新增PowerPoint檔案",
       "uploadDescription": "拖放PowerPoint檔案（.pptx）到此處，或點選瀏覽。",
       "convertButton": "轉換為PDF",
       "successMessage": "您的PowerPoint檔案已成功轉換為PDF！"
     },
     "xpsToPdf": {
-      "uploadLabel": "上傳XPS檔案",
+      "uploadLabel": "新增XPS檔案",
       "uploadDescription": "拖放XPS檔案到此處，或點選瀏覽。",
       "convertButton": "轉換為PDF",
       "successMessage": "您的XPS檔案已成功轉換為PDF！"
     },
     "rtfToPdf": {
-      "uploadLabel": "上傳RTF檔案",
+      "uploadLabel": "新增RTF檔案",
       "uploadDescription": "拖放RTF檔案到此處，或點選瀏覽。",
       "convertButton": "轉換為PDF",
       "successMessage": "您的RTF檔案已成功轉換為PDF！"
     },
     "epubToPdf": {
-      "uploadLabel": "上傳EPUB檔案",
+      "uploadLabel": "新增EPUB檔案",
       "uploadDescription": "拖放EPUB電子書檔案到此處，或點選瀏覽。",
       "convertButton": "轉換為PDF",
       "successMessage": "您的EPUB檔案已成功轉換為PDF！"
     },
     "mobiToPdf": {
-      "uploadLabel": "上傳MOBI檔案",
+      "uploadLabel": "新增MOBI檔案",
       "uploadDescription": "拖放MOBI/AZW電子書檔案到此處，或點選瀏覽。",
       "convertButton": "轉換為PDF",
       "successMessage": "您的MOBI檔案已成功轉換為PDF！"
     },
     "fb2ToPdf": {
-      "uploadLabel": "上傳FB2檔案",
+      "uploadLabel": "新增FB2檔案",
       "uploadDescription": "拖放FB2電子書檔案到此處，或點選瀏覽。支援多個檔案。",
       "convertButton": "轉換為PDF",
       "successMessage": "您的FB2檔案已成功轉換為PDF！"
     },
     "djvuToPdf": {
-      "uploadLabel": "上傳DJVU檔案",
+      "uploadLabel": "新增DJVU檔案",
       "uploadDescription": "拖放DJVU檔案到此處，或點選瀏覽。",
       "optionsTitle": "轉換選項",
       "dpiLabel": "輸出DPI",
@@ -1766,71 +1766,71 @@
       "successMessage": "您的DJVU檔案已成功轉換為PDF！"
     },
     "deskewPdf": {
-      "uploadLabel": "Upload PDF Files",
-      "uploadDescription": "Upload PDFs to straighten.",
+      "uploadLabel": "新增PDF檔案",
+      "uploadDescription": "新增PDF檔案",
       "optionsTitle": "Options",
       "processButton": "Deskew PDF",
       "successMessage": "PDF deskewed!"
     },
     "pdfBooklet": {
-      "uploadLabel": "Upload PDF",
-      "uploadDescription": "Upload PDF for booklet.",
+      "uploadLabel": "新增PDF",
+      "uploadDescription": "新增PDF檔案",
       "optionsTitle": "Options",
       "createButton": "Create",
       "successMessage": "Booklet created!"
     },
     "rasterizePdf": {
-      "uploadLabel": "Upload PDFs",
-      "uploadDescription": "Upload to rasterize.",
+      "uploadLabel": "新增PDF",
+      "uploadDescription": "新增PDF檔案",
       "optionsTitle": "Options",
       "rasterizeButton": "Rasterize",
       "successMessage": "Rasterized!"
     },
     "markdownToPdf": {
-      "uploadLabel": "Upload Markdown",
-      "uploadDescription": "Upload .md file.",
+      "uploadLabel": "新增PDF",
+      "uploadDescription": "新增PDF檔案",
       "optionsTitle": "Options",
       "convertButton": "Convert",
       "successMessage": "Converted!"
     },
     "emailToPdf": {
-      "uploadLabel": "Upload Email",
-      "uploadDescription": "Upload .eml file.",
+      "uploadLabel": "新增PDF",
+      "uploadDescription": "新增PDF檔案",
       "optionsTitle": "Options",
       "convertButton": "Convert",
       "successMessage": "Converted!"
     },
     "cbzToPdf": {
-      "uploadLabel": "Upload CBZ",
-      "uploadDescription": "Upload comic.",
+      "uploadLabel": "新增PDF",
+      "uploadDescription": "新增PDF檔案",
       "optionsTitle": "Options",
       "convertButton": "Convert",
       "successMessage": "Converted!"
     },
     "pdfToPdfa": {
-      "uploadLabel": "Upload PDF",
-      "uploadDescription": "Upload for PDF/A.",
+      "uploadLabel": "新增PDF",
+      "uploadDescription": "新增PDF檔案",
       "optionsTitle": "Options",
       "convertButton": "Convert",
       "successMessage": "PDF/A created!"
     },
     "fontToOutline": {
-      "uploadLabel": "Upload PDFs",
-      "uploadDescription": "Upload to outline fonts.",
+      "uploadLabel": "新增PDF",
+      "uploadDescription": "新增PDF檔案",
       "optionsTitle": "Options",
       "convertButton": "Convert",
       "successMessage": "Fonts outlined!"
     },
     "extractTables": {
-      "uploadLabel": "Upload PDF",
-      "uploadDescription": "Upload to extract tables.",
+      "uploadLabel": "新增PDF",
+      "uploadDescription": "新增PDF檔案",
       "optionsTitle": "Options",
       "extractButton": "Extract",
       "successMessage": "Extracted!"
     },
     "ocgManager": {
-      "uploadLabel": "Upload PDF",
-      "uploadDescription": "Upload to manage layers.",
+      "uploadLabel": "新增PDF",
+      "uploadDescription": "新增PDF檔案",
       "layersTitle": "Layers",
       "noLayers": "No layers.",
       "addLayerLabel": "Add Layer",
@@ -1841,7 +1841,7 @@
       "uploadDescription": "Open PDF to read."
     },
     "translatePdf": {
-      "uploadLabel": "上傳要翻譯的 PDF",
+      "uploadLabel": "新增要翻譯的 PDF",
       "uploadDescription": "把 PDF 檔案拖到這裡，或點擊選擇。檔案始終在你的瀏覽器本地處理。",
       "sourceLang": "來源語言",
       "targetLang": "目標語言",

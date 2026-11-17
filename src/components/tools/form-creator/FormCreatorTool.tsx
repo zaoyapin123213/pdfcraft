@@ -947,7 +947,7 @@ export function FormCreatorTool({ className = '' }: FormCreatorToolProps) {
             onFilesSelected={handleFilesSelected}
             onError={setError}
             disabled={isProcessing}
-            label={tTools('formCreator.uploadLabel') || 'Upload PDF File'}
+            label={tTools('formCreator.uploadLabel') || 'Add PDF file'}
             description={tTools('formCreator.uploadDescription') || 'Drag and drop a PDF file here.'}
           />
 

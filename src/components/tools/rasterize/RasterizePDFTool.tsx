@@ -123,7 +123,7 @@ export function RasterizePDFTool({ className = '' }: RasterizePDFToolProps) {
                 onFilesSelected={handleFilesSelected}
                 onError={handleUploadError}
                 disabled={isProcessing}
-                label={tTools('rasterizePdf.uploadLabel') || 'Upload PDF File'}
+                label={tTools('rasterizePdf.uploadLabel') || 'Add PDF file'}
                 description={tTools('rasterizePdf.uploadDescription') || 'Drag and drop a PDF file to convert to images.'}
             />
 

@@ -19,7 +19,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都直接在您的浏览器中完成，确保您的文档保持私密和安全。不会将任何文件上传到服务器。</p>
     `,
     howToUse: [
-      { step: 1, title: '添加PDF文件', description: '将PDF文件拖放到上传区域，或点击浏览并从设备中选择文件。' },
+      { step: 1, title: '添加PDF文件', description: '将PDF文件拖放到工具中，或点击浏览并从设备中选择文件。' },
       { step: 2, title: '选择操作', description: '从可用操作中选择：合并、拆分、整理、删除页面、旋转、添加空白页或提取页面。' },
       { step: 3, title: '配置选项', description: '根据所选操作调整设置，如页面范围、旋转角度或合并顺序。' },
       { step: 4, title: '处理并下载', description: '点击处理按钮，操作完成后下载修改后的PDF。' },
@@ -46,7 +46,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有合并操作都在您的浏览器本地进行，确保敏感文档的完全隐私。</p>
     `,
     howToUse: [
-      { step: 1, title: '添加PDF文件', description: '将多个PDF文件拖放到上传区域，或点击从设备中选择文件。' },
+      { step: 1, title: '添加PDF文件', description: '将多个PDF文件拖放到工具中，或点击从设备中选择文件。' },
       { step: 2, title: '排列顺序', description: '拖放文件缩略图以按所需顺序排列。' },
       { step: 3, title: '合并并下载', description: '点击合并按钮组合所有文件，然后下载合并后的PDF。' },
     ],
@@ -1437,7 +1437,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在本地完成，确保您的设计和作品保留在设备上，保持私密和安全。</p>
     `,
     howToUse: [
-      { step: 1, title: '添加PSD文件', description: '将PSD文件拖放到上传区域。支持大文件。' },
+      { step: 1, title: '添加PSD文件', description: '将PSD文件拖放到工具中。支持大文件。' },
       { step: 2, title: '处理', description: '工具将读取PSD数据并将其转换为PDF格式。' },
       { step: 3, title: '下载', description: '立即下载转换后的PDF文件。' },
     ],

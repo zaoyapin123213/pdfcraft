@@ -164,7 +164,7 @@ export function EncryptPDFTool({ className = '' }: EncryptPDFToolProps) {
         onFilesSelected={handleFilesSelected}
         onError={handleUploadError}
         disabled={isProcessing}
-        label={tTools('encryptPdf.uploadLabel') || 'Upload PDF File'}
+        label={tTools('encryptPdf.uploadLabel') || 'Add PDF file'}
         description={tTools('encryptPdf.uploadDescription') || 'Drag and drop a PDF file here, or click to browse.'}
       />
 
