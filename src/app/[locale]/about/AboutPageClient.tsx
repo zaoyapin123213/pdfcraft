@@ -166,6 +166,19 @@ export default function AboutPageClient({ locale }: AboutPageClientProps) {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
+              {/* E-E-A-T anchor: the audited About page had no repo link in
+                  its content, weakening the open-source privacy claim */}
+              <p className="mt-6 text-sm text-[hsl(var(--color-muted-foreground))]">
+                <a
+                  href="https://github.com/zaoyapin123213/pdfcraft"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[hsl(var(--color-primary))] hover:underline font-medium"
+                >
+                  github.com/zaoyapin123213/pdfcraft
+                </a>
+                {' '}- the complete source code (AGPL-3.0)
+              </p>
             </div>
           </div>
         </section>

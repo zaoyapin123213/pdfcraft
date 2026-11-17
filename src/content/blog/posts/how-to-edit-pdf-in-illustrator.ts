@@ -28,9 +28,9 @@ export const howToEditPdfInIllustrator: BlogPost = {
     { question: 'What free alternatives work like Illustrator for PDF editing?', answer: 'Inkscape imports PDF pages as vectors with many of the same benefits and no subscription. For lighter jobs - adding text, covering mistakes, simple shape edits - free browser-based editors such as PDFEditorFree handle the task without any install.' },
   ],
   body: `
-Yes, Adobe Illustrator can edit PDF files - it opens PDF pages as native vector artwork, so text, shapes and gradients become real editable objects. The catch: fonts must be installed on your machine, text that was outlined or rasterized before export cannot be edited as text, and multi-page PDFs open one page at a time. This guide covers the exact workflow, the three failure modes, and when a free PDF editor is the better tool for the job.
+Yes, [Adobe Illustrator](https://www.adobe.com/products/illustrator.html) can edit PDF files - it opens PDF pages as native vector artwork, so text, shapes and gradients become real editable objects. The catch: fonts must be installed on your machine, text that was outlined or rasterized before export cannot be edited as text, and multi-page PDFs open one page at a time. This guide covers the exact workflow, the three failure modes, and when a free PDF editor is the better tool for the job.
 
-**Quick answer:** File > Open in Illustrator, select the PDF, choose the page number, and edit - with fonts installed and content not outlined or rasterized, you are working on live artwork. Save back via Save As > Adobe PDF with a print preset. Multi-page documents, missing fonts and outlined text are the three big caveats, detailed below.
+**TL;DR:** File > Open in Illustrator, select the PDF, choose the page number, and edit - with fonts installed and content not outlined or rasterized, you are working on live artwork. Save back via Save As > Adobe PDF with a print preset. Multi-page documents, missing fonts and outlined text are the three big caveats, detailed below.
 
 ## Illustrator fit at a glance
 
@@ -56,7 +56,7 @@ Yes, Adobe Illustrator can edit PDF files - it opens PDF pages as native vector 
 
 ## Why Illustrator opens PDFs as editable artwork {#why}
 
-Most applications see a PDF as a finished rendering - they call a PDF library, get back pixels or text runs, and display them. Illustrator instead *parses* the PDF's content streams: the actual drawing instructions (paths, bezier curves, fills, gradients, text operators) that describe the page. Because those instructions are, historically speaking, Illustrator's own native language - both technologies grew out of Adobe's PostScript - the import can reconstruct them as live Illustrator objects rather than flattening them into an image.
+Most applications see a PDF as a finished rendering - they call a PDF library, get back pixels or text runs, and display them. Illustrator instead *parses* the PDF's content streams: the actual [drawing instructions the ISO 32000-2 specification defines](https://www.iso.org/standard/75839.html) (paths, bezier curves, fills, gradients, text operators) that describe the page. Because those instructions are, historically speaking, Illustrator's own native language - both technologies grew out of Adobe's PostScript - the import can reconstruct them as live Illustrator objects rather than flattening them into an image.
 
 The practical consequence is enormous and easy to underestimate: a logo in the PDF remains a vector path you can recolor; a headline remains a text object you can retype (given the font); a gradient background remains an editable gradient. Nothing is "recognized" or approximated - it *is* the original geometry, because PDF never stored anything else.
 

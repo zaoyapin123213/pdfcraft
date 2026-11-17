@@ -9,7 +9,6 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import {
   generateSoftwareApplicationSchema,
   generateFAQPageSchema,
-  generateHowToSchema,
   generateWebPageSchema,
   generateBreadcrumbSchema
 } from '@/lib/seo/structured-data';
@@ -84,7 +83,7 @@ export default async function ToolPageRoute({ params }: ToolPageParams) {
   // Enable static rendering for this locale - MUST be called before getTranslations
   setRequestLocale(locale);
 
-  const t = await getTranslations();
+  const tCommon = await getTranslations({ locale, namespace: 'common' });
 
   // Get tool data
   const tool = getToolById(toolSlug);
@@ -105,12 +104,13 @@ export default async function ToolPageRoute({ params }: ToolPageParams) {
   const faqStructuredData = content.faq && content.faq.length > 0
     ? generateFAQPageSchema(content.faq)
     : null;
-  const howToStructuredData = generateHowToSchema(tool, content, locale);
+  // HowTo schema removed: Google deprecated HowTo rich results (2023), and
+  // the generated English "How to …" name rendered mismatched on non-en pages
   const webPageStructuredData = generateWebPageSchema(tool, content, locale);
   const breadcrumbStructuredData = generateBreadcrumbSchema(
     [
-      { name: 'Home', path: '' },
-      { name: 'Tools', path: '/tools' },
+      { name: tCommon('navigation.home'), path: '' },
+      { name: tCommon('navigation.tools'), path: '/tools' },
       { name: content.title, path: `/tools/${tool.slug}` },
     ],
     locale
@@ -139,7 +139,6 @@ export default async function ToolPageRoute({ params }: ToolPageParams) {
       <JsonLd data={webPageStructuredData} />
       <JsonLd data={breadcrumbStructuredData} />
       {faqStructuredData && <JsonLd data={faqStructuredData} />}
-      {howToStructuredData && <JsonLd data={howToStructuredData} />}
 
       {/* Tool Page */}
       <ToolPage

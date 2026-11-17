@@ -28,9 +28,9 @@ export const adobePdfPackFreeAlternative: BlogPost = {
     { question: 'Why do subscription PDF services exist if free tools cover the same tasks?', answer: 'Brands, ecosystem integration (storage, e-signature accounts), usage allowances, support and procurement familiarity all have value to organizations. For individuals, the honest evaluation is task-by-task - and most individual tasks are fully covered free.' },
   ],
   body: `
-Adobe PDF Pack is Adobe's lighter subscription bundling its online PDF tools - convert PDFs to and from Office and image formats, create PDFs, combine files, and fill and sign documents. Every one of those functions has a free equivalent of comparable quality: this guide gives the function-by-function replacement table, the privacy comparison (local tools never upload), and the cancellation-safe switch plan.
+Adobe PDF Pack is Adobe's lighter subscription bundling its online PDF tools - convert PDFs to and from Office and image formats, create PDFs, combine files, and [fill and sign documents](https://helpx.adobe.com/acrobat/using/fill-and-sign.html). Every one of those functions has a free equivalent of comparable quality: this guide gives the function-by-function replacement table, the privacy comparison (local tools never upload), and the cancellation-safe switch plan.
 
-**Quick verdict:** PDF Pack's ingredients are convert (PDF to and from Office/images), create, combine, fill and sign. Every one of those has a free, high-quality equivalent - most of them local and private in PDFEditorFree's browser toolbox. The subscription's genuine value is ecosystem and brand preference, not capability. The full function-by-function replacement table is below.
+**TL;DR:** PDF Pack's ingredients are convert (PDF to and from Office/images), create, combine, fill and sign. Every one of those has a free, high-quality equivalent - most of them local and private in PDFEditorFree's browser toolbox. The subscription's genuine value is ecosystem and brand preference, not capability. The full function-by-function replacement table is below.
 
 ## On this page
 
@@ -112,11 +112,13 @@ Three tiers, one honest decision procedure:
 
 **Choose full Acrobat Pro when:** your work needs the desktop's exclusive tiers - native text editing with matched fonts, preflight, advanced forms creation, certified-signature workflows, redaction verification. These are professional requirements, and they justify professional pricing.
 
+There is also a middle tier most pricing pages skip: one-time-purchase editors with no monthly bill. The [perpetual-license PDF editors guide](/en/blog/perpetual-license-pdf-editors/) maps that option and the math for when it beats subscribing.
+
 The decision errors to avoid, in both directions: paying for a capability tier when your tasks live in the free tier (the common household error), and refusing paid tools when your work genuinely requires their exclusive features (the common small-business error, born of overcorrecting). The function table at the top of this guide is the tie-breaker for every individual task.
 
 ## Privacy: the upload comparison nobody prices in {#privacy}
 
-The subscription's architecture deserves its own line in the ledger: Adobe's web tools process on Adobe's servers - your documents upload, transform, and return under a major vendor's policies.
+The subscription's architecture deserves its own line in the ledger: Adobe's [web tools](https://www.adobe.com/acrobat.html) process on Adobe's servers - your documents upload, transform, and return under a major vendor's policies.
 
 That is not a scandal - Adobe is a serious steward - but it *is* a structural fact with consequences: confidential documents transit servers as a condition of use; usage depends on connectivity; and the policies governing your files live in a document you agreed to once and will never read again.
 

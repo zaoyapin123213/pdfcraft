@@ -9,8 +9,8 @@
       "description": "Browse all 96 free online PDF tools - the complete PDF converter, editor, merger, splitter and signer toolkit. No upload, no signup."
     },
     "about": {
-      "title": "About",
-      "description": "Learn about PDFEditorFree - your free, private, and powerful PDF toolkit. All processing happens in your browser."
+      "title": "About PDFEditorFree",
+      "description": "How PDFEditorFree works: 96 browser-based PDF tools, 9 languages, zero file uploads. The full source is open under AGPL-3.0."
     },
     "faq": {
       "title": "Frequently Asked Questions",
@@ -288,55 +288,55 @@
   },
   "aboutPage": {
     "title": "About {brand}",
-    "description": "{brand} is a free, privacy-focused PDF toolkit that runs entirely in your browser. With {count}+ professional tools, you can edit, convert, merge, split, and secure your PDF files without ever uploading them to a server.",
+    "description": "{brand} is a free PDF toolkit that runs entirely in your browser: {count} tools, 9 languages, and zero file uploads.",
     "mission": {
       "title": "Our Mission",
-      "p1": "We believe that everyone should have access to powerful PDF tools without compromising their privacy or paying expensive subscription fees. That's why we created {brand} – a comprehensive PDF toolkit that puts your privacy first.",
-      "p2": "Unlike traditional PDF services that require you to upload your files to remote servers, {brand} processes everything locally in your browser. Your sensitive documents never leave your device, giving you complete control over your data.",
-      "p3": "Whether you're a student, professional, or casual user, {brand} provides all the tools you need to work with PDFs efficiently and securely."
+      "p1": "PDF software has historically meant choosing between a desktop suite with a monthly subscription and a web tool that uploads your documents to someone else's server. {brand} takes a third path: a complete toolkit that runs inside your browser tab, costs nothing, and never receives your files.",
+      "p2": "Every tool here - the text editor, the merger, the AES encryption - executes locally with WebAssembly and JavaScript. Your document is read into browser memory, processed, and written back by your own device. There is no upload endpoint in this site's code, so files physically cannot leave your machine.",
+      "p3": "The project is open source under AGPL-3.0, which means the privacy claim above is checkable: read the repository, search the code, or run the site yourself. The GitHub repository and the full tool catalog are linked at the bottom of this page."
     },
     "values": {
       "title": "Our Values",
       "privacy": {
         "title": "Privacy First",
-        "description": "Your files never leave your device. All processing happens locally in your browser, ensuring complete privacy and security."
+        "description": "Files are read with the browser's File API and processed in local memory. Nothing is transmitted anywhere - there is no server that could receive them."
       },
       "fast": {
         "title": "Fast & Efficient",
-        "description": "Powered by modern web technologies, PDFEditorFree delivers lightning-fast PDF processing without the need for uploads or downloads."
+        "description": "There is no upload step. The PDF engine (PDF.js 4.8 and pdf-lib) ships to your browser once per session; after that, every operation runs at your device's own speed."
       },
       "accessible": {
         "title": "Accessible Everywhere",
-        "description": "Available in 9 languages and works on any device with a modern browser. No installation required."
+        "description": "9 language versions: English, Japanese, Korean, Spanish, French, German, Simplified Chinese, Traditional Chinese, and Portuguese. Works in any modern browser on Windows, macOS, Linux, Android, and iOS - nothing to install."
       },
       "free": {
         "title": "Free Forever",
-        "description": "PDFEditorFree is completely free to use with no hidden costs, no registration required, and no limits on usage."
+        "description": "No account, no credit card, no watermark on output, no daily cap. The 100 MB per-file limit is a browser-memory constraint, not a paywall."
       },
       "openSource": {
         "title": "Open Source",
-        "description": "Built with transparency in mind. Our code is open source, allowing anyone to verify our privacy claims."
+        "description": "The full source code is public under AGPL-3.0 on GitHub. You can verify the privacy claims by reading it - or by watching the Network tab of your browser's developer tools while a tool runs."
       },
       "community": {
         "title": "Community Driven",
-        "description": "Developed with feedback from users around the world. We continuously improve based on your needs."
+        "description": "Bugs and feature requests go through the public GitHub repository, and every merged change deploys to Cloudflare's edge network automatically. Fixes typically reach production within minutes."
       }
     },
     "technology": {
       "title": "Built with Modern Technology",
-      "description": "{brand} is built using cutting-edge web technologies to ensure the best possible experience:",
+      "description": "Four client-side technologies do the actual work:",
       "list": {
-        "nextjs": "<strong1>Next.js</strong1> - For fast, SEO-friendly page rendering",
-        "wasm": "<strong1>WebAssembly</strong1> - For near-native PDF processing performance",
-        "workers": "<strong1>Web Workers</strong1> - For non-blocking background processing",
-        "pdflib": "<strong1>pdf-lib & PDF.js</strong1> - Industry-standard PDF manipulation libraries",
-        "indexeddb": "<strong1>IndexedDB</strong1> - For secure local storage of your work"
+        "nextjs": "<strong1>Next.js</strong1> - static rendering for all 1,000+ pages, served from Cloudflare's CDN",
+        "wasm": "<strong1>WebAssembly</strong1> - the PDF parsing core runs compiled code inside the browser sandbox",
+        "workers": "<strong1>Web Workers</strong1> - background threads keep large documents off the UI thread",
+        "pdflib": "<strong1>pdf-lib & PDF.js</strong1> - the standard open-source PDF libraries handle editing, rendering, and forms (PDF.js 4.8.69)",
+        "indexeddb": "<strong1>IndexedDB</strong1> - temporary local storage, cleared when you close the tab"
       },
-      "summary": "This combination of technologies allows us to provide professional-grade PDF tools that run entirely in your browser, without any server-side processing."
+      "summary": "No server-side processing exists anywhere in this stack. The site is a static export of 1,032 HTML pages served from Cloudflare's edge network."
     },
     "cta": {
       "title": "Ready to Get Started?",
-      "description": "Explore our {count}+ PDF tools and see what {brand} can do for you.",
+      "description": "Explore all {count} tools, or start with one of the 40 step-by-step guides on the blog.",
       "button": "Browse All Tools"
     }
   },

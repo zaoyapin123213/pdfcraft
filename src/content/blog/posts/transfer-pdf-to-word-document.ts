@@ -4,8 +4,7 @@ export const transferPdfToWordDocument: BlogPost = {
   slug: 'transfer-pdf-to-word-document',
   title: 'How to Transfer a PDF to a Word Document (3 Free Methods)',
   h1: 'How to Transfer a PDF to a Word Document',
-  description:
-    'Three free ways to transfer a PDF into an editable Word document: a browser converter with no signup, Microsoft Word itself, and the OCR route for scans. Steps, fidelity expectations, and method comparison.',
+  description: "Convert PDF to Word locally in your browser - free, no upload, no signup. Layout, tables, and fonts stay intact. Works with scanned files too.",
   keywords: [
     'how to transfer a pdf to a word document',
     'transfer pdf to word document',
@@ -38,7 +37,7 @@ export const transferPdfToWordDocument: BlogPost = {
 
 ---
 
-**Quick answer:** the fastest free method is a browser converter: open [PDF to Word](/en/tools/pdf-to-docx/), drop the PDF in, and download the .docx in about a minute, no account needed. Already have Microsoft Word? File > Open on the PDF converts it directly. Scanned file? OCR it first, then convert, or Word will have nothing to read.
+**TL;DR:** the fastest free method is a browser converter: open [PDF to Word](/en/tools/pdf-to-docx/), drop the PDF in, and download the .docx in about a minute, no account needed. Already have Microsoft Word? File > Open on the PDF converts it directly. Scanned file? OCR it first, then convert, or Word will have nothing to read.
 
 Transfer a PDF to a Word document by opening the free [PDF to Word](/en/tools/pdf-to-docx/) tool, dropping the file in, and downloading the editable .docx. It takes about a minute, needs no account, and the conversion happens in your browser. Microsoft Word itself converts PDFs through File > Open, and scanned PDFs take one extra step first: a free [OCR PDF](/en/tools/ocr-pdf/) pass to recover the text.
 

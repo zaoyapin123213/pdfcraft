@@ -247,7 +247,7 @@
         "title": "Our Mission",
         "p1": "We believe that everyone should have access to powerful PDF tools without compromising their privacy or paying expensive subscription fees. That's why we created {brand} – a comprehensive PDF toolkit that puts your privacy first.",
         "p2": "Unlike traditional PDF services that require you to upload your files to remote servers, {brand} processes everything locally in your browser. Your sensitive documents never leave your device, giving you complete control over your data.",
-        "p3": "Whether you're a student, professional, or casual user, {brand} provides all the tools you need to work with PDFs efficiently and securely."
+        "p3": "O projeto é de código aberto sob a AGPL-3.0, o que significa que a declaração de privacidade acima pode ser verificada: leia o repositório, examine o código ou execute o site você mesmo. O repositório GitHub e o catálogo completo de ferramentas estão linkados no final desta página."
       },
       "values": {
         "title": "Our Values",
@@ -257,7 +257,7 @@
         },
         "fast": {
           "title": "Fast & Efficient",
-          "description": "Powered by modern web technologies, PDFEditorFree delivers lightning-fast PDF processing without the need for uploads or downloads."
+          "description": "There is no upload step. The PDF engine (PDF.js 4.8 and pdf-lib) ships to your browser once per session; after that, every operation runs at your device's own speed."
         },
         "accessible": {
           "title": "Accessible Everywhere",
@@ -278,7 +278,7 @@
       },
       "technology": {
         "title": "Built with Modern Technology",
-        "description": "{brand} is built using cutting-edge web technologies to ensure the best possible experience:",
+        "description": "Four client-side technologies do the actual work:",
         "list": {
           "nextjs": "<strong1>Next.js</strong1> - For fast, SEO-friendly page rendering",
           "wasm": "<strong1>WebAssembly</strong1> - For near-native PDF processing performance",

@@ -30,7 +30,7 @@ export const howToInsertALineInAPdf: BlogPost = {
   body: `
 To insert a line in a PDF, open a free browser-based editor like PDFEditorFree's Edit PDF tool, select the line tool, set the thickness (1-1.5 pt for signature lines) and color, then drag to draw - hold shift for a perfectly straight stroke. The same thirty-second job covers fill-in blanks, section dividers and emphasis rules. This guide gives the exact settings for each line type, plus the signature-block recipe used in executed documents.
 
-**Quick answer:** open the free [Edit PDF tool](/en/tools/edit-pdf/), drop in your PDF, select the line or shape tool, set thickness and color, then drag to draw. Hold shift for perfectly straight strokes. Download - the line is now part of the page.
+**TL;DR:** open the free [Edit PDF tool](/en/tools/edit-pdf/), drop in your PDF, select the line or shape tool, set thickness and color, then drag to draw. Hold shift for perfectly straight strokes. Download - the line is now part of the page.
 
 ## Line settings at a glance
 
@@ -59,7 +59,7 @@ To insert a line in a PDF, open a free browser-based editor like PDFEditorFree's
 
 1. **A rule or divider** - a horizontal (occasionally vertical) stroke separating content: under a heading, between sections, above a footer. Pure visual structure. Tool: line/shape drawing (this guide).
 2. **A signature or fill-in line** - a blank where a person writes or types. Same drawn stroke, plus companions: label text beneath, and (for digital completion) an actual form field sitting on it.
-3. **Strikethrough** - a line *crossing out existing text* to mark deletion. This is annotation territory, not a drawn line: apply it via the text markup tools so it semantically means "struck" (and can be removed like a comment rather than being permanent page content).
+3. **Strikethrough** - a line *crossing out existing text* to mark deletion. This is annotation territory, not a drawn line: apply it via [the text markup tools](https://helpx.adobe.com/acrobat/desktop/share-and-review-documents/review-documents/add-markups.html) so it semantically means "struck" (and can be removed like a comment rather than being permanent page content).
 4. **A border or box outline** - the line's fancier sibling; drawn with the rectangle tool, border only, no fill. Useful for callout boxes and coupon edges.
 
 Everything below covers kinds 1-2 in depth (kind 3's tools live alongside them in the same editor, and kind 4 is the rectangle tool with different settings).
@@ -202,7 +202,7 @@ Verticals reward restraint: one or two accent bars per document, consistent weig
 
 The browser tool is the fastest route for most line jobs, but the same edit exists everywhere - here is the practical comparison, including each environment's catch.
 
-**Adobe Acrobat:** the Comment > Drawing tools (line, rectangle) and Edit PDF's graphic objects handle lines with full styling. The catch is licensing for anything beyond annotations.
+**Adobe Acrobat:** the [Comment > Drawing tools](https://helpx.adobe.com/acrobat/desktop/share-and-review-documents/review-documents/add-markups.html) (line, rectangle) and Edit PDF's graphic objects handle lines with full styling. The catch is licensing for anything beyond annotations.
 
 **macOS Preview:** the markup toolbar's shape tool draws lines with thickness and color options - genuinely adequate for signature lines and blanks on a Mac. The catch: precision controls are thin, and getting a perfectly horizontal stroke takes the shift-key trick plus patience.
 

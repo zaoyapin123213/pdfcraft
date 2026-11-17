@@ -4,8 +4,7 @@ export const howToTranslateAScannedPdf: BlogPost = {
   slug: 'how-to-translate-scanned-pdf',
   title: 'How to Translate a Scanned PDF (Free, Step by Step)',
   h1: 'How to Translate a Scanned PDF',
-  description:
-    'Scanned PDFs are pictures, so normal translators cannot read them. This free step-by-step guide shows how to OCR a scanned PDF and translate it into 9 languages with the layout preserved.',
+  description: "Translate scanned PDFs to any language: OCR inside your browser, then machine translation. Free, no upload, layout-aware. Tested on real scans.",
   keywords: [
     'how to translate scanned pdf',
     'translate scanned pdf',
@@ -46,7 +45,7 @@ If you have ever pasted a scanned file into an online translator and gotten noth
 
 This guide walks through both steps in detail, shows what results to expect, and covers the small details that separate a clean translation from a mess. Everything runs on your own device, with no account and no watermark.
 
-**Quick answer:** to translate a scanned PDF, first recover its text with the [OCR PDF](/en/tools/ocr-pdf/) tool, then open the recovered file in [Translate PDF](/en/tools/translate-pdf/), choose your target language, and download the bilingual or translated-only result. Both tools are free and run in your browser. So if you are asking 'how can I translate scanned documents' for free without installing anything, this two-step pairing is the answer, and the rest of this guide covers the details.
+**TL;DR:** to translate a scanned PDF, first recover its text with the [OCR PDF](/en/tools/ocr-pdf/) tool, then open the recovered file in [Translate PDF](/en/tools/translate-pdf/), choose your target language, and download the bilingual or translated-only result. Both tools are free and run in your browser. So if you are asking 'how can I translate scanned documents' for free without installing anything, this two-step pairing is the answer, and the rest of this guide covers the details.
 
 ## What Is a Scanned PDF and Why Won't Normal Translation Tools Work on It?
 
@@ -91,7 +90,7 @@ Open the [Translate PDF](/en/tools/translate-pdf/) tool and drop in the OCR outp
 
 Open the download in the [PDF Reader](/en/tools/pdf-reader/) and skim one page against the original. Look for three things: names (OCR sometimes mangles unusual spellings), numbers (a wrong digit can change meaning), and any text the translator left untouched (it flags text it could not confidently read). If you spot a typo, the [Edit PDF](/en/tools/edit-pdf/) tool can cover and retype single words without a desktop app.
 
-That is the whole workflow. Scan, OCR, translate, check, done.
+That is the whole workflow. Scan, OCR, translate, check, done. On a Mac, the platform adds its own routes (Preview, Safari's built-in translation) - the [Mac PDF translation guide](/en/blog/how-to-translate-pdf-on-mac/) covers what changes there.
 
 ### Notes for each step, from our own testing
 

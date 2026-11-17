@@ -4,8 +4,7 @@ export const howToTranslatePdfOnMac: BlogPost = {
   slug: 'how-to-translate-pdf-on-mac',
   title: 'How to Translate a PDF on Mac: 3 Methods That Actually Work',
   h1: 'How to Translate a PDF on Mac',
-  description:
-    'Three working ways to translate a PDF on Mac: the macOS Translate feature for short passages, Google Translate for whole files, and a free browser tool that keeps the layout. Steps for each.',
+  description: "Translate PDFs on Mac without uploads: Preview, Google Docs, and a browser-based method compared. Free options that keep layout intact.",
   keywords: [
     'how to translate pdf on mac',
     'translate pdf on mac',
@@ -36,7 +35,7 @@ export const howToTranslatePdfOnMac: BlogPost = {
 
 ---
 
-**Quick answer:** to translate a PDF on Mac, use one of three methods. Short passages: select text in Preview, control-click, and choose Translate. Whole files with layout kept: open the free [Translate PDF](/en/tools/translate-pdf/) tool in your browser, drop the PDF in, and download the translated or bilingual copy. Whole files with any size up to 10 MB: upload to Google Translate's Documents tab and accept that the layout will change.
+**TL;DR:** to translate a PDF on Mac, use one of three methods. Short passages: select text in Preview, control-click, and choose Translate. Whole files with layout kept: open the free [Translate PDF](/en/tools/translate-pdf/) tool in your browser, drop the PDF in, and download the translated or bilingual copy. Whole files with any size up to 10 MB: upload to Google Translate's Documents tab and accept that the layout will change.
 
 Translate a whole PDF on Mac by opening the [Translate PDF](/en/tools/translate-pdf/) tool in your browser and dropping the file in, or upload it to Google Translate's Documents tab. For a single paragraph, select the text in Preview, control-click, and choose Translate. Those are the three working methods, and none of them needs a purchase.
 

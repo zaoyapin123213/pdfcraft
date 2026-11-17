@@ -4,8 +4,7 @@ export const translatePdfFrenchToEnglish: BlogPost = {
   slug: 'translate-pdf-french-to-english',
   title: 'Translate a PDF Document From French to English: 3 Free Ways',
   h1: 'How to Translate a PDF Document From French to English',
-  description:
-    'Three free ways to translate a PDF document from French to English: a browser tool that keeps the layout, Google Translate for long plain reports, and DeepL for the best French phrasing. Steps and limits for each.',
+  description: "Translate French PDFs to English in your browser. No upload, free, handles both text and scans. Layout stays intact with 10+ languages supported.",
   keywords: [
     'how to translate a pdf document from french to english',
     'translate pdf from french to english',
@@ -38,7 +37,7 @@ export const translatePdfFrenchToEnglish: BlogPost = {
 
 ---
 
-**Quick answer:** the fastest free method is a browser tool: open [Translate PDF](/en/tools/translate-pdf/), drop in the French file, choose English as the target language, and download the translated or bilingual copy in about two minutes, no account needed. Google Translate's Documents tab is the second option for long plain reports, and DeepL is the third when phrasing quality matters most.
+**TL;DR:** the fastest free method is a browser tool: open [Translate PDF](/en/tools/translate-pdf/), drop in the French file, choose English as the target language, and download the translated or bilingual copy in about two minutes, no account needed. Google Translate's Documents tab is the second option for long plain reports, and DeepL is the third when phrasing quality matters most.
 
 Drop the French PDF into the free [Translate PDF](/en/tools/translate-pdf/) browser tool, choose English as the target, and download the translated file with the layout intact. That is the fastest method, it takes about two minutes, and it needs no account. Google Translate and DeepL are the two alternatives this guide also covers, each with its own limits.
 

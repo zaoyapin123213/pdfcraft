@@ -28,9 +28,9 @@ export const pdfEditorForPackagingPrepress: BlogPost = {
     { question: 'Can I do prepress work without uploading client files to a website?', answer: 'Yes - choose tools that process locally in the browser (like PDFEditorFree). For packaging work under NDA or with brand-sensitive artwork, local processing is not a preference but a compliance requirement, and it is exactly why browser-WASM tools have entered prepress workflows.' },
   ],
   body: `
-There is no single best PDF editor for packaging prepress - the work splits into two tiers: deterministic fixes (font outlining, page-box geometry, deskew, PDF/A conversion, simple imposition) that free browser tools like PDFEditorFree handle genuinely well, and verification workflows (preflight profiles, ink coverage, complex imposition) that still require Enfocus PitStop or Acrobat Pro. This guide maps every task to the right tier, with a pre-send checklist for packaging artwork.
+There is no single best PDF editor for packaging prepress - the work splits into two tiers: deterministic fixes (font outlining, page-box geometry, deskew, PDF/A conversion, simple imposition) that free browser tools like PDFEditorFree handle genuinely well, and verification workflows (preflight profiles, ink coverage, complex imposition) that still require Enfocus PitStop or [Acrobat Pro](https://www.adobe.com/acrobat.html). This guide maps every task to the right tier, with a pre-send checklist for packaging artwork.
 
-**Quick answer:** for individual file fixes - font outlining, page-box adjustments, deskew, rasterizing, PDF/A conversion, simple imposition - free browser tools (PDFEditorFree's, all local) do the job. For automated preflight, ink-coverage analysis and complex imposition, you need Enfocus PitStop or Acrobat Pro. Most small studios need less of the paid tier than they assume.
+**TL;DR:** for individual file fixes - font outlining, page-box adjustments, deskew, rasterizing, PDF/A conversion, simple imposition - free browser tools (PDFEditorFree's, all local) do the job. For automated preflight, ink-coverage analysis and complex imposition, you need Enfocus PitStop or Acrobat Pro. Most small studios need less of the paid tier than they assume.
 
 ## Task coverage at a glance
 
@@ -118,7 +118,7 @@ Prepress conversation is full of letter combinations; here is the decoder ring:
 
 **PDF/X** - the print-exchange family. PDF/X-1a: CMYK-only, all fonts embedded, no transparency (the conservative classic, still widely requested for packaging). PDF/X-4: the modern standard allowing live transparency and layers with color-managed output. Ask your printer which they want - "PDF/X" without a number is ambiguous, and the answer is almost always X-1a or X-4.
 
-**PDF/A** - the archival family (used for documents that must render identically decades later). Not a print standard, but conversion tooling overlaps, and some brand-owner archiving specs call for it ([converter here](/en/tools/pdf-to-pdfa/)).
+**PDF/A** - [the archival family](https://www.loc.gov/preservation/digital/formats/fdd/fdd000125.shtml) (used for documents that must render identically decades later). Not a print standard, but conversion tooling overlaps, and some brand-owner archiving specs call for it ([converter here](/en/tools/pdf-to-pdfa/)).
 
 **What compliance actually buys:** guaranteed font embedding, constrained color spaces, no external dependencies - the file is self-contained and deterministic. That is why RIPs and workflows are configured to trust it, and why "just export as PDF/X" resolves most send-backs in one move.
 

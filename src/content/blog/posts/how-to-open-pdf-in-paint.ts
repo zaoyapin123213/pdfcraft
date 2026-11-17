@@ -30,7 +30,7 @@ export const howToOpenPdfInPaint = {
   body: `
 Paint cannot open PDF files directly - it only reads image formats like PNG and JPG. The workaround takes about three minutes: convert the PDF page to a PNG or JPG image (free, in your browser), open that image in Paint, edit it, and - if you need a PDF again - convert the image back. Below are the exact steps, the DPI settings that keep the result sharp, and the jobs where skipping Paint entirely is the better call.
 
-**Quick answer:** convert the PDF page you need into a PNG or JPG image (free, browser-based, no upload), open that image in Paint, edit away, then - if the result must be a PDF again - convert the image back with a free JPG to PDF tool. The full loop takes about three minutes.
+**TL;DR:** convert the PDF page you need into a PNG or JPG image (free, browser-based, no upload), open that image in Paint, edit away, then - if the result must be a PDF again - convert the image back with a free JPG to PDF tool. The full loop takes about three minutes.
 
 ## On this page
 
@@ -47,7 +47,7 @@ Paint cannot open PDF files directly - it only reads image formats like PNG and 
 
 ## Why Paint cannot open PDFs {#why}
 
-Paint opens raster images - grids of colored pixels in formats like PNG, JPG and BMP. A PDF is a container for laid-out content: vector graphics, embedded fonts, text objects, and often images, all positioned on fixed pages. There is no decoder in Paint for that container, so Windows simply has no "Open with Paint" option for PDFs, and dragging a PDF onto a Paint window produces an error.
+Paint opens raster images - grids of colored pixels in formats like PNG, JPG and BMP, [per Microsoft's own Paint documentation](https://support.microsoft.com/en-us/windows/ai/ai-apps/use-copilot-pc-features-in-paint). A PDF is a container for laid-out content: vector graphics, embedded fonts, text objects, and often images, all positioned on fixed pages ([the structure ISO 32000-2 defines](https://www.iso.org/standard/75839.html)). There is no decoder in Paint for that container, so Windows simply has no "Open with Paint" option for PDFs, and dragging a PDF onto a Paint window produces an error.
 
 The gap is bridged by *rasterization*: rendering the PDF page into a flat image at a chosen resolution. After that, Paint is back on home turf, because the page is now a grid of pixels like any screenshot. The trade-off is permanent and worth internalizing before you start: text becomes pixels. It can no longer be selected, searched, or re-typed, and its sharpness is capped by the resolution you chose at conversion. Choose well (see the DPI section) and nobody will ever notice; choose badly and the page prints fuzzy.
 

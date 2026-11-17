@@ -4,8 +4,7 @@ export const howToInsertAnImageIntoAPdf: BlogPost = {
   slug: 'how-to-insert-an-image-into-a-pdf',
   title: 'How to Insert a Photo into a PDF Online (Free)',
   h1: 'How to Insert a Photo into a PDF Online',
-  description:
-    'Insert a photo or logo into any PDF online for free. Place, resize and position images in your browser - no uploads, no signup, no watermark. Step-by-step guide.',
+  description: "Insert an image into a PDF in your browser: place, resize, and position it on any page. Free, local, no upload - works with photos and logos.",
   keywords: ['insert photo in pdf online'],
   datePublished: '2026-10-08',
   dateModified: '2026-10-08',
@@ -30,7 +29,7 @@ export const howToInsertAnImageIntoAPdf: BlogPost = {
   body: `
 To insert a photo into a PDF online for free, open a browser-based editor like PDFEditorFree's Edit PDF tool, choose the image tool, select your photo, click where it belongs, and drag a corner handle to resize - done in under a minute, with nothing uploaded. The quality rules that matter: match pixels to display size (about 300 per printed inch) and never upscale small images. This guide covers the steps, the resolution table, and the file-size fixes.
 
-**Quick answer:** open the free [Edit PDF tool](/en/tools/edit-pdf/) in your browser, drop in the PDF, choose the image tool, pick your photo, click where it belongs, drag to resize, download. Nothing uploads - both files stay on your device the whole time.
+**TL;DR:** open the free [Edit PDF tool](/en/tools/edit-pdf/) in your browser, drop in the PDF, choose the image tool, pick your photo, click where it belongs, drag to resize, download. Nothing uploads - both files stay on your device the whole time.
 
 ## On this page
 
@@ -92,7 +91,7 @@ Screens are forgiving (150 DPI looks fine on monitors); print is not (below abou
 
 ## File size: why one photo adds 5 MB (and fixes) {#filesize}
 
-Insert a modern phone photo into a PDF and the file can balloon from 200 KB to 6 MB in one move. The mechanism is simple: phones shoot 12-48 megapixel images at 3-8 MB each, and insertion embeds the *entire* photo regardless of display size. Your 2-inch logo placement just glued a poster-resolution image into a text document.
+Insert a modern phone photo into a PDF and the file can balloon from 200 KB to 6 MB in one move. The mechanism is simple: phones shoot 12-48 megapixel images at 3-8 MB each, and insertion embeds the *entire* photo regardless of display size - [PDF stores each image as a complete embedded object](https://www.iso.org/standard/75839.html). Your 2-inch logo placement just glued a poster-resolution image into a text document.
 
 The fixes, in order of preference:
 

@@ -33,7 +33,7 @@ export const howToChangeFontInPdf: BlogPost = {
   body: `
 To change the font in a PDF, you have three realistic routes: replace individual words in a browser-based editor (cover the old text, retype in a matching typeface), convert the PDF to Word and restyle it with styles for a whole-document change, or use Adobe Acrobat when you have the original fonts installed. The free routes take minutes and need no installation - this guide gives exact steps for each, plus the font-substitution traps that catch first-timers.
 
-**Quick answer:** There is no one-click "PDF font changer" - PDFs do not have a simple font switch. To change the font of a few words, cover the old text and retype it in a matching typeface with a free browser editor. To change the font across an entire document, convert the PDF to Word, restyle it in seconds with styles, and convert back - both converters are free in PDFEditorFree and run entirely in your browser.
+**TL;DR:** There is no one-click "PDF font changer" - PDFs do not have a simple font switch. To change the font of a few words, cover the old text and retype it in a matching typeface with a free browser editor. To change the font across an entire document, convert the PDF to Word, restyle it in seconds with styles, and convert back - both converters are free in PDFEditorFree and run entirely in your browser.
 
 ## On this page
 
@@ -50,7 +50,7 @@ To change the font in a PDF, you have three realistic routes: replace individual
 
 ## Why fonts in PDFs are different {#why}
 
-In Word, changing a font is metadata: the program re-renders your sentences in whatever typeface you choose. A PDF is the opposite - it is the *rendered result*. The file contains, for every character, instructions to draw a specific glyph from a specific embedded font at a specific coordinate. Nothing is re-rendered; everything is already painted.
+In Word, changing a font is metadata: the program re-renders your sentences in whatever typeface you choose. A PDF is the opposite - it is the *rendered result*. The file contains, for every character, instructions to draw a specific glyph from a specific embedded font at a specific coordinate - [the fixed-layout model ISO 32000-2 defines](https://www.iso.org/standard/75839.html). Nothing is re-rendered; everything is already painted.
 
 That design gives PDFs their superpower: the document looks identical everywhere, forever. But it means there is no global "font" property to flip. To change the typeface, an editor must either (a) delete and redraw the text with a different font, (b) rebuild the document in an editable format, or (c) trick the eye by covering old glyphs with new ones. The methods below are exactly these three strategies, ordered from quickest to most thorough.
 
@@ -99,7 +99,7 @@ Two caveats, stated plainly: this rebuilds the document, so it is not pixel-iden
 
 ## Method 3: Adobe Acrobat {#acrobat}
 
-Acrobat Pro's Edit PDF mode is the commercial standard for native font changes: click into a text block and pick a new font from a properties dropdown, and Acrobat redraws the run - using the *actual* original font if it is installed on your machine, or a substitute if not. That font-installed detail is the difference between edits that look invisible and edits that scream "tampered": if you have the original typeface (corporate brand fonts, in particular), Acrobat delivers the cleanest results of any tool.
+Acrobat Pro's [Edit PDF mode](https://helpx.adobe.com/acrobat/desktop/edit-documents/edit-text-in-pdfs/modify-text.html) is the commercial standard for native font changes: click into a text block and pick a new font from a properties dropdown, and Acrobat redraws the run - using the *actual* original font if it is installed on your machine, or a substitute if not. That font-installed detail is the difference between edits that look invisible and edits that scream "tampered": if you have the original typeface (corporate brand fonts, in particular), Acrobat delivers the cleanest results of any tool.
 
 Practical notes: Acrobat enforces permissions, so a locked PDF must be unlocked first; heavy edits can trigger reflow of entire paragraphs, which sometimes improves the text and sometimes breaks a carefully balanced layout; and the subscription cost is hard to justify for occasional edits. If your company already licenses it, use it for high-stakes brand documents. If not, Method 2 gets you 90% of the way for free.
 

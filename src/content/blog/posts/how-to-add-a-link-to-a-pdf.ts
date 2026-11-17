@@ -30,7 +30,7 @@ export const howToAddALinkToAPdf: BlogPost = {
   body: `
 To add a link to a PDF for free, work in two layers: add the URL as visible styled text with a browser-based editor (this version survives printing, forwarding and strict viewers), and - for click-to-open behavior - draw a link rectangle over the text in an editor with a link tool such as PDF-XChange or Acrobat. This guide covers both methods, internal links for tables of contents, and the testing routine that catches broken links before your readers do.
 
-**Quick answer:** the universally-safe free approach is to make the link *visible* - add styled text (your URL, in the document's font, as a clickable-looking reference) with a browser-based editor like [PDFEditorFree](/en/tools/edit-pdf/). For interactive click-rectangles, use a link-tool editor (Acrobat, PDF-XChange, Foxit): draw a box over the text, paste the URL, save. Details, pitfalls and internal links below.
+**TL;DR:** the universally-safe free approach is to make the link *visible* - add styled text (your URL, in the document's font, as a clickable-looking reference) with a browser-based editor like [PDFEditorFree](/en/tools/edit-pdf/). For interactive click-rectangles, use a link-tool editor (Acrobat, PDF-XChange, Foxit): draw a box over the text, paste the URL, save. Details, pitfalls and internal links below.
 
 ## Methods at a glance
 
@@ -55,11 +55,11 @@ To add a link to a PDF for free, work in two layers: add the URL as visible styl
 
 ## How links actually work inside a PDF {#how}
 
-A PDF link is not formatting on text - it is a separate object called a **link annotation**: an invisible rectangle floating over the page, carrying an action ("go to this URL", "open page 4", "compose an email"). The text underneath is untouched; the rectangle is what clicks.
+A PDF link is not formatting on text - it is a separate object called a **link annotation** [as the ISO 32000-2 specification defines it](https://www.iso.org/standard/75839.html): an invisible rectangle floating over the page, carrying an action ("go to this URL", "open page 4", "compose an email"). The text underneath is untouched; the rectangle is what clicks.
 
 That architecture explains every link behavior people find surprising:
 
-- **Flattening destroys links.** Flattening re-renders pages into static content - annotations do not survive the re-render. The same applies to printing to PDF (the virtual printer outputs pixels, not annotations).
+- **Flattening destroys links.** Flattening re-renders pages into static content - annotations [which are separate objects in the PDF structure](https://www.iso.org/standard/75839.html) do not survive the re-render. The same applies to printing to PDF (the virtual printer outputs pixels, not annotations).
 - **Links survive editing around them.** Because the rectangle is independent, you can re-style or even retype the underlying text and the link keeps working - as long as the rectangle still covers it.
 - **Link appearance is optional styling.** The classic blue underline is a visual convention applied to the text; the click behavior comes entirely from the annotation. This is why you can have invisible click zones - and why visible affordance matters (below).
 

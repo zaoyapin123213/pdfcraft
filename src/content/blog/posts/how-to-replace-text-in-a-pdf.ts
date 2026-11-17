@@ -30,7 +30,7 @@ export const howToReplaceTextInAPdf: BlogPost = {
   body: `
 To replace text in a PDF for free, cover the old words with a background-colored rectangle and retype the replacement in a matching font - the visual swap takes minutes in a browser-based editor. Replacing the same term dozens of times? Convert the PDF to Word for true find-and-replace, then convert back. This guide covers both methods, the font-matching checklist that makes edits undetectable, and when sensitive text needs redaction first.
 
-**Quick answer:** for a handful of replacements, open the free [Edit PDF tool](/en/tools/edit-pdf/), cover each old passage with a background-matched rectangle, and type the new text in a matching font. For replacements across a whole document, use the free [PDF to Word](/en/tools/pdf-to-docx/) round trip and find-and-replace there.
+**TL;DR:** for a handful of replacements, open the free [Edit PDF tool](/en/tools/edit-pdf/), cover each old passage with a background-matched rectangle, and type the new text in a matching font. For replacements across a whole document, use the free [PDF to Word](/en/tools/pdf-to-docx/) round trip and find-and-replace there.
 
 ## On this page
 
@@ -195,7 +195,7 @@ The family scale also decides the fidelity question: with dozens of files, the W
 
 For completeness, the paid-desktop route deserves its honest paragraph - including why its results range from seamless to mangled.
 
-Acrobat's Edit PDF mode and equivalents (Foxit, Nitro) perform true structural replacement: click into a text block, retype, and the editor rebuilds the internal text runs - substituting your font if the original is unavailable, and reflowing the block as needed. With the original font installed and short replacements, results are excellent. The three failure modes, all font-driven: missing fonts trigger substitution that changes letter widths (neighboring lines then re-break); heavy edits inside justified paragraphs produce visibly uneven word spacing; and text converted to outlines or produced by exotic tools imports as shapes that no editor can retype.
+[Acrobat's Edit PDF mode](https://helpx.adobe.com/acrobat/desktop/edit-documents/edit-text-in-pdfs/modify-text.html) and equivalents (Foxit, Nitro) perform true structural replacement: click into a text block, retype, and the editor rebuilds the internal text runs - substituting your font if the original is unavailable, and reflowing the block as needed. With the original font installed and short replacements, results are excellent. The three failure modes, all font-driven: missing fonts trigger substitution that changes letter widths (neighboring lines then re-break); heavy edits inside justified paragraphs produce visibly uneven word spacing; and text converted to outlines or produced by exotic tools imports as shapes that no editor can retype.
 
 Two production notes if you hold an Acrobat license: check File > Properties > Fonts *before* editing and install what is missing - this single habit prevents most bad outcomes - and prefer many small edits over one large rewrite, because block-reflow errors scale with the edit size.
 

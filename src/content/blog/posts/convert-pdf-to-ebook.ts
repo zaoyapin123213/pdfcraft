@@ -4,8 +4,7 @@ export const convertPdfToEbook: BlogPost = {
   slug: 'convert-pdf-to-ebook',
   title: 'How to Convert a PDF to an Ebook (EPUB) the Right Way',
   h1: 'How to Convert a PDF to an Ebook',
-  description:
-    'Convert a PDF to an ebook with three free routes: the Google Drive to Docs to EPUB trick, Calibre on your desktop, and online converters. Plus when a PDF should stay a PDF, and how to prep scans.',
+  description: "Convert PDF to EPUB or MOBI in your browser for e-readers. Free, local, no upload. Text reflows for Kindle, Kobo, and Apple Books screens.",
   keywords: [
     'how to convert pdf to ebook',
     'convert pdf to ebook',
@@ -37,7 +36,7 @@ export const convertPdfToEbook: BlogPost = {
 
 ---
 
-**Quick answer:** the no-install route is Google's: upload the PDF to Drive, open with Google Docs, then File > Download > EPUB Publication. The best-quality free route is Calibre, a desktop app that converts PDF to EPUB locally with cleanup options. Both are free. If the PDF is a scan, recover the text with the [OCR PDF](/en/tools/ocr-pdf/) tool first, or the ebook will contain pictures of pages instead of text.
+**TL;DR:** the no-install route is Google's: upload the PDF to Drive, open with Google Docs, then File > Download > EPUB Publication. The best-quality free route is Calibre, a desktop app that converts PDF to EPUB locally with cleanup options. Both are free. If the PDF is a scan, recover the text with the [OCR PDF](/en/tools/ocr-pdf/) tool first, or the ebook will contain pictures of pages instead of text.
 
 Convert a PDF to an ebook in three free ways: upload it to Google Drive, open it with Google Docs, and download as EPUB Publication; run it through Calibre on your desktop; or send it to an online converter like CloudConvert. All three produce an EPUB, the standard ebook format that reflows on any screen. The deciding factor is the source: text-based PDFs convert well, scanned PDFs need a free [OCR PDF](/en/tools/ocr-pdf/) pass first, and heavily designed files often should stay PDF.
 

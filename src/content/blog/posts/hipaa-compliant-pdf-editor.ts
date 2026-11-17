@@ -4,8 +4,7 @@ export const hipaaCompliantPdfEditor: BlogPost = {
   slug: 'hipaa-compliant-pdf-editor',
   title: 'HIPAA-Compliant PDF Editing: What Actually Matters (2026)',
   h1: 'HIPAA-Compliant PDF Editor: What Actually Matters',
-  description:
-    'What HIPAA requires for PDF tools handling PHI, why local browser processing fits, which features matter (encryption, redaction, audit trails), and what a BAA covers.',
+  description: "Is this PDF editor HIPAA compliant? What local browser processing does and does not cover - audit trails, retention, BAAs - stated plainly.",
   keywords: ['hipaa compliant pdf editor'],
   datePublished: '2026-10-08',
   dateModified: '2026-10-08',
@@ -28,9 +27,9 @@ export const hipaaCompliantPdfEditor: BlogPost = {
     { question: 'Are free tools acceptable under HIPAA?', answer: 'The tool\'s price is irrelevant; the architecture is what matters. Local-processing free tools involve no vendor receiving PHI, which satisfies the vendor-relationship concern structurally. Safeguards around use (storage, access, training) remain your organization\'s responsibility exactly as with paid tools.' },
   ],
   body: `
-No PDF editor is HIPAA compliant as a product - HIPAA regulates how your organization handles protected health information (PHI), and a tool becomes compliant to use when your safeguards surround it: local processing so PHI never reaches a vendor, encryption before transmission, true redaction before sharing, and sanitization before every external send. This guide turns those requirements into a concrete, free-to-run PDF workflow. (General information, not legal advice.)
+No PDF editor is HIPAA compliant as a product. HIPAA regulates how your organization handles protected health information (PHI), and a tool becomes compliant to use when your safeguards surround it: local processing so PHI never reaches a vendor, encryption before transmission, true redaction before sharing, and sanitization before every external send. This guide turns those requirements into a concrete, free-to-run PDF workflow. (General information, not legal advice.)
 
-**Quick verdict:** for PDF tasks on PHI, prefer tools that never receive the file - local browser processing (like PDFEditorFree's) means no vendor holds PHI, no Business Associate Agreement is needed for the tool, and the safeguards reduce to your own practices: encrypt at rest, redact before sharing, sanitize before sending. The full reasoning and workflow below. (This page is general information, not legal advice - your compliance officer owns your specific obligations.)
+**TL;DR:** for PDF tasks on PHI, prefer tools that never receive the file. Local browser processing (like PDFEditorFree's) means no vendor holds PHI, no Business Associate Agreement is needed for the tool, and the safeguards reduce to your own practices: encrypt at rest, redact before sharing, sanitize before sending. The full reasoning and workflow below. (This page is general information, not legal advice. Your compliance officer owns your specific obligations.)
 
 ## Safeguards at a glance
 
@@ -55,17 +54,17 @@ No PDF editor is HIPAA compliant as a product - HIPAA regulates how your organiz
 
 ## What HIPAA actually requires of PDF handling {#requires}
 
-HIPAA's Privacy and Security Rules apply to *conduct* with PHI - and translating them to PDF work yields concrete requirements:
+HIPAA's [Privacy and Security Rules](https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164) apply to *conduct* with PHI - and translating them to PDF work yields concrete requirements:
 
-**Access control:** PHI lives where only authorized people reach it - encrypted storage, authenticated systems, role-based access. The PDF is not special; the storage around it carries the duty.
+**Access control:** PHI lives where only authorized people reach it. Encrypted storage, authenticated systems, role-based access. The PDF is not special. The storage around it carries the duty.
 
 **Safeguards in transit and at rest:** PHI must be protected when stored (encryption at rest) and when moving (encryption in transit). A password-protected PDF sent with the password through a second channel satisfies transit safeguards in practice.
 
 **Minimum necessary:** use and disclose only the PHI needed for the purpose - which in PDF terms means *redacting beyond the recipient's need* before sharing anything externally.
 
-**Accounting and audit:** disclosures loggable, access traceable - obligations that attach to your systems rather than to the editor.
+**Accounting and audit:** disclosures loggable, access traceable. Obligations that attach to your systems rather than to the editor.
 
-**Business associate agreements:** anyone *processing PHI on your behalf* takes HIPAA duties by contract - the BAA, whose architecture question is the next section.
+**Business associate agreements:** anyone *processing PHI on your behalf* takes HIPAA duties by contract. The BAA, whose architecture question is the next section.
 
 Notice where the PDF editor sits in all of this: nowhere, as a title. It is a instrument inside a system of safeguards - which is why the correct question is never "which tool is compliant?" but "which tool *fits inside* our compliant system?" The next section shows why one architectural answer fits dramatically better.
 
@@ -73,13 +72,13 @@ Notice where the PDF editor sits in all of this: nowhere, as a title. It is a in
 
 PDF tools divide by where the file goes - and for PHI, that division is the whole decision:
 
-**Upload-based tools (the common web tool):** your document - referral letter, lab report, insurance form, PHI and all - travels to a vendor's servers, is processed there, and returns. The moment it arrives, a HIPAA relationship exists: the vendor is processing PHI on your behalf, which imports the entire BAA, security-assessment, data-residency and breach-notification apparatus. Every such tool in a healthcare workflow requires: a signed BAA, a vendor security review, and documented policies. That is real work with real vendors - sometimes necessary (EHR-integrated systems), sometimes merely unavoidable by habit.
+**Upload-based tools (the common web tool):** your document. Referral letter, lab report, insurance form, PHI and all. Travels to a vendor's servers, is processed there, and returns. The moment it arrives, a HIPAA relationship exists: the vendor is processing PHI on your behalf, which imports the entire BAA, security-assessment, data-residency and breach-notification apparatus. Every such tool in a healthcare workflow requires: a signed BAA, a vendor security review, and documented policies. That is real work with real vendors. Sometimes necessary (EHR-integrated systems), sometimes merely unavoidable by habit.
 
-**Local-processing tools (browser-side execution):** the document is read from disk into the browser, processed by your own CPU, and written back to disk. Nothing transmits; the vendor never receives PHI; the vendor relationship that HIPAA regulates *does not form*. No BAA is needed for the tool because there is no counterpart receiving protected information - the architecture is the safeguard.
+**Local-processing tools (browser-side execution):** the document is read from disk into the browser, processed by your own CPU, and written back to disk. Nothing transmits. The vendor never receives PHI. The vendor relationship that HIPAA regulates *does not form*. No BAA is needed for the tool because there is no counterpart receiving protected information - the architecture is the safeguard.
 
 This is why healthcare teams have moved document tasks to local browser tools: the everyday PDF work (merging referral packets, converting forms, redacting for records requests, encrypting for transmission) runs identically well locally, and the compliance surface collapses from "vendor management program" to "your own documented practices."
 
-The boundary, stated precisely: local tools handle the *processing*; your systems still carry the *storage, access and transmission* safeguards - which the workflow section at the end stitches together.
+The boundary, stated precisely: local tools handle the *processing*. Your systems still carry the *storage, access and transmission* safeguards - which the workflow section at the end stitches together. For teams who also work on shared or borrowed machines, the [portable PDF editor guide](/en/blog/portable-pdf-editor/) covers the no-install browser workflow that keeps documents off other people's hardware.
 
 ## BAAs explained: when you need one {#baa}
 
@@ -89,21 +88,21 @@ The Business Associate Agreement is the contract at the center of vendor-PHI que
 
 **When no BAA is needed:** the vendor never touches PHI. Local-processing tools - by architecture - never do. Neither does general-purpose software that merely runs on your machine without receiving data (a text editor is not your business associate).
 
-**The common misconception, corrected:** "free tools can't sign BAAs, so free tools can't be compliant" - wrong twice over. First, the architectural point above: local tools need no BAA *because no PHI reaches them*, which makes them the easiest tools to deploy compliantly. Second, paid tools are not automatically covered either - the BAA is a document that must actually be signed, covering the actual service actually processing the data; subscription status signs nothing.
+**The common misconception, corrected:** "free tools can't sign BAAs, so free tools can't be compliant" - wrong twice over. First, the architectural point above: local tools need no BAA *because no PHI reaches them*, which makes them the easiest tools to deploy compliantly. Second, paid tools are not automatically covered either. The BAA is a document that must actually be signed, covering the actual service actually processing the data; subscription status signs nothing.
 
-**The practical test for any tool in your workflow:** where does the file go? If the answer names a vendor's servers, the BAA question is live and the vendor conversation starts. If the answer is "nowhere - my device," the question closes itself. One question, asked of every tool, keeps the whole stack auditable.
+**The practical test for any tool in your workflow:** where does the file go? If the answer names a vendor's servers, the BAA question is live and the vendor conversation starts. If the answer is "nowhere. My device," the question closes itself. One question, asked of every tool, keeps the whole stack auditable.
 
 ## The five PDF features that matter for PHI {#features}
 
 Within the compliant system, five PDF capabilities carry the safeguards - and all five exist in free local tools:
 
-**1. Encryption.** Password-protecting PDFs containing PHI ([Encrypt PDF](/en/tools/encrypt-pdf/)) - the transit safeguard for any document leaving your system. Modern PDF encryption is AES-based; use strong passwords and share them via a separate channel.
+**1. Encryption.** Password-protecting PDFs containing PHI ([Encrypt PDF](/en/tools/encrypt-pdf/)) - the transit safeguard for any document leaving your system. Modern PDF encryption is AES-based. Use strong passwords and share them via a separate channel.
 
-**2. True redaction.** Removing PHI from files shared beyond the minimum necessary - with "true" doing heavy lifting (next section). The redaction capability inside [Edit PDF](/en/tools/edit-pdf/) deletes content from the file.
+**2. True redaction.** Removing PHI from files shared beyond the minimum necessary. With "true" doing heavy lifting (next section). The redaction capability inside [Edit PDF](/en/tools/edit-pdf/) deletes content from the file.
 
 **3. Sanitization.** Stripping the hidden layers - metadata, annotations, form data, embedded attachments - that documents accumulate ([Sanitize PDF](/en/tools/sanitize-pdf/)). The pre-sharing pass that prevents inadvertent disclosure.
 
-**4. Clean conversion.** Converting between formats without routing PHI through third-party servers - the local conversion family ([PDF to Word](/en/tools/pdf-to-docx/) and siblings) keeps records requests and referrals processing on-device.
+**4. Clean conversion.** Converting between formats without routing PHI through third-party servers. The local conversion family ([PDF to Word](/en/tools/pdf-to-docx/) and siblings) keeps records requests and referrals processing on-device.
 
 **5. Reliable page operations.** Assembling, splitting and organizing patient documents locally - [Merge PDF](/en/tools/merge-pdf/) and peers - without upload exposure.
 
@@ -113,19 +112,19 @@ No paid tier holds a monopoly on any of these - which means the compliant-system
 
 The single most consequential technical distinction in PHI handling, because getting it wrong is a reportable breach:
 
-**Covering** (drawing a black rectangle over content) hides PHI *visually*. The text remains in the file - selectable, searchable, extractable by anyone with the PDF. Countless disclosed documents have "leaked" exactly this way: redacted-looking files whose black boxes sit over intact data.
+**Covering** (drawing a black rectangle over content) hides PHI *visually*. The text remains in the file. Selectable, searchable, extractable by anyone with the PDF. Countless disclosed documents have "leaked" exactly this way: redacted-looking files whose black boxes sit over intact data.
 
 **True redaction** *deletes* the content from the file. The text object is removed; nothing remains to extract. This is what the redaction capability in [Edit PDF](/en/tools/edit-pdf/) does, and what HIPAA-meaningful de-identification requires.
 
 **The verification ritual that closes the loop:** after redacting and saving, open the saved file fresh and search it (Ctrl+F) for every removed term - names, IDs, dates, account numbers. **Zero results is the pass condition.** Thirty seconds, and it converts redaction from hope to evidence. Pair it with a sanitize pass (metadata and hidden layers) and the file is genuinely clean.
 
-**The training note for teams:** this distinction is invisible to untrained eyes - both methods look identical on screen. One line in onboarding ("black boxes are not redaction; use the redaction tool and verify by search") prevents the most common PHI disclosure mechanism in PDF work. It is the highest-leverage sentence a compliance officer can add to training this year.
+**The training note for teams:** this distinction is invisible to untrained eyes. Both methods look identical on screen. One line in onboarding ("black boxes are not redaction. Use the redaction tool and verify by search") prevents the most common PHI disclosure mechanism in PDF work. It is the highest-leverage sentence a compliance officer can add to training this year.
 
 ## The hidden-data inventory: metadata and friends {#hidden}
 
 Redaction addresses visible PHI; the invisible layers need their own inventory - because documents carry more than their pages show:
 
-**Document metadata.** Author names, organization paths, revision timestamps, the software fingerprint - routinely revealing more about origins than senders intend. Stripped by sanitization.
+**Document metadata.** Author names, organization paths, revision timestamps, the software fingerprint. Routinely revealing more about origins than senders intend. Stripped by sanitization.
 
 **Annotations and comments.** Review rounds leave threaded comments - clinical notes-to-self, internal judgments - that travel with the file invisibly in normal viewing. Sanitized away.
 
@@ -135,47 +134,47 @@ Redaction addresses visible PHI; the invisible layers need their own inventory -
 
 **Deleted-but-recoverable content.** PDFs saved incrementally can retain unreferenced versions of earlier content - the forensically recoverable ghost text. Regenerating clean files (via the sanitize pass) removes it.
 
-**The operational rule that binds the inventory:** *any* PDF leaving your system - to another provider, an insurer, a records request, a patient - gets the sanitize pass first. Not just the "sensitive-looking" ones: the inventory exists precisely because sensitivity is not always visible. One step, seconds of processing, an entire disclosure class eliminated.
+**The operational rule that binds the inventory:** *any* PDF leaving your system. To another provider, an insurer, a records request, a patient - gets the sanitize pass first. Not just the "sensitive-looking" ones: the inventory exists precisely because sensitivity is not always visible. One step, seconds of processing, an entire disclosure class eliminated.
 
 ## Transmitting PHI PDFs: the encryption workflow {#transmission}
 
 The moment a PHI document leaves your device, transmission safeguards engage - and the practical workflow is simpler than its reputation:
 
-**The standard: encrypt the attachment, separate the key.** Password-protect the PDF ([Encrypt PDF](/en/tools/encrypt-pdf/) - local, AES-based), and deliver the password through a different channel than the file: file by email, password by phone call or SMS. Two channels make interception of one insufficient - the practical definition of transit safeguarding.
+**The standard: encrypt the attachment, separate the key.** Password-protect the PDF ([Encrypt PDF](/en/tools/encrypt-pdf/). Local, AES-based), and deliver the password through a different channel than the file: file by email, password by phone call or SMS. Two channels make interception of one insufficient. The practical definition of transit safeguarding.
 
-**Respect patient preference where it applies** - some patients request (or decline) specific communication channels, and those preferences are themselves obligations. The encryption workflow accommodates any channel: even the patient who insists on plain email gets at least the option of the protected file.
+**Respect patient preference where it applies**. Some patients request (or decline) specific communication channels, and those preferences are themselves obligations. The encryption workflow accommodates any channel: even the patient who insists on plain email gets at least the option of the protected file.
 
 **The portal question.** Patient portals and secure messaging platforms exist precisely to make this workflow institutional - when one is available and mutually workable, it substitutes for the manual two-channel dance. The local tools still matter: documents get prepared, redacted, sanitized and assembled *before* any portal upload.
 
-**The audit trail where sharing occurs:** record what was shared, with whom, when - the accounting obligation lives in your systems, and a one-line log per external disclosure satisfies it cheaply.
+**The audit trail where sharing occurs:** record what was shared, with whom, when. The accounting obligation lives in your systems, and a one-line log per external disclosure satisfies it cheaply.
 
 Transmission is where PHI work feels most exposed, and the workflow's simplicity is the reassurance: encrypt locally, separate the key, log the disclosure. Three steps, all in your control.
 
 ## A PHI-safe PDF workflow, end to end {#workflow}
 
-Assembling this guide into the standing practice - the sequence a clinic team follows for any PHI document task:
+Assembling this guide into the standing practice. The sequence a clinic team follows for any PHI document task:
 
-1. **Process locally.** All PDF tasks (merge, convert, redact, encrypt) in local browser tools - no PHI reaches any vendor, no BAA questions arise.
+1. **Process locally.** All PDF tasks (merge, convert, redact, encrypt) in local browser tools. No PHI reaches any vendor, no BAA questions arise.
 2. **Minimum-necessary check.** Before any external share: does this recipient need this PHI? Redact beyond their need ([true redaction](/en/tools/edit-pdf/), verified by search).
 3. **Sanitize before sending.** The [sanitize pass](/en/tools/sanitize-pdf/) on anything leaving the system - metadata, annotations, residues gone.
-4. **Encrypt for transit.** [Password-protect](/en/tools/encrypt-pdf/) outgoing files; deliver keys via a separate channel (or the portal, where available).
+4. **Encrypt for transit.** [Password-protect](/en/tools/encrypt-pdf/) outgoing files. Deliver keys via a separate channel (or the portal, where available).
 5. **Log external disclosures.** One line per share: what, to whom, when.
-6. **Store encrypted at rest.** PHI files live in access-controlled, encrypted storage - the duty that surrounds everything above.
+6. **Store encrypted at rest.** PHI files live in access-controlled, encrypted storage. The duty that surrounds everything above.
 7. **Train the two sentences.** "Black boxes are not redaction - verify by search. Nothing uploads - local tools only." The two sentences that prevent most incidents.
 
-Seven steps, all locally processed, all free to run. The tooling was never the hard part of HIPAA-sound PDF work - the architecture choice (local) plus the discipline (the checklist) is the whole practice. Tape the seven steps where the referrals go out; that is the compliance program, working.
+Seven steps, all locally processed, all free to run. The tooling was never the hard part of HIPAA-sound PDF work. The architecture choice (local) plus the discipline (the checklist) is the whole practice. Tape the seven steps where the referrals go out; that is the compliance program, working.
 
 ## De-identification and PHI: what counts before sharing {#deid}
 
-Minimum-necessary sharing often goes further than redacting a name - the technical standard for what makes health data "de-identified" is worth every team knowing, because it defines when the strict safeguards can relax (and when they cannot).
+Minimum-necessary sharing often goes further than redacting a name. The technical standard for what makes health data "de-identified" is worth every team knowing, because it defines when the strict safeguards can relax (and when they cannot).
 
-**The two routes to de-identification.** HIPAA's Safe Harbor removes eighteen identifier categories - names, all geographic subdivisions smaller than state, all elements of dates (except year) related to the individual, contact details, IDs (record, license, account), device identifiers, URLs and IPs, biometrics, photos, and *any other unique identifying characteristic*. Expert determination is the alternative route - a statistician certifies re-identification risk as very small. For everyday PDF sharing, Safe Harbor is the practical standard: redact all eighteen categories, or the file stays PHI.
+**The two routes to de-identification.** HIPAA's [Safe Harbor method](https://www.ecfr.gov/current/title-45/section-164.514) removes eighteen identifier categories. Names, all geographic subdivisions smaller than state, all elements of dates (except year) related to the individual, contact details, IDs (record, license, account), device identifiers, URLs and IPs, biometrics, photos, and *any other unique identifying characteristic*. Expert determination is the alternative route. A statistician certifies re-identification risk as very small. For everyday PDF sharing, Safe Harbor is the practical standard: redact all eighteen categories, or the file stays PHI.
 
-**The surprising categories.** The list trips teams on its edges: dates (a redacted letter still showing "admitted 03/14/2026" carries a date element), geography (ZIP codes finer than the first three digits), ages over 89 (aggregated to "90+"), and device serials in imaging exports. Review the eighteen list once per role; the edges are where disclosures happen.
+**The surprising categories.** The list trips teams on its edges: dates (a redacted letter still showing "admitted 03/14/2026" carries a date element), geography (ZIP codes finer than the first three digits), ages over 89 (aggregated to "90+"), and device serials in imaging exports. Review the eighteen list once per role. The edges are where disclosures happen.
 
-**The "any other unique characteristic" catch.** Rare condition plus small town plus date is re-identifying even with names removed - de-identification is a judgment, not just a checklist, and uncertain cases go to your privacy officer rather than out the door.
+**The "any other unique characteristic" catch.** Rare condition plus small town plus date is re-identifying even with names removed. De-identification is a judgment, not just a checklist, and uncertain cases go to your privacy officer rather than out the door.
 
-**Limited data sets, for completeness:** some sharing (research, operations) runs under a middle tier - dates and partial geography permitted, direct identifiers removed, with a data use agreement. If your recipients invoke this, the agreement - not the redaction standard - carries the arrangement.
+**Limited data sets, for completeness:** some sharing (research, operations) runs under a middle tier. Dates and partial geography permitted, direct identifiers removed, with a data use agreement. If your recipients invoke this, the agreement - not the redaction standard - carries the arrangement.
 
 **The workflow addition this section adds:** before the minimum-necessary check, ask whether the recipient needs *identified* data at all. Records to a specialist: identified, consented, expected. Case file to a conference: de-identified or not shared. One question upstream of redaction, and the safeguards scale with actual need.
 
@@ -185,50 +184,50 @@ Safeguards live or die at the desk of the person actually holding the patient's 
 
 **The rules, in desk language:**
 
-1. **Local tools only.** PDF tasks happen at [the local toolbox](/en/tools/) - nothing about a patient document ever uploads anywhere. If a website asks you to upload a patient file, stop.
+1. **Local tools only.** PDF tasks happen at [the local toolbox](/en/tools/). Nothing about a patient document ever uploads anywhere. If a website asks you to upload a patient file, stop.
 2. **Black boxes are not redaction.** Removing patient info means the redaction tool, then searching the saved file to confirm it's gone.
 3. **Sanitize before anything leaves.** Records requests, referrals, insurers - the sanitize button runs first. Metadata and old comments don't travel with our documents.
-4. **Encrypt what leaves, separate the key.** Outgoing patient PDFs get passwords; the password travels by phone or text, never the same email.
-5. **Store encrypted, share logged.** Patient files live in the approved (encrypted, access-controlled) location - desktops and email inboxes are not storage. External shares get a one-line log entry.
+4. **Encrypt what leaves, separate the key.** Outgoing patient PDFs get passwords. The password travels by phone or text, never the same email.
+5. **Store encrypted, share logged.** Patient files live in the approved (encrypted, access-controlled) location. Desktops and email inboxes are not storage. External shares get a one-line log entry.
 6. **When unsure, ask before sending.** The privacy officer's phone number is on this page. One question before beats one breach report after.
 
-**Why one page works:** six rules, each a single behavior, each mapped to the moment it applies (opening a file, removing info, sending, storing). Compliance training fails when it teaches law; it succeeds when it teaches *buttons*. This page teaches buttons.
+**Why one page works:** six rules, each a single behavior, each mapped to the moment it applies (opening a file, removing info, sending, storing). Compliance training fails when it teaches law. It succeeds when it teaches *buttons*. This page teaches buttons.
 
-**The refresh cadence:** the page reviews annually (regulations shift, tools shift) and onboards every new hire in fifteen minutes - the fifteen minutes with the best return in healthcare operations.
+**The refresh cadence:** the page reviews annually (regulations shift, tools shift) and onboards every new hire in fifteen minutes. The fifteen minutes with the best return in healthcare operations.
 
 ## The breach patterns: how PHI PDFs actually leak {#breach}
 
-Compliance pages list safeguards; incident reports list what went wrong. The recurring breach patterns in PDF work - each with its upstream fix, since every one of these is preventable by a rule already on this page:
+Compliance pages list safeguards; incident reports list what went wrong. The recurring breach patterns in PDF work. Each with its upstream fix, since every one of these is preventable by a rule already on this page:
 
-**The black-box disclosure.** A "redacted" record shared with the black rectangles drawn over intact text; the recipient extracts it in one click. *Fix: true redaction plus the search-verification ritual (Rule 2).*
+**The black-box disclosure.** A "redacted" record shared with the black rectangles drawn over intact text. The recipient extracts it in one click. *Fix: true redaction plus the search-verification ritual (Rule 2).*
 
 **The metadata trail.** A de-identified report whose document properties still carry the treating physician's name and the file path of the original record. *Fix: the sanitize-before-sending rule (Rule 3).*
 
-**The personal-drive archive.** Years of patient PDFs in a desktop folder or personal cloud account - outside the encrypted, access-controlled system, invisible to audits, gone in a laptop theft. *Fix: storage rule (Rule 5), plus periodic reminders that desktops are workspaces, not vaults.*
+**The personal-drive archive.** Years of patient PDFs in a desktop folder or personal cloud account. Outside the encrypted, access-controlled system, invisible to audits, gone in a laptop theft. *Fix: storage rule (Rule 5), plus periodic reminders that desktops are workspaces, not vaults.*
 
-**The helpful email.** The referral letter sent unencrypted because "the receiving clinic does it this way too" - reciprocal convenience is not a safeguard. *Fix: encrypt-and-separate-key (Rule 4), no reciprocity exceptions.*
+**The helpful email.** The referral letter sent unencrypted because "the receiving clinic does it this way too". Reciprocal convenience is not a safeguard. *Fix: encrypt-and-separate-key (Rule 4), no reciprocity exceptions.*
 
-**The vendor nobody vetted.** A free online converter, adopted by one team member, quietly uploading patient files to unknown servers for years. *Fix: local-only (Rule 1) - the rule that prevents entire vendor-management incidents.*
+**The vendor nobody vetted.** A free online converter, adopted by one team member, quietly uploading patient files to unknown servers for years. *Fix: local-only (Rule 1). The rule that prevents entire vendor-management incidents.*
 
 **The reply-all attachment.** The PHI thread forwarded beyond need with history attached - minimum-necessary violated by inherited context. *Fix: fresh clean copies for new recipients, never forwarded chains.*
 
-Six patterns, six rules, zero new technology - the incident literature and the one-page policy are the same document seen from opposite directions. That is the strongest argument for the policy: it is not compliance theater; it is the autopsy of every breach that has not happened to you yet.
+Six patterns, six rules, zero new technology. The incident literature and the one-page policy are the same document seen from opposite directions. That is the strongest argument for the policy: it is not compliance theater. It is the autopsy of every breach that has not happened to you yet.
 
 ## Answering the auditors: documentation that survives review {#audit}
 
 When a compliance review or security assessment arrives, the questions are predictable - and the documentation for this workflow assembles in an afternoon if you know the five artifacts auditors ask for:
 
-**1. The tool inventory.** Every tool that touches PHI, with its processing location noted: "PDF processing - local browser tools (no vendor receives PHI); EHR-integrated signing - vendor with BAA on file." The local architecture keeps this inventory short - which is itself an audit advantage.
+**1. The tool inventory.** Every tool that touches PHI, with its processing location noted: "PDF processing. Local browser tools (no vendor receives PHI). EHR-integrated signing. Vendor with BAA on file." The local architecture keeps this inventory short - which is itself an audit advantage.
 
-**2. The written policy.** The one-page team rules, dated and versioned. Auditors read for specificity mapped to safeguards - this page's rules map line-by-line to the Security Rule's technical safeguards, which is exactly the mapping reviewers seek.
+**2. The written policy.** The one-page team rules, dated and versioned. Auditors read for specificity mapped to safeguards. This page's rules map line-by-line to the Security Rule's [technical safeguards at 45 CFR 164.312](https://www.ecfr.gov/current/title-45/section-164.312), which is exactly the mapping reviewers seek.
 
-**3. The training record.** Who was trained on the policy and when. A signature sheet per onboarding and annual refresh - fifteen minutes per person, annually, documented.
+**3. The training record.** Who was trained on the policy and when. A signature sheet per onboarding and annual refresh. Fifteen minutes per person, annually, documented.
 
-**4. The disclosure log.** The external-shares log (what, to whom, when) in whatever system holds it - a spreadsheet satisfies at small scale; the existence and use of the log matter more than its sophistication.
+**4. The disclosure log.** The external-shares log (what, to whom, when) in whatever system holds it. A spreadsheet satisfies at small scale. The existence and use of the log matter more than its sophistication.
 
-**5. The risk assessment reference.** Where your risk analysis lives (it is a required Security Rule artifact independent of PDFs), with the local-tooling decision documented as a safeguard selection - "processing performed locally; no third-party PHI transmission for document tasks" is a sentence auditors underline approvingly.
+**5. The risk assessment reference.** Where your risk analysis lives (it is a required Security Rule artifact independent of PDFs), with the local-tooling decision documented as a safeguard selection - "processing performed locally. No third-party PHI transmission for document tasks" is a sentence auditors underline approvingly.
 
-Five artifacts, one afternoon of assembly, and the PDF workflow walks through any review with its receipts in order. Compliance documentation is rarely this simple - it is simple here because the architecture was chosen to make it simple, which is the compounding return on the local-processing decision this guide has been making since its second section.
+Five artifacts, one afternoon of assembly, and the PDF workflow walks through any review with its receipts in order. Compliance documentation is rarely this simple. It is simple here because the architecture was chosen to make it simple, which is the compounding return on the local-processing decision this guide has been making since its second section.
 
 ## FAQ {#faq}
 
@@ -239,10 +238,10 @@ No editor is compliant as a title - HIPAA regulates conduct with PHI. A tool fit
 If the vendor's servers process your files - any upload-based tool - generally yes. Local-processing tools never receive PHI, so no vendor relationship forms and no BAA is needed for them; that is the architectural advantage healthcare teams use.
 
 **Which PDF features matter most for HIPAA workflows?**
-Encryption for transit, true redaction for minimum-necessary sharing, sanitization for hidden layers, local conversion and assembly - all available free in local tools; the safeguards are how your organization uses them.
+Encryption for transit, true redaction for minimum-necessary sharing, sanitization for hidden layers, local conversion and assembly. All available free in local tools. The safeguards are how your organization uses them.
 
 **Is PDFEditorFree HIPAA compliant?**
-Its tools process entirely in your browser - nothing uploads, so no PHI reaches the vendor and no BAA is needed for using them. Overall compliance remains your organization's practice: storage, access, training, transmission. General information, not legal advice - your compliance officer owns specifics.
+Its tools process entirely in your browser. Nothing uploads, so no PHI reaches the vendor and no BAA is needed for using them. Overall compliance remains your organization's practice: storage, access, training, transmission. General information, not legal advice - your compliance officer owns specifics.
 
 **Can I email a PDF with PHI to a patient?**
 With appropriate safeguards: encrypt the PDF, send the password via a separate channel, respect patient communication preferences, and log the disclosure. Email alone is never the encryption layer.
@@ -251,13 +250,29 @@ With appropriate safeguards: encrypt the PDF, send the password via a separate c
 Use true redaction (which deletes content), not covering (which hides it while the data remains extractable). Verify after saving: search the file for every removed term - zero results is the pass.
 
 **What hidden data do PDFs carry that risks PHI exposure?**
-Metadata, annotations, form residues, embedded attachments, and deleted-but-recoverable content. A sanitize pass strips them all - run it before any external share.
+Metadata, annotations, form residues, embedded attachments, and deleted-but-recoverable content. A sanitize pass strips them all. Run it before any external share.
 
 **Are free tools acceptable under HIPAA?**
-Price is irrelevant; architecture matters. Local free tools never receive PHI and fit compliant practice structurally - with your organization's safeguards around use, exactly as with paid tools.
+Price is irrelevant; architecture matters. Local free tools never receive PHI and fit compliant practice structurally. With your organization's safeguards around use, exactly as with paid tools.
 
 ## Process PHI locally, safeguard everywhere
 
-Local processing is the architecture that simplifies HIPAA PDF work: [Encrypt PDF](/en/tools/encrypt-pdf/), [Sanitize PDF](/en/tools/sanitize-pdf/), [redacting Edit PDF](/en/tools/edit-pdf/) and the [full toolbox](/en/tools/) - nothing uploads, nothing to sign for, nothing disclosed. Pair it with the seven-step practice and your compliance officer's review.
+Local processing is the architecture that simplifies HIPAA PDF work: [Encrypt PDF](/en/tools/encrypt-pdf/), [Sanitize PDF](/en/tools/sanitize-pdf/), [redacting Edit PDF](/en/tools/edit-pdf/) and the [full toolbox](/en/tools/). Nothing uploads, nothing to sign for, nothing disclosed. Pair it with the seven-step practice and your compliance officer's review.
+
+## What this tool does not do
+
+Local browser processing solves the transport problem - the file never crosses the
+network - but it does not turn a website into a HIPAA program. Three things remain
+your responsibility:
+
+- **Audit trails.** A compliance program needs records of who accessed PHI and when.
+  A browser tool has no user accounts and keeps no logs; your document-management
+  system must provide the audit trail.
+- **Retention policy.** Deleting a file locally does not satisfy a retention schedule,
+  and browser storage (IndexedDB) is a cache, not an archive. Keep PHI in systems
+  that enforce your retention rules.
+- **A signed BAA.** Using a free website does not create a Business Associate
+  Agreement, and none is needed here because no data reaches the vendor. If you
+  adopt cloud tools that do receive PHI, a BAA becomes mandatory.
 `,
 };

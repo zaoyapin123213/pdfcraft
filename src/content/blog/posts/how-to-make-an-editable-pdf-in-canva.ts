@@ -28,9 +28,9 @@ export const howToMakeAnEditablePdfInCanva: BlogPost = {
     { question: 'Does Canva Pro matter for PDF work?', answer: 'Mostly no. PDF import, PDF Print export and JPG export are free-tier features. Pro adds brand kits, premium fonts and assets - valuable for design consistency, but not required for any technique in this guide.' },
   ],
   body: `
-You can make a PDF editable in Canva by importing it: on the Canva homepage choose Create a design > Import file (or drag the PDF into the browser window), and Canva rebuilds each page as editable design layers. Expect approximation - fonts substitute, complex layouts fragment, and form fields do not survive - so import suits redesign work, not touch-ups. This guide covers the import, the export settings that matter, and when a direct PDF editor is the better route.
+You can make a PDF editable in Canva by importing it: on the Canva homepage choose Create a design > [Import file](https://www.canva.com/help/import-and-edit-pdfs-canva) (or drag the PDF into the browser window), and Canva rebuilds each page as editable design layers. Expect approximation - fonts substitute, complex layouts fragment, and form fields do not survive - so import suits redesign work, not touch-ups. This guide covers the import, the export settings that matter, and when a direct PDF editor is the better route.
 
-**Quick answer:** to make an existing PDF editable, import it (Create a design > Import file) and Canva rebuilds it as editable design layers. To create a PDF that *you or others* can keep editing, build the design in Canva and keep the design itself as the master - the PDF you download is a finished rendering, not an editable document.
+**TL;DR:** to make an existing PDF editable, import it (Create a design > Import file) and Canva rebuilds it as editable design layers. To create a PDF that *you or others* can keep editing, build the design in Canva and keep the design itself as the master - the PDF you download is a finished rendering, not an editable document.
 
 ## On this page
 
@@ -49,7 +49,7 @@ You can make a PDF editable in Canva by importing it: on the Canva homepage choo
 The word "editable" carries three distinct meanings in Canva workflows, and confusing them is the root of most frustration:
 
 1. **Editable as a Canva design.** The design lives in Canva; every element - text boxes, images, shapes - can be moved, restyled and duplicated. This is Canva's native state and its real strength. Share a template link and teammates edit inside Canva with a free account.
-2. **Editable as a PDF.** A downloaded PDF is a *rendering* - text becomes fixed positioned content, shapes become static objects. There is no "edit this PDF in Canva" round trip back into the design; and opening the PDF in a PDF editor lets you annotate or cover content, but not drag elements around like Canva does.
+2. **Editable as a PDF.** A downloaded PDF is a *rendering* - text becomes [fixed positioned content as the ISO 32000-2 specification describes](https://www.iso.org/standard/75839.html), shapes become static objects. There is no "edit this PDF in Canva" round trip back into the design; and opening the PDF in a PDF editor lets you annotate or cover content, but not drag elements around like Canva does.
 3. **Editable as a fillable form.** A PDF with interactive text fields recipients can type into. Canva cannot create these (no form-field objects exist in its toolkit) - this needs a PDF editor or a forms product.
 
 So when someone asks "how do I make an editable PDF in Canva", the practical answer is usually meaning 1 - get the content into Canva where it is fully editable - and then export a PDF for delivery. The design is the editable master; the PDF is the output. Teams that internalize this split (design in Canva, deliver as PDF, never treat the PDF as the master) stop losing work to re-import cycles.
@@ -138,7 +138,7 @@ Quick routing table for the jobs Canva's import handles poorly, with the better-
 - **Reduce a bloated PDF:** [compress](/en/tools/compress-pdf/) directly - do not route through a design tool.
 - **Scanned pages needing text edits:** OCR first (Canva import gives you a flat picture), then edit the recognized text.
 
-The unifying principle: Canva is for *re*design; PDF tools are for *docu*ment work. Choosing by job rather than by favorite tool is what makes both feel effortless.
+The unifying principle: Canva is for *re*design; PDF tools are for *docu*ment work. Choosing by job rather than by favorite tool is what makes both feel effortless. For the sibling cloud design suite that works the same import-then-edit way, see the [Xara Cloud PDF editor review](/en/blog/xara-cloud-pdf-editor-review/) - same architecture, different template library and pricing.
 
 ## Troubleshooting {#troubleshooting}
 

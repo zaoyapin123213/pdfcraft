@@ -4,8 +4,7 @@ export const canGoogleTranslatePdfDocuments: BlogPost = {
   slug: 'can-google-translate-pdf-documents',
   title: 'Can Google Translate PDF Documents? Yes, but Know the Limits',
   h1: 'Can Google Translate PDF Documents?',
-  description:
-    'Yes, Google Translate translates PDF documents up to 10 MB and 300 pages through its Documents tab. Here is how it works, what it does to your layout, and when to use something else.',
+  description: "Google Translate can translate PDF documents - how it works, what breaks (layout, tables, scans), and a local alternative that keeps formatting.",
   keywords: [
     'can google translate pdf documents',
     'google translate pdf documents',
@@ -38,7 +37,7 @@ export const canGoogleTranslatePdfDocuments: BlogPost = {
 
 ---
 
-**Quick answer:** Google Translate does translate PDF documents through its web Documents tab, with a 10 MB size cap, a 300-page cap, and support for four formats (.docx, .pdf, .pptx, .xlsx). Upload, pick languages, click Translate, and a translated file downloads. Scanned PDFs need OCR first, and complex layouts come back simplified.
+**TL;DR:** Google Translate does translate PDF documents through its web Documents tab, with a 10 MB size cap, a 300-page cap, and support for four formats (.docx, .pdf, .pptx, .xlsx). Upload, pick languages, click Translate, and a translated file downloads. Scanned PDFs need OCR first, and complex layouts come back simplified.
 
 Yes. Google Translate translates whole PDF documents through the Documents tab at translate.google.com, free, with no account, in up to 249 languages. Upload the file, pick two languages, and a translated copy downloads about a minute later, which has quietly made it one of the most used document translation services on earth, backed by the largest language coverage of any free tool after Google added 110 languages in 2024 [Google Translate new languages](https://blog.google/products-and-platforms/products/translate/google-translate-new-languages-2024).
 

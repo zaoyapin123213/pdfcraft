@@ -39,7 +39,7 @@ export const howToChangeFontColorInPdf: BlogPost = {
   body: `
 You can change font color in a PDF for free in about a minute: open a browser-based editor like PDFEditorFree's Edit PDF tool, cover the old text with a background-colored rectangle, and retype it in any color. For recoloring whole documents, convert the PDF to Word, restyle it there, and convert back. This guide walks through all four working methods - cover-and-retype, the Word round trip, Acrobat, and Illustrator - with exact steps for each.
 
-**Quick answer:** if you are adding new text, just use a free editor and pick the color before you type. If you need to recolor text that already exists in the PDF, you have three realistic options: cover-and-replace it visually, convert the PDF to Word and restyle it there, or use a desktop editor like Acrobat or Illustrator. All three methods are covered below with step-by-step instructions.
+**TL;DR:** if you are adding new text, just use a free editor and pick the color before you type. If you need to recolor text that already exists in the PDF, you have three realistic options: cover-and-replace it visually, convert the PDF to Word and restyle it there, or use a desktop editor like Acrobat or Illustrator. All three methods are covered below with step-by-step instructions.
 
 ## On this page
 
@@ -52,6 +52,10 @@ You can change font color in a PDF for free in about a minute: open a browser-ba
 - [Which method should you use?](#comparison)
 - [Troubleshooting color problems](#troubleshooting)
 - [Color tips for print and accessibility](#tips)
+- [Changing font color in Google Docs and LibreOffice](#google-docs)
+- [Scenario playbook: forms, invoices, papers and slides](#scenarios)
+- [Batch recoloring: when you have dozens of files](#batch)
+- [Related changes people often bundle with a color edit](#related-changes)
 - [FAQ](#faq)
 
 ## Why PDF text color is tricky {#why}
@@ -63,7 +67,7 @@ A PDF is a *layout description*, not a living document. Every character is store
 Three practical consequences follow from this:
 
 1. **Text fragments are granular.** The word you want to recolor may be stored as several separate runs, sometimes mixed with neighboring words in the same run. Editors either rebuild those runs or paint over them.
-2. **Fonts may be embedded or converted to outlines.** If the document was flattened or exported with outlined fonts, the "text" is actually vector shapes. Recoloring shapes is possible, but changing the letters themselves requires replacing them.
+2. **Fonts may be embedded or converted to outlines.** If the document was flattened or exported with outlined fonts, the "text" is actually vector shapes [under the PDF specification's text model](https://www.iso.org/standard/75839.html). Recoloring shapes is possible, but changing the letters themselves requires replacing them.
 3. **Backgrounds are not always white.** Covering dark text on a colored background needs a color-matched shape, not a white one - a detail that trips up a lot of people the first time.
 
 With that context, the methods below will make immediate sense, and you will be able to pick the right one in seconds instead of fighting with the wrong tool.
@@ -111,11 +115,11 @@ When you need to recolor large amounts of body text - or change the color of *ev
 
 **Step 4 - Convert back to PDF.** Save the DOCX and run it through the free [Word to PDF](/en/tools/word-to-pdf/) converter. You get a fresh PDF with the new colors applied to the actual text layer - selectable, searchable and screen-reader friendly.
 
-Trade-offs to know: the round trip rebuilds the document, so pixel-perfect fidelity with the original is not guaranteed (form fields, digital signatures and some embedded media do not survive conversion). Never use this method on a *signed* document - converting it would invalidate the signature. For signed files, see the guide on editing signed PDFs.
+Trade-offs to know: the round trip rebuilds the document, so pixel-perfect fidelity with the original is not guaranteed (form fields, digital signatures and some embedded media do not survive conversion). Never use this method on a *signed* document - converting it would [break the tamper-evidence seal of a digital signature](https://helpx.adobe.com/acrobat/desktop/e-sign-documents/manage-digital-signatures/validate-digital-sign.html). For signed files, see the guide on editing signed PDFs.
 
 ## Method 4: Adobe Acrobat (paid) {#acrobat}
 
-Adobe Acrobat Pro includes a genuine "Edit PDF" mode that lets you click into a text block and change font color from a properties panel. If your organization already pays for Acrobat, this is the most direct way to restyle existing text while keeping everything inside the original file.
+Adobe Acrobat Pro includes a genuine ["Edit PDF" mode](https://helpx.adobe.com/acrobat/desktop/edit-documents/edit-text-in-pdfs/modify-text.html) that lets you click into a text block and change font color from a properties panel. If your organization already pays for Acrobat, this is the most direct way to restyle existing text while keeping everything inside the original file.
 
 The workflow: open the PDF, choose Edit a PDF, click into the text whose color you want to change, select the Format panel, and pick a new fill color. Acrobat reflows the block if the new styling changes its width. Watch for two common issues: the font may need to be installed on your machine before edits look right (otherwise Acrobat substitutes a fallback font), and documents saved with restricted permissions may block editing entirely until restrictions are removed.
 

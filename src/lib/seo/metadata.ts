@@ -7,7 +7,7 @@
 
 import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
-import { type Locale, localeConfig } from '@/lib/i18n/config';
+import { type Locale, localeConfig, locales } from '@/lib/i18n/config';
 import type { Tool, ToolContent } from '@/types/tool';
 
 /**
@@ -52,7 +52,8 @@ export function getAlternateUrls(path: string = ''): Record<string, string> {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   const alternates: Record<string, string> = {};
 
-  const locales: Locale[] = ['en', 'ja', 'ko', 'es', 'fr', 'de', 'zh', 'zh-TW', 'pt'];
+  // Single source of truth: the i18n config's locale list (audit: the
+  // hardcoded copy here drifted whenever a locale was added)
   for (const locale of locales) {
     alternates[locale] = `${siteConfig.url}/${locale}${cleanPath}`;
   }

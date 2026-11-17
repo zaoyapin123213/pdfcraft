@@ -6,7 +6,7 @@
  */
 
 import { siteConfig } from '@/config/site';
-import type { Tool, ToolContent, FAQ, HowToStep } from '@/types/tool';
+import type { Tool, ToolContent, FAQ } from '@/types/tool';
 import type { Locale } from '@/lib/i18n/config';
 
 /**
@@ -38,29 +38,6 @@ export interface SoftwareApplicationSchema {
 }
 
 /**
- * HowTo schema for step-by-step instructions
- * @see https://schema.org/HowTo
- */
-export interface HowToSchema {
-  '@context': 'https://schema.org';
-  '@type': 'HowTo';
-  name: string;
-  description: string;
-  totalTime?: string;
-  tool?: Array<{
-    '@type': 'HowToTool';
-    name: string;
-  }>;
-  step: Array<{
-    '@type': 'HowToStep';
-    position: number;
-    name: string;
-    text: string;
-    url?: string;
-  }>;
-}
-
-/**
  * WebPage schema for enhanced page information
  * @see https://schema.org/WebPage
  */
@@ -74,14 +51,9 @@ export interface WebPageSchema {
   isPartOf: {
     '@id': string;
   };
-  about?: {
-    '@type': 'Thing';
-    name: string;
-  };
-  mainEntity?: {
-    '@type': string;
-    name: string;
-  };
+  // about/mainEntity removed: the generic 'PDF Processing' label was
+  // hardcoded English on non-en pages, and mainEntity duplicated the
+  // SoftwareApplication node this page already emits separately
 }
 
 /**
@@ -108,6 +80,7 @@ export interface FAQPageSchema {
 export interface WebSiteSchema {
   '@context': 'https://schema.org';
   '@type': 'WebSite';
+  '@id': string;
   name: string;
   url: string;
   description: string;
@@ -128,6 +101,7 @@ export interface WebSiteSchema {
 export interface OrganizationSchema {
   '@context': 'https://schema.org';
   '@type': 'Organization';
+  '@id': string;
   name: string;
   url: string;
   logo?: string;
@@ -183,40 +157,6 @@ export function generateSoftwareApplicationSchema(
   }
 
   return schema;
-}
-
-/**
- * Generate HowTo schema from tool how-to steps
- */
-export function generateHowToSchema(
-  tool: Tool,
-  content: ToolContent,
-  locale: Locale
-): HowToSchema | null {
-  if (!content.howToUse || content.howToUse.length === 0) {
-    return null;
-  }
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: `How to ${content.title}`,
-    description: content.metaDescription,
-    totalTime: 'PT5M', // Estimated 5 minutes for most PDF operations
-    tool: [
-      {
-        '@type': 'HowToTool',
-        name: 'Web Browser',
-      },
-    ],
-    step: content.howToUse.map((step: HowToStep) => ({
-      '@type': 'HowToStep',
-      position: step.step,
-      name: step.title,
-      text: step.description,
-      url: `${siteConfig.url}/${locale}/tools/${tool.slug}/#step-${step.step}`,
-    })),
-  };
 }
 
 /**
@@ -276,14 +216,6 @@ export function generateWebPageSchema(
     url: `${siteConfig.url}/${locale}/tools/${tool.slug}/`,
     inLanguage: LOCALE_TO_LANGUAGE[locale] || 'en-US',
     isPartOf: { '@id': `${siteConfig.url}/#website` },
-    about: {
-      '@type': 'Thing',
-      name: 'PDF Processing',
-    },
-    mainEntity: {
-      '@type': 'SoftwareApplication',
-      name: content.title,
-    },
   };
 }
 
@@ -312,6 +244,9 @@ export function generateWebSiteSchema(locale: Locale): WebSiteSchema {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    // Entity graph anchor: isPartOf references across the site point here,
+    // so the node itself must carry the same @id it is referenced by
+    '@id': `${siteConfig.url}/#website`,
     name: siteConfig.name,
     // Trailing slash matches the locale homepage's canonical URL
     url: `${siteConfig.url}/${locale}/`,
@@ -329,6 +264,8 @@ export function generateOrganizationSchema(): OrganizationSchema {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    // Entity graph anchor matching the /#organization @id references
+    '@id': `${siteConfig.url}/#organization`,
     name: siteConfig.name,
     url: siteConfig.url,
     logo: `${siteConfig.url}/images/logo.png`,
@@ -406,13 +343,11 @@ export function generateToolPageStructuredData(
   locale: Locale
 ): {
   softwareApplication: SoftwareApplicationSchema;
-  howTo: HowToSchema | null;
   faqPage: FAQPageSchema | null;
   webPage: WebPageSchema;
   breadcrumb: BreadcrumbListSchema;
 } {
   const softwareApplication = generateSoftwareApplicationSchema(tool, content, locale);
-  const howTo = generateHowToSchema(tool, content, locale);
   const webPage = generateWebPageSchema(tool, content, locale);
 
   // Only generate FAQ schema if there are FAQs
@@ -431,7 +366,6 @@ export function generateToolPageStructuredData(
 
   return {
     softwareApplication,
-    howTo,
     faqPage,
     webPage,
     breadcrumb,

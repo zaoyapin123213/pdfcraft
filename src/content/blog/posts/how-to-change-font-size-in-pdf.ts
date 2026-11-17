@@ -34,7 +34,7 @@ export const howToChangeFontSizeInPdf: BlogPost = {
   body: `
 To change font size in a PDF for free, cover the old text with a background-colored rectangle and retype it at the size you need in a browser-based editor like PDFEditorFree - that is the whole method for headings, dates and short passages. For resizing an entire document, convert the PDF to Word, adjust the style's point size once, and convert back. Both routes are free, private (nothing uploads), and covered step by step below.
 
-**Quick answer:** to resize a few words, cover the old text and retype it at the new size with a free browser editor. To resize an entire document, convert the PDF to Word for free, change the style's point size once, and convert back - Word reflows the text automatically so nothing spills off the page.
+**TL;DR:** to resize a few words, cover the old text and retype it at the new size with a free browser editor. To resize an entire document, convert the PDF to Word for free, change the style's point size once, and convert back - Word reflows the text automatically so nothing spills off the page.
 
 ## On this page
 
@@ -50,7 +50,7 @@ To change font size in a PDF for free, cover the old text with a background-colo
 
 ## Why PDF font size is fixed by design {#why}
 
-A word processor stores text as characters in paragraphs; point size is just an attribute it uses when drawing. A PDF stores the drawing itself: every line of text is a set of glyph positions computed for one specific size on one specific page. Enlarge the size and the layout must be recomputed - but the page is a fixed canvas with a fixed margin box, so something has to give: text wraps onto more lines, runs into the next column, or overflows the page.
+A word processor stores text as characters in paragraphs; point size is just an attribute it uses when drawing. A PDF stores the drawing itself: every line of text is a set of glyph positions computed for one specific size on one specific page. Enlarge the size and the layout must be recomputed - but the page is [a fixed canvas, as the ISO 32000-2 specification's layout model describes](https://www.iso.org/standard/75839.html), so something has to give: text wraps onto more lines, runs into the next column, or overflows the page.
 
 That is why the two successful strategies for resizing PDF text are exactly the ones you would guess from that description:
 
@@ -91,7 +91,7 @@ Two honest caveats: this rebuilds the document, so pixel-identity with the origi
 
 ## Method 3: Adobe Acrobat {#acrobat}
 
-Acrobat Pro's Edit PDF mode lets you click into a text block and type a new point size directly; Acrobat redraws the run and reflows the surrounding block as needed. With the original font installed on your machine, the result is seamless - this is the tool of choice for corporate templates where exact typefaces matter.
+Acrobat Pro's [Edit PDF mode](https://helpx.adobe.com/acrobat/desktop/edit-documents/edit-text-in-pdfs/modify-text.html) lets you click into a text block and type a new point size directly; Acrobat redraws the run and reflows the surrounding block as needed. With the original font installed on your machine, the result is seamless - this is the tool of choice for corporate templates where exact typefaces matter.
 
 Limitations worth knowing: the same fixed-canvas physics apply, so enlarging a paragraph inside Acrobat can push it over the page bottom, and you will find yourself manually rebalancing layouts - exactly the work Word does automatically in Method 2. Permissions-protected files must be unlocked first. And the subscription only pays for itself if you edit PDFs constantly; for occasional size fixes, the free methods above are equivalent in outcome.
 

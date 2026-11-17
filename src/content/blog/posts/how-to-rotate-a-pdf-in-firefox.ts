@@ -28,9 +28,9 @@ export const howToRotateAPdfInFirefox: BlogPost = {
     { question: 'Can I straighten a page that is tilted by a few degrees, not a clean 90?', answer: 'Yes - that is a deskew job rather than rotation. The free Rotate by Custom Degrees tool turns pages by exact angles like 2.5 degrees, which is how tilted scans get straightened without cutting content.' },
   ],
   body: `
-To rotate a PDF in Firefox, click the rotate buttons in the PDF viewer's toolbar (top right) - one click per 90 degrees. The catch: this rotates your view only, so the downloaded, shared or printed file keeps its original orientation. To make rotation permanent, run the file through the free Rotate PDF tool - choose direction and pages, apply, download. This guide covers both halves, plus the mixed-scan fixes.
+To rotate a PDF in Firefox, click the rotate buttons in the PDF viewer's toolbar (top right) - one click per 90 degrees. The catch: this rotates your view only, so the downloaded, shared or printed file keeps its original orientation - [a display change, not the page rotation the ISO 32000-2 specification stores in the file](https://www.iso.org/standard/75839.html). To make rotation permanent, run the file through the free Rotate PDF tool - choose direction and pages, apply, download. This guide covers both halves, plus the mixed-scan fixes.
 
-**Quick answer:** to rotate your *view* in Firefox, click the rotate button in the PDF viewer's toolbar (top right) or press Ctrl+Alt+R. To rotate the *file* - permanently, so every viewer, printer and recipient sees it correctly - run it through the free [Rotate PDF tool](/en/tools/rotate-pdf/): choose direction, apply, download.
+**TL;DR:** to rotate your *view* in Firefox, click the rotate button in the PDF viewer's toolbar (top right) or press Ctrl+Alt+R. To rotate the *file* - permanently, so every viewer, printer and recipient sees it correctly - run it through the free [Rotate PDF tool](/en/tools/rotate-pdf/): choose direction, apply, download.
 
 ## Rotation at a glance
 

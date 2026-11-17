@@ -31,7 +31,7 @@ export const howToAddTextToAPdf: BlogPost = {
   body: `
 To add text to a PDF for free, open a browser-based editor like PDFEditorFree's Edit PDF tool, select the text tool, set the font, size and color, click where the text belongs, and type - the whole job takes under a minute for dates, labels and short answers. For whole paragraphs, convert the PDF to Word, type where the text flows naturally, and convert back. Both methods are free, private, and covered step by step below.
 
-**Quick answer:** for short additions - labels, dates, filled-in answers, notes - open the free [Edit PDF tool](/en/tools/edit-pdf/), pick the text tool, choose font/size/color, click on the page and type. For whole paragraphs or new pages, convert the PDF to Word for free, type where the text flows naturally, and convert back.
+**TL;DR:** for short additions - labels, dates, filled-in answers, notes - open the free [Edit PDF tool](/en/tools/edit-pdf/), pick the text tool, choose font/size/color, click on the page and type. For whole paragraphs or new pages, convert the PDF to Word for free, type where the text flows naturally, and convert back.
 
 ## Methods at a glance
 
@@ -195,9 +195,9 @@ Each recipe follows the same principle: match the document's existing typographi
 
 The browser method is universal, but sometimes you are mid-task inside another application - here is what each common environment offers, honestly assessed.
 
-**Adobe Acrobat Reader (free).** Reader's Comment tools add text annotations - typed notes pinned to the page. They look like additions but travel as comments (reviewers can open/remove them), and flattened or plain-view rendering varies by recipient. Fine for internal review loops; not the tool for content that must be indistinguishable from the document.
+**Adobe Acrobat Reader (free).** [Reader's Comment tools](https://helpx.adobe.com/acrobat/desktop/share-and-review-documents/review-documents/add-comments.html) add text annotations - typed notes pinned to the page. They look like additions but travel as comments (reviewers can open/remove them), and flattened or plain-view rendering varies by recipient. Fine for internal review loops; not the tool for content that must be indistinguishable from the document.
 
-**Adobe Acrobat Pro.** The Edit PDF mode adds real text boxes with the document's embedded fonts available when installed. The premium option for brand-critical documents; priced for organizations rather than occasional needs.
+**Adobe Acrobat Pro.** The [Edit PDF mode](https://helpx.adobe.com/acrobat/desktop/edit-documents/edit-text-in-pdfs/modify-text.html) adds real text boxes with the document's embedded fonts available when installed. The premium option for brand-critical documents; priced for organizations rather than occasional needs.
 
 **macOS Preview.** The Text tool (via the markup toolbar) adds text boxes with system fonts. For quick dates and labels on a Mac, Preview is genuinely adequate - its weaknesses are font matching and precise alignment, both of which matter more on client-facing work.
 

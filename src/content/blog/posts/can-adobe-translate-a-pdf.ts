@@ -4,8 +4,7 @@ export const canAdobeTranslateAPdf: BlogPost = {
   slug: 'can-adobe-translate-a-pdf',
   title: 'Can Adobe Translate a PDF? What Acrobat Can and Can\'t Do',
   h1: 'Can Adobe Translate a PDF?',
-  description:
-    'Yes, current Adobe Acrobat translates PDFs with its AI Assistant and Adobe Express integration. Here is exactly how it works, what it costs, the limits, and a free alternative.',
+  description: "Adobe Acrobat can translate PDFs - which versions, how well it works, costs, and a free browser-based alternative compared side by side.",
   keywords: [
     'can adobe translate a pdf',
     'adobe acrobat translate pdf',
@@ -118,6 +117,8 @@ No tool wins everywhere, so here is the honest split after working with both app
 **Adobe shines when:** you already live in the Acrobat ecosystem and pay for it; you need the translation to stay editable inside Acrobat; you work with regulated documents where a mainstream vendor's compliance posture matters; you want the AI Assistant for more than translation (summaries, Q&A, extraction) [AI Assistant capabilities](https://www.adobe.com/acrobat/generative-ai-pdf.html).
 
 **Adobe falls short when:** you need a translation occasionally and do not want a subscription; the file is confidential and you prefer keeping the actual document on your device; you want a bilingual side-by-side output for verification rather than a single translated file; or you need results in a browser within seconds on a machine with nothing installed.
+
+Platform matters too: on a Mac the built-in tools (Preview, Quick Look) change which routes work. Our [Mac PDF translation guide](/en/blog/how-to-translate-pdf-on-mac/) covers three methods that run natively there.
 
 **Enterprise translation is a different world entirely.** Professional localization platforms still treat Acrobat as an editing surface, not a translation endpoint: PDFs are typically converted to Word before entering a translation workflow [Smartling on Acrobat PDF translation](https://www.smartling.com/questions/adobe-acrobat-pdf-translation). If you need certified or human-reviewed translation, no consumer tool, Adobe included, replaces that process.
 

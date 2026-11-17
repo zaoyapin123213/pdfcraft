@@ -4,8 +4,7 @@ export const deletePdfPagesForFree: BlogPost = {
   slug: 'delete-pdf-pages-for-free',
   title: 'How to Delete PDF Pages for Free: No Signup, No Watermark',
   h1: 'How to Delete PDF Pages for Free',
-  description:
-    'Delete PDF pages for free in a browser tool with no signup and no watermark, or with built-in tricks on Mac and Windows. Steps, tool comparison, and the pitfalls like signed documents and broken links.',
+  description: "Delete PDF pages for free in your browser - no upload, no signup, no watermark. Remove single pages or ranges, download the cleaned file locally.",
   keywords: [
     'how to delete pdf pages for free',
     'delete pdf pages free',
@@ -38,7 +37,7 @@ export const deletePdfPagesForFree: BlogPost = {
 
 ---
 
-**Quick answer:** the fastest free method is a browser tool: open [Delete Pages](/en/tools/delete-pages/), drop the PDF in, click the pages to remove in the grid, and download. It runs without an account and leaves no watermark. On Mac, Preview's thumbnail sidebar does the same job offline. On Windows, the print-to-PDF trick excludes page ranges without installing anything.
+**TL;DR:** the fastest free method is a browser tool: open [Delete Pages](/en/tools/delete-pages/), drop the PDF in, click the pages to remove in the grid, and download. It runs without an account and leaves no watermark. On Mac, Preview's thumbnail sidebar does the same job offline. On Windows, the print-to-PDF trick excludes page ranges without installing anything.
 
 Delete PDF pages for free by opening the [Delete Pages](/en/tools/delete-pages/) tool, clicking the pages you want gone, and downloading the trimmed file. No signup, no watermark, no cost, and the file is processed in your browser rather than uploaded. Offline alternatives cover the rest: Preview's thumbnail sidebar on Mac, the print-to-PDF trick on Windows, and genuinely free online tools like PDF24 when upload is acceptable.
 

@@ -32,7 +32,6 @@ export {
   generateBreadcrumbSchema,
   generateItemListSchema,
   generateToolPageStructuredData,
-  generateHowToSchema,
   generateWebPageSchema,
   generateStaticPageSchema,
   serializeStructuredData,
@@ -44,6 +43,5 @@ export {
   type OrganizationSchema,
   type BreadcrumbListSchema,
   type ItemListSchema,
-  type HowToSchema,
   type WebPageSchema,
 } from './structured-data';
