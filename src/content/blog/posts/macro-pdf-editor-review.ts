@@ -8,9 +8,10 @@ export const macroPdfEditorReview: BlogPost = {
     'What Macro\'s AI-powered PDF editor does, who it suits, what it costs, and when a free browser-based toolbox is the better pick. Straight answers, no hype.',
   keywords: ['macro pdf editor'],
   datePublished: '2026-10-08',
-  dateModified: '2026-10-08',
+  dateModified: '2026-11-17',
   category: 'Editor Reviews',
   readingMinutes: 16,
+  author: { name: 'Peter', role: 'site maintainer, PDFEditorFree' },
   relatedTools: [
     { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '96 free tools - merge, split, convert, edit, sign - all in your browser.' },
     { title: 'Edit PDF', href: '/en/tools/edit-pdf/', description: 'Free browser-based editing for everyday PDF changes.' },
@@ -45,8 +46,18 @@ This review assesses Macro on five axes: editing depth, speed on large documents
 | Offline or no-upload requirements | Not compatible - it is a SaaS workspace |
 | Prepress or print production | Not the focus |
 
+## What we observed on a live visit {#observed}
+
+We tried to walk through the live product on November 17, 2026, and could not:
+getmacro.com returned an HTTP 530 error (its origin server was down behind Cloudflare)
+for the duration of our test window. The observations in this review therefore draw on
+the vendor's documentation, public changelogs, and archived page captures rather than a
+same-day session. We will re-run the hands-on pass and update this block when the site
+is reachable again.
+
 ## On this page
 
+- [What we observed on a live visit](#observed)
 - [What Macro actually is](#what)
 - [Feature review: the AI layer](#features)
 - [Feature review: the PDF fundamentals](#fundamentals)

@@ -8,9 +8,10 @@ export const swiftpdfReview: BlogPost = {
     'Several products share the SwiftPDF name. What searchers usually want is a fast PDF tool - here is how to get genuinely fast PDF work, free, in your browser.',
   keywords: ['swiftpdf'],
   datePublished: '2026-10-08',
-  dateModified: '2026-10-08',
+  dateModified: '2026-11-17',
   category: 'Editor Reviews',
   readingMinutes: 15,
+  author: { name: 'Peter', role: 'site maintainer, PDFEditorFree' },
   relatedTools: [
     { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '96 tools that run at device speed - no uploads, no waiting.' },
     { title: 'Merge PDF', href: '/en/tools/merge-pdf/', description: 'The classic speed test - seconds, locally.' },
@@ -36,8 +37,16 @@ SwiftPDF is a name shared by several unrelated PDF products over the years, so t
 
 This guide assesses the tools it covers on five axes: editing depth, speed on large documents, privacy posture (what leaves the device), pricing honesty, and export fidelity. Speed claims are judged as end-to-end task time, not processing time alone. The assessment draws on vendors' own documentation, public changelogs, and each tool's observable behavior in a browser - not on vendor marketing claims. Where a claim cannot be verified, we say so rather than repeat it.
 
+## What we observed on a live visit {#observed}
+
+We attempted a hands-on session on November 17, 2026, and swiftpdf.io failed to connect
+at all - the TLS handshake never completed throughout our test window. This review's
+findings come from the vendor's documentation and archived captures instead of a live
+session. We will rerun the walkthrough and update this section when the site responds.
+
 ## On this page
 
+- [What we observed on a live visit](#observed)
 - [Why the name is ambiguous](#name)
 - [What "fast PDF" actually requires](#fast)
 - [Upload tools vs local tools vs desktop apps: the speed physics](#physics)

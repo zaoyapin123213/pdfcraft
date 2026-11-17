@@ -96,7 +96,10 @@ export default async function BlogPostPage({ params }: BlogPostParams) {
       description: post.description,
       datePublished: post.datePublished,
       dateModified: post.dateModified,
-      author: { '@type': 'Organization', name: 'PDFEditorFree Team', url: SITE_URL },
+      author: post.author
+        ? { '@type': 'Person', name: post.author.name, jobTitle: post.author.role,
+            worksFor: { '@type': 'Organization', name: 'PDFEditorFree', url: SITE_URL } }
+        : { '@type': 'Organization', name: 'PDFEditorFree Team', url: SITE_URL },
       publisher: {
         '@type': 'Organization',
         name: 'PDFEditorFree',
@@ -145,7 +148,7 @@ export default async function BlogPostPage({ params }: BlogPostParams) {
 
         <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">{post.h1}</h1>
         <div className="flex flex-wrap items-center gap-3 text-sm text-[hsl(var(--color-muted-foreground))] mb-8">
-          <span>By PDFEditorFree Team</span>
+          <span>{post.author ? `By ${post.author.name} (${post.author.role})` : 'By PDFEditorFree Team'}</span>
           <span aria-hidden="true">•</span>
           <time dateTime={post.dateModified}>
             Updated {new Date(post.dateModified).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}

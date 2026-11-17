@@ -34,6 +34,8 @@ export interface BlogPost {
   readingMinutes: number;
   relatedTools: RelatedTool[];
   faq: BlogFAQ[];
+  /** Named reviewer/author (reviews use a named human; how-tos default to the team byline) */
+  author?: { name: string; role: string };
   /** Markdown body (no HTML script tags) */
   body: string;
 }

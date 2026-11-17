@@ -8,9 +8,10 @@ export const xaraCloudPdfEditorReview: BlogPost = {
     'What Xara Cloud (now Xara) offers for PDF editing, who its design-first approach suits, what subscriptions run, and when free browser tools do the job instead.',
   keywords: ['xara cloud pdf editor'],
   datePublished: '2026-10-08',
-  dateModified: '2026-10-08',
+  dateModified: '2026-11-17',
   category: 'Editor Reviews',
   readingMinutes: 15,
+  author: { name: 'Peter', role: 'site maintainer, PDFEditorFree' },
   relatedTools: [
     { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '96 free tools - edit, convert, merge, sign - locally in your browser.' },
     { title: 'Edit PDF', href: '/en/tools/edit-pdf/', description: 'Quick text and image edits without a design subscription.' },
@@ -36,8 +37,21 @@ Xara Cloud (now branded [Xara](https://xara.com/)) is a browser-based design pla
 
 This review assesses Xara on five axes: editing depth, speed on large documents, privacy posture (what leaves the device), pricing honesty, and export fidelity. Export fidelity gets particular weight here, because import-then-edit platforms are judged on how faithfully they round-trip a document. The assessment draws on Xara's own documentation, public changelogs, and the platform's observable behavior in a browser - not on vendor marketing claims. Where a claim cannot be verified, we say so rather than repeat it.
 
+## What we observed on a live visit {#observed}
+
+We walked the live funnel on November 17, 2026, in a desktop browser, and the
+positioning is clearer than any spec sheet. The xara.com "PDF Editor" page is a catalog:
+every tool card - Edit, Merge, Split, each conversion - links into
+cloud.xara.com/?upload-wizard=pdf, and following it lands on a "Xara Cloud Sign-up"
+page. An account is required before any file reaches an editor. The surrounding site is
+unambiguously B2B: a "Book a demo" call-to-action in the header, a Real Estate vertical
+with its own pricing, and desktop applications (Designer Pro+) sold alongside. One listed
+capability, PDF to Word, is labeled "Coming soon". For a solo user who wants to fix a
+page and move on, this is a platform commitment first and a tool second.
+
 ## On this page
 
+- [What we observed on a live visit](#observed)
 - [What Xara Cloud actually is](#what)
 - [How its PDF editing works (and where it strains)](#pdf)
 - [The design platform around the PDF features](#platform)

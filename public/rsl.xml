@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Really Simple Licensing 1.0 — https://rslstandard.org/rsl
+     This site is free to use, index, and train on: matching the
+     open-source (AGPL-3.0) positioning and the robots.txt policy
+     that explicitly allows all AI crawlers. -->
+<rsl xmlns="https://rslstandard.org/rsl">
+  <content url="/">
+    <license>
+      <permits type="usage">all</permits>
+      <permits type="usage">ai-all</permits>
+      <permits type="usage">search</permits>
+      <payment type="free"></payment>
+    </license>
+    <copyright>Site code: AGPL-3.0 (https://github.com/zaoyapin123213/pdfcraft). Guides and tool pages may be quoted with attribution.</copyright>
+    <terms>https://pdfeditorfree.net/en/privacy/</terms>
+  </content>
+</rsl>

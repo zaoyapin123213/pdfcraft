@@ -8,9 +8,10 @@ export const pi7PdfEditorReview: BlogPost = {
     'What Pi7\'s free online PDF tools offer, how upload-based editing compares to local browser processing, and which free route fits your actual task.',
   keywords: ['pi7 pdf editor'],
   datePublished: '2026-10-08',
-  dateModified: '2026-10-08',
+  dateModified: '2026-11-17',
   category: 'Editor Reviews',
   readingMinutes: 15,
+  author: { name: 'Peter', role: 'site maintainer, PDFEditorFree' },
   relatedTools: [
     { title: 'PDFEditorFree Free Toolbox', href: '/en/tools/', description: '96 free tools with zero uploads - processing stays on your device.' },
     { title: 'Edit PDF', href: '/en/tools/edit-pdf/', description: 'Add text, images and annotations locally in your browser.' },
@@ -36,8 +37,24 @@ Pi7 is a free online PDF toolkit in the upload-process-download mold: you upload
 
 This review assesses Pi7 on five axes: editing depth, speed on large documents, privacy posture (what leaves the device), pricing honesty, and export fidelity. The assessment draws on Pi7's own documentation, the site's observable behavior in a browser, and the well-documented traits of the upload-based category it belongs to - not on vendor marketing claims. Where a claim cannot be verified, we say so rather than repeat it.
 
+## What we observed on a live visit {#observed}
+
+We walked through the live product on November 17, 2026, in a desktop browser, and three
+findings stood out. First, Pi7 has been rebuilt as an ecosystem: the editor now lives at
+pdf.pi7.org, the marketing banner reads "Free · Privacy-first · No sign-up", and no account
+is required to start. Second, the tool is server-side, in Pi7's own words: "Your PDF is
+uploaded over a secure connection to apply the edits, then deleted automatically after 15
+minutes." The page footer says 30 minutes - a small inconsistency worth knowing. Third, the
+free tier is ad-supported (Ezoic placements), with a Pi7+ plan at Rs 49 a month to remove
+ads. The feature list has grown well beyond the annotation-focused tool this review
+originally covered: the page now advertises in-place text editing with font matching,
+find-and-replace, and fillable-form creation. Pi7 also claims its redaction removes text
+from the file rather than covering it - a stronger claim than most browser tools make, and
+one we have not independently verified with a file run.
+
 ## On this page
 
+- [What we observed on a live visit](#observed)
 - [What Pi7 is and how it works](#what)
 - [The architecture that matters: upload vs local](#architecture)
 - [Safety for confidential documents: the real analysis](#safety)
