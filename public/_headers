@@ -90,7 +90,8 @@
 
 # CSP Report-Only rollout (audit 2026-11): WASM needs wasm-unsafe-eval.
 # Promote to enforcing Content-Security-Policy after reviewing reports.
+# frame-ancestors 'self' replaces X-Frame-Options, which Cloudflare Pages strips.
 # (report-uri omitted until a real collector exists — a placeholder domain
 # would only add failing network requests to the console.)
 /*
-  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: blob:; worker-src 'self' blob:; connect-src 'self' https://cdnjs.cloudflare.com https://api.indexnow.org
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: blob:; worker-src 'self' blob:; connect-src 'self' https://cdnjs.cloudflare.com https://api.indexnow.org; frame-ancestors 'self'
