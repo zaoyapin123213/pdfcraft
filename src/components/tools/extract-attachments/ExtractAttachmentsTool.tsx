@@ -189,7 +189,7 @@ export function ExtractAttachmentsTool({ className = '' }: ExtractAttachmentsToo
         onFilesSelected={handleFilesSelected}
         onError={handleUploadError}
         disabled={isProcessing}
-        label={tTools('extractAttachments.uploadLabel') || 'Upload PDF Files'}
+        label={tTools('extractAttachments.uploadLabel') || 'Add PDF files'}
         description={tTools('extractAttachments.uploadDescription') || 'Select PDF files to extract attachments from.'}
       />
 

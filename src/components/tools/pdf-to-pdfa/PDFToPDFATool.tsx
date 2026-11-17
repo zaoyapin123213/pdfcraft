@@ -124,7 +124,7 @@ export function PDFToPDFATool({ className = '' }: PDFToPDFAToolProps) {
                 onFilesSelected={handleFilesSelected}
                 onError={handleUploadError}
                 disabled={isProcessing}
-                label={tTools('pdfToPdfa.uploadLabel') || 'Upload PDF Files'}
+                label={tTools('pdfToPdfa.uploadLabel') || 'Add PDF files'}
                 description={tTools('pdfToPdfa.uploadDescription') || 'Drag and drop PDF files to convert to PDF/A format.'}
             />
 

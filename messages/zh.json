@@ -683,7 +683,7 @@
       "hint": "更高的质量会产生更大的文件，转换时间更长。"
     },
     "mergePdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。可以添加多个文件。",
       "filesTitle": "要合并的文件",
       "reorderHint": "拖放以重新排序文件。文件将按显示顺序合并。",
@@ -693,7 +693,7 @@
       "successMessage": "PDF合并成功！点击下载按钮保存文件。"
     },
     "gridCombine": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放多个PDF文件到此处。",
       "filesTitle": "要合并的文件",
       "reorderHint": "拖放以重新排序文件。",
@@ -728,7 +728,7 @@
       "minFilesError": "请至少添加2个PDF文件进行合并。"
     },
     "nUpPdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "optionsTitle": "N-Up 选项",
       "pagesPerSheet": "每张纸的页数",
@@ -761,7 +761,7 @@
       "successMessage": "N-Up PDF 创建成功！点击下载按钮保存文件。"
     },
     "splitPdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "splitModeTitle": "拆分方式",
       "splitModeLabel": "拆分模式",
@@ -793,7 +793,7 @@
       "downloadZip": "打包下载ZIP"
     },
     "deletePages": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "selectTitle": "选择要删除的页面",
       "selectHint": "点击页面选择删除，或在上方输入页码/范围。",
@@ -805,7 +805,7 @@
       "successMessage": "页面删除成功！点击下载按钮保存文件。"
     },
     "extractPages": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "selectTitle": "选择要提取的页面",
       "selectHint": "点击页面选择，或在上方输入页码/范围。",
@@ -815,7 +815,7 @@
       "successMessage": "页面提取成功！点击下载按钮保存文件。"
     },
     "posterizePdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "optionsTitle": "海报化选项",
       "rows": "行数",
@@ -833,7 +833,7 @@
       "successMessage": "PDF海报化成功！点击下载按钮保存文件。"
     },
     "pdfMultiTool": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。可以上传多个文件。",
       "addMoreFiles": "添加更多PDF文件",
       "organize": "整理",
@@ -862,7 +862,7 @@
       "successMessage": "PDF处理成功！点击下载按钮保存文件。"
     },
     "viewMetadata": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处以查看其元数据。",
       "documentProperties": "文档属性",
       "title": "标题",
@@ -884,7 +884,7 @@
       "successMessage": "元数据提取成功！如需要可导出为JSON。"
     },
     "editMetadata": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处以编辑其元数据。",
       "editTitle": "编辑文档属性",
       "title": "标题",
@@ -976,7 +976,7 @@
       "successMessage": "图片已成功转换为PDF！点击下载按钮保存文件。"
     },
     "compressPdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "batchUploadDescription": "拖放PDF文件到此处。一次最多可压缩10个文件。",
       "filesTitle": "要压缩的文件",
@@ -1001,7 +1001,7 @@
       "saved": "节省："
     },
     "signPdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处进行签名。",
       "instructionsTitle": "如何签名",
       "instruction1": "点击工具栏中的签名工具（钢笔图标）",
@@ -1013,7 +1013,7 @@
       "successMessage": "PDF签名成功！"
     },
     "cropPdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处进行裁剪。",
       "pages": "页",
       "applyToAll": "应用到所有页面",
@@ -1032,7 +1032,7 @@
       "optionsTitle": "裁剪选项"
     },
     "organizePdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处以整理页面。",
       "reorderTitle": "拖动重新排序页面",
       "reverseOrder": "反转顺序",
@@ -1046,14 +1046,14 @@
       "cannotDeleteLast": "无法删除最后一页"
     },
     "repairPdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处进行修复。",
       "filesTitle": "要修复的文件",
       "repairButton": "修复PDF",
       "successMessage": "PDF修复成功！"
     },
     "dividePages": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "optionsTitle": "分割选项",
       "divisionType": "分割类型",
@@ -1066,7 +1066,7 @@
       "successMessage": "页面分割成功！"
     },
     "extractAttachments": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "选择PDF文件以提取附件。",
       "filesTitle": "已选文件",
       "extractButton": "提取附件",
@@ -1075,7 +1075,7 @@
       "successMessage": "附件提取成功！"
     },
     "extractImages": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "选择PDF文件以提取其中的图片。",
       "filesTitle": "已选文件",
       "filterTitle": "过滤选项",
@@ -1094,7 +1094,7 @@
       "minSize": "最小尺寸 (px)"
     },
     "encryptPdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "passwordTitle": "密码设置",
       "privacyNotice": "🔒 您的密码在本地处理，永远不会发送到任何服务器。",
@@ -1117,7 +1117,7 @@
       "successHint": "请妥善保存您的密码。"
     },
     "rotatePdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处以旋转页面。",
       "optionsTitle": "旋转选项",
       "rotateTitle": "旋转页面",
@@ -1145,7 +1145,7 @@
       "successMessage": "旋转完成！点击下载按钮保存文件。"
     },
     "addBlankPage": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处以添加空白页。",
       "optionsTitle": "添加空白页选项",
       "positionLabel": "插入位置",
@@ -1157,7 +1157,7 @@
       "successMessage": "空白页添加成功！点击下载按钮保存文件。"
     },
     "reversePages": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处以反转页面顺序。",
       "infoTitle": "反转页面顺序",
       "infoDescription": "这将反转PDF中所有页面的顺序。最后一页将变成第一页，依此类推。",
@@ -1165,7 +1165,7 @@
       "successMessage": "页面顺序反转成功！点击下载按钮保存文件。"
     },
     "alternateMerge": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "上传两个或更多PDF文件以交替合并页面。",
       "filesTitle": "要交替合并的文件",
       "reorderHint": "拖放以重新排序文件。页面将按显示顺序交替合并（文件1的第1页，文件2的第1页，文件1的第2页，依此类推）。",
@@ -1178,7 +1178,7 @@
       "successMessage": "PDF交替合并成功！点击下载按钮保存文件。"
     },
     "combineSinglePage": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "optionsTitle": "合并选项",
       "orientation": "方向",
@@ -1194,7 +1194,7 @@
       "successMessage": "页面合并成功！点击下载按钮保存文件。"
     },
     "editAttachments": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "选择PDF文件以查看和管理其附件。",
       "loadingAttachments": "正在加载附件...",
       "attachmentsTitle": "附件",
@@ -1209,7 +1209,7 @@
       "successMessage": "附件移除成功！点击下载按钮保存文件。"
     },
     "pdfToZip": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处进行打包。",
       "filesTitle": "待打包文件",
       "totalSize": "总大小",
@@ -1229,7 +1229,7 @@
       "successMessage": "JSON已成功转换为PDF！"
     },
     "pdfToImage": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处进行转换。",
       "optionsTitle": "转换选项",
       "format": "图片格式",
@@ -1254,7 +1254,7 @@
       "successMessage": "PDF已成功转换为图片！"
     },
     "pdfToSvg": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处转换为SVG。",
       "optionsTitle": "转换选项",
       "resolution": "分辨率",
@@ -1269,7 +1269,7 @@
       "successMessage": "PDF已成功转换为SVG！点击缩略图预览或下载单个文件。"
     },
     "pdfToGreyscale": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处转换为灰度。",
       "optionsTitle": "灰度选项",
       "method": "转换方法",
@@ -1287,7 +1287,7 @@
       "successMessage": "PDF已成功转换为灰度！"
     },
     "linearizePdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。可以选择多个文件。",
       "selectedFiles": "已选文件",
       "optionsTitle": "线性化选项",
@@ -1302,13 +1302,13 @@
       "optimizedSize": "优化后："
     },
     "flattenPdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处进行扁平化。",
       "flattenButton": "扁平化PDF",
       "successMessage": "PDF扁平化成功！"
     },
     "bookmark": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处以编辑书签。",
       "pdfPreview": "PDF预览",
       "bookmarksTitle": "书签",
@@ -1319,7 +1319,7 @@
       "successMessage": "书签保存成功！"
     },
     "pageNumbers": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处。",
       "optionsTitle": "页码选项",
       "positionTitle": "位置",
@@ -1366,7 +1366,7 @@
       "posTopRight": "右上角"
     },
     "watermark": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处。",
       "optionsTitle": "水印选项",
       "type": "类型",
@@ -1387,20 +1387,20 @@
       "successMessage": "水印添加成功！"
     },
     "invertColors": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处。",
       "invertButton": "反转颜色",
       "successMessage": "颜色反转成功！"
     },
     "backgroundColor": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处。",
       "colorLabel": "背景颜色",
       "applyButton": "应用背景",
       "successMessage": "背景颜色应用成功！"
     },
     "textColor": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处。",
       "colorLabel": "文本颜色",
       "modeLabel": "文本类型",
@@ -1412,7 +1412,7 @@
       "successMessage": "文本颜色应用成功！"
     },
     "stamps": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处。",
       "instructionsTitle": "如何添加印章",
       "instruction1": "点击上方工具栏中的印章工具（图片图标）",
@@ -1426,20 +1426,20 @@
       "successMessage": "印章添加成功！"
     },
     "removeAnnotations": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处。",
       "optionsTitle": "移除选项",
       "removeButton": "移除注释",
       "successMessage": "注释移除成功！"
     },
     "formFiller": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF表单到此处。",
       "saveButton": "保存表单",
       "successMessage": "表单保存成功！"
     },
     "formCreator": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处。",
       "toolbarTitle": "工具栏",
       "selectTool": "选择",
@@ -1547,14 +1547,14 @@
       "labelLeft": "左侧"
     },
     "removeBlankPages": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处。",
       "optionsTitle": "检测选项",
       "removeButton": "移除空白页",
       "successMessage": "空白页移除成功！"
     },
     "tableOfContents": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处。",
       "optionsTitle": "目录选项",
       "generateButton": "生成目录",
@@ -1570,7 +1570,7 @@
       "success": "目录生成成功！"
     },
     "ocrPdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放扫描的PDF文件到此处，或点击浏览。",
       "optionsTitle": "OCR选项",
       "languages": "语言",
@@ -1642,7 +1642,7 @@
       "languageHint": "选择文本中使用的语言以获得正确的字体支持"
     },
     "headerFooter": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处。",
       "headerTitle": "页眉",
       "headerText": "页眉文字",
@@ -1659,7 +1659,7 @@
       "successMessage": "页眉页脚添加成功！"
     },
     "removeMetadata": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "optionsTitle": "选择要移除的元数据",
       "selectAll": "全选",
@@ -1678,7 +1678,7 @@
       "removedFields": "已移除："
     },
     "changePermissions": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "optionsTitle": "文档权限",
       "passwordTitle": "密码设置",
@@ -1718,7 +1718,7 @@
       "passwordRequired": "此PDF受密码保护，请输入当前密码以继续。"
     },
     "pdfToJson": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "optionsTitle": "提取选项",
       "includeText": "包含文本",
@@ -1735,7 +1735,7 @@
     },
     "addAttachments": {
       "pdfFileTitle": "1. 选择PDF文件",
-      "pdfUploadLabel": "上传PDF文件",
+      "pdfUploadLabel": "添加PDF文件",
       "pdfUploadDescription": "选择要添加附件的PDF文件。",
       "attachmentsTitle": "2. 选择要附加的文件",
       "attachmentsUploadLabel": "上传附件",
@@ -1770,7 +1770,7 @@
       "successMessage": "比较完成！使用查看模式和页面导航来探索差异。"
     },
     "pageDimensions": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "displayOptions": "显示选项",
       "unitLabel": "测量单位",
@@ -1795,7 +1795,7 @@
       "successMessage": "尺寸分析成功！"
     },
     "fixPageSize": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "optionsTitle": "页面尺寸选项",
       "targetSize": "目标页面尺寸",
@@ -1820,7 +1820,7 @@
       "successMessage": "页面尺寸修复成功！"
     },
     "decryptPdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放加密的PDF文件到此处。",
       "passwordTitle": "输入密码",
       "privacyNotice": "🔒 您的密码在本地处理，永远不会发送到任何服务器。",
@@ -1834,7 +1834,7 @@
       "invalidPassword": "您输入的密码不正确，请检查后重试。"
     },
     "removeRestrictions": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放受限制的PDF文件到此处。",
       "optionsTitle": "选项",
       "ownerPasswordLabel": "所有者密码（可选）",
@@ -1850,7 +1850,7 @@
       "invalidPassword": "您输入的密码不正确，请检查后重试。"
     },
     "sanitizePdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处进行清理。",
       "optionsTitle": "清理选项",
       "info": "清理功能会移除PDF中潜在的有害内容，使其更安全地打开和分享。",
@@ -1882,7 +1882,7 @@
       "successMessage": "PDF 创建成功！点击下载保存。"
     },
     "pdfToDocx": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件到此处，或点击浏览。",
       "convertButton": "转换为DOCX",
       "successMessage": "您的PDF已成功转换为DOCX！点击下载按钮保存文件。"
@@ -1967,7 +1967,7 @@
       "successMessage": "PDF文件校正成功！"
     },
     "pdfBooklet": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件以创建小册子布局。",
       "optionsTitle": "小册子选项",
       "gridModeLabel": "网格模式",
@@ -1982,7 +1982,7 @@
       "successMessage": "小册子创建成功！点击下载保存。"
     },
     "rasterizePdf": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件以转换为图片。",
       "optionsTitle": "输出选项",
       "dpiLabel": "分辨率 (DPI)",
@@ -2016,7 +2016,7 @@
       "successMessage": "漫画转换成功！"
     },
     "pdfToPdfa": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件以转换为PDF/A归档格式。",
       "filesTitle": "待转换的文件",
       "optionsTitle": "PDF/A选项",
@@ -2028,7 +2028,7 @@
       "successMessage": "PDF/A转换成功！"
     },
     "fontToOutline": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件以将字体转换为轮廓。",
       "filesTitle": "文件",
       "optionsTitle": "选项",
@@ -2038,7 +2038,7 @@
       "successMessage": "转换成功！"
     },
     "extractTables": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件以提取表格。",
       "optionsTitle": "提取选项",
       "formatLabel": "输出格式",
@@ -2050,7 +2050,7 @@
       "successMessage": "表格提取成功！点击下载保存。"
     },
     "ocgManager": {
-      "uploadLabel": "上传PDF文件",
+      "uploadLabel": "添加PDF文件",
       "uploadDescription": "拖放PDF文件以管理其图层（OCG）。",
       "layersTitle": "PDF图层",
       "noLayers": "此PDF没有图层（OCG）。",

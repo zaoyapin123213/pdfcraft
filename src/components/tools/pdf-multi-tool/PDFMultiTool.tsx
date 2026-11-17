@@ -485,7 +485,7 @@ export function PDFMultiTool({ className = '' }: PDFMultiToolProps) {
         disabled={isProcessing}
         label={sourceFiles.length > 0
           ? (tTools('pdfMultiTool.addMoreFiles') || 'Add More PDF Files')
-          : (tTools('pdfMultiTool.uploadLabel') || 'Upload PDF Files')
+          : (tTools('pdfMultiTool.uploadLabel') || 'Add PDF files')
         }
         description={tTools('pdfMultiTool.uploadDescription') || 'Drag and drop PDF files here, or click to browse. You can upload multiple files.'}
       />

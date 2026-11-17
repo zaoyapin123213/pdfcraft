@@ -683,7 +683,7 @@
       "hint": "Higher quality produces larger files and takes longer to convert."
     },
     "mergePdf": {
-      "uploadLabel": "Upload PDF Files",
+      "uploadLabel": "Add PDF files",
       "uploadDescription": "Drag and drop PDF files here, or click to browse. You can add multiple files.",
       "filesTitle": "Files to Merge",
       "reorderHint": "Drag and drop to reorder files. Files will be merged in the order shown.",
@@ -693,7 +693,7 @@
       "successMessage": "PDFs merged successfully! Click the download button to save your file."
     },
     "gridCombine": {
-      "uploadLabel": "Upload PDF Files",
+      "uploadLabel": "Add PDF files",
       "uploadDescription": "Drag and drop multiple PDF files here.",
       "filesTitle": "Files to Combine",
       "reorderHint": "Drag and drop to reorder files.",
@@ -833,7 +833,7 @@
       "successMessage": "PDF posterized successfully! Click the download button to save your file."
     },
     "pdfMultiTool": {
-      "uploadLabel": "Upload PDF Files",
+      "uploadLabel": "Add PDF files",
       "uploadDescription": "Drag and drop PDF files here, or click to browse. You can upload multiple files.",
       "addMoreFiles": "Add More PDF Files",
       "organize": "Organize",
@@ -976,7 +976,7 @@
       "successMessage": "Images converted to PDF successfully! Click the download button to save your file."
     },
     "compressPdf": {
-      "uploadLabel": "Upload PDF Files",
+      "uploadLabel": "Add PDF files",
       "uploadDescription": "Drag and drop a PDF file here, or click to browse.",
       "batchUploadDescription": "Drag and drop PDF files here. You can compress up to 10 files at once.",
       "filesTitle": "Files to Compress",
@@ -1056,7 +1056,7 @@
       "cannotDeleteLast": "Cannot delete the last page"
     },
     "repairPdf": {
-      "uploadLabel": "Upload PDF Files",
+      "uploadLabel": "Add PDF files",
       "uploadDescription": "Drag and drop PDF files to repair.",
       "filesTitle": "Files to Repair",
       "repairButton": "Repair PDFs",
@@ -1076,7 +1076,7 @@
       "successMessage": "Pages divided successfully!"
     },
     "extractAttachments": {
-      "uploadLabel": "Upload PDF Files",
+      "uploadLabel": "Add PDF files",
       "uploadDescription": "Select PDF files to extract attachments from.",
       "filesTitle": "Selected Files",
       "extractButton": "Extract Attachments",
@@ -1085,7 +1085,7 @@
       "successMessage": "Attachments extracted successfully!"
     },
     "extractImages": {
-      "uploadLabel": "Upload PDF Files",
+      "uploadLabel": "Add PDF files",
       "uploadDescription": "Select PDF files to extract images from.",
       "filesTitle": "Selected Files",
       "filterTitle": "Filter Options",
@@ -1188,7 +1188,7 @@
       "successMessage": "Page order reversed successfully! Click the download button to save your file."
     },
     "alternateMerge": {
-      "uploadLabel": "Upload PDF Files",
+      "uploadLabel": "Add PDF files",
       "uploadDescription": "Upload two or more PDF files to interleave their pages alternately.",
       "filesTitle": "Files to Interleave",
       "reorderHint": "Drag and drop to reorder files. Pages will be interleaved in the order shown (1st page from file 1, 1st page from file 2, 2nd page from file 1, etc.).",
@@ -1268,7 +1268,7 @@
       "successMessage": "Comparison complete! Use the view modes and page navigation to explore differences."
     },
     "pdfToZip": {
-      "uploadLabel": "Upload PDF Files",
+      "uploadLabel": "Add PDF files",
       "uploadDescription": "Drag and drop PDF files to package.",
       "filesTitle": "Files to Package",
       "totalSize": "Total size",
@@ -1434,7 +1434,7 @@
       "infoText": "OCR (Optical Character Recognition) extracts text from scanned documents and images. For best results, use high-quality scans and select the correct language(s)."
     },
     "linearizePdf": {
-      "uploadLabel": "Upload PDF Files",
+      "uploadLabel": "Add PDF files",
       "uploadDescription": "Drag and drop PDF files here, or click to browse. You can select multiple files.",
       "selectedFiles": "Selected Files",
       "optionsTitle": "Linearization Options",
@@ -2025,7 +2025,7 @@
       "successMessage": "Comic converted successfully!"
     },
     "pdfToPdfa": {
-      "uploadLabel": "Upload PDF Files",
+      "uploadLabel": "Add PDF files",
       "uploadDescription": "Drag and drop PDF files to convert to PDF/A format.",
       "filesTitle": "Files to Convert",
       "optionsTitle": "PDF/A Options",
@@ -2037,7 +2037,7 @@
       "successMessage": "Successfully converted file(s) to PDF/A!"
     },
     "fontToOutline": {
-      "uploadLabel": "Upload PDF Files",
+      "uploadLabel": "Add PDF files",
       "uploadDescription": "Drag and drop PDF files to convert fonts to outlines.",
       "filesTitle": "Files",
       "optionsTitle": "Options",

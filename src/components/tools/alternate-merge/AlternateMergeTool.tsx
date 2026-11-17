@@ -230,7 +230,7 @@ export function AlternateMergeTool({ className = '' }: AlternateMergeToolProps) 
         onFilesSelected={handleFilesSelected}
         onError={handleUploadError}
         disabled={isProcessing}
-        label={tTools('alternateMerge.uploadLabel') || 'Upload PDF Files'}
+        label={tTools('alternateMerge.uploadLabel') || 'Add PDF files'}
         description={tTools('alternateMerge.uploadDescription') || 'Upload two or more PDF files to interleave their pages alternately.'}
       />
 

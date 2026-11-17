@@ -229,7 +229,7 @@ export function MergePDFTool({ className = '' }: MergePDFToolProps) {
         onFilesSelected={handleFilesSelected}
         onError={handleUploadError}
         disabled={isProcessing}
-        label={tTools('mergePdf.uploadLabel') || 'Upload PDF Files'}
+        label={tTools('mergePdf.uploadLabel') || 'Add PDF files'}
         description={tTools('mergePdf.uploadDescription') || 'Drag and drop PDF files here, or click to browse. You can add multiple files.'}
       />
 

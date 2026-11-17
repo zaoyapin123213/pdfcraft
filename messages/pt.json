@@ -654,7 +654,7 @@
       "successMessage": "PDF posterized successfully! Click the download button to save your file."
     },
     "pdfMultiTool": {
-      "uploadLabel": "Enviar arquivos PDF",
+      "uploadLabel": "Adicionar arquivos PDF",
       "uploadDescription": "Arraste e solte arquivos PDF aqui, ou clique para procurar. Você pode enviar vários arquivos.",
       "addMoreFiles": "Adicionar mais arquivos PDF",
       "organize": "Organizar",
@@ -886,7 +886,7 @@
       "successMessage": "Pages divided successfully!"
     },
     "extractAttachments": {
-      "uploadLabel": "Enviar arquivos PDF",
+      "uploadLabel": "Adicionar arquivos PDF",
       "uploadDescription": "Selecione arquivos PDF para extrair anexos.",
       "filesTitle": "Arquivos selecionados",
       "extractButton": "Extrair anexos",
@@ -895,7 +895,7 @@
       "successMessage": "Anexos extraídos com sucesso!"
     },
     "extractImages": {
-      "uploadLabel": "Enviar arquivos PDF",
+      "uploadLabel": "Adicionar arquivos PDF",
       "uploadDescription": "Selecione arquivos PDF para extrair imagens.",
       "filesTitle": "Arquivos selecionados",
       "filterTitle": "Opções de filtro",

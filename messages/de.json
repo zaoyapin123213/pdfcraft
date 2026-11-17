@@ -654,7 +654,7 @@
       "successMessage": "PDF posterized successfully! Click the download button to save your file."
     },
     "pdfMultiTool": {
-      "uploadLabel": "PDF-Dateien hochladen",
+      "uploadLabel": "PDF-Dateien hinzufügen",
       "uploadDescription": "PDF-Dateien hierher ziehen oder klicken zum Durchsuchen. Mehrere Dateien können hochgeladen werden.",
       "addMoreFiles": "Weitere PDF-Dateien hinzufügen",
       "organize": "Organisieren",
@@ -886,7 +886,7 @@
       "successMessage": "Pages divided successfully!"
     },
     "extractAttachments": {
-      "uploadLabel": "PDF-Dateien hochladen",
+      "uploadLabel": "PDF-Dateien hinzufügen",
       "uploadDescription": "PDF-Dateien auswählen, um Anhänge zu extrahieren.",
       "filesTitle": "Ausgewählte Dateien",
       "extractButton": "Anhänge extrahieren",
@@ -895,7 +895,7 @@
       "successMessage": "Anhänge erfolgreich extrahiert!"
     },
     "extractImages": {
-      "uploadLabel": "PDF-Dateien hochladen",
+      "uploadLabel": "PDF-Dateien hinzufügen",
       "uploadDescription": "PDF-Dateien auswählen, um Bilder zu extrahieren.",
       "filesTitle": "Ausgewählte Dateien",
       "filterTitle": "Filteroptionen",
@@ -1029,7 +1029,7 @@
       "successMessage": "N-Up PDF erfolgreich erstellt! Klicken Sie auf den Download-Button, um Ihre Datei zu speichern."
     },
     "gridCombine": {
-      "uploadLabel": "PDF-Dateien hochladen",
+      "uploadLabel": "PDF-Dateien hinzufügen",
       "uploadDescription": "Ziehen Sie mehrere PDF-Dateien hierher.",
       "filesTitle": "Dateien zum Kombinieren",
       "reorderHint": "Zum Neuordnen ziehen und ablegen.",
@@ -1759,7 +1759,7 @@
       "successMessage": "Ihre DJVU-Datei wurde erfolgreich in PDF konvertiert!"
     },
     "deskewPdf": {
-      "uploadLabel": "PDF-Dateien hochladen",
+      "uploadLabel": "PDF-Dateien hinzufügen",
       "uploadDescription": "PDF-Dateien zum Begradigen hierher ziehen.",
       "optionsTitle": "Begradigen-Optionen",
       "processButton": "PDF begradigen",
@@ -1773,7 +1773,7 @@
       "successMessage": "Broschüre erfolgreich erstellt!"
     },
     "rasterizePdf": {
-      "uploadLabel": "PDF-Dateien hochladen",
+      "uploadLabel": "PDF-Dateien hinzufügen",
       "uploadDescription": "PDF zum Rastern hochladen.",
       "optionsTitle": "Raster-Optionen",
       "rasterizeButton": "PDF rastern",
@@ -1801,14 +1801,14 @@
       "successMessage": "CBZ erfolgreich in PDF konvertiert!"
     },
     "pdfToPdfa": {
-      "uploadLabel": "PDF-Dateien hochladen",
+      "uploadLabel": "PDF-Dateien hinzufügen",
       "uploadDescription": "PDF für PDF/A-Konvertierung hochladen.",
       "optionsTitle": "PDF/A-Optionen",
       "convertButton": "In PDF/A konvertieren",
       "successMessage": "PDF/A erfolgreich erstellt!"
     },
     "fontToOutline": {
-      "uploadLabel": "PDF-Dateien hochladen",
+      "uploadLabel": "PDF-Dateien hinzufügen",
       "uploadDescription": "PDF zum Konvertieren von Schriften in Pfade hochladen.",
       "optionsTitle": "Konvertierungsoptionen",
       "convertButton": "Schriften konvertieren",

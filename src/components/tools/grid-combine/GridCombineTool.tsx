@@ -313,7 +313,7 @@ export function GridCombineTool({ className = '' }: GridCombineToolProps) {
                 onFilesSelected={handleFilesSelected}
                 onError={handleUploadError}
                 disabled={isProcessing}
-                label={tTools('gridCombine.uploadLabel') || 'Upload PDF Files'}
+                label={tTools('gridCombine.uploadLabel') || 'Add PDF files'}
                 description={tTools('gridCombine.uploadDescription') || 'Drag and drop multiple PDF files here.'}
             />
 

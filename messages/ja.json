@@ -586,7 +586,7 @@
       "successMessage": "PDFs merged successfully! Click the download button to save your file."
     },
     "splitPdf": {
-      "uploadLabel": "PDFファイルをアップロード",
+      "uploadLabel": "PDFファイルを追加",
       "uploadDescription": "PDFファイルをドラッグ＆ドロップするか、クリックして参照。",
       "splitModeTitle": "分割方法",
       "splitModeLabel": "分割モード",
@@ -654,7 +654,7 @@
       "successMessage": "PDF posterized successfully! Click the download button to save your file."
     },
     "pdfMultiTool": {
-      "uploadLabel": "PDFファイルをアップロード",
+      "uploadLabel": "PDFファイルを追加",
       "uploadDescription": "PDFファイルをドラッグ＆ドロップするか、クリックして参照。複数ファイルをアップロードできます。",
       "addMoreFiles": "PDFファイルを追加",
       "organize": "整理",
@@ -852,7 +852,7 @@
       "optionsTitle": "Crop Options"
     },
     "organizePdf": {
-      "uploadLabel": "PDFファイルをアップロード",
+      "uploadLabel": "PDFファイルを追加",
       "uploadDescription": "PDFファイルをドラッグ＆ドロップしてページを整理します。",
       "reorderTitle": "ドラッグしてページを並べ替え",
       "reverseOrder": "順序を反転",
@@ -886,7 +886,7 @@
       "successMessage": "Pages divided successfully!"
     },
     "extractAttachments": {
-      "uploadLabel": "PDFファイルをアップロード",
+      "uploadLabel": "PDFファイルを追加",
       "uploadDescription": "添付ファイルを抽出するPDFファイルを選択してください。",
       "filesTitle": "選択されたファイル",
       "extractButton": "添付ファイルを抽出",
@@ -895,7 +895,7 @@
       "successMessage": "添付ファイルの抽出に成功しました！"
     },
     "extractImages": {
-      "uploadLabel": "PDFファイルをアップロード",
+      "uploadLabel": "PDFファイルを追加",
       "uploadDescription": "画像を抽出するPDFファイルを選択してください。",
       "filesTitle": "選択されたファイル",
       "filterTitle": "フィルターオプション",
@@ -995,7 +995,7 @@
       "successMessage": "Page order reversed successfully! Click the download button to save your file."
     },
     "nUpPdf": {
-      "uploadLabel": "PDFファイルをアップロード",
+      "uploadLabel": "PDFファイルを追加",
       "uploadDescription": "PDFファイルをここにドラッグ＆ドロップするか、クリックして参照してください。",
       "optionsTitle": "N-Upオプション",
       "layout": "レイアウト",
@@ -1029,7 +1029,7 @@
       "successMessage": "N-Up PDFが正常に作成されました！ダウンロードボタンをクリックしてファイルを保存してください。"
     },
     "gridCombine": {
-      "uploadLabel": "PDFファイルをアップロード",
+      "uploadLabel": "PDFファイルを追加",
       "uploadDescription": "複数のPDFファイルをここにドラッグ＆ドロップしてください。",
       "filesTitle": "結合するファイル",
       "reorderHint": "ドラッグ＆ドロップで並べ替え。",
@@ -1214,7 +1214,7 @@
       "successMessage": "JSON converted to PDF successfully!"
     },
     "pdfToImage": {
-      "uploadLabel": "PDFファイルをアップロード",
+      "uploadLabel": "PDFファイルを追加",
       "uploadDescription": "変換するPDFファイルをドラッグ＆ドロップしてください。",
       "optionsTitle": "変換オプション",
       "format": "画像形式",
@@ -1239,7 +1239,7 @@
       "successMessage": "PDFが正常に画像に変換されました！"
     },
     "pdfToSvg": {
-      "uploadLabel": "PDFファイルをアップロード",
+      "uploadLabel": "PDFファイルを追加",
       "uploadDescription": "PDFファイルをドラッグ＆ドロップしてSVGに変換します。",
       "optionsTitle": "変換オプション",
       "resolution": "解像度",
@@ -1482,7 +1482,7 @@
       "successMessage": "Bookmarks saved successfully!"
     },
     "pageNumbers": {
-      "uploadLabel": "PDFファイルをアップロード",
+      "uploadLabel": "PDFファイルを追加",
       "uploadDescription": "PDFファイルをドラッグ＆ドロップ。",
       "optionsTitle": "ページ番号オプション",
       "positionTitle": "位置",
@@ -1611,7 +1611,7 @@
       "successMessage": "Form saved successfully!"
     },
     "formCreator": {
-      "uploadLabel": "PDFファイルをアップロード",
+      "uploadLabel": "PDFファイルを追加",
       "uploadDescription": "PDFファイルをここにドラッグ＆ドロップしてください。",
       "toolbarTitle": "ツールバー",
       "selectTool": "選択",
@@ -1849,7 +1849,7 @@
       "previewTitle": "1ページ目のプレビュー（翻訳済み）",
       "previewAlt": "翻訳された1ページ目のプレビュー",
       "errorGeneric": "翻訳に失敗しました：",
-      "errorPdfOnly": "PDFファイルをアップロードしてください。",
+      "errorPdfOnly": "PDFファイルを追加してください。",
       "errorTooLarge": "ファイルが大きすぎます。最大50MBです。"
     }
   }

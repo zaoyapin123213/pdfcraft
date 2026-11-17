@@ -584,7 +584,7 @@
       "hint": "更高的質量會產生更大的檔案，轉換時間更長。"
     },
     "mergePdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。可以新增多個檔案。",
       "filesTitle": "要合併的檔案",
       "reorderHint": "拖放以重新排序檔案。檔案將按顯示順序合併。",
@@ -594,7 +594,7 @@
       "successMessage": "PDF合併成功！點選下載按鈕儲存檔案。"
     },
     "gridCombine": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放多個PDF檔案到此處。",
       "filesTitle": "要合併的檔案",
       "reorderHint": "拖放以重新排序檔案。",
@@ -629,7 +629,7 @@
       "minFilesError": "請至少新增2個PDF檔案進行合併。"
     },
     "nUpPdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "optionsTitle": "N-Up 選項",
       "pagesPerSheet": "每張紙的頁數",
@@ -662,7 +662,7 @@
       "successMessage": "N-Up PDF 建立成功！點選下載按鈕儲存檔案。"
     },
     "splitPdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "splitModeTitle": "拆分方式",
       "splitModeLabel": "拆分模式",
@@ -694,7 +694,7 @@
       "downloadZip": "打包下載ZIP"
     },
     "deletePages": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "selectTitle": "選擇要刪除的頁面",
       "selectHint": "點選頁面選擇刪除，或在上方輸入頁碼/範圍。",
@@ -704,7 +704,7 @@
       "successMessage": "頁面刪除成功！點選下載按鈕儲存檔案。"
     },
     "extractPages": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "selectTitle": "選擇要提取的頁面",
       "selectHint": "點選頁面選擇，或在上方輸入頁碼/範圍。",
@@ -712,7 +712,7 @@
       "successMessage": "頁面提取成功！點選下載按鈕儲存檔案。"
     },
     "posterizePdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "optionsTitle": "海報化選項",
       "rows": "行數",
@@ -730,7 +730,7 @@
       "successMessage": "PDF海報化成功！點選下載按鈕儲存檔案。"
     },
     "pdfMultiTool": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。可以上傳多個檔案。",
       "addMoreFiles": "新增更多PDF檔案",
       "organize": "整理",
@@ -759,7 +759,7 @@
       "successMessage": "PDF處理成功！點選下載按鈕儲存檔案。"
     },
     "viewMetadata": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處以檢視其後設資料。",
       "documentProperties": "文件屬性",
       "title": "標題",
@@ -781,7 +781,7 @@
       "successMessage": "後設資料提取成功！如需要可匯出為JSON。"
     },
     "editMetadata": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處以編輯其後設資料。",
       "editTitle": "編輯文件屬性",
       "title": "標題",
@@ -872,7 +872,7 @@
       "successMessage": "圖片已成功轉換為PDF！點選下載按鈕儲存檔案。"
     },
     "compressPdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "batchUploadDescription": "拖放PDF檔案到此處。一次最多可壓縮10個檔案。",
       "filesTitle": "要壓縮的檔案",
@@ -897,7 +897,7 @@
       "saved": "節省："
     },
     "signPdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處進行簽名。",
       "instructionsTitle": "如何簽名",
       "instruction1": "點選工具欄中的簽名工具（鋼筆圖示）",
@@ -909,7 +909,7 @@
       "successMessage": "PDF簽名成功！"
     },
     "cropPdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處進行裁剪。",
       "pages": "頁",
       "applyToAll": "應用到所有頁面",
@@ -928,7 +928,7 @@
       "optionsTitle": "裁剪选项"
     },
     "organizePdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處以整理頁面。",
       "reorderTitle": "拖動重新排序頁面",
       "reverseOrder": "反轉順序",
@@ -942,14 +942,14 @@
       "cannotDeleteLast": "無法刪除最後一頁"
     },
     "repairPdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處進行修復。",
       "filesTitle": "要修復的檔案",
       "repairButton": "修復PDF",
       "successMessage": "PDF修復成功！"
     },
     "dividePages": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "optionsTitle": "分割選項",
       "divisionType": "分割型別",
@@ -962,7 +962,7 @@
       "successMessage": "頁面分割成功！"
     },
     "extractAttachments": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "選擇PDF檔案以提取附件。",
       "filesTitle": "已選檔案",
       "extractButton": "提取附件",
@@ -971,7 +971,7 @@
       "successMessage": "附件提取成功！"
     },
     "extractImages": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "選擇PDF檔案以提取其中的圖片。",
       "filesTitle": "已選檔案",
       "filterTitle": "過濾選項",
@@ -987,7 +987,7 @@
       "successMessage": "圖片提取成功！點選下載單個圖片或使用\"下載為ZIP\"。"
     },
     "encryptPdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "passwordTitle": "密碼設定",
       "privacyNotice": "🔒 您的密碼在本地處理，永遠不會傳送到任何伺服器。",
@@ -1010,7 +1010,7 @@
       "successHint": "請妥善儲存您的密碼。"
     },
     "rotatePdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處以旋轉頁面。",
       "optionsTitle": "旋轉選項",
       "rotateTitle": "旋轉頁面",
@@ -1038,7 +1038,7 @@
       "successMessage": "旋轉完成！點選下載按鈕儲存檔案。"
     },
     "addBlankPage": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處以新增空白頁。",
       "optionsTitle": "新增空白頁選項",
       "positionLabel": "插入位置",
@@ -1050,7 +1050,7 @@
       "successMessage": "空白頁新增成功！點選下載按鈕儲存檔案。"
     },
     "reversePages": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處以反轉頁面順序。",
       "infoTitle": "反轉頁面順序",
       "infoDescription": "這將反轉PDF中所有頁面的順序。最後一頁將變成第一頁，依此類推。",
@@ -1058,7 +1058,7 @@
       "successMessage": "頁面順序反轉成功！點選下載按鈕儲存檔案。"
     },
     "alternateMerge": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "上傳兩個或更多PDF檔案以交替合併頁面。",
       "filesTitle": "要交替合併的檔案",
       "reorderHint": "拖放以重新排序檔案。頁面將按顯示順序交替合併（檔案1的第1頁，檔案2的第1頁，檔案1的第2頁，依此類推）。",
@@ -1071,7 +1071,7 @@
       "successMessage": "PDF交替合併成功！點選下載按鈕儲存檔案。"
     },
     "combineSinglePage": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "optionsTitle": "合併選項",
       "orientation": "方向",
@@ -1087,7 +1087,7 @@
       "successMessage": "頁面合併成功！點選下載按鈕儲存檔案。"
     },
     "editAttachments": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "選擇PDF檔案以檢視和管理其附件。",
       "loadingAttachments": "正在載入附件...",
       "attachmentsTitle": "附件",
@@ -1102,7 +1102,7 @@
       "successMessage": "附件移除成功！點選下載按鈕儲存檔案。"
     },
     "pdfToZip": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處進行打包。",
       "filesTitle": "待打包檔案",
       "totalSize": "總大小",
@@ -1122,7 +1122,7 @@
       "successMessage": "JSON已成功轉換為PDF！"
     },
     "pdfToImage": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處進行轉換。",
       "optionsTitle": "轉換選項",
       "format": "圖片格式",
@@ -1147,7 +1147,7 @@
       "successMessage": "PDF已成功轉換為圖片！"
     },
     "pdfToSvg": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處轉換為SVG。",
       "optionsTitle": "轉換選項",
       "resolution": "解析度",
@@ -1162,7 +1162,7 @@
       "successMessage": "PDF已成功轉換為SVG！點選縮圖預覽或下載單個檔案。"
     },
     "pdfToGreyscale": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處轉換為灰度。",
       "optionsTitle": "灰度選項",
       "method": "轉換方法",
@@ -1180,7 +1180,7 @@
       "successMessage": "PDF已成功轉換為灰度！"
     },
     "linearizePdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。可以選擇多個檔案。",
       "selectedFiles": "已選檔案",
       "optionsTitle": "線性化選項",
@@ -1195,13 +1195,13 @@
       "optimizedSize": "最佳化後："
     },
     "flattenPdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處進行扁平化。",
       "flattenButton": "扁平化PDF",
       "successMessage": "PDF扁平化成功！"
     },
     "bookmark": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處以編輯書籤。",
       "pdfPreview": "PDF預覽",
       "bookmarksTitle": "書籤",
@@ -1212,7 +1212,7 @@
       "successMessage": "書籤儲存成功！"
     },
     "pageNumbers": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處。",
       "optionsTitle": "頁碼選項",
       "positionTitle": "位置",
@@ -1259,7 +1259,7 @@
       "posTopRight": "右上角"
     },
     "watermark": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處。",
       "optionsTitle": "水印選項",
       "textWatermark": "文字水印",
@@ -1278,20 +1278,20 @@
       "successMessage": "水印新增成功！"
     },
     "invertColors": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處。",
       "invertButton": "反轉顏色",
       "successMessage": "顏色反轉成功！"
     },
     "backgroundColor": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處。",
       "colorLabel": "背景顏色",
       "applyButton": "應用背景",
       "successMessage": "背景顏色應用成功！"
     },
     "textColor": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處。",
       "colorLabel": "文字顏色",
       "modeLabel": "文字型別",
@@ -1303,7 +1303,7 @@
       "successMessage": "文字顏色應用成功！"
     },
     "stamps": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處。",
       "instructionsTitle": "如何新增印章",
       "instruction1": "點選上方工具欄中的印章工具（圖片圖示）",
@@ -1317,20 +1317,20 @@
       "successMessage": "印章新增成功！"
     },
     "removeAnnotations": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處。",
       "optionsTitle": "移除選項",
       "removeButton": "移除註釋",
       "successMessage": "註釋移除成功！"
     },
     "formFiller": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF表單到此處。",
       "saveButton": "儲存表單",
       "successMessage": "表單儲存成功！"
     },
     "formCreator": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處。",
       "toolbarTitle": "工具列",
       "selectTool": "選擇",
@@ -1384,14 +1384,14 @@
       "labelLeft": "左側"
     },
     "removeBlankPages": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處。",
       "optionsTitle": "檢測選項",
       "removeButton": "移除空白頁",
       "successMessage": "空白頁移除成功！"
     },
     "tableOfContents": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處。",
       "optionsTitle": "目錄選項",
       "generateButton": "生成目錄",
@@ -1406,7 +1406,7 @@
       "success": "目錄生成成功！"
     },
     "ocrPdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放掃描的PDF檔案到此處，或點選瀏覽。",
       "optionsTitle": "OCR選項",
       "languages": "語言",
@@ -1478,7 +1478,7 @@
       "languageHint": "選擇文字中使用的語言以獲得正確的字型支援"
     },
     "headerFooter": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處。",
       "headerTitle": "頁首",
       "footerTitle": "頁尾",
@@ -1489,7 +1489,7 @@
       "successMessage": "頁首頁尾新增成功！"
     },
     "removeMetadata": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "optionsTitle": "選擇要移除的後設資料",
       "selectAll": "全選",
@@ -1508,7 +1508,7 @@
       "removedFields": "已移除："
     },
     "changePermissions": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "optionsTitle": "文件許可權",
       "passwordTitle": "密碼設定",
@@ -1548,7 +1548,7 @@
       "passwordRequired": "此PDF受密碼保護，請輸入當前密碼以繼續。"
     },
     "pdfToJson": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "optionsTitle": "提取選項",
       "includeText": "包含文字",
@@ -1565,7 +1565,7 @@
     },
     "addAttachments": {
       "pdfFileTitle": "1. 選擇PDF檔案",
-      "pdfUploadLabel": "上傳PDF檔案",
+      "pdfUploadLabel": "新增PDF檔案",
       "pdfUploadDescription": "選擇要新增附件的PDF檔案。",
       "attachmentsTitle": "2. 選擇要附加的檔案",
       "attachmentsUploadLabel": "上傳附件",
@@ -1600,7 +1600,7 @@
       "successMessage": "比較完成！使用檢視模式和頁面導航來探索差異。"
     },
     "pageDimensions": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "displayOptions": "顯示選項",
       "unitLabel": "測量單位",
@@ -1625,7 +1625,7 @@
       "successMessage": "尺寸分析成功！"
     },
     "fixPageSize": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "optionsTitle": "頁面尺寸選項",
       "targetSize": "目標頁面尺寸",
@@ -1650,7 +1650,7 @@
       "successMessage": "頁面尺寸修復成功！"
     },
     "decryptPdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放加密的PDF檔案到此處。",
       "passwordTitle": "輸入密碼",
       "privacyNotice": "🔒 您的密碼在本地處理，永遠不會傳送到任何伺服器。",
@@ -1663,7 +1663,7 @@
       "invalidPassword": "您輸入的密碼不正確，請檢查後重試。"
     },
     "removeRestrictions": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放受限制的PDF檔案到此處。",
       "optionsTitle": "選項",
       "ownerPasswordLabel": "所有者密碼（可選）",
@@ -1679,7 +1679,7 @@
       "invalidPassword": "您輸入的密碼不正確，請檢查後重試。"
     },
     "sanitizePdf": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處進行清理。",
       "optionsTitle": "清理選項",
       "info": "清理功能會移除PDF中潛在的有害內容，使其更安全地開啟和分享。",
@@ -1694,7 +1694,7 @@
       "removedItems": "已移除："
     },
     "pdfToDocx": {
-      "uploadLabel": "上傳PDF檔案",
+      "uploadLabel": "新增PDF檔案",
       "uploadDescription": "拖放PDF檔案到此處，或點選瀏覽。",
       "convertButton": "轉換為DOCX",
       "successMessage": "您的PDF已成功轉換為DOCX！點選下載按鈕儲存檔案。"

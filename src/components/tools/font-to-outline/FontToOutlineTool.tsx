@@ -97,7 +97,7 @@ export function FontToOutlineTool({ className = '' }: FontToOutlineToolProps) {
                 onFilesSelected={handleFilesSelected}
                 onError={handleUploadError}
                 disabled={isProcessing}
-                label={tTools('fontToOutline.uploadLabel') || 'Upload PDF Files'}
+                label={tTools('fontToOutline.uploadLabel') || 'Add PDF files'}
                 description={tTools('fontToOutline.uploadDescription') || 'Drag and drop PDF files to convert fonts to outlines.'}
             />
 

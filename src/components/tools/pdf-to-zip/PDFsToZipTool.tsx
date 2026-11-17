@@ -172,7 +172,7 @@ export function PDFsToZipTool({ className = '' }: PDFsToZipToolProps) {
         onFilesSelected={handleFilesSelected}
         onError={handleUploadError}
         disabled={isProcessing}
-        label={tTools('pdfToZip.uploadLabel') || 'Upload PDF Files'}
+        label={tTools('pdfToZip.uploadLabel') || 'Add PDF files'}
         description={tTools('pdfToZip.uploadDescription') || 'Drag and drop PDF files here, or click to browse. You can add multiple files to package into a ZIP archive.'}
       />
 

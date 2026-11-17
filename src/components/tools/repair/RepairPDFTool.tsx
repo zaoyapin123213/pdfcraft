@@ -84,7 +84,7 @@ export function RepairPDFTool({ className = '' }: RepairPDFToolProps) {
                     onFilesSelected={handleFilesSelected}
                     onError={setError}
                     disabled={isProcessing}
-                    label={tTools('repairPdf.uploadLabel') || 'Upload PDF Files'}
+                    label={tTools('repairPdf.uploadLabel') || 'Add PDF files'}
                     description={tTools('repairPdf.uploadDescription') || 'Drag and drop PDF files to repair.'}
                 />
             )}

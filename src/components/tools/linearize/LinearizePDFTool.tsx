@@ -196,7 +196,7 @@ export function LinearizePDFTool({ className = '' }: LinearizePDFToolProps) {
         onFilesSelected={handleFilesSelected}
         onError={handleUploadError}
         disabled={isProcessing}
-        label={tTools('linearizePdf.uploadLabel') || 'Upload PDF Files'}
+        label={tTools('linearizePdf.uploadLabel') || 'Add PDF files'}
         description={tTools('linearizePdf.uploadDescription') || 'Drag and drop PDF files here, or click to browse. You can select multiple files.'}
       />
 

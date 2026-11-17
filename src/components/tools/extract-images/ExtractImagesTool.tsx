@@ -271,7 +271,7 @@ export function ExtractImagesTool({ className = '' }: ExtractImagesToolProps) {
                 onFilesSelected={handleFilesSelected}
                 onError={handleUploadError}
                 disabled={isProcessing}
-                label={tTools('extractImages.uploadLabel') || 'Upload PDF Files'}
+                label={tTools('extractImages.uploadLabel') || 'Add PDF files'}
                 description={tTools('extractImages.uploadDescription') || 'Select PDF files to extract images from.'}
             />
 
