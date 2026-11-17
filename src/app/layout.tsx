@@ -27,6 +27,16 @@ export default function RootLayout({
       <head>
         <meta name="color-scheme" content="light dark" />
         <style dangerouslySetInnerHTML={{ __html: 'html{scrollbar-gutter:stable}' }} />
+        {/* The root <html> is statically "en" (the root layout cannot read
+            [locale] params). The [locale] layout carries lang on its wrapper
+            div; this one-liner also aligns the html element for JS clients.
+            Non-JS crawlers rely on hreflang + page language, which are set. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var m=location.pathname.match(/^\\/(en|ja|ko|es|fr|de|zh|zh-TW|pt)(\\/|$)/);if(m)document.documentElement.lang=m[1]}catch(e){}",
+          }}
+        />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
         {children}

@@ -21,7 +21,7 @@ export const toolContentKo: Record<string, ToolContent> = {
       <p>모든 처리는 브라우저에서 직접 이루어지며, 문서의 개인 정보와 보안이 보장됩니다. 파일이 서버에 업로드되지 않습니다.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 업로드 영역에 드래그 앤 드롭하거나 클릭하여 장치에서 파일을 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 업로드 영역에 드래그 앤 드롭하거나 클릭하여 장치에서 파일을 선택합니다.' },
       { step: 2, title: '작업 선택', description: '사용 가능한 작업 중 선택: 병합, 분할, 정리, 페이지 삭제, 회전, 빈 페이지 추가, 페이지 추출.' },
       { step: 3, title: '옵션 구성', description: '페이지 범위, 회전 각도, 병합 순서 등 선택한 작업에 특정한 설정을 조정합니다.' },
       { step: 4, title: '처리 및 다운로드', description: '처리 버튼을 클릭하고 작업이 완료되면 수정된 PDF를 다운로드합니다.' },
@@ -44,7 +44,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 병합', 'pdf 결합', 'pdf 합치기', 'pdf 머저', 'pdf 연결'],
     description: `<p>PDF 병합을 사용하면 여러 PDF 문서를 빠르고 쉽게 하나의 파일로 결합할 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 파일 업로드', description: '여러 PDF 파일을 업로드 영역에 드래그 앤 드롭하거나 클릭하여 장치에서 파일을 선택합니다.' },
+      { step: 1, title: 'PDF 파일 추가', description: '여러 PDF 파일을 업로드 영역에 드래그 앤 드롭하거나 클릭하여 장치에서 파일을 선택합니다.' },
       { step: 2, title: '순서 정렬', description: '파일 썸네일을 드래그 앤 드롭하여 원하는 순서로 정렬합니다.' },
       { step: 3, title: '병합 및 다운로드', description: '병합 버튼을 클릭하여 모든 파일을 결합하고 병합된 PDF를 다운로드합니다.' },
     ],
@@ -66,7 +66,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 분할', 'pdf 나누기', 'pdf 분리', '페이지 추출', 'pdf 스플리터'],
     description: `<p>PDF 분할을 사용하면 하나의 PDF 문서를 여러 개의 작은 파일로 나눌 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 분할할 파일을 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 분할할 파일을 선택합니다.' },
       { step: 2, title: '분할 방법 선택', description: '페이지 범위, 특정 페이지 추출, 또는 일정 간격으로 분할을 선택합니다.' },
       { step: 3, title: '페이지 범위 정의', description: '추출할 페이지 번호 또는 범위를 입력합니다.' },
       { step: 4, title: '분할 및 다운로드', description: '분할을 클릭하여 새 PDF 파일을 만들고 다운로드합니다.' },
@@ -89,7 +89,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 압축', 'pdf 크기 줄이기', 'pdf 압축기', 'pdf 축소', 'pdf 최적화'],
     description: `<p>PDF 압축은 허용 가능한 품질을 유지하면서 PDF 문서의 파일 크기를 줄입니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 압축할 문서를 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 압축할 문서를 선택합니다.' },
       { step: 2, title: '압축 수준 선택', description: '낮음 (최고 품질), 중간 (균형), 높음 (최소 크기) 중 선택합니다.' },
       { step: 3, title: '압축 및 다운로드', description: '압축을 클릭하여 파일 크기를 줄이고 다운로드합니다.' },
     ],
@@ -111,7 +111,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 편집', 'pdf 편집기', 'pdf 주석', 'pdf에 텍스트 추가'],
     description: `<p>PDF 편집은 PDF 문서를 수정하고 주석을 달기 위한 포괄적인 도구 세트를 제공합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 편집할 문서를 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 편집할 문서를 선택합니다.' },
       { step: 2, title: '편집 도구 선택', description: '텍스트, 하이라이트, 도형, 이미지, 코멘트 도구 중 선택합니다.' },
       { step: 3, title: '편집하기', description: '문서를 클릭하여 주석을 추가하고 요소를 배치합니다.' },
       { step: 4, title: '저장 및 다운로드', description: '저장을 클릭하여 변경 사항을 적용하고 다운로드합니다.' },
@@ -134,7 +134,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['jpg를 pdf로', 'jpeg를 pdf로', 'jpg 변환', '이미지를 pdf로'],
     description: `<p>JPG를 PDF로는 JPEG 이미지를 빠르고 쉽게 PDF 문서로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'JPG 이미지 업로드', description: 'JPG 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'JPG 이미지 추가', description: 'JPG 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '정렬 및 구성', description: '드래그하여 이미지를 재정렬하고 페이지 크기를 선택합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 PDF를 만들고 다운로드합니다.' },
     ],
@@ -156,7 +156,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 서명', '전자 서명', 'e-서명', '디지털 서명'],
     description: `<p>PDF 서명을 사용하면 PDF 문서에 전자 서명을 빠르고 안전하게 추가할 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '서명 만들기', description: '서명을 그리거나, 입력하거나, 이미지를 업로드합니다.' },
       { step: 3, title: '배치 및 조정', description: '문서를 클릭하여 서명을 배치하고 크기를 조정합니다.' },
       { step: 4, title: '저장 및 다운로드', description: '저장을 클릭하여 서명된 PDF를 다운로드합니다.' },
@@ -179,7 +179,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 자르기', 'pdf 트리밍', 'pdf 여백 제거'],
     description: `<p>PDF 자르기를 사용하면 PDF 페이지에서 여백과 원하지 않는 영역을 트리밍할 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '자르기 영역 정의', description: '자르기 핸들을 드래그하여 유지할 영역을 정의합니다.' },
       { step: 3, title: '페이지에 적용', description: '모든 페이지 또는 특정 페이지에 자르기를 적용합니다.' },
       { step: 4, title: '자르기 및 다운로드', description: '자르기를 클릭하여 다운로드합니다.' },
@@ -202,7 +202,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 페이지 추출', 'pdf 페이지 저장', 'pdf 페이지 복사'],
     description: `<p>페이지 추출을 사용하면 PDF 문서에서 특정 페이지를 선택하여 새 파일로 저장할 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '페이지 선택', description: '페이지 썸네일을 클릭하거나 페이지 번호를 입력합니다.' },
       { step: 3, title: '추출 및 다운로드', description: '추출을 클릭하여 새 PDF를 만들고 다운로드합니다.' },
     ],
@@ -224,7 +224,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 정리', 'pdf 페이지 재정렬', 'pdf 재배열'],
     description: `<p>PDF 정리는 PDF 문서 내 페이지를 재배열하기 위한 직관적인 드래그 앤 드롭 인터페이스를 제공합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '페이지 재정렬', description: '페이지 썸네일을 드래그하여 재정렬합니다.' },
       { step: 3, title: '저장 및 다운로드', description: '저장을 클릭하여 재구성된 PDF를 다운로드합니다.' },
     ],
@@ -246,7 +246,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 페이지 삭제', 'pdf 페이지 제거'],
     description: `<p>페이지 삭제를 사용하면 PDF 문서에서 원하지 않는 페이지를 빠르고 쉽게 제거할 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '삭제할 페이지 선택', description: '페이지 썸네일을 클릭하여 삭제 대상으로 표시합니다.' },
       { step: 3, title: '삭제 및 다운로드', description: '삭제를 클릭하여 업데이트된 PDF를 다운로드합니다.' },
     ],
@@ -269,7 +269,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 북마크', '북마크 편집', '북마크 추가', 'pdf 탐색'],
     description: `<p>PDF 문서의 북마크를 생성, 수정, 정리할 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '북마크 관리', description: '새 북마크를 추가하거나 기존 북마크를 편집합니다.' },
       { step: 3, title: '저장 및 다운로드', description: '저장을 클릭하여 업데이트된 PDF를 다운로드합니다.' },
     ],
@@ -291,7 +291,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 목차', '목차 생성', 'pdf 인덱스'],
     description: `<p>PDF 문서의 탐색 가능한 목차 페이지를 생성합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '목차 설정', description: '북마크에서 생성하거나 사용자 정의 항목을 만듭니다.' },
       { step: 3, title: '생성 및 다운로드', description: '생성을 클릭하여 목차를 만들고 다운로드합니다.' },
     ],
@@ -313,7 +313,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['페이지 번호 추가', 'pdf 페이지 번호', 'pdf 페이지 매기기'],
     description: `<p>PDF 문서에 사용자 정의 가능한 페이지 번호를 추가합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '번호 매기기 설정', description: '위치, 형식, 시작 번호를 선택합니다.' },
       { step: 3, title: '적용 및 다운로드', description: '적용을 클릭하여 페이지 번호를 추가하고 다운로드합니다.' },
     ],
@@ -335,7 +335,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['워터마크 추가', 'pdf 워터마크', 'pdf 스탬프', 'pdf 보호'],
     description: `<p>PDF 문서에 텍스트 또는 이미지 워터마크를 배치할 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '워터마크 생성', description: '텍스트를 입력하거나 이미지를 업로드합니다.' },
       { step: 3, title: '적용 및 다운로드', description: '적용을 클릭하여 워터마크를 추가하고 다운로드합니다.' },
     ],
@@ -357,7 +357,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 머리글', 'pdf 바닥글', '머리글 바닥글 추가'],
     description: `<p>PDF 문서에 사용자 정의 가능한 머리글과 바닥글을 추가합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '머리글/바닥글 설정', description: '머리글과 바닥글 영역의 텍스트를 입력합니다.' },
       { step: 3, title: '적용 및 다운로드', description: '적용을 클릭하여 머리글/바닥글을 추가하고 다운로드합니다.' },
     ],
@@ -379,7 +379,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 색상 반전', 'pdf 다크 모드', '네거티브 pdf'],
     description: `<p>PDF 문서의 색상을 반전하여 네거티브 이미지 효과를 만듭니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '옵션 설정', description: '모든 콘텐츠를 반전할지 이미지를 보존할지 선택합니다.' },
       { step: 3, title: '반전 및 다운로드', description: '반전을 클릭하여 문서를 처리하고 다운로드합니다.' },
     ],
@@ -401,7 +401,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 배경색', 'pdf 배경 변경', '색상 pdf'],
     description: `<p>PDF 페이지의 배경색을 변경하거나 추가할 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '색상 선택', description: '색상 선택기를 사용하거나 16진수 코드를 입력합니다.' },
       { step: 3, title: '적용 및 다운로드', description: '적용을 클릭하여 배경을 추가하고 다운로드합니다.' },
     ],
@@ -423,7 +423,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 텍스트 색상 변경', 'pdf 텍스트 색상'],
     description: `<p>PDF 문서 내 텍스트의 색상을 변경할 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '색상 선택', description: '색상 선택기를 사용하거나 16진수 코드를 입력합니다.' },
       { step: 3, title: '적용 및 다운로드', description: '적용을 클릭하여 텍스트 색상을 변경하고 다운로드합니다.' },
     ],
@@ -445,7 +445,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 스탬프', '스탬프 추가', '승인 스탬프'],
     description: `<p>PDF 문서에 스탬프 이미지를 배치할 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '스탬프 선택', description: '프리셋 스탬프를 선택하거나 사용자 정의 스탬프 이미지를 업로드합니다.' },
       { step: 3, title: '배치 및 적용', description: '클릭하여 스탬프를 배치하고 위치와 크기를 조정한 후 다운로드합니다.' },
     ],
@@ -467,7 +467,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 주석 제거', '코멘트 삭제', '하이라이트 제거'],
     description: `<p>PDF 문서에서 코멘트, 하이라이트, 스티커 노트 및 기타 주석을 제거합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '주석 유형 선택', description: '제거할 주석 유형을 선택합니다.' },
       { step: 3, title: '제거 및 다운로드', description: '제거를 클릭하여 주석을 삭제하고 깨끗한 PDF를 다운로드합니다.' },
     ],
@@ -489,7 +489,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 양식 작성', 'pdf 양식 필러', 'pdf 양식 완성'],
     description: `<p>브라우저에서 직접 대화형 PDF 양식을 작성할 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 양식 업로드', description: 'PDF 양식을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 양식 추가', description: 'PDF 양식을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '양식 작성', description: '양식 필드를 클릭하여 텍스트를 입력하고 체크박스를 선택합니다.' },
       { step: 3, title: '저장 및 다운로드', description: '저장을 클릭하여 작성된 양식을 다운로드합니다.' },
     ],
@@ -511,7 +511,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 양식 생성', 'pdf 양식 크리에이터', '작성 가능한 pdf'],
     description: `<p>정적 PDF 문서를 대화형 작성 가능한 양식으로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '양식 필드 추가', description: '도구 모음에서 필드 유형을 선택하고 클릭하여 배치합니다.' },
       { step: 3, title: '설정 및 저장', description: '필드 속성을 설정한 후 작성 가능한 PDF 양식을 저장하고 다운로드합니다.' },
     ],
@@ -533,7 +533,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['빈 페이지 제거', '빈 페이지 삭제', 'pdf 정리'],
     description: `<p>PDF 문서에서 빈 페이지를 자동으로 감지하고 제거합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '임계값 조정', description: '필요한 경우 빈 페이지 감지 임계값을 설정합니다.' },
       { step: 3, title: '제거 및 다운로드', description: '제거를 클릭하여 빈 페이지를 삭제하고 정리된 PDF를 다운로드합니다.' },
     ],
@@ -556,7 +556,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['이미지를 pdf로', '이미지 변환', '사진을 pdf로'],
     description: `<p>모든 형식의 이미지를 PDF 문서로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: '이미지 업로드', description: '지원되는 형식의 이미지를 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: '이미지 추가', description: '지원되는 형식의 이미지를 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '정렬 및 구성', description: '이미지를 재정렬하고 페이지 크기와 방향을 선택합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 PDF를 만들고 다운로드합니다.' },
     ],
@@ -578,7 +578,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['png를 pdf로', 'png 변환', 'png 변환기'],
     description: `<p>PNG 이미지를 투명도를 보존하면서 PDF 문서로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PNG 파일 업로드', description: 'PNG 이미지를 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PNG 파일 추가', description: 'PNG 이미지를 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '정렬 및 구성', description: '이미지를 재정렬하고 페이지 크기 옵션을 선택합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 PDF를 만들고 다운로드합니다.' },
     ],
@@ -600,7 +600,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['webp를 pdf로', 'webp 변환', 'webp 변환기'],
     description: `<p>현대적인 WebP 이미지를 PDF 문서로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'WebP 파일 업로드', description: 'WebP 이미지를 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'WebP 파일 추가', description: 'WebP 이미지를 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '옵션 구성', description: '이미지를 정렬하고 페이지 크기와 방향을 선택합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 PDF를 만듭니다.' },
     ],
@@ -622,7 +622,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['svg를 pdf로', 'svg 변환', '벡터를 pdf로'],
     description: `<p>확장 가능한 벡터 그래픽을 벡터 품질을 보존하면서 PDF 문서로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'SVG 파일 업로드', description: 'SVG 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'SVG 파일 추가', description: 'SVG 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '설정 구성', description: '페이지 크기와 배열 옵션을 선택합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 벡터 PDF를 만듭니다.' },
     ],
@@ -644,7 +644,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['bmp를 pdf로', 'bmp 변환', '비트맵을 pdf로'],
     description: `<p>비트맵 이미지를 PDF 문서로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'BMP 파일 업로드', description: 'BMP 이미지를 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'BMP 파일 추가', description: 'BMP 이미지를 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '옵션 구성', description: '이미지를 정렬하고 페이지 설정을 선택합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 PDF를 만듭니다.' },
     ],
@@ -666,7 +666,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['heic를 pdf로', 'heic 변환', 'iphone 사진을 pdf로'],
     description: `<p>Apple의 고효율 이미지 형식 사진을 PDF 문서로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'HEIC 파일 업로드', description: 'HEIC 사진을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'HEIC 파일 추가', description: 'HEIC 사진을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '사진 정렬', description: '사진을 재정렬하고 페이지 설정을 선택합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 PDF를 만듭니다.' },
     ],
@@ -688,7 +688,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['tiff를 pdf로', 'tiff 변환', 'tif를 pdf로'],
     description: `<p>다중 페이지 TIFF 파일을 포함한 TIFF 이미지를 PDF 문서로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'TIFF 파일 업로드', description: 'TIFF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'TIFF 파일 추가', description: 'TIFF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '옵션 구성', description: '페이지 설정과 압축 옵션을 선택합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 PDF를 만듭니다.' },
     ],
@@ -710,7 +710,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['txt를 pdf로', '텍스트를 pdf로', '텍스트 파일 변환'],
     description: `<p>일반 텍스트 파일을 서식이 지정된 PDF 문서로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: '텍스트 파일 업로드', description: '.txt 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: '텍스트 파일 추가', description: '.txt 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '서식 사용자 정의', description: '글꼴, 크기, 여백, 페이지 설정을 선택합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 서식이 지정된 PDF를 만듭니다.' },
     ],
@@ -732,7 +732,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['json을 pdf로', 'json 변환', 'json 뷰어'],
     description: `<p>JSON 데이터 파일을 서식이 지정되고 읽기 쉬운 PDF 문서로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'JSON 파일 업로드', description: '.json 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'JSON 파일 추가', description: '.json 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '표시 구성', description: '서식 옵션과 구문 강조를 선택합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 서식이 지정된 PDF를 만듭니다.' },
     ],
@@ -755,7 +755,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf를 jpg로', 'pdf를 jpeg로', 'pdf를 이미지로 변환'],
     description: `<p>PDF 문서 페이지를 고품질 JPG 이미지로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '페이지 및 품질 선택', description: '변환할 페이지를 선택하고 품질/DPI 옵션을 설정합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 이미지를 추출하고 ZIP으로 다운로드합니다.' },
     ],
@@ -777,7 +777,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf를 png로', 'pdf를 png로 변환', 'pdf 이미지 추출'],
     description: `<p>PDF 문서 페이지를 무손실 압축의 고품질 PNG 이미지로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '옵션 구성', description: '페이지를 선택하고 해상도(DPI) 옵션을 설정합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 PNG 이미지를 추출합니다.' },
     ],
@@ -799,7 +799,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf를 webp로', 'pdf를 webp로 변환', '현대적인 이미지 형식'],
     description: `<p>PDF 문서 페이지를 Google의 현대적인 이미지 형식인 WebP 이미지로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '품질 옵션 설정', description: '페이지를 선택하고 품질/압축 설정을 지정합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 WebP 이미지를 만듭니다.' },
     ],
@@ -821,7 +821,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf를 bmp로', 'pdf를 비트맵으로 변환', '비압축 이미지'],
     description: `<p>PDF 문서 페이지를 BMP 비트맵 이미지로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '페이지 선택', description: '변환할 페이지를 선택하고 DPI를 설정합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 BMP 이미지를 만듭니다.' },
     ],
@@ -843,7 +843,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf를 tiff로', 'pdf를 tiff로 변환', '전문 이미지'],
     description: `<p>PDF 문서를 고품질 TIFF 이미지로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '출력 구성', description: '단일 또는 다중 페이지 TIFF를 선택하고 DPI를 설정합니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 TIFF 이미지를 만듭니다.' },
     ],
@@ -865,7 +865,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf를 그레이스케일로', '그레이스케일 pdf', '흑백 pdf'],
     description: `<p>컬러 PDF 문서를 그레이스케일(흑백)로 변환합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: '컬러 PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: '컬러 PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '변환 미리보기', description: '그레이스케일 버전이 어떻게 보일지 미리 봅니다.' },
       { step: 3, title: '변환 및 다운로드', description: '변환을 클릭하여 그레이스케일 PDF를 만듭니다.' },
     ],
@@ -887,7 +887,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf를 json으로', 'pdf 데이터 추출', 'pdf 파서'],
     description: `<p>PDF 문서에서 콘텐츠를 구조화된 JSON 형식으로 추출합니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'PDF 파일을 드래그 앤 드롭하거나 클릭하여 선택합니다.' },
       { step: 2, title: '추출할 데이터 선택', description: '추출할 콘텐츠를 선택합니다: 텍스트, 메타데이터, 구조.' },
       { step: 3, title: '추출 및 다운로드', description: '추출을 클릭하여 JSON을 생성하고 다운로드합니다.' },
     ],
@@ -911,7 +911,7 @@ export const toolContentKo: Record<string, ToolContent> = {
       <p>한국어, 영어 등 다양한 언어를 지원하며 원본 레이아웃을 최대한 유지하면서 검색 가능한 텍스트 레이어를 추가합니다.</p>
     `,
     howToUse: [
-      { step: 1, title: '스캔된 PDF 업로드', description: '텍스트 인식이 필요한 PDF 파일을 선택하거나 드래그 앤 드롭합니다.' },
+      { step: 1, title: '스캔된 PDF 추가', description: '텍스트 인식이 필요한 PDF 파일을 선택하거나 드래그 앤 드롭합니다.' },
       { step: 2, title: '언어 설정', description: '문서에 포함된 언어를 선택하여 인식 정확도를 높입니다.' },
       { step: 3, title: 'OCR 실행 및 다운로드', description: '프로세스 버튼을 클릭하여 처리가 완료된 검색 가능 PDF를 저장합니다.' },
     ],
@@ -933,7 +933,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 교차 병합', 'pdf 번갈아 합치기', '양면 스캔 병합'],
     description: `<p>두 개의 PDF 파일을 한 페이지씩 번갈아 가며 섞어 병합합니다. 앞면만 스캔한 파일과 뒷면만 스캔한 파일을 합칠 때 유용합니다.</p>`,
     howToUse: [
-      { step: 1, title: '두 PDF 업로드', description: '앞면(홀수) PDF와 뒷면(짝수) PDF를 각각 선택합니다.' },
+      { step: 1, title: '두 PDF 추가', description: '앞면(홀수) PDF와 뒷면(짝수) PDF를 각각 선택합니다.' },
       { step: 2, title: '순서 및 방향 설정', description: '필요에 따라 뒷면 페이지의 순서를 역순으로 설정할 수 있습니다.' },
       { step: 3, title: '병합 실행', description: '두 파일을 섞어서 하나의 완성된 양면 문서로 다운로드합니다.' },
     ],
@@ -953,7 +953,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 첨부파일 추가', 'pdf 파일 임베드', 'pdf 포트폴리오'],
     description: `<p>PDF 문서 안에 엑셀, 코드, 이미지 등 관련 참고 자료를 파일 형태로 직접 임베드합니다. 배포 시 여러 파일을 하나로 묶는 효과가 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: '메인 PDF 업로드', description: '파일을 담을 베이스가 되는 PDF를 선택합니다.' },
+      { step: 1, title: '메인 PDF 추가', description: '파일을 담을 베이스가 되는 PDF를 선택합니다.' },
       { step: 2, title: '첨부할 파일 선택', description: '내부에 포함시킬 파일들을 추가합니다.' },
       { step: 3, title: '저장 및 다운로드', description: '첨부파일이 포함된 최종 PDF를 생성합니다.' },
     ],
@@ -974,7 +974,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 암호 설정', 'pdf 비밀번호 잠금', 'pdf 보안 설정'],
     description: `<p>강력한 암호화 알고리즘으로 PDF를 보호합니다. 문서를 열 때 필요한 비밀번호와 인쇄/복사 제한을 위한 마스터 비밀번호를 설정할 수 있습니다.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: '보호할 파일을 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: '보호할 파일을 선택합니다.' },
       { step: 2, title: '비밀번호 입력', description: '열기 암호 또는 권한 암호를 입력합니다.' },
       { step: 3, title: '암호화 실행', description: '보안이 적용된 PDF를 다운로드합니다.' },
     ],
@@ -994,7 +994,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 암호 해제', 'pdf 비밀번호 제거', 'pdf 잠금 풀기'],
     description: `<p>매번 입력해야 하는 번거로운 PDF 비밀번호를 제거합니다. 비밀번호를 알고 있는 경우 이를 완전히 삭제하여 일반 PDF로 만듭니다.</p>`,
     howToUse: [
-      { step: 1, title: '암호화된 PDF 업로드', description: '잠금을 풀고자 하는 파일을 선택합니다.' },
+      { step: 1, title: '암호화된 PDF 추가', description: '잠금을 풀고자 하는 파일을 선택합니다.' },
       { step: 2, title: '현재 암호 입력', description: '현재 설정되어 있는 올바른 암호를 입력합니다.' },
       { step: 3, title: '해제 및 다운로드', description: '암호가 제거된 PDF를 저장합니다.' },
     ],
@@ -1015,7 +1015,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 복구', '깨진 pdf 고치기', 'pdf 파일 수리'],
     description: `<p>파일 전송 오류나 시스템 충돌로 인해 깨진 PDF 구조를 분석하고 가능한 한 많은 데이터를 복구하여 다시 열 수 있는 상태로 만듭니다.</p>`,
     howToUse: [
-      { step: 1, title: '손상된 PDF 업로드', description: '열리지 않거나 에러가 발생하는 파일을 선택합니다.' },
+      { step: 1, title: '손상된 PDF 추가', description: '열리지 않거나 에러가 발생하는 파일을 선택합니다.' },
       { step: 2, title: '복구 프로세스 실행', description: '도구가 파일 구조를 분석하고 재구성을 시도합니다.' },
       { step: 3, title: '결과 다운로드', description: '복구된 PDF를 확인하고 저장합니다.' },
     ],
@@ -1038,7 +1038,7 @@ export const toolContentKo: Record<string, ToolContent> = {
       <p>번거로운 타이핑 없이 PDF 내용을 Word에서 직접 수정하세요. 계약서 수정이나 보고서 재작성에 최적입니다.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: 'Word로 변환하고 싶은 파일을 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: 'Word로 변환하고 싶은 파일을 선택합니다.' },
       { step: 2, title: '변환 시작', description: '문서 구조 분석이 완료될 때까지 잠시 기다립니다.' },
       { step: 3, title: 'Word 파일 다운로드', description: '생성된 DOCX 파일을 열어 자유롭게 편집합니다.' },
     ],
@@ -1060,7 +1060,7 @@ export const toolContentKo: Record<string, ToolContent> = {
     keywords: ['pdf 각도 회전', 'pdf 기울기 보정', 'pdf 수평 맞추기'],
     description: `<p>표준 90도 회전뿐만 아니라 1도 단위의 미세한 회전도 가능합니다. 잘못 들어간 스캔 문서의 수평을 맞추거나 도면의 방향을 정밀하게 조정할 때 사용하세요.</p>`,
     howToUse: [
-      { step: 1, title: 'PDF 업로드', description: '회전이 필요한 페이지가 포함된 파일을 선택합니다.' },
+      { step: 1, title: 'PDF 추가', description: '회전이 필요한 페이지가 포함된 파일을 선택합니다.' },
       { step: 2, title: '각도 입력', description: '회전시키고 싶은 정확한 수치(도)를 입력합니다.' },
       { step: 3, title: '미리보기 및 적용', description: '수평이 맞는지 확인한 후 회전된 PDF를 저장합니다.' },
     ],
@@ -1084,7 +1084,7 @@ export const toolContentKo: Record<string, ToolContent> = {
       <p>용지 크기, 방향, 여백, 간격, 테두리를 제어하여 출력을 사용자 정의하세요. 모든 처리는 브라우저 내에서 로컬로 수행되므로 개인 정보가 최대한 보장됩니다.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF 파일 업로드', description: '결합할 2개 이상의 PDF 파일을 업로드합니다. 원하는 순서로 재정렬할 수 있습니다.' },
+      { step: 1, title: 'PDF 파일 추가', description: '결합할 2개 이상의 PDF 파일을 업로드합니다. 원하는 순서로 재정렬할 수 있습니다.' },
       { step: 2, title: '그리드 레이아웃 선택', description: '원하는 그리드 레이아웃을 선택합니다(예: 2x2는 페이지당 4개 파일, 3x3은 페이지당 9개 파일).' },
       { step: 3, title: '모양 사용자 정의', description: '용지 크기(A4, Letter), 방향, 항목 간 간격, 테두리 설정을 조정합니다.' },
       { step: 4, title: '결합 및 다운로드', description: "'PDF 병합'을 클릭하여 새 그리드 레이아웃 문서를 생성하고 결과를 다운로드합니다." },

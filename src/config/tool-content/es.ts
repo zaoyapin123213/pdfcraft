@@ -90,7 +90,7 @@ export const toolContentEs: Record<string, ToolContent> = {
       <p>Personalice la salida controlando el tamaño de página, la orientación, los márgenes, el espaciado y los bordes. Todo el procesamiento ocurre localmente en su navegador para máxima privacidad.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Subir Archivos PDF', description: 'Suba dos o más archivos PDF que desee combinar. Puede reorganizarlos en el orden deseado.' },
+      { step: 1, title: 'Añadir Archivos PDF', description: 'Suba dos o más archivos PDF que desee combinar. Puede reorganizarlos en el orden deseado.' },
       { step: 2, title: 'Elegir Diseño de Cuadrícula', description: 'Seleccione el diseño de cuadrícula deseado (ej: 2x2 para 4 archivos por página, 3x3 para 9 archivos por página).' },
       { step: 3, title: 'Personalizar Apariencia', description: 'Ajuste configuraciones como tamaño de página (A4, Carta), orientación, espaciado entre elementos y bordes.' },
       { step: 4, title: 'Combinar y Descargar', description: 'Haga clic en "Combinar PDFs" para generar su nuevo documento con diseño de cuadrícula y descargue el resultado.' },

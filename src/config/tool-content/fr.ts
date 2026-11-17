@@ -22,7 +22,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement s'effectue directement dans votre navigateur, garantissant que vos documents restent privés et sécurisés. Aucun fichier n'est téléchargé sur un serveur.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF dans la zone de téléchargement, ou cliquez pour parcourir et sélectionner des fichiers depuis votre appareil.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF dans la zone de téléchargement, ou cliquez pour parcourir et sélectionner des fichiers depuis votre appareil.' },
       { step: 2, title: 'Choisissez votre opération', description: 'Sélectionnez parmi les opérations disponibles : fusionner, diviser, organiser, supprimer des pages, faire pivoter, ajouter des pages blanches ou extraire des pages.' },
       { step: 3, title: 'Configurez les options', description: 'Ajustez les paramètres spécifiques à l\'opération choisie, tels que les plages de pages, les angles de rotation ou l\'ordre de fusion.' },
       { step: 4, title: 'Traitez et téléchargez', description: 'Cliquez sur le bouton de traitement et téléchargez votre PDF modifié une fois l\'opération terminée.' },
@@ -49,7 +49,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute la fusion se fait localement dans votre navigateur, assurant une confidentialité totale pour vos documents sensibles.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez les fichiers PDF', description: 'Glissez-déposez plusieurs fichiers PDF dans la zone de téléchargement, ou cliquez pour sélectionner des fichiers depuis votre appareil.' },
+      { step: 1, title: 'Ajoutez les fichiers PDF', description: 'Glissez-déposez plusieurs fichiers PDF dans la zone de téléchargement, ou cliquez pour sélectionner des fichiers depuis votre appareil.' },
       { step: 2, title: 'Organisez l\'ordre', description: 'Glissez-déposez les vignettes de fichiers pour les organiser dans l\'ordre souhaité.' },
       { step: 3, title: 'Fusionnez et téléchargez', description: 'Cliquez sur le bouton Fusionner pour combiner tous les fichiers, puis téléchargez votre PDF fusionné.' },
     ],
@@ -75,7 +75,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement est effectué localement dans votre navigateur, garantissant que vos documents restent privés et sécurisés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour parcourir et sélectionner le fichier que vous souhaitez diviser.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour parcourir et sélectionner le fichier que vous souhaitez diviser.' },
       { step: 2, title: 'Sélectionnez la méthode de division', description: 'Choisissez comment diviser : par plages de pages, extraire des pages spécifiques ou diviser à intervalles réguliers.' },
       { step: 3, title: 'Définissez les plages de pages', description: 'Entrez les numéros de page ou les plages que vous souhaitez extraire (ex: 1-5, 8, 10-15).' },
       { step: 4, title: 'Divisez et téléchargez', description: 'Cliquez sur Diviser pour créer vos nouveaux fichiers PDF et téléchargez-les individuellement ou sous forme d\'archive ZIP.' },
@@ -129,7 +129,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute la compression se produit dans votre navigateur, garantissant que vos documents ne quittent jamais votre appareil.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document que vous souhaitez compresser.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document que vous souhaitez compresser.' },
       { step: 2, title: 'Choisissez le niveau de compression', description: 'Sélectionnez votre niveau préféré : Faible (meilleure qualité), Moyen (équilibré) ou Élevé (taille minimale).' },
       { step: 3, title: 'Compressez et téléchargez', description: 'Cliquez sur Compresser pour réduire la taille du fichier, puis téléchargez votre PDF optimisé.' },
     ],
@@ -155,7 +155,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute l'édition se fait localement dans votre navigateur, assurant une confidentialité totale pour vos documents sensibles.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document que vous souhaitez éditer.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document que vous souhaitez éditer.' },
       { step: 2, title: 'Sélectionnez l\'outil d\'édition', description: 'Choisissez dans la barre d\'outils : texte, surlignage, formes, images, commentaires ou outils de rédaction.' },
       { step: 3, title: 'Faites vos modifications', description: 'Cliquez sur le document pour ajouter des annotations, faites glisser pour positionner les éléments et utilisez le panneau de propriétés pour personnaliser.' },
       { step: 4, title: 'Sauvegardez et téléchargez', description: 'Cliquez sur Sauvegarder pour appliquer vos modifications et téléchargez le PDF édité.' },
@@ -208,7 +208,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute la signature se fait localement dans votre navigateur, garantissant que vos documents et votre signature restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document que vous devez signer.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document que vous devez signer.' },
       { step: 2, title: 'Créez votre signature', description: 'Dessinez votre signature avec la souris ou le tactile, tapez votre nom pour générer une signature, ou téléchargez une image de signature.' },
       { step: 3, title: 'Placez et ajustez', description: 'Cliquez sur le document pour placer votre signature, puis faites glisser pour positionner et redimensionner selon les besoins.' },
       { step: 4, title: 'Sauvegardez et téléchargez', description: 'Cliquez sur Sauvegarder pour appliquer votre signature et téléchargez le PDF signé.' },
@@ -235,7 +235,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le recadrage se fait localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document que vous souhaitez recadrer.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document que vous souhaitez recadrer.' },
       { step: 2, title: 'Définissez la zone de recadrage', description: 'Faites glisser les poignées de recadrage pour définir la zone à conserver, ou entrez des mesures précises.' },
       { step: 3, title: 'Appliquez aux pages', description: 'Choisissez d\'appliquer le recadrage à toutes les pages ou sélectionnez des pages spécifiques.' },
       { step: 4, title: 'Recadrez et téléchargez', description: 'Cliquez sur Recadrer pour appliquer les modifications et téléchargez votre PDF recadré.' },
@@ -262,7 +262,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute l'extraction se fait localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document dont vous souhaitez extraire des pages.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document dont vous souhaitez extraire des pages.' },
       { step: 2, title: 'Sélectionnez les pages', description: 'Cliquez sur les vignettes de page pour les sélectionner, ou entrez les numéros de page et les plages dans le champ de saisie.' },
       { step: 3, title: 'Extrayez et téléchargez', description: 'Cliquez sur Extraire pour créer un nouveau PDF avec vos pages sélectionnées et téléchargez-le.' },
     ],
@@ -288,7 +288,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute l'organisation se fait localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document que vous souhaitez organiser.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document que vous souhaitez organiser.' },
       { step: 2, title: 'Réorganisez les pages', description: 'Faites glisser les vignettes de page pour les réorganiser. Cliquez sur les boutons dupliquer ou supprimer sur chaque page selon les besoins.' },
       { step: 3, title: 'Sauvegardez et téléchargez', description: 'Cliquez sur Sauvegarder pour appliquer vos modifications et téléchargez le PDF réorganisé.' },
     ],
@@ -314,7 +314,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document dont vous souhaitez supprimer des pages.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document dont vous souhaitez supprimer des pages.' },
       { step: 2, title: 'Sélectionnez les pages à supprimer', description: 'Cliquez sur les vignettes de page pour les marquer pour la suppression, ou entrez les numéros de page dans le champ de saisie.' },
       { step: 3, title: 'Supprimez et téléchargez', description: 'Cliquez sur Supprimer pour retirer les pages sélectionnées et téléchargez votre PDF mis à jour.' },
     ],
@@ -342,7 +342,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute l'édition se fait localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document que vous souhaitez éditer.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document que vous souhaitez éditer.' },
       { step: 2, title: 'Gérez les signets', description: 'Ajoutez de nouveaux signets, éditez ceux existants ou faites glisser pour réorganiser la hiérarchie.' },
       { step: 3, title: 'Sauvegardez et téléchargez', description: 'Cliquez sur Sauvegarder pour appliquer vos modifications et téléchargez le PDF avec les signets mis à jour.' },
     ],
@@ -368,7 +368,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
       { step: 2, title: 'Configurez la TDM', description: 'Choisissez de générer à partir des signets ou de créer des entrées personnalisées. Sélectionnez les options de style et de positionnement.' },
       { step: 3, title: 'Générez et téléchargez', description: 'Cliquez sur Générer pour créer la table des matières et téléchargez votre PDF mis à jour.' },
     ],
@@ -394,7 +394,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
       { step: 2, title: 'Configurez la numérotation', description: 'Choisissez la position, le format, le numéro de départ et les pages à numéroter.' },
       { step: 3, title: 'Appliquez et téléchargez', description: 'Cliquez sur Appliquer pour ajouter les numéros de page et téléchargez votre PDF mis à jour.' },
     ],
@@ -420,7 +420,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
       { step: 2, title: 'Créez le filigrane', description: 'Entrez le texte ou téléchargez une image pour votre filigrane. Ajustez la position, la taille, l\'opacité et la rotation.' },
       { step: 3, title: 'Appliquez et téléchargez', description: 'Cliquez sur Appliquer pour ajouter le filigrane et téléchargez votre PDF mis à jour.' },
     ],
@@ -446,7 +446,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
       { step: 2, title: 'Configurez l\'en-tête/pied de page', description: 'Entrez le texte pour les zones d\'en-tête et de pied de page. Ajoutez des numéros de page, dates ou texte personnalisé.' },
       { step: 3, title: 'Appliquez et téléchargez', description: 'Cliquez sur Appliquer pour ajouter les en-têtes/pieds de page et téléchargez votre PDF mis à jour.' },
     ],
@@ -472,7 +472,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
       { step: 2, title: 'Configurez les options', description: 'Choisissez d\'inverser tout le contenu ou de préserver les images.' },
       { step: 3, title: 'Inversez et téléchargez', description: 'Cliquez sur Inverser pour traiter le document et télécharger le résultat.' },
     ],
@@ -498,7 +498,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
       { step: 2, title: 'Choisissez la couleur', description: 'Sélectionnez une couleur d\'arrière-plan à l\'aide du sélecteur de couleurs ou entrez un code hexadécimal.' },
       { step: 3, title: 'Appliquez et téléchargez', description: 'Cliquez sur Appliquer pour ajouter l\'arrière-plan et téléchargez votre PDF mis à jour.' },
     ],
@@ -524,7 +524,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
       { step: 2, title: 'Choisissez la couleur', description: 'Sélectionnez une nouvelle couleur de texte à l\'aide du sélecteur de couleurs ou entrez un code hexadécimal.' },
       { step: 3, title: 'Appliquez et téléchargez', description: 'Cliquez sur Appliquer pour changer la couleur du texte et téléchargez votre PDF mis à jour.' },
     ],
@@ -550,7 +550,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
       { step: 2, title: 'Sélectionnez le tampon', description: 'Choisissez un tampon prédéfini ou téléchargez une image de tampon personnalisée.' },
       { step: 3, title: 'Positionnez et appliquez', description: 'Cliquez pour placer le tampon, ajustez la position et la taille, puis téléchargez.' },
     ],
@@ -576,7 +576,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
       { step: 2, title: 'Sélectionnez les types d\'annotations', description: 'Choisissez quels types d\'annotations supprimer : commentaires, surlignages, liens, etc.' },
       { step: 3, title: 'Supprimez et téléchargez', description: 'Cliquez sur Supprimer pour retirer les annotations et téléchargez le PDF propre.' },
     ],
@@ -628,7 +628,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document à convertir en formulaire.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document à convertir en formulaire.' },
       { step: 2, title: 'Ajoutez des champs de formulaire', description: 'Sélectionnez des types de champs dans la barre d\'outils et cliquez pour les placer sur le document.' },
       { step: 3, title: 'Configurez et sauvegardez', description: 'Définissez les propriétés des champs, puis sauvegardez et téléchargez votre formulaire PDF remplissable.' },
     ],
@@ -654,7 +654,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document.' },
       { step: 2, title: 'Ajustez le seuil', description: 'Définissez le seuil de détection de blanc si nécessaire (la valeur par défaut fonctionne pour la plupart des documents).' },
       { step: 3, title: 'Supprimez et téléchargez', description: 'Cliquez sur Supprimer pour effacer les pages blanches et téléchargez le PDF nettoyé.' },
     ],
@@ -915,7 +915,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute la conversion se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Sélectionnez pages et qualité', description: 'Choisissez quelles pages convertir et définissez les options de qualité/DPI.' },
       { step: 3, title: 'Convertissez et téléchargez', description: 'Cliquez sur Convertir pour extraire les images et télécharger sous forme de ZIP.' },
     ],
@@ -941,7 +941,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute la conversion se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Configurez les options', description: 'Sélectionnez les pages et définissez les options de résolution (DPI).' },
       { step: 3, title: 'Convertissez et téléchargez', description: 'Cliquez sur Convertir pour extraire les images PNG.' },
     ],
@@ -967,7 +967,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute la conversion se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Définissez les options de qualité', description: 'Choisissez les pages et définissez les paramètres de qualité/compression.' },
       { step: 3, title: 'Convertissez et téléchargez', description: 'Cliquez sur Convertir pour créer les images WebP.' },
     ],
@@ -993,7 +993,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute la conversion se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Sélectionnez les pages', description: 'Choisissez quelles pages convertir et définissez le DPI.' },
       { step: 3, title: 'Convertissez et téléchargez', description: 'Cliquez sur Convertir pour créer les images BMP.' },
     ],
@@ -1019,7 +1019,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute la conversion se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Configurez la sortie', description: 'Choisissez TIFF page unique ou multipages et définissez le DPI.' },
       { step: 3, title: 'Convertissez et téléchargez', description: 'Cliquez sur Convertir pour créer les images TIFF.' },
     ],
@@ -1045,7 +1045,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute la conversion se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF couleur ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF couleur ou cliquez pour sélectionner.' },
       { step: 2, title: 'Prévisualisez la conversion', description: 'Prévisualisez l\'apparence de la version en niveaux de gris.' },
       { step: 3, title: 'Convertissez et téléchargez', description: 'Cliquez sur Convertir pour créer le PDF en niveaux de gris.' },
     ],
@@ -1071,7 +1071,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute l'extraction se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Sélectionnez les données à extraire', description: 'Choisissez quel contenu extraire : texte, métadonnées, structure.' },
       { step: 3, title: 'Extrayez et téléchargez', description: 'Cliquez sur Extraire pour générer le JSON et télécharger.' },
     ],
@@ -1150,7 +1150,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement se produit dans votre navigateur, garantissant que vos fichiers restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Ajoutez des pièces jointes', description: 'Sélectionnez des fichiers à joindre au PDF.' },
       { step: 3, title: 'Sauvegardez et téléchargez', description: 'Cliquez sur Sauvegarder pour intégrer les pièces jointes et télécharger.' },
     ],
@@ -1176,7 +1176,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute l'extraction se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Voir les pièces jointes', description: 'Voyez une liste de tous les fichiers intégrés dans le PDF.' },
       { step: 3, title: 'Extrayez et téléchargez', description: 'Téléchargez les fichiers individuels ou tous sous forme de ZIP.' },
     ],
@@ -1202,7 +1202,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute l'édition se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Gérez les pièces jointes', description: 'Visualisez, renommez ou supprimez les fichiers intégrés.' },
       { step: 3, title: 'Sauvegardez et téléchargez', description: 'Cliquez sur Sauvegarder pour appliquer les modifications et télécharger.' },
     ],
@@ -1228,7 +1228,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Définissez la division', description: 'Choisissez la division horizontale, verticale ou en grille et définissez le nombre de sections.' },
       { step: 3, title: 'Divisez et téléchargez', description: 'Cliquez sur Diviser pour couper les pages et télécharger.' },
     ],
@@ -1254,7 +1254,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Choisissez la position', description: 'Sélectionnez où insérer les pages blanches et combien.' },
       { step: 3, title: 'Ajoutez et téléchargez', description: 'Cliquez sur Ajouter pour insérer les pages et télécharger.' },
     ],
@@ -1280,7 +1280,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Sélectionnez les pages', description: 'Choisissez d\'inverser toutes les pages ou une plage spécifique.' },
       { step: 3, title: 'Inversez et téléchargez', description: 'Cliquez sur Inverser pour retourner l\'ordre des pages et télécharger.' },
     ],
@@ -1306,7 +1306,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Sélectionnez la rotation', description: 'Choisissez l\'angle de rotation et quelles pages faire pivoter.' },
       { step: 3, title: 'Faites pivoter et téléchargez', description: 'Cliquez sur Faire pivoter pour appliquer les modifications et télécharger.' },
     ],
@@ -1332,7 +1332,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Choisissez la mise en page', description: 'Sélectionnez 2-up, 4-up, 6-up, 9-up ou grille personnalisée.' },
       { step: 3, title: 'Créez et téléchargez', description: 'Cliquez sur Créer pour générer le PDF n-up et télécharger.' },
     ],
@@ -1358,7 +1358,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Définissez l\'espacement', description: 'Choisissez l\'espace entre les pages assemblées.' },
       { step: 3, title: 'Combinez et téléchargez', description: 'Cliquez sur Combiner pour créer le PDF à page unique.' },
     ],
@@ -1384,7 +1384,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute la visualisation se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Visualisez les propriétés', description: 'Voyez toutes les métadonnées affichées dans un format organisé.' },
       { step: 3, title: 'Exportez si nécessaire', description: 'Optionnellement exportez les métadonnées en JSON.' },
     ],
@@ -1410,7 +1410,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute la modification se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Modifiez les propriétés', description: 'Modifiez le titre, l\'auteur, le sujet, les mots-clés et d\'autres champs.' },
       { step: 3, title: 'Sauvegardez et téléchargez', description: 'Cliquez sur Sauvegarder pour appliquer les modifications et télécharger.' },
     ],
@@ -1488,7 +1488,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre PDF grand format ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre PDF grand format ou cliquez pour sélectionner.' },
       { step: 2, title: 'Configurez les tuiles', description: 'Définissez la taille de la grille, le chevauchement et la taille du papier de sortie.' },
       { step: 3, title: 'Créez et téléchargez', description: 'Cliquez sur Créer pour générer des tuiles imprimables.' },
     ],
@@ -1515,7 +1515,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Sélectionnez la taille cible', description: 'Choisissez une taille standard ou entrez des dimensions personnalisées.' },
       { step: 3, title: 'Appliquez et téléchargez', description: 'Cliquez sur Appliquer pour standardiser les pages et télécharger.' },
     ],
@@ -1541,9 +1541,9 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Linéarisez', description: 'Cliquez sur Linéariser pour optimiser pour la visualisation web.' },
-      { step: 3, title: 'Téléchargez', description: 'Téléchargez votre PDF optimisé.' },
+      { step: 3, title: 'Téléchargez', description: 'Ajoutez votre PDF optimisé.' },
     ],
     useCases: [
       { title: 'Publication Web', description: 'Optimisez les PDF pour les téléchargements de sites web.', icon: 'globe' },
@@ -1567,7 +1567,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute l'analyse se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Voir les dimensions', description: 'Voyez les tailles de page affichées pour toutes les pages.' },
       { step: 3, title: 'Exporter le rapport', description: 'Optionnellement exportez les dimensions en JSON.' },
     ],
@@ -1646,7 +1646,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le chiffrement se produit dans votre navigateur, garantissant que vos mots de passe et documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Définissez les mots de passe', description: 'Entrez le mot de passe utilisateur et/ou le mot de passe propriétaire. Configurez les permissions.' },
       { step: 3, title: 'Chiffrez et téléchargez', description: 'Cliquez sur Chiffrer pour sécuriser votre PDF et télécharger.' },
     ],
@@ -1672,7 +1672,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout l'assainissement se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Sélectionnez ce qu\'il faut supprimer', description: 'Choisissez quels types de données cachées supprimer.' },
       { step: 3, title: 'Assainissez et téléchargez', description: 'Cliquez sur Assainir pour nettoyer le PDF et télécharger.' },
     ],
@@ -1724,7 +1724,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre PDF avec formulaires ou annotations.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre PDF avec formulaires ou annotations.' },
       { step: 2, title: 'Sélectionnez quoi aplatir', description: 'Choisissez d\'aplatir les formulaires, les annotations ou les deux.' },
       { step: 3, title: 'Aplatissez et téléchargez', description: 'Cliquez sur Aplatir pour créer le PDF statique.' },
     ],
@@ -1750,7 +1750,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Supprimez les métadonnées', description: 'Cliquez sur Supprimer pour effacer toutes les métadonnées.' },
       { step: 3, title: 'Téléchargez', description: 'Téléchargez le PDF sans métadonnées.' },
     ],
@@ -1776,7 +1776,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Tout le traitement se produit dans votre navigateur, garantissant que vos documents restent privés.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner.' },
       { step: 2, title: 'Définissez les permissions', description: 'Activez ou désactivez l\'impression, la copie, l\'édition et les annotations.' },
       { step: 3, title: 'Appliquez et téléchargez', description: 'Définissez le mot de passe propriétaire et téléchargez le PDF restreint.' },
     ],
@@ -1800,7 +1800,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Toute la conversion s'effectue localement dans votre navigateur, garantissant que vos documents ne quittent jamais votre ordinateur.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document à convertir.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Glissez-déposez votre fichier PDF ou cliquez pour sélectionner le document à convertir.' },
       { step: 2, title: 'Conversion', description: 'Attendez que le processus de conversion automatique analyse la structure du document.' },
       { step: 3, title: 'Téléchargez le DOCX', description: 'Une fois prêt, téléchargez votre fichier Word éditable.' },
     ],
@@ -1825,7 +1825,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Idéal pour l'analyse financière, la gestion d'inventaire ou le traitement de données statistiques sans saisie manuelle.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Sélectionnez le fichier contenant les tableaux de données.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Sélectionnez le fichier contenant les tableaux de données.' },
       { step: 2, title: 'Analyse des données', description: 'L\'outil scanne le document pour détecter les lignes et colonnes.' },
       { step: 3, title: 'Téléchargez l\'Excel', description: 'Récupérez votre fichier XLSX prêt pour vos calculs.' },
     ],
@@ -1850,7 +1850,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>C'est la solution idéale pour redresser des documents numérisés de travers ou ajuster l'orientation de plans techniques et de dessins.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Sélectionnez le document dont vous souhaitez ajuster l\'angle.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Sélectionnez le document dont vous souhaitez ajuster l\'angle.' },
       { step: 2, title: 'Réglez l\'angle', description: 'Utilisez le curseur ou entrez manuellement le degré précis de rotation.' },
       { step: 3, title: 'Appliquez et téléchargez', description: 'Visualisez le résultat et téléchargez votre PDF redressé.' },
     ],
@@ -1900,7 +1900,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       <p>Parfait pour mettre à jour des présentations dont vous n'avez que la version PDF.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Téléchargez votre PDF', description: 'Sélectionnez le document à transformer en présentation.' },
+      { step: 1, title: 'Ajoutez votre PDF', description: 'Sélectionnez le document à transformer en présentation.' },
       { step: 2, title: 'Génération des diapositives', description: 'L\'outil convertit les éléments graphiques et textuels en objets PowerPoint.' },
       { step: 3, title: 'Téléchargez le PPTX', description: 'Récupérez votre présentation et personnalisez vos diapositives.' },
     ],

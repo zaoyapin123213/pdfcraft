@@ -21,7 +21,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Die gesamte Verarbeitung findet direkt in Ihrem Browser statt, was die Privatsphäre und Sicherheit Ihrer Dokumente gewährleistet. Es werden keine Dateien auf einen Server hochgeladen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop in den Upload-Bereich oder klicken Sie, um Dateien von Ihrem Gerät auszuwählen.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop in den Upload-Bereich oder klicken Sie, um Dateien von Ihrem Gerät auszuwählen.' },
       { step: 2, title: 'Operation wählen', description: 'Wählen Sie aus den verfügbaren Operationen: Zusammenfügen, Teilen, Organisieren, Seiten löschen, Drehen oder Extrahieren.' },
       { step: 3, title: 'Optionen konfigurieren', description: 'Passen Sie die spezifischen Einstellungen an, wie z. B. Seitenbereiche, Drehwinkel oder die Reihenfolge beim Zusammenfügen.' },
       { step: 4, title: 'Verarbeiten und Herunterladen', description: 'Klicken Sie auf die Schaltfläche zum Verarbeiten und laden Sie Ihre modifizierte PDF-Datei herunter.' },
@@ -47,7 +47,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Laden Sie einfach Ihre Dateien hoch, ordnen Sie sie per Drag & Drop in der gewünschten Reihenfolge an und fügen Sie sie zusammen. Das Tool bewahrt die Qualität Ihrer Originaldateien.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Dateien hochladen', description: 'Ziehen Sie mehrere PDF-Dateien in den Bereich oder wählen Sie sie manuell aus.' },
+      { step: 1, title: 'Dateien hinzufügen', description: 'Ziehen Sie mehrere PDF-Dateien in den Bereich oder wählen Sie sie manuell aus.' },
       { step: 2, title: 'Reihenfolge anordnen', description: 'Verschieben Sie die Miniaturansichten, um die gewünschte Abfolge festzulegen.' },
       { step: 3, title: 'Zusammenfügen', description: 'Klicken Sie auf "Zusammenfügen" und laden Sie das fertige Dokument herunter.' },
     ],
@@ -72,7 +72,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Ideal zum Begradigen von Dokumenten, die schräg eingezogen wurden, oder zum Anpassen von technischen Zeichnungen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Laden Sie die PDF-Datei hoch, deren Seiten gedreht werden müssen.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Laden Sie die PDF-Datei hoch, deren Seiten gedreht werden müssen.' },
       { step: 2, title: 'Winkel einstellen', description: 'Geben Sie den exakten Grad für die Drehung ein.' },
       { step: 3, title: 'Vorschau und Download', description: 'Prüfen Sie die Ausrichtung in der Echtzeit-Vorschau und speichern Sie das Ergebnis.' },
     ],
@@ -98,7 +98,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Passen Sie die Ausgabe an, indem Sie Seitengröße, Ausrichtung, Ränder, Abstände und Rahmen steuern. Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser für maximale Privatsphäre.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF-Dateien hochladen', description: 'Laden Sie zwei oder mehr PDF-Dateien hoch, die Sie kombinieren möchten. Sie können sie in der gewünschten Reihenfolge neu anordnen.' },
+      { step: 1, title: 'PDF-Dateien hinzufügen', description: 'Laden Sie zwei oder mehr PDF-Dateien hoch, die Sie kombinieren möchten. Sie können sie in der gewünschten Reihenfolge neu anordnen.' },
       { step: 2, title: 'Rasterlayout wählen', description: 'Wählen Sie Ihr gewünschtes Rasterlayout (z.B. 2x2 für 4 Dateien pro Seite, 3x3 für 9 Dateien pro Seite).' },
       { step: 3, title: 'Aussehen anpassen', description: 'Passen Sie Einstellungen wie Seitengröße (A4, Letter), Ausrichtung, Abstand zwischen Elementen und Ränder an.' },
       { step: 4, title: 'Kombinieren und herunterladen', description: 'Klicken Sie auf "PDFs kombinieren", um Ihr neues Rasterlayout-Dokument zu generieren und das Ergebnis herunterzuladen.' },
@@ -123,7 +123,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Mit "PDF teilen" können Sie ein einzelnes PDF in mehrere kleinere Dateien aufteilen. Perfekt, um Kapitel zu extrahieren oder kombinierte Dokumente wieder zu trennen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das PDF aus, das Sie aufteilen möchten.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das PDF aus, das Sie aufteilen möchten.' },
       { step: 2, title: 'Methode wählen', description: 'Wählen Sie zwischen Seitenbereichen, Einzel-Extraktion oder Aufteilung in festen Intervallen.' },
       { step: 3, title: 'Teilen und Speichern', description: 'Klicken Sie auf "Teilen" und laden Sie die Ergebnisse (ggf. als ZIP) herunter.' },
     ],
@@ -147,7 +147,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Dieses Tool reduziert die Dateigröße Ihrer PDFs, ideal für E-Mail-Anhänge oder Web-Uploads. Sie können zwischen verschiedenen Kompressionsstufen wählen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie die Datei aus, die verkleinert werden soll.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie die Datei aus, die verkleinert werden soll.' },
       { step: 2, title: 'Stufe wählen', description: 'Wählen Sie: Niedrig (Beste Qualität), Mittel (Ausbalanciert) oder Hoch (Kleinste Datei).' },
       { step: 3, title: 'Komprimieren', description: 'Starten Sie den Vorgang und laden Sie die optimierte PDF herunter.' },
     ],
@@ -171,7 +171,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Unser PDF-Editor bietet Ihnen Werkzeuge zum Ändern und Kommentieren Ihrer Dokumente – ganz ohne teure Software. Fügen Sie Text, Bilder, Formen und Markierungen hinzu.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das zu bearbeitende Dokument aus.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das zu bearbeitende Dokument aus.' },
       { step: 2, title: 'Werkzeug wählen', description: 'Nutzen Sie die Toolbar für Text, Highlights, Formen oder Bilder.' },
       { step: 3, title: 'Änderungen vornehmen', description: 'Platzieren und gestalten Sie die Elemente direkt auf dem PDF.' },
       { step: 4, title: 'Speichern', description: 'Laden Sie die bearbeitete Version herunter.' },
@@ -196,7 +196,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Wandeln Sie Ihre JPEG-Bilder schnell in PDF-Dokumente um. Sie können einzelne Fotos oder ganze Bildserien konvertieren und die Seitenreihenfolge anpassen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Bilder hochladen', description: 'Wählen Sie eine oder mehrere JPG-Dateien aus.' },
+      { step: 1, title: 'Bilder hinzufügen', description: 'Wählen Sie eine oder mehrere JPG-Dateien aus.' },
       { step: 2, title: 'Anordnen', description: 'Bringen Sie die Bilder per Drag & Drop in die richtige Reihenfolge.' },
       { step: 3, title: 'Konvertieren', description: 'Erstellen Sie das PDF und laden Sie es herunter.' },
     ],
@@ -220,7 +220,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Fügen Sie Ihre Unterschrift sicher und schnell zu PDFs hinzu. Zeichnen Sie Ihre Signatur mit der Maus/Touchpad, tippen Sie sie ein oder laden Sie ein Bild Ihrer Unterschrift hoch.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das zu unterzeichnende Dokument.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das zu unterzeichnende Dokument.' },
       { step: 2, title: 'Signatur erstellen', description: 'Zeichnen, tippen oder laden Sie Ihre Unterschrift hoch.' },
       { step: 3, title: 'Platzieren', description: 'Klicken Sie an die Stelle im PDF, an der die Signatur erscheinen soll.' },
     ],
@@ -244,7 +244,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Entfernen Sie weiße Ränder oder unerwünschte Bereiche von Ihren PDF-Seiten. Ideal, um den Fokus auf den wesentlichen Inhalt zu legen oder Seitenformate zu vereinheitlichen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das PDF aus, das Sie zuschneiden möchten.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das PDF aus, das Sie zuschneiden möchten.' },
       { step: 2, title: 'Bereich wählen', description: 'Ziehen Sie den Rahmen auf die gewünschte Größe.' },
       { step: 3, title: 'Anwenden', description: 'Wählen Sie aus, ob alle Seiten oder nur bestimmte Seiten beschnitten werden sollen.' },
     ],
@@ -268,7 +268,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Wählen Sie gezielt Seiten aus einem großen Dokument aus und erstellen Sie daraus eine neue, kompakte Datei. Ideal für Auszüge aus Büchern oder Berichten.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das Quelldokument aus.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das Quelldokument aus.' },
       { step: 2, title: 'Seiten wählen', description: 'Klicken Sie auf die Miniaturansichten der Seiten, die Sie behalten möchten.' },
       { step: 3, title: 'Extrahieren', description: 'Klicken Sie auf "Extrahieren" und laden Sie das neue PDF herunter.' },
     ],
@@ -292,7 +292,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Strukturieren Sie Ihre PDF-Dokumente völlig neu. Mit einer einfachen Drag-and-Drop-Oberfläche können Sie Seiten verschieben, löschen oder wichtige Abschnitte duplizieren.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie die Datei aus, die Sie neu ordnen möchten.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie die Datei aus, die Sie neu ordnen möchten.' },
       { step: 2, title: 'Sortieren', description: 'Verschieben Sie die Seiten per Maus. Nutzen Sie die Buttons zum Löschen oder Kopieren.' },
       { step: 3, title: 'Speichern', description: 'Laden Sie das organisierte Dokument herunter.' },
     ],
@@ -316,7 +316,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Entfernen Sie schnell und unkompliziert nicht benötigte Seiten aus Ihren PDFs. Ob Leerseiten, veraltete Inhalte oder sensible Daten – mit diesem Tool bereinigen Sie Ihre Dokumente in Sekunden.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das Dokument aus, das bereinigt werden soll.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das Dokument aus, das bereinigt werden soll.' },
       { step: 2, title: 'Seiten wählen', description: 'Markieren Sie die Seiten, die entfernt werden sollen.' },
       { step: 3, title: 'Löschen und Speichern', description: 'Bestätigen Sie das Löschen und laden Sie die gekürzte PDF herunter.' },
     ],
@@ -340,7 +340,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Verwandeln Sie statische Scans in intelligente Dokumente. Unsere OCR-Technologie erkennt Text in Bildern und fügt eine unsichtbare, durchsuchbare Textebene hinzu.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Scan hochladen', description: 'Wählen Sie ein bildbasiertes PDF aus.' },
+      { step: 1, title: 'Scan hinzufügen', description: 'Wählen Sie ein bildbasiertes PDF aus.' },
       { step: 2, title: 'Sprache wählen', description: 'Wählen Sie die Sprache des Dokuments für optimale Ergebnisse.' },
       { step: 3, title: 'OCR starten', description: 'Laden Sie das nun durchsuchbare und kopierbare PDF herunter.' },
     ],
@@ -389,7 +389,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Sie können neue Lesezeichen hinzufügen, die Hierarchie neu organisieren oder Lesezeichen aus externen Quellen importieren. Dieses Tool ist unerlässlich für die Erstellung professioneller, navigierbarer Dokumente.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie die PDF-Datei aus, deren Lesezeichen Sie verwalten möchten.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie die PDF-Datei aus, deren Lesezeichen Sie verwalten möchten.' },
       { step: 2, title: 'Lesezeichen verwalten', description: 'Fügen Sie neue Punkte hinzu, benennen Sie bestehende um oder ziehen Sie diese per Drag & Drop in eine hierarchische Ordnung.' },
       { step: 3, title: 'Speichern und Download', description: 'Übernehmen Sie die Änderungen und laden Sie das PDF mit der neuen Navigationsstruktur herunter.' },
     ],
@@ -414,7 +414,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Passen Sie das Erscheinungsbild mit verschiedenen Stilen und Layouts an. Das generierte Verzeichnis enthält anklickbare Links, die direkt zu den entsprechenden Seiten springen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das Dokument aus, für das ein Inhaltsverzeichnis benötigt wird.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das Dokument aus, für das ein Inhaltsverzeichnis benötigt wird.' },
       { step: 2, title: 'TOC konfigurieren', description: 'Wählen Sie Stil, Schriftart und Position. Entscheiden Sie, ob Lesezeichen als Basis dienen sollen.' },
       { step: 3, title: 'Generieren', description: 'Erstellen Sie das Inhaltsverzeichnis und laden Sie die aktualisierte PDF herunter.' },
     ],
@@ -438,7 +438,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Fügen Sie Ihren PDFs professionelle Seitenzahlen hinzu. Wählen Sie aus verschiedenen Formaten, Positionen und Stilen, um das Layout Ihres Dokuments zu perfektionieren.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Laden Sie das Dokument hoch, das nummeriert werden soll.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Laden Sie das Dokument hoch, das nummeriert werden soll.' },
       { step: 2, title: 'Formatierung wählen', description: 'Bestimmen Sie Position (z.B. unten rechts), Startnummer und das Zahlenformat.' },
       { step: 3, title: 'Anwenden', description: 'Fügen Sie die Paginierung hinzu und laden Sie das Ergebnis herunter.' },
     ],
@@ -462,7 +462,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Schützen Sie Ihr geistiges Eigentum, indem Sie Text- oder Bild-Wasserzeichen auf Ihre PDFs setzen. Ideal für Statusanzeigen wie "Entwurf" oder zur Kennzeichnung mit Ihrem Firmenlogo.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das zu schützende Dokument aus.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das zu schützende Dokument aus.' },
       { step: 2, title: 'Wasserzeichen erstellen', description: 'Geben Sie Text ein oder laden Sie ein Logo hoch. Passen Sie Transparenz und Winkel an.' },
       { step: 3, title: 'Platzieren und Speichern', description: 'Wenden Sie das Wasserzeichen auf alle oder ausgewählte Seiten an.' },
     ],
@@ -486,7 +486,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Erstellen Sie ein einheitliches Layout für Ihre PDFs, indem Sie Kopf- und Fußzeilen hinzufügen. Fügen Sie dynamische Felder wie das aktuelle Datum, den Dateinamen oder Seitenzahlen ein.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie Ihr Dokument aus.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie Ihr Dokument aus.' },
       { step: 2, title: 'Inhalt definieren', description: 'Geben Sie Text für die linke, mittlere oder rechte Position in Kopf/Fußzeile ein.' },
       { step: 3, title: 'Layout anpassen', description: 'Wählen Sie Abstände zum Rand und Schriftstile aus.' },
     ],
@@ -511,7 +511,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Invertieren Sie die Farben Ihrer PDF-Dokumente, um einen Negativ-Effekt zu erzielen. Dies ist besonders nützlich für das Lesen in dunkler Umgebung (Dark Mode), um die Augen zu schonen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Laden Sie das PDF hoch, das Sie farblich umkehren möchten.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Laden Sie das PDF hoch, das Sie farblich umkehren möchten.' },
       { step: 2, title: 'Optionen wählen', description: 'Entscheiden Sie, ob auch Bilder invertiert werden sollen oder nur Text/Hintergrund.' },
       { step: 3, title: 'Invertieren', description: 'Laden Sie die augenschonende Version Ihres PDFs herunter.' },
     ],
@@ -535,7 +535,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Wählen Sie eine beliebige Farbe aus und wenden Sie diese auf das gesamte Dokument oder nur auf bestimmte Seiten an. Alle vorhandenen Inhalte bleiben dabei im Vordergrund erhalten.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das Dokument aus, dessen Hintergrund Sie einfärben möchten.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das Dokument aus, dessen Hintergrund Sie einfärben möchten.' },
       { step: 2, title: 'Farbe wählen', description: 'Nutzen Sie den Farbwähler oder geben Sie einen Hex-Code ein.' },
       { step: 3, title: 'Anwenden', description: 'Speichern Sie das PDF mit dem neuen Hintergrund-Layer.' },
     ],
@@ -559,7 +559,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Passen Sie die Farbe aller Textelemente in Ihrem PDF an. Dies ist ideal, um den Kontrast zu erhöhen, ein Dokument für den Druck vorzubereiten oder die Optik an Corporate-Design-Vorgaben anzupassen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Laden Sie das PDF-Dokument hoch.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Laden Sie das PDF-Dokument hoch.' },
       { step: 2, title: 'Farbe festlegen', description: 'Wählen Sie die neue Farbe für alle enthaltenen Texte aus.' },
       { step: 3, title: 'Konvertieren', description: 'Das Tool färbt alle Schriften um und stellt das PDF zum Download bereit.' },
     ],
@@ -583,7 +583,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Versehen Sie Ihre PDFs mit digitalen Stempeln. Nutzen Sie klassische Bürostempel wie "GENEHMIGT", "ABGELEHNT" oder "ENTWURF", oder laden Sie Ihr eigenes Stempelbild hoch.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das zu stempelnde Dokument.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das zu stempelnde Dokument.' },
       { step: 2, title: 'Stempel wählen', description: 'Wählen Sie eine Vorlage oder laden Sie ein eigenes PNG/JPG hoch.' },
       { step: 3, title: 'Platzieren', description: 'Klicken Sie auf die gewünschte Stelle, passen Sie die Größe an und speichern Sie.' },
     ],
@@ -607,7 +607,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Entfernen Sie alle Kommentare, Markierungen und Notizen aus Ihrem PDF. So erstellen Sie eine saubere Version des Dokuments für die finale Veröffentlichung oder Weitergabe.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Laden Sie das kommentierte Dokument hoch.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Laden Sie das kommentierte Dokument hoch.' },
       { step: 2, title: 'Typen wählen', description: 'Wählen Sie aus, ob nur Kommentare, Highlights oder alle Markups gelöscht werden sollen.' },
       { step: 3, title: 'Bereinigen', description: 'Laden Sie das "saubere" PDF ohne Korrekturspuren herunter.' },
     ],
@@ -632,7 +632,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Füllen Sie interaktive PDF-Formulare direkt im Browser aus. Geben Sie Text ein, setzen Sie Häkchen in Checkboxen und wählen Sie Optionen aus Dropdown-Menüs – ganz ohne Drucken.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Formular hochladen', description: 'Wählen Sie die PDF-Formulardatei aus.' },
+      { step: 1, title: 'Formular hinzufügen', description: 'Wählen Sie die PDF-Formulardatei aus.' },
       { step: 2, title: 'Ausfüllen', description: 'Klicken Sie in die Felder und geben Sie Ihre Daten ein.' },
       { step: 3, title: 'Speichern', description: 'Laden Sie das fertig ausgefüllte Formular herunter.' },
     ],
@@ -656,7 +656,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Verwandeln Sie statische PDFs in interaktive Formulare. Fügen Sie Textfelder, Checkboxen, Radio-Buttons und Dropdowns hinzu, um professionelle Datenerfassung zu ermöglichen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Laden Sie das Dokument hoch, das als Basis für Ihr Formular dient.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Laden Sie das Dokument hoch, das als Basis für Ihr Formular dient.' },
       { step: 2, title: 'Felder hinzufügen', description: 'Wählen Sie Feldtypen aus der Toolbar und platzieren Sie diese per Klick.' },
       { step: 3, title: 'Konfigurieren', description: 'Legen Sie Eigenschaften wie Pflichtfelder fest und speichern Sie das Ergebnis.' },
     ],
@@ -680,7 +680,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Dieses intelligente Tool erkennt und entfernt automatisch leere Seiten aus Ihren Dokumenten. Ideal zum Bereinigen von Scans oder zum Entfernen von Trennblättern nach dem Zusammenfügen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das zu bereinigende Dokument.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das zu bereinigende Dokument.' },
       { step: 2, title: 'Empfindlichkeit wählen', description: 'Stellen Sie ein, ab wann eine Seite als "leer" gilt (z.B. trotz kleiner Scan-Punkte).' },
       { step: 3, title: 'Entfernen', description: 'Laden Sie das kompakte PDF ohne unnötige Leerseiten herunter.' },
     ],
@@ -704,7 +704,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Kombinieren Sie mehrere Bilder zu einer einzigen PDF-Datei, ordnen Sie diese nach Belieben an und passen Sie Seitengröße sowie Ausrichtung individuell an.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Bilder hochladen', description: 'Ziehen Sie Bilder in den Upload-Bereich oder wählen Sie Dateien von Ihrem Gerät.' },
+      { step: 1, title: 'Bilder hinzufügen', description: 'Ziehen Sie Bilder in den Upload-Bereich oder wählen Sie Dateien von Ihrem Gerät.' },
       { step: 2, title: 'Anordnen & Konfigurieren', description: 'Sortieren Sie die Bilder und legen Sie das Seitenformat (z. B. A4 oder Originalgröße) fest.' },
       { step: 3, title: 'Konvertieren', description: 'Erstellen Sie Ihr PDF und laden Sie das Ergebnis sofort herunter.' },
     ],
@@ -728,7 +728,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Konvertieren Sie PNG-Dateien in PDF, während Transparenzen erhalten bleiben. Ideal für Grafiken, Logos und Screenshots, die einen transparenten Hintergrund besitzen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PNGs hochladen', description: 'Wählen Sie Ihre PNG-Dateien aus.' },
+      { step: 1, title: 'PNGs hinzufügen', description: 'Wählen Sie Ihre PNG-Dateien aus.' },
       { step: 2, title: 'Layout wählen', description: 'Bestimmen Sie die Seitengröße und die Bildanordnung.' },
       { step: 3, title: 'Herunterladen', description: 'Laden Sie das fertige PDF-Dokument herunter.' },
     ],
@@ -752,7 +752,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Wandeln Sie moderne WebP-Bilder in das universell kompatible PDF-Format um. Ideal, um Bilder direkt aus dem Web für den Druck oder die Langzeitarchivierung vorzubereiten.</p>
     `,
     howToUse: [
-      { step: 1, title: 'WebP hochladen', description: 'Wählen Sie WebP-Dateien aus Ihrem Ordner aus.' },
+      { step: 1, title: 'WebP hinzufügen', description: 'Wählen Sie WebP-Dateien aus Ihrem Ordner aus.' },
       { step: 2, title: 'Optionen anpassen', description: 'Wählen Sie Hoch- oder Querformat für Ihre PDF-Seiten.' },
       { step: 3, title: 'Speichern', description: 'Generieren Sie das PDF aus Ihren WebP-Grafiken.' },
     ],
@@ -776,7 +776,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Wandeln Sie skalierbare Vektorgrafiken (SVG) in PDF um, ohne an Schärfe zu verlieren. Da PDF ebenfalls Vektoren unterstützt, bleibt Ihr Design bei jeder Vergrößerung gestochen scharf.</p>
     `,
     howToUse: [
-      { step: 1, title: 'SVG hochladen', description: 'Wählen Sie Ihre SVG-Vektordateien aus.' },
+      { step: 1, title: 'SVG hinzufügen', description: 'Wählen Sie Ihre SVG-Vektordateien aus.' },
       { step: 2, title: 'Seiteneinstellungen', description: 'Wählen Sie ein passendes Format für Ihre Grafiken.' },
       { step: 3, title: 'Konvertieren', description: 'Laden Sie das Vektor-PDF herunter.' },
     ],
@@ -800,7 +800,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Konvertieren Sie HEIC-Fotos von Ihrem iPhone oder iPad direkt in PDF. HEIC bietet zwar eine gute Kompression, ist aber nicht überall lesbar – PDF hingegen schon.</p>
     `,
     howToUse: [
-      { step: 1, title: 'HEIC hochladen', description: 'Wählen Sie Ihre Apple-Fotos aus.' },
+      { step: 1, title: 'HEIC hinzufügen', description: 'Wählen Sie Ihre Apple-Fotos aus.' },
       { step: 2, title: 'Sortieren', description: 'Bringen Sie Ihre Fotos in die gewünschte Reihenfolge.' },
       { step: 3, title: 'Download', description: 'Laden Sie das universelle PDF-Dokument herunter.' },
     ],
@@ -824,7 +824,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Wandeln Sie einfache Textdateien (.txt) in formatierte PDF-Dokumente um. Passen Sie Schriftarten, Ränder und das Seitenlayout an, um aus simplen Notizen professionelle Dokumente zu machen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Textdatei hochladen', description: 'Wählen Sie Ihre .txt-Datei aus.' },
+      { step: 1, title: 'Textdatei hinzufügen', description: 'Wählen Sie Ihre .txt-Datei aus.' },
       { step: 2, title: 'Formatierung', description: 'Wählen Sie Schriftart (z. B. Monospace für Code) und Seitenränder.' },
       { step: 3, title: 'Speichern', description: 'Laden Sie das formatierte PDF-Dokument herunter.' },
     ],
@@ -848,7 +848,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Verwandeln Sie JSON-Daten in ein lesbares, schön formatiertes PDF. Das Tool bietet automatisches Syntax-Highlighting und Einrückungen, um komplexe Datenstrukturen visuell aufzubereiten.</p>
     `,
     howToUse: [
-      { step: 1, title: 'JSON hochladen', description: 'Wählen Sie Ihre .json-Datei aus.' },
+      { step: 1, title: 'JSON hinzufügen', description: 'Wählen Sie Ihre .json-Datei aus.' },
       { step: 2, title: 'Stil wählen', description: 'Konfigurieren Sie das Farbschema für das Syntax-Highlighting.' },
       { step: 3, title: 'Generieren', description: 'Laden Sie das strukturierte Daten-PDF herunter.' },
     ],
@@ -872,7 +872,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Ideal zum Erstellen von Vorschaubildern, zum Teilen von Dokumenten in sozialen Netzwerken oder zur Verwendung in Bildbearbeitungsprogrammen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie die PDF-Datei aus, die Sie umwandeln möchten.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie die PDF-Datei aus, die Sie umwandeln möchten.' },
       { step: 2, title: 'Qualität wählen', description: 'Stellen Sie die gewünschte Auflösung (DPI) und den Kompressionsgrad ein.' },
       { step: 3, title: 'Konvertieren', description: 'Laden Sie die Bilder einzeln oder gesammelt als ZIP-Archiv herunter.' },
     ],
@@ -897,7 +897,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Besonders geeignet für PDFs, die Diagramme, Logos oder Texte enthalten, die gestochen scharf bleiben müssen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Laden Sie Ihr Dokument hoch.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Laden Sie Ihr Dokument hoch.' },
       { step: 2, title: 'Optionen konfigurieren', description: 'Wählen Sie die Seiten und die gewünschte Pixeldichte aus.' },
       { step: 3, title: 'PNGs speichern', description: 'Extrahieren Sie die Seiten als hochwertige PNG-Dateien.' },
     ],
@@ -922,7 +922,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Dies ist die beste Wahl, wenn Sie PDF-Inhalte schnell ladend auf einer modernen Website anzeigen möchten.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das PDF-Dokument aus.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das PDF-Dokument aus.' },
       { step: 2, title: 'Kompression wählen', description: 'Stellen Sie die Balance zwischen Dateigröße und Qualität ein.' },
       { step: 3, title: 'Download', description: 'Laden Sie die web-optimierten WebP-Bilder herunter.' },
     ],
@@ -946,7 +946,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Wandeln Sie PDF-Seiten in das klassische BMP-Format (Windows Bitmap) um. BMP ist ein unkomprimiertes Format, das eine universelle Kompatibilität mit älteren Systemen und speziellen Windows-Anwendungen garantiert.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie Ihre Datei aus.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie Ihre Datei aus.' },
       { step: 2, title: 'Seiten wählen', description: 'Bestimmen Sie, welche Seiten als Bitmap gespeichert werden sollen.' },
       { step: 3, title: 'BMP erstellen', description: 'Konvertieren und laden Sie die Bitmap-Bilder herunter.' },
     ],
@@ -970,7 +970,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Konvertieren Sie PDFs in das hochwertige TIFF-Format. TIFF ist der Standard im professionellen Druck und in der Langzeitarchivierung, da es eine extrem hohe Farbtiefe und verlustfreie Kompression (LZW/ZIP) unterstützt.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Laden Sie das Dokument hoch.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Laden Sie das Dokument hoch.' },
       { step: 2, title: 'Format wählen', description: 'Wählen Sie zwischen einzelnen TIFFs pro Seite oder einem einzelnen, mehrseitigen TIFF.' },
       { step: 3, title: 'Download', description: 'Laden Sie die professionellen Bilddateien herunter.' },
     ],
@@ -995,7 +995,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Texte bleiben gestochen scharf und Bilder behalten ihre Details, während alle Farbinformationen entfernt werden.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das farbige Dokument aus.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das farbige Dokument aus.' },
       { step: 2, title: 'Vorschau prüfen', description: 'Sehen Sie sich an, wie die Graustufen-Konvertierung wirkt.' },
       { step: 3, title: 'Download', description: 'Laden Sie das optimierte Schwarz-Weiß-PDF herunter.' },
     ],
@@ -1019,7 +1019,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Extrahieren Sie Text, Metadaten und die Struktur Ihres PDF-Dokuments in das maschinenlesbare JSON-Format. Dies ist das perfekte Tool für Entwickler und Datenanalysten.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie die PDF-Quelldatei aus.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie die PDF-Quelldatei aus.' },
       { step: 2, title: 'Daten wählen', description: 'Bestimmen Sie, welche Informationen (Text, Layout, Metadaten) extrahiert werden sollen.' },
       { step: 3, title: 'JSON exportieren', description: 'Laden Sie die fertige JSON-Datei für Ihre Programmierung herunter.' },
     ],
@@ -1043,7 +1043,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Laden Sie einfach die Datei mit den Vorderseiten und die Datei mit den Rückseiten hoch. Das Tool fügt diese automatisch zu einem logischen Gesamtdokument zusammen. Sie können die Reihenfolge einer Datei auch umkehren, falls diese rückwärts gescannt wurde.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Zwei PDFs hochladen', description: 'Wählen Sie die PDF mit den ungeraden Seiten (Vorderseiten) und die mit den geraden Seiten (Rückseiten).' },
+      { step: 1, title: 'Zwei PDFs hinzufügen', description: 'Wählen Sie die PDF mit den ungeraden Seiten (Vorderseiten) und die mit den geraden Seiten (Rückseiten).' },
       { step: 2, title: 'Reihenfolge konfigurieren', description: 'Wählen Sie bei Bedarf "Reihenfolge umkehren" für das zweite Dokument (oft bei Back-to-Front-Scans nötig).' },
       { step: 3, title: 'Zusammenfügen', description: 'Klicken Sie auf "Merge", um die Seiten zu verschachteln und das Ergebnis zu laden.' },
     ],
@@ -1068,7 +1068,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Die Anhänge werden Teil der PDF-Datei und können vom Empfänger mit jedem gängigen PDF-Reader wieder extrahiert werden.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das Haupt-PDF-Dokument aus.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das Haupt-PDF-Dokument aus.' },
       { step: 2, title: 'Dateien hinzufügen', description: 'Wählen Sie die Dateien aus, die Sie im PDF einbetten möchten.' },
       { step: 3, title: 'Speichern', description: 'Laden Sie das PDF mit den integrierten Anhängen herunter.' },
     ],
@@ -1092,7 +1092,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Holen Sie alle eingebetteten Dateien aus einem PDF-Dokument heraus. Sie können Anhänge einzeln oder alle zusammen als praktisches ZIP-Archiv herunterladen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das PDF aus, das Anhänge enthält.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das PDF aus, das Anhänge enthält.' },
       { step: 2, title: 'Anhänge anzeigen', description: 'Sehen Sie eine Liste aller im PDF versteckten Dateien.' },
       { step: 3, title: 'Herunterladen', description: 'Speichern Sie die Dateien einzeln oder als komplettes Paket.' },
     ],
@@ -1117,7 +1117,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Besonders nützlich für Scans, bei denen mehrere Dokumente (z. B. Quittungen) auf einer Seite liegen, oder um großformatige Pläne handlich zu machen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Laden Sie das PDF-Dokument hoch.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Laden Sie das PDF-Dokument hoch.' },
       { step: 2, title: 'Teilung festlegen', description: 'Wählen Sie zwischen horizontaler/vertikaler Teilung oder einem Gitter (z. B. 2x2).' },
       { step: 3, title: 'Schneiden', description: 'Laden Sie das PDF mit den nun unterteilten Einzelseiten herunter.' },
     ],
@@ -1141,7 +1141,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>N-Up PDF ordnet mehrere Seiten Ihres Dokuments auf einem einzigen Blatt an (z. B. 2, 4, 6 oder 9 Seiten pro Blatt). Dies spart Papier beim Drucken und ist ideal für Handouts.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das zu druckende Dokument.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das zu druckende Dokument.' },
       { step: 2, title: 'Layout wählen', description: 'Entscheiden Sie sich für ein Raster (z. B. 2x2 für 4 Seiten pro Blatt).' },
       { step: 3, title: 'Generieren', description: 'Laden Sie das optimierte Layout herunter.' },
     ],
@@ -1165,7 +1165,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Dieses Tool dreht die gesamte Seitenreihenfolge Ihres PDFs um. Die letzte Seite wird zur ersten, die vorletzte zur zweiten usw. Ideal für Dokumente, die falsch herum eingescannt wurden.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie die Datei aus.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie die Datei aus.' },
       { step: 2, title: 'Bereich wählen', description: 'Wählen Sie das gesamte Dokument oder nur einen Teilbereich zum Umkehren.' },
       { step: 3, title: 'Umkehren', description: 'Speichern Sie das PDF mit der neuen Sortierung.' },
     ],
@@ -1189,7 +1189,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Analysieren Sie zwei Versionen eines Dokuments auf einen Blick. Das Tool markiert Textänderungen, Hinzufügungen und Löschungen farblich, sodass Sie Revisionen sofort prüfen können.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Zwei PDFs hochladen', description: 'Laden Sie das Original und die bearbeitete Version hoch.' },
+      { step: 1, title: 'Zwei PDFs hinzufügen', description: 'Laden Sie das Original und die bearbeitete Version hoch.' },
       { step: 2, title: 'Vergleich starten', description: 'Das Tool analysiert beide Dateien auf Text- und Layout-Differenzen.' },
       { step: 3, title: 'Ergebnisse prüfen', description: 'Betrachten Sie die Highlights direkt im Browser oder laden Sie einen Bericht herunter.' },
     ],
@@ -1213,7 +1213,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Wählen Sie aus Standardgrößen wie A4 oder US-Letter oder definieren Sie eigene Maße. Der Inhalt wird dabei passgenau skaliert oder zentriert.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das PDF mit unterschiedlichen Formaten aus.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie das PDF mit unterschiedlichen Formaten aus.' },
       { step: 2, title: 'Zielformat wählen', description: 'Wählen Sie A4, Letter oder geben Sie eigene Maße in mm/Zoll ein.' },
       { step: 3, title: 'Anwenden', description: 'Laden Sie das PDF mit den nun einheitlichen Seitenmaßen herunter.' },
     ],
@@ -1238,7 +1238,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Dies verbessert die Benutzererfahrung bei großen Dokumenten erheblich, da die erste Seite sofort erscheint.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Laden Sie das Dokument hoch, das online veröffentlicht werden soll.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Laden Sie das Dokument hoch, das online veröffentlicht werden soll.' },
       { step: 2, title: 'Optimieren', description: 'Klicken Sie auf "Linearisieren", um die interne Struktur neu zu ordnen.' },
       { step: 3, title: 'Speichern', description: 'Laden Sie das web-optimierte PDF herunter.' },
     ],
@@ -1263,7 +1263,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Nützlich bei Dateien, die sich nicht öffnen lassen, Fehlermeldungen anzeigen oder beim Download beschädigt wurden.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Defektes PDF hochladen', description: 'Wählen Sie die Datei aus, die Fehlermeldungen verursacht.' },
+      { step: 1, title: 'Defektes PDF hinzufügen', description: 'Wählen Sie die Datei aus, die Fehlermeldungen verursacht.' },
       { step: 2, title: 'Reparatur starten', description: 'Das Tool versucht, die Cross-Reference-Table und die Objektstruktur zu fixen.' },
       { step: 3, title: 'Ergebnis prüfen', description: 'Laden Sie die reparierte Version herunter und prüfen Sie den Inhalt.' },
     ],
@@ -1289,7 +1289,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Wählen Sie zwischen 128-Bit oder 256-Bit AES-Verschlüsselung für höchste Sicherheitsstandards.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie die zu schützende Datei aus.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie die zu schützende Datei aus.' },
       { step: 2, title: 'Passwörter setzen', description: 'Geben Sie ein starkes Passwort ein und legen Sie fest, was erlaubt ist (z. B. Drucken).' },
       { step: 3, title: 'Sichern', description: 'Laden Sie das verschlüsselte PDF herunter.' },
     ],
@@ -1338,7 +1338,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Passen Sie die versteckten Informationen Ihres PDFs an. Ändern oder löschen Sie Titel, Autor, Thema und Schlagworte, um die Datei professionell zu präsentieren oder Ihre Privatsphäre zu schützen.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie Ihr Dokument aus.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Wählen Sie Ihr Dokument aus.' },
       { step: 2, title: 'Felder ausfüllen', description: 'Geben Sie neue Informationen für Titel, Autor und andere Felder ein.' },
       { step: 3, title: 'Speichern', description: 'Laden Sie das PDF mit den aktualisierten Metadaten herunter.' },
     ],
@@ -1363,7 +1363,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Dieses Tool ist ideal für die Umwandlung von Berichten, Handouts oder anderen PDF-Inhalten in ein Präsentationsformat.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei hierher oder klicken Sie zum Auswählen.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Ziehen Sie Ihre PDF-Datei hierher oder klicken Sie zum Auswählen.' },
       { step: 2, title: 'Qualität wählen', description: 'Wählen Sie die Bildqualität (DPI) für die Folien.' },
       { step: 3, title: 'Konvertieren', description: 'Klicken Sie auf Konvertieren, um Ihre PowerPoint-Präsentation zu erstellen.' },
     ],
@@ -1388,7 +1388,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       <p>Ideal für die Analyse von Finanzberichten, Rechnungen oder anderen tabellarischen Daten.</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDF hochladen', description: 'Laden Sie Ihre PDF-Datei hoch.' },
+      { step: 1, title: 'PDF hinzufügen', description: 'Laden Sie Ihre PDF-Datei hoch.' },
       { step: 2, title: 'Verarbeiten', description: 'Das Tool identifiziert und extrahiert Tabellen automatisch.' },
       { step: 3, title: 'Excel herunterladen', description: 'Laden Sie die Excel-Datei mit den extrahierten Daten herunter.' },
     ],

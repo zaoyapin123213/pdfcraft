@@ -22,7 +22,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens directly in your browser, ensuring your documents remain private and secure. No files are uploaded to any server.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file into the upload area, or click to browse and select files from your device.' },
+      { step: 1, title: 'Add your PDF', description: 'Drag and drop your PDF file into the tool, or click to browse and select files from your device.' },
       { step: 2, title: 'Choose Your Operation', description: 'Select from the available operations: merge, split, organize, delete pages, rotate, add blank pages, or extract pages.' },
       { step: 3, title: 'Configure Options', description: 'Adjust settings specific to your chosen operation, such as page ranges, rotation angles, or merge order.' },
       { step: 4, title: 'Process and Download', description: 'Click the process button and download your modified PDF once the operation completes.' },
@@ -49,7 +49,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All merging happens locally in your browser, ensuring complete privacy for your sensitive documents.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload PDF Files', description: 'Drag and drop multiple PDF files into the upload area, or click to select files from your device.' },
+      { step: 1, title: 'Add PDF files', description: 'Drag and drop multiple PDF files into the tool, or click to select files from your device.' },
       { step: 2, title: 'Arrange Order', description: 'Drag and drop the file thumbnails to arrange them in your desired order.' },
       { step: 3, title: 'Merge and Download', description: 'Click the Merge button to combine all files, then download your merged PDF.' },
     ],
@@ -75,7 +75,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private while achieving perfect alignment.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload PDF', description: 'Upload the PDF file containing pages you need to rotate.' },
+      { step: 1, title: 'Add PDF', description: 'Upload the PDF file containing pages you need to rotate.' },
       { step: 2, title: 'Set Rotation Angle', description: 'Enter the exact degree of rotation for each page, or set a batch angle for all pages.' },
       { step: 3, title: 'Preview and Adjust', description: 'Use the real-time preview to ensure pages are perfectly aligned.' },
       { step: 4, title: 'Apply and Download', description: 'Click Rotate to apply the changes and download your straightened PDF.' },
@@ -102,7 +102,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>Customize the output with control over page size, orientation, margins, spacing, and borders. All processing happens locally in your browser for maximum privacy.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload PDF Files', description: 'Upload two or more PDF files you want to combine. You can rearrange them in your desired order.' },
+      { step: 1, title: 'Add PDF files', description: 'Pick two or more PDF files you want to combine. You can rearrange them in your desired order.' },
       { step: 2, title: 'Choose Grid Layout', description: 'Select your desired grid layout (e.g., 2x2 for 4 files per page, 3x3 for 9 files per page).' },
       { step: 3, title: 'Customize Appearance', description: 'Adjust settings like page size (A4, Letter), orientation, spacing between items, and borders.' },
       { step: 4, title: 'Combine and Download', description: 'Click "Combine PDFs" to generate your new grid layout document and download the result.' },
@@ -129,7 +129,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing is done locally in your browser, ensuring your documents remain private and secure.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to browse and select the file you want to split.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to browse and select the file you want to split.' },
       { step: 2, title: 'Select Split Method', description: 'Choose how to split: by page ranges, extract specific pages, or split at regular intervals.' },
       { step: 3, title: 'Define Page Ranges', description: 'Enter the page numbers or ranges you want to extract (e.g., 1-5, 8, 10-15).' },
       { step: 4, title: 'Split and Download', description: 'Click Split to create your new PDF files and download them individually or as a ZIP archive.' },
@@ -156,7 +156,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All compression happens in your browser, ensuring your documents never leave your device.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to compress.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to compress.' },
       { step: 2, title: 'Choose Compression Level', description: 'Select your preferred compression level: Low (best quality), Medium (balanced), or High (smallest size).' },
       { step: 3, title: 'Compress and Download', description: 'Click Compress to reduce the file size, then download your optimized PDF.' },
     ],
@@ -183,7 +183,7 @@ export const toolContentEn: Record<string, ToolContent> = {
           <p>You can also draw in PDF free-hand with the pencil and shape tools, annotate with highlights and comments, and delete text from PDF files by covering it - all free, with no account.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to edit.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to edit.' },
       { step: 2, title: 'Select Editing Tool', description: 'Choose from the toolbar: text, highlight, shapes, images, comments, or the Whiteout cover tool.' },
       { step: 3, title: 'Make Your Edits', description: 'Click on the document to add annotations, drag to position elements, and use the properties panel to customize.' },
       { step: 4, title: 'Save and Download', description: 'Click Save to apply your changes and download the edited PDF.' },
@@ -197,6 +197,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       { question: 'Can I edit the original text in the PDF?', answer: 'Yes. Double-click any text block to cover the original line and type your replacement on top of it — the result reads and prints as the corrected text. For sensitive removal, use the Whiteout tool.' },
       { question: 'Are my edits permanent?', answer: 'Annotations can be flattened to make them permanent, or kept as editable layers depending on your preference.' },
       { question: 'Can I undo my changes?', answer: 'Yes, the editor supports undo/redo functionality. You can also reset to the original document at any time before saving.' },
+      { question: 'How are Chinese, Japanese and Korean characters handled?', answer: 'Text you add in Chinese, Japanese or Korean is embedded into the exported PDF as a high-resolution image, rendered by your browser\'s font engine, so it displays and prints exactly as it looks on screen. Western-language text stays true, selectable text. This comes from a technical limit of browser-side font subsetting: CJK fonts are too large to embed from the browser, so rasterizing those characters is the honest way to keep them correct on every device.' },
     ],
   },
 
@@ -211,7 +212,7 @@ export const toolContentEn: Record<string, ToolContent> = {
           <p>This drag and drop PDF creator accepts multiple JPG files at once and preserves full image quality.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload JPG Images', description: 'Drag and drop your JPG files or click to select images from your device.' },
+      { step: 1, title: 'Add JPG Images', description: 'Drag and drop your JPG files or click to select images from your device.' },
       { step: 2, title: 'Arrange and Configure', description: 'Reorder images by dragging, and select page size and orientation options.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create your PDF and download the result.' },
     ],
@@ -238,7 +239,7 @@ export const toolContentEn: Record<string, ToolContent> = {
           <p>Add a PDF signature by typing, drawing or placing an image of your handwritten signature.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document you need to sign.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document you need to sign.' },
       { step: 2, title: 'Create Your Signature', description: 'Draw your signature with mouse or touch, type your name to generate a signature, or upload a signature image.' },
       { step: 3, title: 'Place and Adjust', description: 'Click on the document to place your signature, then drag to position and resize as needed.' },
       { step: 4, title: 'Save and Download', description: 'Click Save to apply your signature and download the signed PDF.' },
@@ -266,7 +267,7 @@ export const toolContentEn: Record<string, ToolContent> = {
           <p>Every PDF crop is previewed live before you apply it, so results stay precise.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to crop.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to crop.' },
       { step: 2, title: 'Define Crop Area', description: 'Drag the crop handles to define the area you want to keep, or enter precise measurements.' },
       { step: 3, title: 'Apply to Pages', description: 'Choose to apply the crop to all pages or select specific pages to crop.' },
       { step: 4, title: 'Crop and Download', description: 'Click Crop to apply the changes and download your cropped PDF.' },
@@ -293,7 +294,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All extraction happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document from which you want to extract pages.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document from which you want to extract pages.' },
       { step: 2, title: 'Select Pages', description: 'Click on page thumbnails to select them, or enter page numbers and ranges in the input field.' },
       { step: 3, title: 'Extract and Download', description: 'Click Extract to create a new PDF with your selected pages and download it.' },
     ],
@@ -320,7 +321,7 @@ export const toolContentEn: Record<string, ToolContent> = {
           <p>You can also add pages to PDF files here, inserting blank pages or pages from another document.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to organize.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to organize.' },
       { step: 2, title: 'Rearrange Pages', description: 'Drag page thumbnails to reorder them. Click the duplicate or delete buttons on each page as needed.' },
       { step: 3, title: 'Save and Download', description: 'Click Save to apply your changes and download the reorganized PDF.' },
     ],
@@ -346,7 +347,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document from which you want to delete pages.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document from which you want to delete pages.' },
       { step: 2, title: 'Select Pages to Delete', description: 'Click on page thumbnails to mark them for deletion, or enter page numbers in the input field.' },
       { step: 3, title: 'Delete and Download', description: 'Click Delete to remove the selected pages and download your updated PDF.' },
     ],
@@ -374,7 +375,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All editing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to edit.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to edit.' },
       { step: 2, title: 'Manage Bookmarks', description: 'Add new bookmarks, edit existing ones, or drag to reorganize the hierarchy.' },
       { step: 3, title: 'Save and Download', description: 'Click Save to apply your changes and download the PDF with updated bookmarks.' },
     ],
@@ -400,7 +401,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
       { step: 2, title: 'Configure TOC', description: 'Choose to generate from bookmarks or create custom entries. Select style and positioning options.' },
       { step: 3, title: 'Generate and Download', description: 'Click Generate to create the table of contents and download your updated PDF.' },
     ],
@@ -426,7 +427,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
       { step: 2, title: 'Configure Numbering', description: 'Choose position, format, starting number, and which pages to number.' },
       { step: 3, title: 'Apply and Download', description: 'Click Apply to add page numbers and download your updated PDF.' },
     ],
@@ -453,7 +454,7 @@ export const toolContentEn: Record<string, ToolContent> = {
           <p>Your PDF watermark can be text or an image, applied to a single page or the whole document.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
       { step: 2, title: 'Create Watermark', description: 'Enter text or upload an image for your watermark. Adjust position, size, opacity, and rotation.' },
       { step: 3, title: 'Apply and Download', description: 'Click Apply to add the watermark and download your updated PDF.' },
     ],
@@ -479,7 +480,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
       { step: 2, title: 'Configure Header/Footer', description: 'Enter text for header and footer areas. Add page numbers, dates, or custom text.' },
       { step: 3, title: 'Apply and Download', description: 'Click Apply to add headers/footers and download your updated PDF.' },
     ],
@@ -505,7 +506,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
       { step: 2, title: 'Configure Options', description: 'Choose whether to invert all content or preserve images.' },
       { step: 3, title: 'Invert and Download', description: 'Click Invert to process the document and download the result.' },
     ],
@@ -531,7 +532,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
       { step: 2, title: 'Choose Color', description: 'Select a background color using the color picker or enter a hex code.' },
       { step: 3, title: 'Apply and Download', description: 'Click Apply to add the background and download your updated PDF.' },
     ],
@@ -557,7 +558,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
       { step: 2, title: 'Choose Color', description: 'Select a new text color using the color picker or enter a hex code.' },
       { step: 3, title: 'Apply and Download', description: 'Click Apply to change the text color and download your updated PDF.' },
     ],
@@ -584,7 +585,7 @@ export const toolContentEn: Record<string, ToolContent> = {
           <p>Each PDF stamp is placed exactly where you want it - APPROVED, DRAFT, dates or custom graphics.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
       { step: 2, title: 'Select Stamp', description: 'Choose a preset stamp or upload a custom stamp image.' },
       { step: 3, title: 'Position and Apply', description: 'Click to place the stamp, adjust position and size, then download.' },
     ],
@@ -610,7 +611,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
       { step: 2, title: 'Select Annotation Types', description: 'Choose which types of annotations to remove: comments, highlights, links, etc.' },
       { step: 3, title: 'Remove and Download', description: 'Click Remove to strip annotations and download the clean PDF.' },
     ],
@@ -636,7 +637,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your form data remains private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF Form', description: 'Drag and drop your PDF form or click to select the file.' },
+      { step: 1, title: 'Add Your PDF Form', description: 'Drag and drop your PDF form or click to select the file.' },
       { step: 2, title: 'Fill the Form', description: 'Click on form fields to enter text, check boxes, or select options.' },
       { step: 3, title: 'Save and Download', description: 'Click Save to preserve your entries and download the filled form.' },
     ],
@@ -662,7 +663,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document to convert into a form.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document to convert into a form.' },
       { step: 2, title: 'Add Form Fields', description: 'Select field types from the toolbar and click to place them on the document.' },
       { step: 3, title: 'Configure and Save', description: 'Set field properties, then save and download your fillable PDF form.' },
     ],
@@ -688,7 +689,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select the document.' },
       { step: 2, title: 'Adjust Threshold', description: 'Set the blank detection threshold if needed (default works for most documents).' },
       { step: 3, title: 'Remove and Download', description: 'Click Remove to delete blank pages and download the cleaned PDF.' },
     ],
@@ -714,7 +715,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your images remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Images', description: 'Drag and drop images of any supported format or click to select files.' },
+      { step: 1, title: 'Add Images', description: 'Drag and drop images of any supported format or click to select files.' },
       { step: 2, title: 'Arrange and Configure', description: 'Reorder images and select page size and orientation options.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create your PDF and download the result.' },
     ],
@@ -740,7 +741,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your images remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload PNG Files', description: 'Drag and drop your PNG images or click to select files.' },
+      { step: 1, title: 'Add PNG Files', description: 'Drag and drop your PNG images or click to select files.' },
       { step: 2, title: 'Arrange and Configure', description: 'Reorder images and select page size options.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create your PDF and download.' },
     ],
@@ -766,7 +767,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your images remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload WebP Files', description: 'Drag and drop your WebP images or click to select files.' },
+      { step: 1, title: 'Add WebP Files', description: 'Drag and drop your WebP images or click to select files.' },
       { step: 2, title: 'Configure Options', description: 'Arrange images and select page size and orientation.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create your PDF.' },
     ],
@@ -792,7 +793,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your files remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload SVG Files', description: 'Drag and drop your SVG files or click to select.' },
+      { step: 1, title: 'Add SVG Files', description: 'Drag and drop your SVG files or click to select.' },
       { step: 2, title: 'Configure Settings', description: 'Select page size and arrangement options.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create your vector PDF.' },
     ],
@@ -818,7 +819,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your images remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload BMP Files', description: 'Drag and drop your BMP images or click to select files.' },
+      { step: 1, title: 'Add BMP Files', description: 'Drag and drop your BMP images or click to select files.' },
       { step: 2, title: 'Configure Options', description: 'Arrange images and select page settings.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create your PDF.' },
     ],
@@ -844,7 +845,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser, ensuring your designs remain private and secure.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload PSD Files', description: 'Drag and drop your PSD or PSB files, or click to select them from your device.' },
+      { step: 1, title: 'Add PSD Files', description: 'Drag and drop your PSD or PSB files, or click to select them from your device.' },
       { step: 2, title: 'Arrange Order', description: 'Drag and drop the file thumbnails to arrange them in the desired order.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to render the PSDs and download your PDF document.' },
     ],
@@ -870,7 +871,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your photos remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload HEIC Files', description: 'Drag and drop your HEIC photos or click to select files.' },
+      { step: 1, title: 'Add HEIC Files', description: 'Drag and drop your HEIC photos or click to select files.' },
       { step: 2, title: 'Arrange Photos', description: 'Reorder photos and select page settings.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create your PDF.' },
     ],
@@ -896,7 +897,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your files remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload TIFF Files', description: 'Drag and drop your TIFF files or click to select.' },
+      { step: 1, title: 'Add TIFF Files', description: 'Drag and drop your TIFF files or click to select.' },
       { step: 2, title: 'Configure Options', description: 'Select page settings and compression options.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create your PDF.' },
     ],
@@ -922,7 +923,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your files remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Text File', description: 'Drag and drop your .txt file or click to select.' },
+      { step: 1, title: 'Add Text File', description: 'Drag and drop your .txt file or click to select.' },
       { step: 2, title: 'Customize Formatting', description: 'Choose font, size, margins, and page settings.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create your formatted PDF.' },
     ],
@@ -948,7 +949,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your data remains private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload JSON File', description: 'Drag and drop your .json file or click to select.' },
+      { step: 1, title: 'Add JSON File', description: 'Drag and drop your .json file or click to select.' },
       { step: 2, title: 'Configure Display', description: 'Choose formatting options and syntax highlighting.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create your formatted PDF.' },
     ],
@@ -974,7 +975,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser, ensuring your documents remain private and secure.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Word Document', description: 'Drag and drop your .docx file or click to select from your device.' },
+      { step: 1, title: 'Add Word Document', description: 'Drag and drop your .docx file or click to select from your device.' },
       { step: 2, title: 'Wait for Processing', description: 'The tool will load the document and prepare it for conversion.' },
       { step: 3, title: 'Download PDF', description: 'Click Download to save your converted PDF document.' },
     ],
@@ -1000,7 +1001,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser, ensuring your data remains private and secure.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Excel File', description: 'Drag and drop your .xlsx file or click to select from your device.' },
+      { step: 1, title: 'Add Excel File', description: 'Drag and drop your .xlsx file or click to select from your device.' },
       { step: 2, title: 'Wait for Processing', description: 'The tool will load the spreadsheet and convert all sheets.' },
       { step: 3, title: 'Download PDF', description: 'Click Download to save your converted PDF document.' },
     ],
@@ -1026,7 +1027,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser, ensuring your presentations remain private and secure.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload PowerPoint File', description: 'Drag and drop your .pptx file or click to select from your device.' },
+      { step: 1, title: 'Add PowerPoint File', description: 'Drag and drop your .pptx file or click to select from your device.' },
       { step: 2, title: 'Wait for Processing', description: 'The tool will extract slide content and create the PDF.' },
       { step: 3, title: 'Download PDF', description: 'Click Download to save your converted PDF document.' },
     ],
@@ -1052,7 +1053,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser, ensuring your documents remain private and secure.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload XPS File', description: 'Drag and drop your .xps file or click to select from your device.' },
+      { step: 1, title: 'Add XPS File', description: 'Drag and drop your .xps file or click to select from your device.' },
       { step: 2, title: 'Wait for Processing', description: 'The tool will parse and convert the XPS document.' },
       { step: 3, title: 'Download PDF', description: 'Click Download to save your converted PDF document.' },
     ],
@@ -1078,7 +1079,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser, ensuring your documents remain private and secure.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload RTF File', description: 'Drag and drop your .rtf file or click to select from your device.' },
+      { step: 1, title: 'Add RTF File', description: 'Drag and drop your .rtf file or click to select from your device.' },
       { step: 2, title: 'Wait for Processing', description: 'The tool will parse and convert the RTF content.' },
       { step: 3, title: 'Download PDF', description: 'Click Download to save your converted PDF document.' },
     ],
@@ -1104,7 +1105,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser using advanced rendering technology, ensuring your books remain private and the conversion is fast.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload EPUB File', description: 'Drag and drop your .epub file or click to select from your device.' },
+      { step: 1, title: 'Add EPUB File', description: 'Drag and drop your .epub file or click to select from your device.' },
       { step: 2, title: 'Wait for Conversion', description: 'The tool will render and convert all pages of your e-book.' },
       { step: 3, title: 'Download PDF', description: 'Click Download to save your converted PDF document.' },
     ],
@@ -1130,7 +1131,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser using advanced rendering technology, ensuring your books remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload MOBI File', description: 'Drag and drop your .mobi, .azw, or .azw3 file or click to select from your device.' },
+      { step: 1, title: 'Add MOBI File', description: 'Drag and drop your .mobi, .azw, or .azw3 file or click to select from your device.' },
       { step: 2, title: 'Wait for Conversion', description: 'The tool will render and convert all pages of your e-book.' },
       { step: 3, title: 'Download PDF', description: 'Click Download to save your converted PDF document.' },
     ],
@@ -1156,7 +1157,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser, ensuring your documents remain private and secure.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload DJVU File', description: 'Drag and drop your .djvu or .djv file, or click to select from your device.' },
+      { step: 1, title: 'Add DJVU File', description: 'Drag and drop your .djvu or .djv file, or click to select from your device.' },
       { step: 2, title: 'Configure Options', description: 'Choose output DPI (72, 150, or 300) and image quality for the PDF.' },
       { step: 3, title: 'Convert & Download', description: 'Click Convert to PDF and download your converted document.' },
     ],
@@ -1182,7 +1183,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser using advanced rendering technology, ensuring your books remain private and the conversion is fast.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload FB2 Files', description: 'Drag and drop one or more .fb2 or .fb2.zip files, or click to select from your device.' },
+      { step: 1, title: 'Add FB2 Files', description: 'Drag and drop one or more .fb2 or .fb2.zip files, or click to select from your device.' },
       { step: 2, title: 'Select Quality', description: 'Choose output quality: Low (72 DPI), Medium (150 DPI), or High (300 DPI).' },
       { step: 3, title: 'Convert & Download', description: 'Click Convert to PDF and download your converted document(s).' },
     ],
@@ -1210,7 +1211,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Select Pages and Quality', description: 'Choose which pages to convert and set quality/DPI options.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to extract images and download as ZIP.' },
     ],
@@ -1236,7 +1237,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Configure Options', description: 'Select pages and set resolution (DPI) options.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to extract PNG images.' },
     ],
@@ -1262,7 +1263,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Set Quality Options', description: 'Choose pages and set quality/compression settings.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create WebP images.' },
     ],
@@ -1288,7 +1289,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Select Pages', description: 'Choose which pages to convert and set DPI.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create BMP images.' },
     ],
@@ -1314,7 +1315,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Configure Output', description: 'Choose single or multi-page TIFF and set DPI.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create TIFF images.' },
     ],
@@ -1340,7 +1341,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>Preview each converted page and download them individually or as a ZIP file. All processing happens locally in your browser, ensuring complete privacy for your documents.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to browse and select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to browse and select.' },
       { step: 2, title: 'Configure Options', description: 'Set the resolution quality and optionally specify page ranges.' },
       { step: 3, title: 'Preview and Convert', description: 'Click Convert to process. Preview each page by clicking on thumbnails.' },
       { step: 4, title: 'Download', description: 'Download individual SVG files or all pages as a ZIP archive.' },
@@ -1369,7 +1370,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your color PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your color PDF file or click to select.' },
       { step: 2, title: 'Preview Conversion', description: 'Preview how the greyscale version will look.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create the greyscale PDF.' },
     ],
@@ -1395,7 +1396,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All extraction happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Select Data to Extract', description: 'Choose what content to extract: text, metadata, structure.' },
       { step: 3, title: 'Extract and Download', description: 'Click Extract to generate JSON and download.' },
     ],
@@ -1421,7 +1422,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser, ensuring your documents remain private and secure.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select it from your device.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select it from your device.' },
       { step: 2, title: 'Choose Quality Settings', description: 'Select the image quality (DPI) for the slides. Higher DPI means better quality but larger file size.' },
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create your PowerPoint presentation and download the PPTX file.' },
     ],
@@ -1447,7 +1448,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser, ensuring your data remains private and secure.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Process', description: 'The tool will automatically identify and extract tables.' },
       { step: 3, title: 'Download Excel', description: 'Download your Excel file with extracted tables.' },
     ],
@@ -1475,7 +1476,7 @@ export const toolContentEn: Record<string, ToolContent> = {
           <p>After OCR recovers the text, <a href="/en/tools/translate-pdf/">Translate PDF</a> can render the whole document in another language while keeping the recognized layout intact.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Scanned PDF', description: 'Drag and drop your scanned PDF or click to select.' },
+      { step: 1, title: 'Add Scanned PDF', description: 'Drag and drop your scanned PDF or click to select.' },
       { step: 2, title: 'Select Language', description: 'Choose the document language for accurate recognition.' },
       { step: 3, title: 'Process and Download', description: 'Click Process to run OCR and download the searchable PDF.' },
     ],
@@ -1501,7 +1502,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Two PDFs', description: 'Upload the front pages PDF and back pages PDF.' },
+      { step: 1, title: 'Add Two PDFs', description: 'Upload the front pages PDF and back pages PDF.' },
       { step: 2, title: 'Configure Order', description: 'Choose whether to reverse the second document for back-to-front scans.' },
       { step: 3, title: 'Merge and Download', description: 'Click Merge to interleave pages and download.' },
     ],
@@ -1527,7 +1528,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your files remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Add Attachments', description: 'Select files to attach to the PDF.' },
       { step: 3, title: 'Save and Download', description: 'Click Save to embed attachments and download.' },
     ],
@@ -1553,7 +1554,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All extraction happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'View Attachments', description: 'See a list of all embedded files in the PDF.' },
       { step: 3, title: 'Extract and Download', description: 'Download individual files or all as a ZIP.' },
     ],
@@ -1579,7 +1580,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All extraction happens in your browser, ensuring your documents remain private and secure.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDFs', description: 'Drag and drop one or more PDF files or click to select from your device.' },
+      { step: 1, title: 'Add Your PDFs', description: 'Drag and drop one or more PDF files or click to select from your device.' },
       { step: 2, title: 'Set Filter Options', description: 'Adjust minimum width, height, and file size to filter out unwanted small images.' },
       { step: 3, title: 'Extract Images', description: 'Click Extract to find all embedded images in your PDFs.' },
       { step: 4, title: 'Download', description: 'Download individual images or all images as a ZIP archive.' },
@@ -1606,7 +1607,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All editing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Manage Attachments', description: 'View, rename, or delete embedded files.' },
       { step: 3, title: 'Save and Download', description: 'Click Save to apply changes and download.' },
     ],
@@ -1632,7 +1633,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Set Division', description: 'Choose horizontal, vertical, or grid division and set the number of sections.' },
       { step: 3, title: 'Divide and Download', description: 'Click Divide to split pages and download.' },
     ],
@@ -1658,7 +1659,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Choose Position', description: 'Select where to insert blank pages and how many.' },
       { step: 3, title: 'Add and Download', description: 'Click Add to insert pages and download.' },
     ],
@@ -1684,7 +1685,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Select Pages', description: 'Choose to reverse all pages or a specific range.' },
       { step: 3, title: 'Reverse and Download', description: 'Click Reverse to flip page order and download.' },
     ],
@@ -1710,7 +1711,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Select Rotation', description: 'Choose rotation angle and which pages to rotate.' },
       { step: 3, title: 'Rotate and Download', description: 'Click Rotate to apply changes and download.' },
     ],
@@ -1736,7 +1737,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Choose Layout', description: 'Select 2-up, 4-up, 6-up, 9-up, or custom grid.' },
       { step: 3, title: 'Create and Download', description: 'Click Create to generate the n-up PDF and download.' },
     ],
@@ -1762,7 +1763,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Set Spacing', description: 'Choose the gap between stitched pages.' },
       { step: 3, title: 'Combine and Download', description: 'Click Combine to create the single-page PDF.' },
     ],
@@ -1788,7 +1789,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All viewing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'View Properties', description: 'See all metadata displayed in an organized format.' },
       { step: 3, title: 'Export if Needed', description: 'Optionally export metadata as JSON.' },
     ],
@@ -1814,7 +1815,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All editing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Edit Properties', description: 'Modify title, author, subject, keywords, and other fields.' },
       { step: 3, title: 'Save and Download', description: 'Click Save to apply changes and download.' },
     ],
@@ -1840,7 +1841,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your files remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload PDFs', description: 'Drag and drop multiple PDF files or click to select.' },
+      { step: 1, title: 'Add PDFs', description: 'Drag and drop multiple PDF files or click to select.' },
       { step: 2, title: 'Configure Archive', description: 'Optionally set archive name and compression level.' },
       { step: 3, title: 'Create and Download', description: 'Click Create to generate the ZIP archive.' },
     ],
@@ -1866,7 +1867,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All comparison happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Two PDFs', description: 'Upload the original and modified PDF documents.' },
+      { step: 1, title: 'Add Two PDFs', description: 'Upload the original and modified PDF documents.' },
       { step: 2, title: 'Compare Documents', description: 'View differences highlighted in side-by-side or overlay mode.' },
       { step: 3, title: 'Export Results', description: 'Download a comparison report or annotated PDF.' },
     ],
@@ -1892,7 +1893,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your large-format PDF or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your large-format PDF or click to select.' },
       { step: 2, title: 'Configure Tiles', description: 'Set grid size, overlap, and output paper size.' },
       { step: 3, title: 'Create and Download', description: 'Click Create to generate printable tiles.' },
     ],
@@ -1919,7 +1920,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Select Target Size', description: 'Choose a standard size or enter custom dimensions.' },
       { step: 3, title: 'Apply and Download', description: 'Click Apply to standardize pages and download.' },
     ],
@@ -1945,7 +1946,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Linearize', description: 'Click Linearize to optimize for web viewing.' },
       { step: 3, title: 'Download', description: 'Download your optimized PDF.' },
     ],
@@ -1971,7 +1972,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All analysis happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'View Dimensions', description: 'See page sizes displayed for all pages.' },
       { step: 3, title: 'Export Report', description: 'Optionally export dimensions as JSON.' },
     ],
@@ -1997,7 +1998,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Restricted PDF', description: 'Drag and drop your restricted PDF or click to select.' },
+      { step: 1, title: 'Add Restricted PDF', description: 'Drag and drop your restricted PDF or click to select.' },
       { step: 2, title: 'Remove Restrictions', description: 'Click Remove to unlock the document.' },
       { step: 3, title: 'Download', description: 'Download the unrestricted PDF.' },
     ],
@@ -2023,7 +2024,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All repair happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Damaged PDF', description: 'Drag and drop your corrupted PDF or click to select.' },
+      { step: 1, title: 'Add Damaged PDF', description: 'Drag and drop your corrupted PDF or click to select.' },
       { step: 2, title: 'Repair Document', description: 'Click Repair to attempt recovery.' },
       { step: 3, title: 'Download', description: 'Download the repaired PDF if successful.' },
     ],
@@ -2050,7 +2051,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All encryption happens in your browser, ensuring your passwords and documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Set Passwords', description: 'Enter user password and/or owner password. Configure permissions.' },
       { step: 3, title: 'Encrypt and Download', description: 'Click Encrypt to secure your PDF and download.' },
     ],
@@ -2076,7 +2077,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All sanitization happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Select What to Remove', description: 'Choose which types of hidden data to strip.' },
       { step: 3, title: 'Sanitize and Download', description: 'Click Sanitize to clean the PDF and download.' },
     ],
@@ -2102,7 +2103,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All decryption happens in your browser, ensuring your passwords and documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Protected PDF', description: 'Drag and drop your password-protected PDF.' },
+      { step: 1, title: 'Add Protected PDF', description: 'Drag and drop your password-protected PDF.' },
       { step: 2, title: 'Enter Password', description: 'Enter the current document password.' },
       { step: 3, title: 'Decrypt and Download', description: 'Click Decrypt to remove protection and download.' },
     ],
@@ -2129,7 +2130,7 @@ export const toolContentEn: Record<string, ToolContent> = {
           <p>A PDF flush (flattening) makes annotations, form fields and layers permanent parts of the page.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF with forms or annotations.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF with forms or annotations.' },
       { step: 2, title: 'Select What to Flatten', description: 'Choose to flatten forms, annotations, or both.' },
       { step: 3, title: 'Flatten and Download', description: 'Click Flatten to create the static PDF.' },
     ],
@@ -2155,7 +2156,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Remove Metadata', description: 'Click Remove to strip all metadata.' },
       { step: 3, title: 'Download', description: 'Download the metadata-free PDF.' },
     ],
@@ -2181,7 +2182,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Set Permissions', description: 'Enable or disable printing, copying, editing, and annotations.' },
       { step: 3, title: 'Apply and Download', description: 'Set owner password and download the restricted PDF.' },
     ],
@@ -2207,7 +2208,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser using WebAssembly technology, ensuring your documents never leave your device.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Convert', description: 'Wait for the conversion process to complete.' },
       { step: 3, title: 'Download Word Doc', description: 'Download your fully editable DOCX file.' },
     ],
@@ -2234,7 +2235,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser using WebAssembly technology, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your scanned PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your scanned PDF file or click to select.' },
       { step: 2, title: 'Configure Settings', description: 'Adjust threshold sensitivity and DPI if needed for better detection.' },
       { step: 3, title: 'Process and Download', description: 'Click Deskew to straighten pages and download the corrected PDF.' },
     ],
@@ -2260,7 +2261,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Upload the PDF document you want to convert to a booklet.' },
+      { step: 1, title: 'Add Your PDF', description: 'Upload the PDF document you want to convert to a booklet.' },
       { step: 2, title: 'Choose Layout', description: 'Select grid mode, paper size, orientation, and rotation options.' },
       { step: 3, title: 'Create and Download', description: 'Generate the booklet layout and download for printing.' },
     ],
@@ -2286,7 +2287,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop your PDF file or click to select.' },
       { step: 2, title: 'Configure Output', description: 'Select DPI, output format (PNG/JPEG/WebP), quality, and page range.' },
       { step: 3, title: 'Convert and Download', description: 'Process pages and download images individually or as a ZIP archive.' },
     ],
@@ -2312,7 +2313,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser, ensuring your content remains private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Markdown File', description: 'Upload your .md or .markdown file.' },
+      { step: 1, title: 'Add Markdown File', description: 'Upload your .md or .markdown file.' },
       { step: 2, title: 'Choose Theme', description: 'Select a visual theme and configure page settings.' },
       { step: 3, title: 'Convert and Download', description: 'Generate the styled PDF and download.' },
     ],
@@ -2338,7 +2339,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser, ensuring your emails remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Email File', description: 'Upload your .eml email file.' },
+      { step: 1, title: 'Add Email File', description: 'Upload your .eml email file.' },
       { step: 2, title: 'Configure Options', description: 'Set page size and choose which fields to include.' },
       { step: 3, title: 'Convert and Download', description: 'Convert to PDF and download the result.' },
     ],
@@ -2364,7 +2365,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser, ensuring your comics remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload CBZ File', description: 'Upload your .cbz comic book archive file.' },
+      { step: 1, title: 'Add CBZ File', description: 'Upload your .cbz comic book archive file.' },
       { step: 2, title: 'Select Options', description: 'Choose page size and image quality settings.' },
       { step: 3, title: 'Convert and Download', description: 'Convert to PDF and download your comic.' },
     ],
@@ -2390,7 +2391,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All conversion happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Upload the PDF you want to convert to PDF/A.' },
+      { step: 1, title: 'Add Your PDF', description: 'Upload the PDF you want to convert to PDF/A.' },
       { step: 2, title: 'Select PDF/A Level', description: 'Choose PDF/A-1b, PDF/A-2b, or PDF/A-3b conformance level.' },
       { step: 3, title: 'Convert and Download', description: 'Convert to PDF/A and download the archival document.' },
     ],
@@ -2416,7 +2417,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Upload the PDF containing fonts you want to convert.' },
+      { step: 1, title: 'Add Your PDF', description: 'Upload the PDF containing fonts you want to convert.' },
       { step: 2, title: 'Configure Options', description: 'Set DPI for rasterization if needed for complex fonts.' },
       { step: 3, title: 'Convert and Download', description: 'Convert fonts to outlines and download the result.' },
     ],
@@ -2442,7 +2443,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Upload the PDF containing tables you want to extract.' },
+      { step: 1, title: 'Add Your PDF', description: 'Upload the PDF containing tables you want to extract.' },
       { step: 2, title: 'Configure Detection', description: 'Set page range and minimum column/row thresholds.' },
       { step: 3, title: 'Export and Download', description: 'Choose output format (JSON/Markdown/CSV) and download.' },
     ],
@@ -2468,7 +2469,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>All processing happens locally in your browser, ensuring your documents remain private and secure.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Upload a PDF file that contains layers (OCG) or one you want to add layers to.' },
+      { step: 1, title: 'Add Your PDF', description: 'Upload a PDF file that contains layers (OCG) or one you want to add layers to.' },
       { step: 2, title: 'View Layers', description: 'The tool automatically lists all layers found in the document with their visibility status.' },
       { step: 3, title: 'Manage Layers', description: 'Toggle layer visibility, rename layers, add new ones, or delete unwanted layers.' },
       { step: 4, title: 'Save and Download', description: 'Download your modified PDF with the layer changes applied.' },
@@ -2522,7 +2523,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       <p>Like every tool on PDFEditorFree, the PDF file itself is processed entirely in your browser and never uploaded to a server. To translate the wording, the extracted text is sent to an online translation service - the disclosure is shown in the tool before you start.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop a text-based PDF (scanned documents without selectable text are not supported), choose the source and target languages.' },
+      { step: 1, title: 'Add Your PDF', description: 'Drag and drop a text-based PDF (scanned documents without selectable text are not supported), choose the source and target languages.' },
       { step: 2, title: 'Translate', description: 'Click translate and watch the progress: pages are parsed locally, text blocks are translated online, then the translated pages are composed.' },
       { step: 3, title: 'Preview and Download', description: 'Check the first-page preview, then download either the translated-only PDF or the interleaved bilingual edition.' },
     ],

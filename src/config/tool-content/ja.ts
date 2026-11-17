@@ -21,7 +21,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>すべての処理はブラウザ内で直接行われ、ドキュメントのプライバシーとセキュリティが確保されます。ファイルはサーバーにアップロードされません。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをアップロードエリアにドラッグ＆ドロップするか、クリックしてデバイスからファイルを選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをアップロードエリアにドラッグ＆ドロップするか、クリックしてデバイスからファイルを選択します。' },
       { step: 2, title: '操作を選択', description: '利用可能な操作から選択：結合、分割、整理、ページ削除、回転、空白ページ追加、ページ抽出。' },
       { step: 3, title: 'オプションを設定', description: 'ページ範囲、回転角度、結合順序など、選択した操作に固有の設定を調整します。' },
       { step: 4, title: '処理してダウンロード', description: '処理ボタンをクリックし、操作が完了したら変更されたPDFをダウンロードします。' },
@@ -48,7 +48,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>すべての結合はブラウザ内でローカルに行われ、機密ドキュメントの完全なプライバシーが確保されます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFファイルをアップロード', description: '複数のPDFファイルをアップロードエリアにドラッグ＆ドロップするか、クリックしてデバイスからファイルを選択します。' },
+      { step: 1, title: 'PDFファイルを追加', description: '複数のPDFファイルをアップロードエリアにドラッグ＆ドロップするか、クリックしてデバイスからファイルを選択します。' },
       { step: 2, title: '順序を並べ替え', description: 'ファイルのサムネイルをドラッグ＆ドロップして希望の順序に並べ替えます。' },
       { step: 3, title: '結合してダウンロード', description: '結合ボタンをクリックしてすべてのファイルを結合し、結合されたPDFをダウンロードします。' },
     ],
@@ -74,7 +74,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>すべての処理はブラウザ内でローカルに行われ、ドキュメントのプライバシーとセキュリティが確保されます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして分割したいファイルを選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして分割したいファイルを選択します。' },
       { step: 2, title: '分割方法を選択', description: '分割方法を選択：ページ範囲、特定のページを抽出、または一定間隔で分割。' },
       { step: 3, title: 'ページ範囲を定義', description: '抽出したいページ番号または範囲を入力します（例：1-5, 8, 10-15）。' },
       { step: 4, title: '分割してダウンロード', description: '分割をクリックして新しいPDFファイルを作成し、個別にまたはZIPアーカイブとしてダウンロードします。' },
@@ -101,7 +101,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>すべての圧縮はブラウザ内で行われ、ドキュメントがデバイスから離れることはありません。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして圧縮したいドキュメントを選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして圧縮したいドキュメントを選択します。' },
       { step: 2, title: '圧縮レベルを選択', description: '希望の圧縮レベルを選択：低（最高品質）、中（バランス）、高（最小サイズ）。' },
       { step: 3, title: '圧縮してダウンロード', description: '圧縮をクリックしてファイルサイズを削減し、最適化されたPDFをダウンロードします。' },
     ],
@@ -127,7 +127,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>すべての編集はブラウザ内でローカルに行われ、機密ドキュメントの完全なプライバシーが確保されます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして編集したいドキュメントを選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして編集したいドキュメントを選択します。' },
       { step: 2, title: '編集ツールを選択', description: 'ツールバーから選択：テキスト、ハイライト、図形、画像、コメント、墨消しツール。' },
       { step: 3, title: '編集を行う', description: 'ドキュメントをクリックして注釈を追加し、ドラッグして要素を配置し、プロパティパネルを使用してカスタマイズします。' },
       { step: 4, title: '保存してダウンロード', description: '保存をクリックして変更を適用し、編集されたPDFをダウンロードします。' },
@@ -154,7 +154,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>すべての変換はブラウザ内で行われ、写真のプライバシーが確保されます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'JPG画像をアップロード', description: 'JPGファイルをドラッグ＆ドロップするか、クリックしてデバイスから画像を選択します。' },
+      { step: 1, title: 'JPG画像を追加', description: 'JPGファイルをドラッグ＆ドロップするか、クリックしてデバイスから画像を選択します。' },
       { step: 2, title: '並べ替えと設定', description: 'ドラッグして画像を並べ替え、ページサイズと向きのオプションを選択します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてPDFを作成し、結果をダウンロードします。' },
     ],
@@ -180,7 +180,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>すべての署名はブラウザ内でローカルに行われ、ドキュメントと署名のプライバシーが確保されます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして署名が必要なドキュメントを選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして署名が必要なドキュメントを選択します。' },
       { step: 2, title: '署名を作成', description: 'マウスまたはタッチで署名を描画、名前を入力して署名を生成、または署名画像をアップロードします。' },
       { step: 3, title: '配置と調整', description: 'ドキュメントをクリックして署名を配置し、ドラッグして位置とサイズを調整します。' },
       { step: 4, title: '保存してダウンロード', description: '保存をクリックして署名を適用し、署名されたPDFをダウンロードします。' },
@@ -207,7 +207,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>すべてのトリミングはブラウザ内でローカルに行われ、ドキュメントのプライバシーが確保されます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックしてトリミングしたいドキュメントを選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックしてトリミングしたいドキュメントを選択します。' },
       { step: 2, title: 'トリミング領域を定義', description: 'トリミングハンドルをドラッグして保持したい領域を定義するか、正確な寸法を入力します。' },
       { step: 3, title: 'ページに適用', description: 'すべてのページにトリミングを適用するか、トリミングする特定のページを選択します。' },
       { step: 4, title: 'トリミングしてダウンロード', description: 'トリミングをクリックして変更を適用し、トリミングされたPDFをダウンロードします。' },
@@ -234,7 +234,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>すべての抽出はブラウザ内でローカルに行われ、ドキュメントのプライバシーが確保されます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックしてページを抽出したいドキュメントを選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックしてページを抽出したいドキュメントを選択します。' },
       { step: 2, title: 'ページを選択', description: 'ページサムネイルをクリックして選択するか、入力フィールドにページ番号と範囲を入力します。' },
       { step: 3, title: '抽出してダウンロード', description: '抽出をクリックして選択したページで新しいPDFを作成し、ダウンロードします。' },
     ],
@@ -260,7 +260,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>すべての整理はブラウザ内でローカルに行われ、ドキュメントのプライバシーが確保されます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして整理したいドキュメントを選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして整理したいドキュメントを選択します。' },
       { step: 2, title: 'ページを並べ替え', description: 'ページサムネイルをドラッグして並べ替えます。必要に応じて各ページの複製または削除ボタンをクリックします。' },
       { step: 3, title: '保存してダウンロード', description: '保存をクリックして変更を適用し、再編成されたPDFをダウンロードします。' },
     ],
@@ -286,7 +286,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>すべての処理はブラウザ内でローカルに行われ、ドキュメントのプライバシーが確保されます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックしてページを削除したいドキュメントを選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックしてページを削除したいドキュメントを選択します。' },
       { step: 2, title: '削除するページを選択', description: 'ページサムネイルをクリックして削除対象としてマークするか、入力フィールドにページ番号を入力します。' },
       { step: 3, title: '削除してダウンロード', description: '削除をクリックして選択したページを削除し、更新されたPDFをダウンロードします。' },
     ],
@@ -309,7 +309,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfブックマーク', 'ブックマーク編集', 'ブックマーク追加', 'pdfナビゲーション', '目次'],
     description: '<p>PDFドキュメントのブックマークを作成、変更、整理できます。ブックマークは特定のセクションへの素早いナビゲーションを提供し、長いドキュメントを使いやすくします。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'ブックマークを管理', description: '新しいブックマークを追加、既存のものを編集、またはドラッグして階層を再編成します。' },
       { step: 3, title: '保存してダウンロード', description: '保存をクリックして変更を適用し、更新されたブックマーク付きPDFをダウンロードします。' },
     ],
@@ -331,7 +331,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf目次', '目次生成', 'pdfインデックス', 'ドキュメントナビゲーション'],
     description: '<p>PDFドキュメントのナビゲーション可能な目次ページを生成します。既存のブックマークまたはカスタムエントリから目次を作成し、読者に概要と素早いナビゲーションを提供します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '目次を設定', description: 'ブックマークから生成するか、カスタムエントリを作成します。スタイルと配置オプションを選択します。' },
       { step: 3, title: '生成してダウンロード', description: '生成をクリックして目次を作成し、更新されたPDFをダウンロードします。' },
     ],
@@ -353,7 +353,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['ページ番号追加', 'pdfページ番号', 'pdfページ番号付け', 'pdfページネーション'],
     description: '<p>PDFドキュメントにカスタマイズ可能なページ番号を追加します。ドキュメントのデザインに合わせて、さまざまな形式、位置、スタイルから選択できます。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '番号付けを設定', description: '位置、形式、開始番号、番号を付けるページを選択します。' },
       { step: 3, title: '適用してダウンロード', description: '適用をクリックしてページ番号を追加し、更新されたPDFをダウンロードします。' },
     ],
@@ -375,7 +375,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['透かし追加', 'pdf透かし', 'pdfスタンプ', 'pdfブランド', 'pdf保護'],
     description: '<p>PDFドキュメントにテキストまたは画像の透かしを配置できます。透かしはドキュメントのステータス（下書き、機密）を示したり、ブランディングを追加したり、不正コピーを防止したりできます。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '透かしを作成', description: '透かし用のテキストを入力するか画像をアップロードします。位置、サイズ、不透明度、回転を調整します。' },
       { step: 3, title: '適用してダウンロード', description: '適用をクリックして透かしを追加し、更新されたPDFをダウンロードします。' },
     ],
@@ -397,7 +397,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfヘッダー', 'pdfフッター', 'ヘッダーフッター追加', 'pdfレターヘッド'],
     description: '<p>PDFドキュメントにカスタマイズ可能なヘッダーとフッターを追加します。ページ番号、日付、ドキュメントタイトル、またはカスタムテキストをヘッダーまたはフッター領域に含めることができます。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'ヘッダー/フッターを設定', description: 'ヘッダーとフッター領域のテキストを入力します。ページ番号、日付、カスタムテキストを追加します。' },
       { step: 3, title: '適用してダウンロード', description: '適用をクリックしてヘッダー/フッターを追加し、更新されたPDFをダウンロードします。' },
     ],
@@ -419,7 +419,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf色反転', 'pdfダークモード', 'ネガティブpdf', '色を逆にする'],
     description: '<p>PDFドキュメントの色を反転し、ネガティブ画像効果を作成します。低照度条件での読みやすさを向上させるダークモードバージョンのドキュメントを作成するのに特に便利です。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'オプションを設定', description: 'すべてのコンテンツを反転するか、画像を保持するかを選択します。' },
       { step: 3, title: '反転してダウンロード', description: '反転をクリックしてドキュメントを処理し、結果をダウンロードします。' },
     ],
@@ -441,7 +441,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf背景色', 'pdf背景変更', '色付きpdf', 'pdfページ色'],
     description: '<p>PDFページの背景色を変更または追加できます。読みやすさの向上、視覚的な興味の追加、ブランディング要件への対応に役立ちます。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '色を選択', description: 'カラーピッカーを使用して背景色を選択するか、16進コードを入力します。' },
       { step: 3, title: '適用してダウンロード', description: '適用をクリックして背景を追加し、更新されたPDFをダウンロードします。' },
     ],
@@ -463,7 +463,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfテキスト色変更', 'pdfテキスト色', 'テキスト色変更', 'pdfテキスト再着色'],
     description: '<p>PDFドキュメント内のテキストの色を変更できます。コントラストの改善、ブランディングへの対応、ドキュメントの視覚的バリエーションの作成に便利です。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '色を選択', description: 'カラーピッカーを使用して新しいテキスト色を選択するか、16進コードを入力します。' },
       { step: 3, title: '適用してダウンロード', description: '適用をクリックしてテキスト色を変更し、更新されたPDFをダウンロードします。' },
     ],
@@ -485,7 +485,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfスタンプ', 'スタンプ追加', '承認スタンプ', 'pdfラバースタンプ'],
     description: '<p>PDFドキュメントにスタンプ画像を配置できます。「承認」、「却下」、「下書き」などのプリセットスタンプを使用するか、カスタムスタンプ画像をアップロードできます。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'スタンプを選択', description: 'プリセットスタンプを選択するか、カスタムスタンプ画像をアップロードします。' },
       { step: 3, title: '配置して適用', description: 'クリックしてスタンプを配置し、位置とサイズを調整してからダウンロードします。' },
     ],
@@ -507,7 +507,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf注釈削除', 'コメント削除', 'ハイライト削除', 'pdfクリーン'],
     description: '<p>PDFドキュメントからコメント、ハイライト、付箋、その他の注釈を削除します。マークアップなしのクリーンなバージョンのドキュメントを作成します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '注釈タイプを選択', description: '削除する注釈のタイプを選択：コメント、ハイライト、リンクなど。' },
       { step: 3, title: '削除してダウンロード', description: '削除をクリックして注釈を削除し、クリーンなPDFをダウンロードします。' },
     ],
@@ -529,7 +529,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfフォーム記入', 'pdfフォームフィラー', 'pdfフォーム完成', 'インタラクティブpdf'],
     description: '<p>ブラウザで直接インタラクティブなPDFフォームに記入できます。ドキュメントを印刷せずに、テキストフィールドに記入、チェックボックスをチェック、オプションを選択、署名を追加できます。</p>',
     howToUse: [
-      { step: 1, title: 'PDFフォームをアップロード', description: 'PDFフォームをドラッグ＆ドロップするか、クリックしてファイルを選択します。' },
+      { step: 1, title: 'PDFフォームを追加', description: 'PDFフォームをドラッグ＆ドロップするか、クリックしてファイルを選択します。' },
       { step: 2, title: 'フォームに記入', description: 'フォームフィールドをクリックしてテキストを入力、チェックボックスをチェック、オプションを選択します。' },
       { step: 3, title: '保存してダウンロード', description: '保存をクリックして入力を保存し、記入済みフォームをダウンロードします。' },
     ],
@@ -551,7 +551,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfフォーム作成', 'pdfフォームクリエーター', '記入可能pdf', 'フォームフィールド追加'],
     description: '<p>静的なPDFドキュメントをインタラクティブな記入可能フォームに変換します。テキストフィールド、チェックボックス、ラジオボタン、ドロップダウンなどを追加してプロフェッショナルなフォームを作成できます。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックしてフォームに変換するドキュメントを選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックしてフォームに変換するドキュメントを選択します。' },
       { step: 2, title: 'フォームフィールドを追加', description: 'ツールバーからフィールドタイプを選択し、クリックしてドキュメントに配置します。' },
       { step: 3, title: '設定して保存', description: 'フィールドプロパティを設定し、記入可能なPDFフォームを保存してダウンロードします。' },
     ],
@@ -573,7 +573,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['空白ページ削除', '空ページ削除', 'pdfクリーン', 'pdf空白ページリムーバー'],
     description: '<p>PDFドキュメントから空のページを自動的に検出して削除します。スキャンしたドキュメントのクリーンアップ、セパレーターページの削除、誤って含まれた空白ページの除去に便利です。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'しきい値を調整', description: '必要に応じて空白検出のしきい値を設定します（デフォルトはほとんどのドキュメントで機能します）。' },
       { step: 3, title: '削除してダウンロード', description: '削除をクリックして空白ページを削除し、クリーンなPDFをダウンロードします。' },
     ],
@@ -596,7 +596,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['画像からpdf', '画像変換', '写真からpdf', '画像をpdfに'],
     description: '<p>あらゆる形式の画像をPDFドキュメントに変換します。JPG、PNG、WebP、BMP、TIFF、SVG、HEIC形式をサポートする万能画像コンバーターです。</p>',
     howToUse: [
-      { step: 1, title: '画像をアップロード', description: 'サポートされている形式の画像をドラッグ＆ドロップするか、クリックしてファイルを選択します。' },
+      { step: 1, title: '画像を追加', description: 'サポートされている形式の画像をドラッグ＆ドロップするか、クリックしてファイルを選択します。' },
       { step: 2, title: '並べ替えと設定', description: '画像を並べ替え、ページサイズと向きのオプションを選択します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてPDFを作成し、結果をダウンロードします。' },
     ],
@@ -618,7 +618,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pngからpdf', 'png変換', 'pngコンバーター', '透明画像からpdf'],
     description: '<p>PNG画像を透明度を保持しながらPDFドキュメントに変換します。グラフィックス、ロゴ、スクリーンショット、透明な背景を持つ画像に最適です。</p>',
     howToUse: [
-      { step: 1, title: 'PNGファイルをアップロード', description: 'PNG画像をドラッグ＆ドロップするか、クリックしてファイルを選択します。' },
+      { step: 1, title: 'PNGファイルを追加', description: 'PNG画像をドラッグ＆ドロップするか、クリックしてファイルを選択します。' },
       { step: 2, title: '並べ替えと設定', description: '画像を並べ替え、ページサイズオプションを選択します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてPDFを作成し、ダウンロードします。' },
     ],
@@ -640,7 +640,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['webpからpdf', 'webp変換', 'webpコンバーター', 'ウェブ画像からpdf'],
     description: '<p>最新のWebP画像をPDFドキュメントに変換します。WebPは人気のあるウェブ画像形式であり、このツールでこれらの画像を印刷やアーカイブ用に簡単に変換できます。</p>',
     howToUse: [
-      { step: 1, title: 'WebPファイルをアップロード', description: 'WebP画像をドラッグ＆ドロップするか、クリックしてファイルを選択します。' },
+      { step: 1, title: 'WebPファイルを追加', description: 'WebP画像をドラッグ＆ドロップするか、クリックしてファイルを選択します。' },
       { step: 2, title: 'オプションを設定', description: '画像を並べ替え、ページサイズと向きを選択します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてPDFを作成します。' },
     ],
@@ -662,7 +662,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['svgからpdf', 'svg変換', 'ベクターからpdf', 'スケーラブルグラフィックスからpdf'],
     description: '<p>スケーラブルベクターグラフィックスをベクター品質を保持しながらPDFドキュメントに変換します。SVGファイルはどのサイズでもシャープなままであり、この品質はPDF出力で維持されます。</p>',
     howToUse: [
-      { step: 1, title: 'SVGファイルをアップロード', description: 'SVGファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'SVGファイルを追加', description: 'SVGファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '設定を構成', description: 'ページサイズと配置オプションを選択します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてベクターPDFを作成します。' },
     ],
@@ -684,7 +684,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['bmpからpdf', 'bmp変換', 'ビットマップからpdf', 'bmpコンバーター'],
     description: '<p>ビットマップ画像をPDFドキュメントに変換します。BMPはWindows環境で一般的に使用されるレガシー画像形式であり、このツールでこれらのファイルを最新のPDF形式に簡単に変換できます。</p>',
     howToUse: [
-      { step: 1, title: 'BMPファイルをアップロード', description: 'BMP画像をドラッグ＆ドロップするか、クリックしてファイルを選択します。' },
+      { step: 1, title: 'BMPファイルを追加', description: 'BMP画像をドラッグ＆ドロップするか、クリックしてファイルを選択します。' },
       { step: 2, title: 'オプションを設定', description: '画像を並べ替え、ページ設定を選択します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてPDFを作成します。' },
     ],
@@ -706,7 +706,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['heicからpdf', 'heic変換', 'iphone写真からpdf', 'apple画像からpdf'],
     description: '<p>AppleのHigh Efficiency Image Format写真をPDFドキュメントに変換します。HEICはiPhoneとiPadのデフォルトの写真形式であり、このツールでこれらの写真を簡単に共有できます。</p>',
     howToUse: [
-      { step: 1, title: 'HEICファイルをアップロード', description: 'HEIC写真をドラッグ＆ドロップするか、クリックしてファイルを選択します。' },
+      { step: 1, title: 'HEICファイルを追加', description: 'HEIC写真をドラッグ＆ドロップするか、クリックしてファイルを選択します。' },
       { step: 2, title: '写真を並べ替え', description: '写真を並べ替え、ページ設定を選択します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてPDFを作成します。' },
     ],
@@ -728,7 +728,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['tiffからpdf', 'tiff変換', 'tifからpdf', 'マルチページtiff'],
     description: '<p>マルチページTIFFファイルを含むTIFF画像をPDFドキュメントに変換します。TIFFは高品質スキャンやプロフェッショナルグラフィックスに一般的に使用されます。</p>',
     howToUse: [
-      { step: 1, title: 'TIFFファイルをアップロード', description: 'TIFFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'TIFFファイルを追加', description: 'TIFFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'オプションを設定', description: 'ページ設定と圧縮オプションを選択します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてPDFを作成します。' },
     ],
@@ -750,7 +750,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['txtからpdf', 'テキストからpdf', 'テキストファイル変換', 'プレーンテキストからpdf'],
     description: '<p>プレーンテキストファイルをフォーマットされたPDFドキュメントに変換します。フォント、サイズ、余白、ページレイアウトをカスタマイズして、シンプルなテキストからプロフェッショナルな見た目のドキュメントを作成できます。</p>',
     howToUse: [
-      { step: 1, title: 'テキストファイルをアップロード', description: '.txtファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'テキストファイルを追加', description: '.txtファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'フォーマットをカスタマイズ', description: 'フォント、サイズ、余白、ページ設定を選択します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてフォーマットされたPDFを作成します。' },
     ],
@@ -772,7 +772,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['jsonからpdf', 'json変換', 'jsonビューアー', 'jsonフォーマッター'],
     description: '<p>JSONデータファイルをフォーマットされた読みやすいPDFドキュメントに変換します。出力にはシンタックスハイライトと適切なインデントが含まれ、読みやすくなっています。</p>',
     howToUse: [
-      { step: 1, title: 'JSONファイルをアップロード', description: '.jsonファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'JSONファイルを追加', description: '.jsonファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '表示を設定', description: 'フォーマットオプションとシンタックスハイライトを選択します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてフォーマットされたPDFを作成します。' },
     ],
@@ -795,7 +795,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfからjpg', 'pdfからjpeg', 'pdfを画像に変換', 'pdf画像抽出'],
     description: '<p>PDFドキュメントページを高品質のJPG画像に変換します。すべてのページまたは特定のページを抽出し、解像度と品質設定をカスタマイズできます。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'ページと品質を選択', description: '変換するページを選択し、品質/DPIオプションを設定します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックして画像を抽出し、ZIPとしてダウンロードします。' },
     ],
@@ -817,7 +817,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfからpng', 'pdfをpngに変換', 'pdf画像抽出', 'ロスレスpdf変換'],
     description: '<p>PDFドキュメントページをロスレス圧縮の高品質PNG画像に変換します。PNG形式は画像品質を完全に保持し、透明度をサポートします。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'オプションを設定', description: 'ページを選択し、解像度（DPI）オプションを設定します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてPNG画像を抽出します。' },
     ],
@@ -839,7 +839,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfからwebp', 'pdfをwebpに変換', '最新画像形式', 'ウェブ最適化画像'],
     description: '<p>PDFドキュメントページをWebP画像に変換します。Googleの最新画像形式で、高品質を維持しながら優れた圧縮を提供します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '品質オプションを設定', description: 'ページを選択し、品質/圧縮設定を設定します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてWebP画像を作成します。' },
     ],
@@ -861,7 +861,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfからbmp', 'pdfをビットマップに変換', '非圧縮画像', 'レガシー形式'],
     description: '<p>PDFドキュメントページをBMPビットマップ画像に変換します。BMPはレガシーシステムやアプリケーションとの最大互換性を確保する非圧縮形式です。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'ページを選択', description: '変換するページを選択し、DPIを設定します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてBMP画像を作成します。' },
     ],
@@ -883,7 +883,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfからtiff', 'pdfをtiffに変換', 'プロフェッショナル画像', 'マルチページtiff'],
     description: '<p>PDFドキュメントを高品質のTIFF画像に変換します。TIFFはロスレス圧縮のため、プロフェッショナル印刷やアーカイブに好まれる形式です。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '出力を設定', description: '単一またはマルチページTIFFを選択し、DPIを設定します。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてTIFF画像を作成します。' },
     ],
@@ -905,7 +905,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfをグレースケールに', 'グレースケールpdf', '白黒pdf', '色を削除'],
     description: '<p>カラーPDFドキュメントをグレースケール（白黒）に変換します。ファイルサイズを削減し、白黒印刷用にドキュメントを準備します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'カラーPDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'カラーPDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '変換をプレビュー', description: 'グレースケールバージョンがどのように見えるかをプレビューします。' },
       { step: 3, title: '変換してダウンロード', description: '変換をクリックしてグレースケールPDFを作成します。' },
     ],
@@ -927,7 +927,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfからjson', 'pdfデータ抽出', 'pdfパーサー', '構造化pdfデータ'],
     description: '<p>PDFドキュメントからコンテンツを構造化JSON形式に抽出します。プログラム的な使用のためにテキスト、メタデータ、ページ情報、ドキュメント構造を抽出します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '抽出するデータを選択', description: '抽出するコンテンツを選択：テキスト、メタデータ、構造。' },
       { step: 3, title: '抽出してダウンロード', description: '抽出をクリックしてJSONを生成し、ダウンロードします。' },
     ],
@@ -950,7 +950,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['ocr pdf', '検索可能pdf', 'テキスト認識', 'スキャンからテキスト'],
     description: '<p>光学文字認識を使用してスキャンしたドキュメントやPDF内の画像からテキストを抽出します。画像ベースのPDFを検索可能で選択可能なテキストドキュメントに変換します。</p>',
     howToUse: [
-      { step: 1, title: 'スキャンPDFをアップロード', description: 'スキャンしたPDFをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'スキャンPDFを追加', description: 'スキャンしたPDFをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '言語を選択', description: '正確な認識のためにドキュメントの言語を選択します。' },
       { step: 3, title: '処理してダウンロード', description: '処理をクリックしてOCRを実行し、検索可能なPDFをダウンロードします。' },
     ],
@@ -972,7 +972,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['交互結合', 'インターリーブpdf', 'スキャン結合', '表裏結合'],
     description: '<p>2つのPDFをページを交互にインターリーブして結合します。別々にスキャンした表と裏のページを1つのドキュメントに結合するのに最適です。</p>',
     howToUse: [
-      { step: 1, title: '2つのPDFをアップロード', description: '表ページPDFと裏ページPDFをアップロードします。' },
+      { step: 1, title: '2つのPDFを追加', description: '表ページPDFと裏ページPDFをアップロードします。' },
       { step: 2, title: '順序を設定', description: '裏から表へのスキャン用に2番目のドキュメントを逆順にするかどうかを選択します。' },
       { step: 3, title: '結合してダウンロード', description: '結合をクリックしてページをインターリーブし、ダウンロードします。' },
     ],
@@ -994,7 +994,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf添付ファイル', 'ファイル埋め込み', 'pdfに添付', 'pdfポートフォリオ'],
     description: '<p>あらゆるタイプのファイルをPDFドキュメントに埋め込みます。スプレッドシート、画像、ソースファイル、その他のドキュメントを添付して包括的なPDFパッケージを作成します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '添付ファイルを追加', description: 'PDFに添付するファイルを選択します。' },
       { step: 3, title: '保存してダウンロード', description: '保存をクリックして添付ファイルを埋め込み、ダウンロードします。' },
     ],
@@ -1016,7 +1016,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['添付ファイル抽出', 'pdf添付ファイル', '埋め込みファイルダウンロード', 'pdf抽出'],
     description: '<p>PDFドキュメントからすべての埋め込みファイルを取得します。添付ファイルを個別にまたはすべてのファイルを含むZIPアーカイブとしてダウンロードします。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '添付ファイルを表示', description: 'PDF内のすべての埋め込みファイルのリストを確認します。' },
       { step: 3, title: '抽出してダウンロード', description: '個別のファイルをダウンロードするか、すべてをZIPとしてダウンロードします。' },
     ],
@@ -1038,7 +1038,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['添付ファイル編集', 'pdfファイル管理', '添付ファイル削除', '添付ファイル名前変更'],
     description: '<p>PDFドキュメント内の埋め込みファイルを管理できます。すべての添付ファイルを表示し、名前を変更したり、不要なファイルをPDFから削除したりできます。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '添付ファイルを管理', description: '埋め込みファイルを表示、名前変更、または削除します。' },
       { step: 3, title: '保存してダウンロード', description: '保存をクリックして変更を適用し、ダウンロードします。' },
     ],
@@ -1060,7 +1060,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfページ分割', 'ページ分割', 'pdfページカット', 'ページセクション'],
     description: '<p>個々のPDFページを複数のセクションに分割します。ページを水平、垂直、またはグリッドにカットして、1つから複数のページを作成します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '分割を設定', description: '水平、垂直、またはグリッド分割を選択し、セクション数を設定します。' },
       { step: 3, title: '分割してダウンロード', description: '分割をクリックしてページを分割し、ダウンロードします。' },
     ],
@@ -1082,7 +1082,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['空白ページ追加', 'ページ挿入', '空ページ', 'pdfページ挿入'],
     description: '<p>PDFドキュメントの任意の位置に空のページを挿入します。既存のページの前、後、または間にカスタマイズ可能なページサイズでページを追加します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '位置を選択', description: '空白ページを挿入する場所と数を選択します。' },
       { step: 3, title: '追加してダウンロード', description: '追加をクリックしてページを挿入し、ダウンロードします。' },
     ],
@@ -1104,7 +1104,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf逆順', 'ページ順序反転', 'ページ逆転', 'ドキュメント逆順'],
     description: '<p>PDFドキュメント内のページ順序を反転し、最後のページを最初に、最初のページを最後にします。逆順でスキャンされたドキュメントや特定の印刷ニーズに便利です。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'ページを選択', description: 'すべてのページを逆順にするか、特定の範囲を選択します。' },
       { step: 3, title: '逆順にしてダウンロード', description: '逆順をクリックしてページ順序を反転し、ダウンロードします。' },
     ],
@@ -1126,7 +1126,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf回転', 'pdfページ回転', 'pdf回転', '向き修正'],
     description: '<p>ドキュメント内のページを90度、180度、または270度回転します。誤った向きのスキャンを修正したり、横向きページを回転したり、表示用にページの向きを調整したりします。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '回転を選択', description: '回転角度と回転するページを選択します。' },
       { step: 3, title: '回転してダウンロード', description: '回転をクリックして変更を適用し、ダウンロードします。' },
     ],
@@ -1148,7 +1148,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['n-up pdf', '1枚に複数ページ', '2-up印刷', 'ページ面付け'],
     description: '<p>複数のページを1枚のシートに配置し、2-up、4-up、6-up、9-up、またはカスタムレイアウトを作成します。印刷時の用紙節約や配布資料の作成に最適です。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'レイアウトを選択', description: '2-up、4-up、6-up、9-up、またはカスタムグリッドを選択します。' },
       { step: 3, title: '作成してダウンロード', description: '作成をクリックしてn-up PDFを生成し、ダウンロードします。' },
     ],
@@ -1170,7 +1170,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['ページ結合', '単一ページpdf', 'ページ結合', '連続スクロール'],
     description: '<p>すべてのPDFページを1つの連続ページに結合します。ウェブ表示や連続読書に最適なスクロール可能なドキュメントを作成します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '間隔を設定', description: '結合されたページ間のギャップを選択します。' },
       { step: 3, title: '結合してダウンロード', description: '結合をクリックして単一ページPDFを作成します。' },
     ],
@@ -1192,7 +1192,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfメタデータ', 'ドキュメントプロパティ', 'pdf情報', 'pdf詳細表示'],
     description: '<p>PDFファイルからすべてのドキュメントプロパティとメタデータを表示します。作成者、タイトル、件名、キーワード、作成日、変更日などを確認できます。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'プロパティを表示', description: '整理された形式で表示されるすべてのメタデータを確認します。' },
       { step: 3, title: '必要に応じてエクスポート', description: 'オプションでメタデータをJSONとしてエクスポートします。' },
     ],
@@ -1214,7 +1214,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfメタデータ編集', 'pdfプロパティ変更', 'pdf作成者', 'ドキュメント情報'],
     description: '<p>PDFファイル内のドキュメントプロパティを変更できます。タイトル、作成者、件名、キーワード、その他のメタデータフィールドを変更します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'プロパティを編集', description: 'タイトル、作成者、件名、キーワード、その他のフィールドを変更します。' },
       { step: 3, title: '保存してダウンロード', description: '保存をクリックして変更を適用し、ダウンロードします。' },
     ],
@@ -1236,7 +1236,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfをzipに', 'pdf圧縮', 'pdfバンドル', 'pdfアーカイブ'],
     description: '<p>複数のPDFファイルを単一のZIPアーカイブにパッケージします。共有、保存、バックアップを容易にするためにPDFを圧縮してバンドルします。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: '複数のPDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: '複数のPDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'アーカイブを設定', description: 'オプションでアーカイブ名と圧縮レベルを設定します。' },
       { step: 3, title: '作成してダウンロード', description: '作成をクリックしてZIPアーカイブを生成します。' },
     ],
@@ -1258,7 +1258,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf比較', 'pdf差分', 'ドキュメント比較', 'バージョン比較'],
     description: '<p>2つのPDFドキュメントを分析し、それらの間の違いをハイライトします。ドキュメントの改訂をレビューしたり、契約の変更を確認したり、編集を検証したりするのに最適です。</p>',
     howToUse: [
-      { step: 1, title: '2つのPDFをアップロード', description: '元のPDFと変更されたPDFドキュメントをアップロードします。' },
+      { step: 1, title: '2つのPDFを追加', description: '元のPDFと変更されたPDFドキュメントをアップロードします。' },
       { step: 2, title: 'ドキュメントを比較', description: '並べて表示またはオーバーレイモードでハイライトされた違いを確認します。' },
       { step: 3, title: '結果をエクスポート', description: '比較レポートまたは注釈付きPDFをダウンロードします。' },
     ],
@@ -1280,7 +1280,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfポスター化', 'pdfタイル', '大判印刷', 'pdfポスター'],
     description: '<p>大きなPDFページを標準用紙に印刷してポスターに組み立てることができる小さなタイルに分割します。大きな図、地図、アートワークの印刷に最適です。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: '大判PDFをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: '大判PDFをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'タイルを設定', description: 'グリッドサイズ、オーバーラップ、出力用紙サイズを設定します。' },
       { step: 3, title: '作成してダウンロード', description: '作成をクリックして印刷可能なタイルを生成します。' },
     ],
@@ -1303,7 +1303,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['ページサイズ修正', 'pdf標準化', '均一ページ', 'pdfページサイズ変更'],
     description: '<p>PDF内のすべてのページを均一な寸法に標準化します。プロフェッショナルなプレゼンテーションや印刷のために、混合サイズのドキュメントを一貫したページサイズに変換します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'ターゲットサイズを選択', description: '標準サイズを選択するか、カスタム寸法を入力します。' },
       { step: 3, title: '適用してダウンロード', description: '適用をクリックしてページを標準化し、ダウンロードします。' },
     ],
@@ -1325,7 +1325,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf線形化', '高速ウェブ表示', 'pdf最適化', 'プログレッシブpdf'],
     description: '<p>高速ウェブ表示用にドキュメントを最適化します。線形化されたPDFは、ファイル全体がダウンロードされる前に表示を開始でき、ユーザーエクスペリエンスを向上させます。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '線形化', description: '線形化をクリックしてウェブ表示用に最適化します。' },
       { step: 3, title: 'ダウンロード', description: '最適化されたPDFをダウンロードします。' },
     ],
@@ -1347,7 +1347,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfページサイズ', 'ページ寸法', 'pdf測定', 'ドキュメントサイズ'],
     description: '<p>PDFドキュメント内のすべてのページのサイズを分析して表示します。さまざまな単位（インチ、mm、ポイント）で寸法を表示し、非標準サイズのページを特定します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '寸法を表示', description: 'すべてのページに表示されるページサイズを確認します。' },
       { step: 3, title: 'レポートをエクスポート', description: 'オプションで寸法をJSONとしてエクスポートします。' },
     ],
@@ -1369,7 +1369,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf制限削除', 'pdfロック解除', 'pdf権限', 'pdf制限解除'],
     description: '<p>印刷、コピー、編集を防止する権限制限を持つPDFをロック解除します。このツールはドキュメントコンテンツを保持しながらオーナーパスワード制限を削除します。</p>',
     howToUse: [
-      { step: 1, title: '制限付きPDFをアップロード', description: '制限付きPDFをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: '制限付きPDFを追加', description: '制限付きPDFをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '制限を削除', description: '削除をクリックしてドキュメントをロック解除します。' },
       { step: 3, title: 'ダウンロード', description: '制限のないPDFをダウンロードします。' },
     ],
@@ -1391,7 +1391,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf修復', 'pdf修正', 'pdf回復', '破損pdf'],
     description: '<p>破損または損傷したPDFファイルの修正を試みます。ツールはドキュメント構造を分析し、できるだけ多くのコンテンツを回復するために再構築します。</p>',
     howToUse: [
-      { step: 1, title: '損傷したPDFをアップロード', description: '破損したPDFをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: '損傷したPDFを追加', description: '破損したPDFをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'ドキュメントを修復', description: '修復をクリックして回復を試みます。' },
       { step: 3, title: 'ダウンロード', description: '成功した場合、修復されたPDFをダウンロードします。' },
     ],
@@ -1414,7 +1414,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf暗号化', 'pdfパスワード保護', 'pdfセキュア', 'pdf暗号化'],
     description: '<p>PDFドキュメントにパスワード保護と暗号化を追加します。開くことを防止するユーザーパスワードと、印刷やコピーなどの権限を制御するオーナーパスワードを設定します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'パスワードを設定', description: 'ユーザーパスワードおよび/またはオーナーパスワードを入力します。権限を設定します。' },
       { step: 3, title: '暗号化してダウンロード', description: '暗号化をクリックしてPDFを保護し、ダウンロードします。' },
     ],
@@ -1436,7 +1436,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfサニタイズ', 'pdfクリーン', '隠しデータ削除', 'pdfプライバシー'],
     description: '<p>ドキュメントから隠しデータと潜在的に機密性の高い情報を削除します。メタデータ、埋め込みスクリプト、添付ファイル、コメント、その他の隠しコンテンツを削除します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '削除するものを選択', description: '削除する隠しデータのタイプを選択します。' },
       { step: 3, title: 'サニタイズしてダウンロード', description: 'サニタイズをクリックしてPDFをクリーンにし、ダウンロードします。' },
     ],
@@ -1458,7 +1458,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf復号化', 'pdfパスワード削除', 'pdfロック解除', 'pdfパスワードリムーバー'],
     description: '<p>PDFドキュメントからパスワード保護を削除します。現在のパスワードを入力してファイルをロック解除し、保護されていないコピーを作成します。</p>',
     howToUse: [
-      { step: 1, title: '保護されたPDFをアップロード', description: 'パスワード保護されたPDFをドラッグ＆ドロップします。' },
+      { step: 1, title: '保護されたPDFを追加', description: 'パスワード保護されたPDFをドラッグ＆ドロップします。' },
       { step: 2, title: 'パスワードを入力', description: '現在のドキュメントパスワードを入力します。' },
       { step: 3, title: '復号化してダウンロード', description: '復号化をクリックして保護を削除し、ダウンロードします。' },
     ],
@@ -1480,7 +1480,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfフラット化', 'フォームフラット化', '注釈フラット化', '編集不可pdf'],
     description: '<p>フォームフィールドや注釈などのインタラクティブ要素を静的コンテンツに変換します。フラット化されたPDFは同じように見えますが、編集できなくなります。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'フォームまたは注釈を含むPDFをドラッグ＆ドロップします。' },
+      { step: 1, title: 'PDFを追加', description: 'フォームまたは注釈を含むPDFをドラッグ＆ドロップします。' },
       { step: 2, title: 'フラット化するものを選択', description: 'フォーム、注釈、または両方をフラット化することを選択します。' },
       { step: 3, title: 'フラット化してダウンロード', description: 'フラット化をクリックして静的PDFを作成します。' },
     ],
@@ -1502,7 +1502,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdfメタデータ削除', 'メタデータ削除', 'pdfプライバシー', '匿名pdf'],
     description: '<p>PDFファイルからすべてのドキュメントプロパティとメタデータを削除します。作成者名、作成日、ソフトウェア情報、その他の識別データを削除します。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: 'メタデータを削除', description: '削除をクリックしてすべてのメタデータを削除します。' },
       { step: 3, title: 'ダウンロード', description: 'メタデータのないPDFをダウンロードします。' },
     ],
@@ -1524,7 +1524,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf権限', 'pdfアクセス変更', 'pdf制限', 'pdfセキュリティ'],
     description: '<p>PDFドキュメントのアクセス制御を変更します。印刷、コピー、編集、注釈の権限を有効または無効にします。</p>',
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '権限を設定', description: '印刷、コピー、編集、注釈を有効または無効にします。' },
       { step: 3, title: '適用してダウンロード', description: 'オーナーパスワードを設定し、制限付きPDFをダウンロードします。' },
     ],
@@ -1548,7 +1548,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>WebAssembly技術を使用してブラウザ内でローカルに変換が行われるため、ドキュメントがデバイスから離れることはなく、プライバシーが守られます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 1, title: 'PDFを追加', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
       { step: 2, title: '変換', description: '変換プロセスが完了するまで数秒待ちます。' },
       { step: 3, title: 'ダウンロード', description: '完全に編集可能なDOCXファイルをダウンロードします。' },
     ],
@@ -1573,7 +1573,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>スキャナーで斜めに読み取られたドキュメントの補正や、図面やチャートの微調整に最適です。特定のページのみ、またはドキュメント全体に適用できます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: '回転させたいページを含むPDFファイルをアップロードします。' },
+      { step: 1, title: 'PDFを追加', description: '回転させたいページを含むPDFファイルをアップロードします。' },
       { step: 2, title: '角度を設定', description: '各ページの正確な回転角度を入力するか、一括設定を行います。' },
       { step: 3, title: 'プレビューと調整', description: 'リアルタイムプレビューを確認しながら、水平・垂直を合わせます。' },
       { step: 4, title: '適用してダウンロード', description: '「回転」をクリックして変更を適用し、補正されたPDFをダウンロードします。' },
@@ -1600,7 +1600,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>用紙サイズ、向き、余白、間隔、境界線を制御して出力をカスタマイズします。すべての処理はブラウザ内でローカルに行われるため、プライバシーは最大限に保たれます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PDFファイルをアップロード', description: '結合したい2つ以上のPDFファイルをアップロードします。希望の順序に並べ替えることができます。' },
+      { step: 1, title: 'PDFファイルを追加', description: '結合したい2つ以上のPDFファイルをアップロードします。希望の順序に並べ替えることができます。' },
       { step: 2, title: 'グリッドレイアウトを選択', description: '希望のグリッドレイアウトを選択します（例：2x2はページあたり4ファイル、3x3はページあたり9ファイル）。' },
       { step: 3, title: '外観をカスタマイズ', description: '用紙サイズ（A4、Letter）、向き、アイテム間の間隔、境界線などの設定を調整します。' },
       { step: 4, title: '結合してダウンロード', description: '「PDFを結合」をクリックして、新しいグリッドレイアウトドキュメントを生成し、結果をダウンロードします。' },
@@ -1654,7 +1654,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>WebAssembly技術によりブラウザ内で高速に処理されるため、大きなファイルでも安全に変換可能です。</p>
     `,
     howToUse: [
-      { step: 1, title: 'PSDをアップロード', description: '変換したいPSDファイルをアップロードします。' },
+      { step: 1, title: 'PSDを追加', description: '変換したいPSDファイルをアップロードします。' },
       { step: 2, title: '変換', description: 'PSDをPDF形式にレンダリングします。' },
       { step: 3, title: 'ダウンロード', description: '変換されたPDFファイルを保存します。' },
     ],
@@ -1678,7 +1678,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>請求書、名簿、集計結果など、改ざんを防ぎたい書類の配布に最適です。</p>
     `,
     howToUse: [
-      { step: 1, title: 'ファイルをアップロード', description: 'XLSXファイルをアップロードします。' },
+      { step: 1, title: 'ファイルを追加', description: 'XLSXファイルをアップロードします。' },
       { step: 2, title: '設定', description: '必要に応じて、出力されるPDFのページ設定を確認します。' },
       { step: 3, title: '変換と保存', description: 'PDFに変換してダウンロードします。' },
     ],
@@ -1701,7 +1701,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>PowerPointをPDFに変換ツールは、PPTXスライドを汎用的なPDF形式に変換します。フォントの置き換えによる崩れを防ぎ、どのデバイスでも意図した通りに表示されるようになります。</p>
     `,
     howToUse: [
-      { step: 1, title: 'ファイルをアップロード', description: 'PPTXファイルをアップロードします。' },
+      { step: 1, title: 'ファイルを追加', description: 'PPTXファイルをアップロードします。' },
       { step: 2, title: '変換開始', description: 'スライドをPDFページとしてレンダリングします。' },
       { step: 3, title: 'ダウンロード', description: '完成したPDFを保存します。' },
     ],
@@ -1724,7 +1724,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>WordをPDFに変換ツールは、Microsoft Wordドキュメントを読み取り専用のPDF形式に変換します。公式な書類、課題、電子書籍の作成に最適です。</p>
     `,
     howToUse: [
-      { step: 1, title: 'アップロード', description: 'DOCXファイルをアップロードします。' },
+      { step: 1, title: '追加', description: 'DOCXファイルをアップロードします。' },
       { step: 2, title: '処理', description: 'ドキュメントをPDFに変換します。' },
       { step: 3, title: '保存', description: 'PDFをダウンロードします。' },
     ],
@@ -1742,7 +1742,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['xps pdf 変換', 'oxps pdf 変換'],
     description: `<p>XPSファイルをより一般的なPDF形式に変換し、閲覧しやすくします。</p>`,
     howToUse: [
-      { step: 1, title: 'アップロード', description: 'XPSファイルをアップロードします。' },
+      { step: 1, title: '追加', description: 'XPSファイルをアップロードします。' },
       { step: 3, title: 'ダウンロード', description: 'PDFを保存します。' },
     ],
     useCases: [
@@ -1758,7 +1758,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['rtf pdf 変換'],
     description: `<p>RTFファイルをPDFに変換し、どのデバイスでも同じように表示できるようにします。</p>`,
     howToUse: [
-      { step: 1, title: 'アップロード', description: 'RTFファイルをアップロードします。' },
+      { step: 1, title: '追加', description: 'RTFファイルをアップロードします。' },
       { step: 3, title: '保存', description: 'PDFをダウンロードします。' },
     ],
     useCases: [
@@ -1774,7 +1774,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['epub pdf 変換', '電子書籍 変換'],
     description: `<p>EPUB形式の電子書籍を、レイアウトを固定したPDFに変換します。これにより、PDF対応のリーダーで注釈を付けたり、印刷したりすることが可能になります。</p>`,
     howToUse: [
-      { step: 1, title: 'アップロード', description: 'EPUBファイルをアップロードします。' },
+      { step: 1, title: '追加', description: 'EPUBファイルをアップロードします。' },
       { step: 3, title: 'ダウンロード', description: 'PDFを保存します。' },
     ],
     useCases: [
@@ -1791,7 +1791,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['mobi pdf 変換', 'kindle pdf 変換'],
     description: `<p>MOBIまたはAZW形式のKindle本をPDFに変換して、他のデバイスで読めるようにします。</p>`,
     howToUse: [
-      { step: 1, title: 'アップロード', description: 'MOBIファイルをアップロードします。' },
+      { step: 1, title: '追加', description: 'MOBIファイルをアップロードします。' },
       { step: 3, title: 'ダウンロード', description: 'PDFを保存します。' },
     ],
     useCases: [
@@ -1807,7 +1807,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf excel 変換', 'pdf 表 抽出'],
     description: `<p>PDF内の表を検出し、その構造を維持したままExcelファイルに出力します。</p>`,
     howToUse: [
-      { step: 1, title: 'アップロード', description: 'PDFをアップロードします。' },
+      { step: 1, title: '追加', description: 'PDFをアップロードします。' },
       { step: 3, title: '保存', description: 'Excelをダウンロードします。' },
     ],
     useCases: [
@@ -1823,7 +1823,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf powerpoint 変換', 'pdf pptx 変換'],
     description: `<p>PDFの各ページをPowerPointのスライドに変換し、図形やテキストを編集可能な状態で出力します。</p>`,
     howToUse: [
-      { step: 1, title: 'アップロード', description: 'PDFをアップロードします。' },
+      { step: 1, title: '追加', description: 'PDFをアップロードします。' },
       { step: 3, title: '保存', description: 'PPTXをダウンロードします。' },
     ],
     useCases: [
@@ -1839,7 +1839,7 @@ export const toolContentJa: Record<string, ToolContent> = {
     keywords: ['pdf svg 変換', 'ベクター 変換'],
     description: `<p>PDFを高品質なベクター画像形式であるSVGに変換します。拡大してもぼやけないため、Web素材やロゴの抽出に最適です。</p>`,
     howToUse: [
-      { step: 1, title: 'アップロード', description: 'PDFをアップロードします。' },
+      { step: 1, title: '追加', description: 'PDFをアップロードします。' },
       { step: 3, title: '保存', description: 'SVGを保存します。' },
     ],
     useCases: [
@@ -1857,7 +1857,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       <p>PDF内の画像を自動検出し、個別の画像ファイルとして取り出します。高解像度の写真をそのままの品質で抽出できます。</p>
     `,
     howToUse: [
-      { step: 1, title: 'アップロード', description: 'PDFをアップロードします。' },
+      { step: 1, title: '追加', description: 'PDFをアップロードします。' },
       { step: 2, title: 'フィルタリング', description: '抽出する画像の最小サイズなどを指定します。' },
       { step: 3, title: '保存', description: '個別に、またはZIPでまとめて保存します。' },
     ],

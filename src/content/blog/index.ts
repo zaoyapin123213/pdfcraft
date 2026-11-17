@@ -42,8 +42,15 @@ import { separatePdfIntoIndividualPages } from './posts/separate-pdf-into-indivi
 import { deletePdfPagesForFree } from './posts/delete-pdf-pages-for-free';
 import { convertPdfToEbook } from './posts/convert-pdf-to-ebook';
 import { transferPdfToWordDocument } from './posts/transfer-pdf-to-word-document';
+import { howToCompressAPdf } from './posts/how-to-compress-a-pdf';
+import { howToUnlockAPdf } from './posts/how-to-unlock-a-pdf';
+import { howToAddAWatermarkToAPdf } from './posts/how-to-add-a-watermark-to-a-pdf';
+import { howToSignAPdfElectronically } from './posts/how-to-sign-a-pdf-electronically';
+import { howToTranslateAPdf } from './posts/how-to-translate-a-pdf';
 
 export const blogPosts: BlogPost[] = [
+  howToCompressAPdf,
+  howToUnlockAPdf,
   transferPdfToWordDocument,
   convertPdfToEbook,
   deletePdfPagesForFree,
@@ -79,6 +86,9 @@ export const blogPosts: BlogPost[] = [
   perpetualLicensePdfEditors,
   hipaaCompliantPdfEditor,
   portablePdfEditor,
+  howToAddAWatermarkToAPdf,
+  howToSignAPdfElectronically,
+  howToTranslateAPdf,
 ].sort((a, b) => b.datePublished.localeCompare(a.datePublished));
 
 export function getBlogPost(slug: string): BlogPost | undefined {

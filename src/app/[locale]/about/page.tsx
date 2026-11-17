@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
-import { generateAboutMetadata, generateStaticPageSchema } from '@/lib/seo';
+import { generateAboutMetadata, generateStaticPageSchema, generateBreadcrumbSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/seo/JsonLd';
 import AboutPageClient from './AboutPageClient';
 
@@ -36,6 +36,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
   setRequestLocale(validLocale);
 
   const t = await getTranslations({ locale: validLocale, namespace: 'metadata' });
+  const tCommon = await getTranslations({ locale: validLocale, namespace: 'common' });
   const pageSchema = generateStaticPageSchema(
     validLocale,
     '/about',
@@ -46,7 +47,13 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
   return (
     <>
-      <JsonLd data={pageSchema} />
+      <JsonLd data={[pageSchema, generateBreadcrumbSchema(
+        [
+          { name: tCommon('navigation.home'), path: '' },
+          { name: tCommon('navigation.about'), path: '/about' },
+        ],
+        validLocale
+      )]} />
       <AboutPageClient locale={validLocale} />
     </>
   );

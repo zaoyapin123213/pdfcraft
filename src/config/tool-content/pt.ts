@@ -20,7 +20,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Todo o processamento acontece diretamente no seu navegador, garantindo que seus documentos permaneçam privados e seguros. Nenhum arquivo é carregado em nossos servidores.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Arraste e solte seu arquivo PDF na área de upload ou clique para navegar e selecionar arquivos do seu dispositivo.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Arraste e solte seu arquivo PDF na área de upload ou clique para navegar e selecionar arquivos do seu dispositivo.' },
       { step: 2, title: 'Escolha a Operação', description: 'Selecione entre as operações disponíveis: mesclar, dividir, organizar, excluir páginas, girar ou extrair.' },
       { step: 3, title: 'Configure as Opções', description: 'Ajuste as configurações específicas, como intervalos de páginas, ângulos de rotação ou a ordem de mesclagem.' },
       { step: 4, title: 'Processar e Baixar', description: 'Clique no botão de processar e baixe seu PDF modificado assim que a operação for concluída.' },
@@ -46,7 +46,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Basta carregar seus arquivos, organizá-los na ordem desejada e mesclá-los. A ferramenta preserva a qualidade original e mantém os marcadores de cada documento fonte.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload de Arquivos', description: 'Arraste e solte vários arquivos PDF ou clique para selecionar do seu dispositivo.' },
+      { step: 1, title: 'Adicionar Arquivos', description: 'Arraste e solte vários arquivos PDF ou clique para selecionar do seu dispositivo.' },
       { step: 2, title: 'Organize a Ordem', description: 'Arraste as miniaturas dos arquivos para organizá-los na ordem que você deseja que apareçam.' },
       { step: 3, title: 'Mesclar e Baixar', description: 'Clique no botão Mesclar e baixe seu PDF unificado.' },
     ],
@@ -70,7 +70,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Dividir PDF permite separar um único documento em vários arquivos menores. Perfeito para extrair capítulos específicos ou separar documentos que foram digitalizados juntos.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o arquivo que deseja dividir.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o arquivo que deseja dividir.' },
       { step: 2, title: 'Escolha o Método', description: 'Escolha entre extrair páginas individuais, intervalos específicos ou dividir em partes iguais.' },
       { step: 3, title: 'Dividir e Baixar', description: 'Clique em Dividir e baixe os arquivos resultantes (geralmente em um arquivo ZIP).' },
     ],
@@ -94,7 +94,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Comprimir PDF reduz o tamanho dos seus documentos, ideal para anexos de e-mail ou uploads na web. Oferecemos vários níveis de compressão para equilibrar tamanho e qualidade.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o arquivo que você deseja diminuir.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o arquivo que você deseja diminuir.' },
       { step: 2, title: 'Escolha o Nível', description: 'Selecione: Baixa (Melhor qualidade), Média (Equilibrada) ou Alta (Menor tamanho).' },
       { step: 3, title: 'Comprimir', description: 'Inicie o processo e baixe seu PDF otimizado.' },
     ],
@@ -118,7 +118,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Nosso editor de PDF oferece ferramentas para modificar e anotar seus documentos sem software caro. Adicione texto, imagens, formas e destaques facilmente.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o documento que deseja editar.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o documento que deseja editar.' },
       { step: 2, title: 'Use as Ferramentas', description: 'Use a barra de ferramentas para inserir texto, realces ou imagens.' },
       { step: 3, title: 'Editar e Salvar', description: 'Posicione os elementos e baixe a versão editada.' },
     ],
@@ -142,7 +142,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>A ferramenta permite inverter todas as cores ou preservar elementos específicos, como imagens. Perfeito para quem passa horas lendo documentos técnicos ou acadêmicos na tela.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Escolha o PDF que deseja transformar.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Escolha o PDF que deseja transformar.' },
       { step: 2, title: 'Configurar Opções', description: 'Decida se deseja inverter todo o conteúdo ou apenas textos e fundos.' },
       { step: 3, title: 'Processar e Baixar', description: 'Baixe a versão com cores invertidas para uma leitura mais confortável.' },
     ],
@@ -167,7 +167,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Escolha qualquer cor e aplique-a a todo o documento. A ferramenta preserva todo o conteúdo existente enquanto adiciona a camada de cor por baixo.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o arquivo que deseja colorir.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o arquivo que deseja colorir.' },
       { step: 2, title: 'Escolher Cor', description: 'Use o seletor de cores ou insira um código hexadecimal.' },
       { step: 3, title: 'Aplicar e Baixar', description: 'Aplique a cor de fundo e baixe o PDF atualizado.' },
     ],
@@ -191,7 +191,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Modifique a cor de todo o texto no seu PDF de uma só vez. Útil para melhorar o contraste, alinhar com diretrizes de marca ou preparar documentos para apresentações visuais.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Carregue seu documento PDF.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Carregue seu documento PDF.' },
       { step: 2, title: 'Selecionar Cor', description: 'Escolha a nova cor desejada para o texto.' },
       { step: 3, title: 'Converter e Baixar', description: 'Baixe o documento com as cores de texto atualizadas.' },
     ],
@@ -215,7 +215,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Coloque carimbos digitais em seus PDFs. Utilize modelos clássicos como "APROVADO", "REPROVADO", "RASCUNHO" ou envie sua própria imagem para carimbar o documento.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o arquivo que deseja carimbar.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o arquivo que deseja carimbar.' },
       { step: 2, title: 'Escolher Carimbo', description: 'Selecione um modelo pronto ou envie seu próprio logo/imagem.' },
       { step: 3, title: 'Posicionar e Salvar', description: 'Clique onde deseja o carimbo, ajuste o tamanho e baixe o arquivo.' },
     ],
@@ -239,7 +239,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Remova todos os comentários, destaques e notas adesivas de seu PDF. Crie uma versão "limpa" para publicação final ou compartilhamento externo sem marcas de revisão.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Carregue o documento com as anotações.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Carregue o documento com as anotações.' },
       { step: 2, title: 'Selecionar Tipos', description: 'Escolha se deseja remover apenas comentários, apenas realces ou tudo.' },
       { step: 3, title: 'Limpar e Baixar', description: 'Baixe o PDF sem as marcas de edição.' },
     ],
@@ -263,7 +263,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Esta ferramenta inteligente detecta e elimina automaticamente páginas vazias. Ideal para limpar digitalizações ou remover divisores após mesclar vários documentos.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o documento que deseja limpar.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o documento que deseja limpar.' },
       { step: 2, title: 'Ajustar Sensibilidade', description: 'Defina o nível de detecção (útil para ignorar pequenos pontos de poeira no scan).' },
       { step: 3, title: 'Remover e Baixar', description: 'Baixe seu PDF otimizado e sem páginas inúteis.' },
     ],
@@ -287,7 +287,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Combine várias imagens em um único arquivo PDF, organize-as na ordem que desejar e personalize o tamanho da página e a orientação conforme sua necessidade.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload de Imagens', description: 'Arraste as imagens para a área de upload ou selecione arquivos do seu dispositivo.' },
+      { step: 1, title: 'Adicionar Imagens', description: 'Arraste as imagens para a área de upload ou selecione arquivos do seu dispositivo.' },
       { step: 2, title: 'Organizar e Configurar', description: 'Reordene as fotos e escolha o tamanho da página (como A4 ou tamanho original).' },
       { step: 3, title: 'Converter', description: 'Gere seu PDF e baixe o resultado imediatamente.' },
     ],
@@ -311,7 +311,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Converta arquivos PNG para PDF mantendo a transparência. Ideal para gráficos, logotipos e capturas de tela (screenshots) que possuem fundo transparente.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload de PNGs', description: 'Selecione seus arquivos PNG.' },
+      { step: 1, title: 'Adicionar PNGs', description: 'Selecione seus arquivos PNG.' },
       { step: 2, title: 'Escolher Layout', description: 'Determine o tamanho da página e a disposição das imagens.' },
       { step: 3, title: 'Baixar', description: 'Baixe o documento PDF finalizado.' },
     ],
@@ -335,7 +335,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Converta imagens modernas no formato WebP para o padrão universal PDF. Ideal para preparar imagens baixadas da web para impressão ou arquivamento de longo prazo.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload de WebP', description: 'Selecione os arquivos WebP da sua pasta.' },
+      { step: 1, title: 'Adicionar WebP', description: 'Selecione os arquivos WebP da sua pasta.' },
       { step: 2, title: 'Ajustar Opções', description: 'Escolha orientação Retrato ou Paisagem para suas páginas.' },
       { step: 3, title: 'Salvar', description: 'Gere o PDF a partir de seus gráficos WebP.' },
     ],
@@ -359,7 +359,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Converta gráficos vetoriais escaláveis (SVG) em PDF sem perder a nitidez. Como o PDF também suporta vetores, seu design permanecerá nítido em qualquer nível de zoom.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload de SVG', description: 'Selecione seus arquivos vetoriais SVG.' },
+      { step: 1, title: 'Adicionar SVG', description: 'Selecione seus arquivos vetoriais SVG.' },
       { step: 2, title: 'Configurar Página', description: 'Escolha o formato ideal para seus gráficos.' },
       { step: 3, title: 'Converter', description: 'Baixe o PDF vetorial.' },
     ],
@@ -383,7 +383,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Converta fotos HEIC do seu iPhone ou iPad diretamente para PDF. Embora o HEIC ofereça boa compressão, ele não é legível em todos os lugares — o PDF, por outro lado, sim.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload de HEIC', description: 'Selecione suas fotos da Apple.' },
+      { step: 1, title: 'Adicionar HEIC', description: 'Selecione suas fotos da Apple.' },
       { step: 2, title: 'Ordenar', description: 'Coloque suas fotos na ordem desejada.' },
       { step: 3, title: 'Baixar', description: 'Baixe o documento PDF universal.' },
     ],
@@ -407,7 +407,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Transforme arquivos de texto simples (.txt) em documentos PDF formatados. Personalize fontes, margens e layout para transformar notas simples em documentos profissionais.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload de Arquivo TXT', description: 'Selecione seu arquivo .txt.' },
+      { step: 1, title: 'Adicionar Arquivo TXT', description: 'Selecione seu arquivo .txt.' },
       { step: 2, title: 'Formatação', description: 'Escolha a fonte (ex: Monospace para código) e as margens.' },
       { step: 3, title: 'Salvar', description: 'Baixe o documento PDF formatado.' },
     ],
@@ -431,7 +431,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Transforme dados JSON em um PDF legível e bem formatado. A ferramenta oferece realce de sintaxe automático e recuos para visualizar estruturas de dados complexas.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload de JSON', description: 'Selecione seu arquivo .json.' },
+      { step: 1, title: 'Adicionar JSON', description: 'Selecione seu arquivo .json.' },
       { step: 2, title: 'Escolher Estilo', description: 'Configure o esquema de cores para o realce de sintaxe.' },
       { step: 3, title: 'Gerar', description: 'Baixe o PDF de dados estruturados.' },
     ],
@@ -455,7 +455,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Ideal para criar prévias de documentos, compartilhar conteúdos em redes sociais ou utilizar páginas de PDF em editores de imagem.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o arquivo PDF que deseja converter.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o arquivo PDF que deseja converter.' },
       { step: 2, title: 'Escolher Qualidade', description: 'Defina a resolução (DPI) desejada e o nível de compressão.' },
       { step: 3, title: 'Converter e Baixar', description: 'Baixe as imagens individualmente ou todas juntas em um arquivo ZIP.' },
     ],
@@ -480,7 +480,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Especialmente indicado para PDFs que contêm diagramas, logotipos ou textos que precisam permanecer extremamente nítidos.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Carregue seu documento.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Carregue seu documento.' },
       { step: 2, title: 'Configurar Opções', description: 'Selecione as páginas e a densidade de pixels desejada.' },
       { step: 3, title: 'Salvar PNGs', description: 'Extraia as páginas como arquivos PNG de alta fidelidade.' },
     ],
@@ -505,7 +505,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Esta é a melhor escolha se você deseja exibir conteúdos de PDF em um site moderno com carregamento rápido.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o documento PDF.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o documento PDF.' },
       { step: 2, title: 'Escolher Compressão', description: 'Defina o equilíbrio entre tamanho do arquivo e qualidade visual.' },
       { step: 3, title: 'Baixar', description: 'Baixe as imagens WebP otimizadas para a internet.' },
     ],
@@ -529,7 +529,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Converta páginas de PDF no formato clássico BMP (Windows Bitmap). O BMP é um formato não compactado que garante compatibilidade universal com sistemas antigos e aplicações específicas do Windows.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Escolha seu arquivo.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Escolha seu arquivo.' },
       { step: 2, title: 'Selecionar Páginas', description: 'Determine quais páginas serão salvas como bitmap.' },
       { step: 3, title: 'Gerar BMP', description: 'Converta e baixe as imagens bitmap.' },
     ],
@@ -553,7 +553,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Converta PDFs para o formato de alta qualidade TIFF. O TIFF é o padrão na impressão profissional e no arquivamento de longo prazo, pois suporta profundidade de cor extrema e compressão sem perdas (LZW/ZIP).</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Carregue o documento.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Carregue o documento.' },
       { step: 2, title: 'Escolher Formato', description: 'Escolha entre TIFFs individuais por página ou um único arquivo TIFF de múltiplas páginas.' },
       { step: 3, title: 'Baixar', description: 'Baixe os arquivos de imagem profissionais.' },
     ],
@@ -578,7 +578,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Os textos permanecem nítidos e as imagens mantêm seus detalhes, enquanto todas as informações de cor são removidas.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o documento colorido.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o documento colorido.' },
       { step: 2, title: 'Verificar Prévia', description: 'Veja como ficará a conversão para escala de cinza.' },
       { step: 3, title: 'Baixar', description: 'Baixe o PDF otimizado em preto e branco.' },
     ],
@@ -602,7 +602,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Extraia texto, metadados e a estrutura do seu documento PDF para o formato JSON, legível por máquinas. Esta é a ferramenta perfeita para desenvolvedores e analistas de dados.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o arquivo PDF de origem.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o arquivo PDF de origem.' },
       { step: 2, title: 'Escolher Dados', description: 'Determine quais informações (texto, layout, metadados) deseja extrair.' },
       { step: 3, title: 'Exportar JSON', description: 'Baixe o arquivo JSON pronto para sua programação.' },
     ],
@@ -626,7 +626,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Basta carregar o arquivo das frentes e o das costas. A ferramenta os une automaticamente em um único documento lógico. Você também pode inverter a ordem de um dos arquivos, caso ele tenha sido digitalizado de trás para frente.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload de dois PDFs', description: 'Selecione o PDF com as páginas ímpares (frentes) e o com as páginas pares (versos).' },
+      { step: 1, title: 'Adicionar dois PDFs', description: 'Selecione o PDF com as páginas ímpares (frentes) e o com as páginas pares (versos).' },
       { step: 2, title: 'Configurar Ordem', description: 'Se necessário, selecione "Inverter ordem" para o segundo documento (comum em scans de baixo para cima).' },
       { step: 3, title: 'Mesclar', description: 'Clique em mesclar para intercalar as páginas e baixar o resultado.' },
     ],
@@ -651,7 +651,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Os anexos tornam-se parte do arquivo PDF e podem ser extraídos pelo destinatário usando qualquer leitor de PDF comum.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o documento PDF principal.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o documento PDF principal.' },
       { step: 2, title: 'Adicionar Arquivos', description: 'Escolha os arquivos que deseja embutir dentro do PDF.' },
       { step: 3, title: 'Salvar', description: 'Baixe o PDF com os anexos integrados.' },
     ],
@@ -675,7 +675,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Recupere todos os arquivos incorporados em um documento PDF. Você pode baixar os anexos individualmente ou todos juntos em um arquivo ZIP prático.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o PDF que contém os anexos.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o PDF que contém os anexos.' },
       { step: 2, title: 'Visualizar Anexos', description: 'Veja a lista de todos os arquivos ocultos dentro do PDF.' },
       { step: 3, title: 'Baixar', description: 'Salve os arquivos individualmente ou o pacote completo.' },
     ],
@@ -700,7 +700,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Especialmente útil para scans onde vários documentos (ex: recibos) estão na mesma página, ou para tornar plantas de grande formato mais manejáveis.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Carregue o documento PDF.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Carregue o documento PDF.' },
       { step: 2, title: 'Definir Divisão', description: 'Escolha entre divisão horizontal/vertical ou uma grade (ex: 2x2).' },
       { step: 3, title: 'Cortar', description: 'Baixe o PDF com as páginas individuais agora subdivididas.' },
     ],
@@ -724,7 +724,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>O N-Up PDF organiza várias páginas do seu documento em uma única folha (ex: 2, 4, 6 ou 9 páginas por folha). Isso economiza papel na impressão e é ideal para criar apostilas e resumos.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o documento que deseja imprimir.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o documento que deseja imprimir.' },
       { step: 2, title: 'Escolher Layout', description: 'Decida por uma grade (ex: 2x2 para 4 páginas por folha).' },
       { step: 3, title: 'Gerar', description: 'Baixe o layout otimizado.' },
     ],
@@ -748,7 +748,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>"Combinar em Grade" permite mesclar vários arquivos PDF (ou imagens convertidas em PDF) em um layout de grade estruturado. Ideal para criar galerias de fotos, portfólios visuais ou planilhas de contatos a partir de várias fontes.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Arquivos', description: 'Selecione ou arraste seus arquivos PDF.' },
+      { step: 1, title: 'Adicionar Arquivos', description: 'Selecione ou arraste seus arquivos PDF.' },
       { step: 2, title: 'Configurar Grade', description: 'Escolha a estrutura da grade (ex: 2x2, 3x3), tamanho da página e opções de margem.' },
       { step: 3, title: 'Mesclar', description: 'Combine os arquivos em um único PDF formatado.' },
     ],
@@ -771,7 +771,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Esta ferramenta inverte toda a ordem das páginas do seu PDF. A última página torna-se a primeira, a penúltima a segunda, e assim por diante. Ideal para documentos que foram digitalizados na ordem errada.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o arquivo.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o arquivo.' },
       { step: 2, title: 'Escolher Intervalo', description: 'Selecione o documento inteiro ou apenas uma parte para inverter.' },
       { step: 3, title: 'Inverter', description: 'Salve o PDF com a nova ordenação.' },
     ],
@@ -795,7 +795,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Analise duas versões de um documento rapidamente. A ferramenta marca alterações de texto, adições e exclusões com cores, permitindo que você revise revisões instantaneamente.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload de dois PDFs', description: 'Carregue o original e a versão editada.' },
+      { step: 1, title: 'Adicionar dois PDFs', description: 'Carregue o original e a versão editada.' },
       { step: 2, title: 'Iniciar Comparação', description: 'A ferramenta analisa ambos os arquivos em busca de diferenças de texto e layout.' },
       { step: 3, title: 'Revisar Resultados', description: 'Visualize os destaques diretamente no navegador ou baixe um relatório.' },
     ],
@@ -819,7 +819,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Escolha entre tamanhos padrão como A4 e Carta (US-Letter) ou defina dimensões personalizadas. O conteúdo é redimensionado ou centralizado de forma inteligente para caber no novo formato.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o PDF que possui formatos de página variados.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o PDF que possui formatos de página variados.' },
       { step: 2, title: 'Escolher Formato', description: 'Selecione A4, Carta ou insira dimensões personalizadas em mm ou polegadas.' },
       { step: 3, title: 'Aplicar e Baixar', description: 'Baixe o PDF com todas as páginas no tamanho padronizado.' },
     ],
@@ -844,7 +844,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Isso melhora drasticamente a experiência do usuário em documentos grandes, pois a primeira página aparece imediatamente.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Carregue o documento que você deseja publicar online.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Carregue o documento que você deseja publicar online.' },
       { step: 2, title: 'Otimizar', description: 'Clique em "Linearizar" para reorganizar a estrutura interna do arquivo.' },
       { step: 3, title: 'Salvar', description: 'Baixe o PDF otimizado para a internet.' },
     ],
@@ -869,7 +869,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Muito útil para arquivos que não abrem, mostram mensagens de erro ou foram danificados durante um download incompleto.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF Danificado', description: 'Selecione o arquivo que está apresentando problemas.' },
+      { step: 1, title: 'Adicionar PDF Danificado', description: 'Selecione o arquivo que está apresentando problemas.' },
       { step: 2, title: 'Iniciar Reparo', description: 'A ferramenta tentará corrigir a tabela de referência cruzada e a estrutura de objetos.' },
       { step: 3, title: 'Verificar Resultado', description: 'Baixe a versão recuperada e verifique a integridade do conteúdo.' },
     ],
@@ -895,7 +895,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Escolha entre criptografia AES de 128 ou 256 bits para garantir os mais altos padrões de segurança.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o arquivo que deseja proteger.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o arquivo que deseja proteger.' },
       { step: 2, title: 'Definir Senhas', description: 'Insira uma senha forte e escolha as permissões (ex: permitir ou não impressão).' },
       { step: 3, title: 'Sinalizar e Baixar', description: 'Baixe o PDF criptografado e seguro.' },
     ],
@@ -920,7 +920,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Nota: Você deve conhecer a senha atual. Esta ferramenta não foi feita para quebrar senhas de terceiros sem autorização.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF Protegido', description: 'Selecione o arquivo que possui senha.' },
+      { step: 1, title: 'Adicionar PDF Protegido', description: 'Selecione o arquivo que possui senha.' },
       { step: 2, title: 'Inserir Senha', description: 'Digite a senha válida para autorizar a remoção da proteção.' },
       { step: 3, title: 'Desbloquear', description: 'Baixe a versão do PDF totalmente livre de senhas.' },
     ],
@@ -944,7 +944,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Personalize as informações ocultas do seu PDF. Edite ou remova título, autor, assunto e palavras-chave para apresentar seus documentos de forma profissional ou proteger sua privacidade.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione seu documento.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione seu documento.' },
       { step: 2, title: 'Preencher Campos', description: 'Insira as novas informações desejadas para cada metadado.' },
       { step: 3, title: 'Salvar', description: 'Baixe o PDF com os metadados atualizados.' },
     ],
@@ -969,7 +969,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       <p>Edite seus textos diretamente no Word sem precisar digitar tudo do zero. Ideal para contratos, currículos e relatórios acadêmicos.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload do PDF', description: 'Selecione o documento que deseja converter.' },
+      { step: 1, title: 'Adicionar PDF', description: 'Selecione o documento que deseja converter.' },
       { step: 2, title: 'Processamento', description: 'Aguarde enquanto a estrutura do documento é analisada e convertida.' },
       { step: 3, title: 'Baixar', description: 'Baixe o arquivo Word pronto para edição.' },
     ],

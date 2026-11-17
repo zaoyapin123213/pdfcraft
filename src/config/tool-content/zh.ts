@@ -19,7 +19,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都直接在您的浏览器中完成，确保您的文档保持私密和安全。不会将任何文件上传到服务器。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '将PDF文件拖放到上传区域，或点击浏览并从设备中选择文件。' },
+      { step: 1, title: '添加PDF文件', description: '将PDF文件拖放到上传区域，或点击浏览并从设备中选择文件。' },
       { step: 2, title: '选择操作', description: '从可用操作中选择：合并、拆分、整理、删除页面、旋转、添加空白页或提取页面。' },
       { step: 3, title: '配置选项', description: '根据所选操作调整设置，如页面范围、旋转角度或合并顺序。' },
       { step: 4, title: '处理并下载', description: '点击处理按钮，操作完成后下载修改后的PDF。' },
@@ -46,7 +46,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有合并操作都在您的浏览器本地进行，确保敏感文档的完全隐私。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '将多个PDF文件拖放到上传区域，或点击从设备中选择文件。' },
+      { step: 1, title: '添加PDF文件', description: '将多个PDF文件拖放到上传区域，或点击从设备中选择文件。' },
       { step: 2, title: '排列顺序', description: '拖放文件缩略图以按所需顺序排列。' },
       { step: 3, title: '合并并下载', description: '点击合并按钮组合所有文件，然后下载合并后的PDF。' },
     ],
@@ -72,7 +72,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档在实现完美对齐的同时保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '上传包含需要旋转页面的PDF文件。' },
+      { step: 1, title: '添加PDF文件', description: '上传包含需要旋转页面的PDF文件。' },
       { step: 2, title: '设置旋转角度', description: '为每个页面输入精确的旋转度数，或为所有页面设置批量角度。' },
       { step: 3, title: '预览和调整', description: '使用实时预览确保页面完美对齐。' },
       { step: 4, title: '应用并下载', description: '点击旋转应用更改并下载校正后的PDF。' },
@@ -99,7 +99,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>通过控制页面大小、方向、边距、间距和边框来自定义输出。所有处理都在您的浏览器本地进行，以实现最大的隐私保护。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '上传两个或更多您想要组合的PDF文件。您可以按所需顺序重新排列它们。' },
+      { step: 1, title: '添加PDF文件', description: '上传两个或更多您想要组合的PDF文件。您可以按所需顺序重新排列它们。' },
       { step: 2, title: '选择网格布局', description: '选择您想要的网格布局（例如，2x2表示每页4个文件，3x3表示每页9个文件）。' },
       { step: 3, title: '自定义外观', description: '调整设置，如页面大小（A4、Letter）、方向、项目之间的间距和边框。' },
       { step: 4, title: '组合并下载', description: '点击“组合PDF”生成您的新网格布局文档并下载结果。' },
@@ -126,7 +126,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地完成，确保您的文档保持私密和安全。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击浏览并选择要拆分的文件。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击浏览并选择要拆分的文件。' },
       { step: 2, title: '选择拆分方式', description: '选择拆分方式：按页面范围、提取特定页面或按固定间隔拆分。' },
       { step: 3, title: '定义页面范围', description: '输入要提取的页码或范围（例如：1-5, 8, 10-15）。' },
       { step: 4, title: '拆分并下载', description: '点击拆分创建新的PDF文件，单独下载或作为ZIP压缩包下载。' },
@@ -153,7 +153,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有压缩都在您的浏览器中进行，确保您的文档永远不会离开您的设备。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择要压缩的文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择要压缩的文档。' },
       { step: 2, title: '选择压缩级别', description: '选择您偏好的压缩级别：低（最佳质量）、中（平衡）或高（最小文件）。' },
       { step: 3, title: '压缩并下载', description: '点击压缩以减小文件大小，然后下载优化后的PDF。' },
     ],
@@ -179,7 +179,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有编辑都在您的浏览器本地进行，确保敏感文档的完全隐私。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择要编辑的文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择要编辑的文档。' },
       { step: 2, title: '选择编辑工具', description: '从工具栏中选择：文本、高亮、形状、图像、评论或编辑工具。' },
       { step: 3, title: '进行编辑', description: '点击文档添加注释，拖动定位元素，使用属性面板进行自定义。' },
       { step: 4, title: '保存并下载', description: '点击保存应用更改并下载编辑后的PDF。' },
@@ -206,7 +206,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的照片保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传JPG图像', description: '拖放您的JPG文件或点击从设备中选择图像。' },
+      { step: 1, title: '添加JPG图像', description: '拖放您的JPG文件或点击从设备中选择图像。' },
       { step: 2, title: '排列和配置', description: '通过拖动重新排序图像，选择页面大小和方向选项。' },
       { step: 3, title: '转换并下载', description: '点击转换创建PDF并下载结果。' },
     ],
@@ -232,7 +232,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有签名操作都在您的浏览器本地进行，确保您的文档和签名保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择需要签名的文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择需要签名的文档。' },
       { step: 2, title: '创建签名', description: '用鼠标或触摸绘制签名，输入姓名生成签名，或上传签名图像。' },
       { step: 3, title: '放置和调整', description: '点击文档放置签名，然后拖动定位和调整大小。' },
       { step: 4, title: '保存并下载', description: '点击保存应用签名并下载已签名的PDF。' },
@@ -259,7 +259,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有裁剪操作都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择要裁剪的文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择要裁剪的文档。' },
       { step: 2, title: '定义裁剪区域', description: '拖动裁剪手柄定义要保留的区域，或输入精确的尺寸。' },
       { step: 3, title: '应用到页面', description: '选择将裁剪应用到所有页面或选择特定页面进行裁剪。' },
       { step: 4, title: '裁剪并下载', description: '点击裁剪应用更改并下载裁剪后的PDF。' },
@@ -286,7 +286,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有提取操作都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择要从中提取页面的文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择要从中提取页面的文档。' },
       { step: 2, title: '选择页面', description: '点击页面缩略图选择它们，或在输入字段中输入页码和范围。' },
       { step: 3, title: '提取并下载', description: '点击提取创建包含所选页面的新PDF并下载。' },
     ],
@@ -312,7 +312,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有整理操作都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择要整理的文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择要整理的文档。' },
       { step: 2, title: '重新排列页面', description: '拖动页面缩略图重新排序。根据需要点击每个页面上的复制或删除按钮。' },
       { step: 3, title: '保存并下载', description: '点击保存应用更改并下载重新整理的PDF。' },
     ],
@@ -338,7 +338,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择要从中删除页面的文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择要从中删除页面的文档。' },
       { step: 2, title: '选择要删除的页面', description: '点击页面缩略图标记要删除的页面，或在输入字段中输入页码。' },
       { step: 3, title: '删除并下载', description: '点击删除移除所选页面并下载更新后的PDF。' },
     ],
@@ -365,7 +365,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有编辑都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择要编辑的文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择要编辑的文档。' },
       { step: 2, title: '管理书签', description: '添加新书签、编辑现有书签或拖动重新整理层次结构。' },
       { step: 3, title: '保存并下载', description: '点击保存应用更改并下载带有更新书签的PDF。' },
     ],
@@ -391,7 +391,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
       { step: 2, title: '配置目录', description: '选择从书签生成或创建自定义条目。选择样式和位置选项。' },
       { step: 3, title: '生成并下载', description: '点击生成创建目录并下载更新后的PDF。' },
     ],
@@ -417,7 +417,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
       { step: 2, title: '配置编号', description: '选择位置、格式、起始编号以及要编号的页面。' },
       { step: 3, title: '应用并下载', description: '点击应用添加页码并下载更新后的PDF。' },
     ],
@@ -443,7 +443,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
       { step: 2, title: '创建水印', description: '输入文本或上传图像作为水印。调整位置、大小、不透明度和旋转。' },
       { step: 3, title: '应用并下载', description: '点击应用添加水印并下载更新后的PDF。' },
     ],
@@ -469,7 +469,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
       { step: 2, title: '配置页眉/页脚', description: '为页眉和页脚区域输入文本。添加页码、日期或自定义文本。' },
       { step: 3, title: '应用并下载', description: '点击应用添加页眉/页脚并下载更新后的PDF。' },
     ],
@@ -495,7 +495,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
       { step: 2, title: '配置选项', description: '选择是反转所有内容还是保留图像。' },
       { step: 3, title: '反转并下载', description: '点击反转处理文档并下载结果。' },
     ],
@@ -521,7 +521,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
       { step: 2, title: '选择颜色', description: '使用颜色选择器选择背景颜色或输入十六进制代码。' },
       { step: 3, title: '应用并下载', description: '点击应用添加背景并下载更新后的PDF。' },
     ],
@@ -547,7 +547,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
       { step: 2, title: '选择颜色', description: '使用颜色选择器选择新的文本颜色或输入十六进制代码。' },
       { step: 3, title: '应用并下载', description: '点击应用更改文本颜色并下载更新后的PDF。' },
     ],
@@ -573,7 +573,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
       { step: 2, title: '选择印章', description: '选择预设印章或上传自定义印章图像。' },
       { step: 3, title: '定位并应用', description: '点击放置印章，调整位置和大小，然后下载。' },
     ],
@@ -599,7 +599,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
       { step: 2, title: '选择注释类型', description: '选择要删除的注释类型：评论、高亮、链接等。' },
       { step: 3, title: '删除并下载', description: '点击删除去除注释并下载干净的PDF。' },
     ],
@@ -625,7 +625,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的表单数据保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF表单', description: '拖放您的PDF表单或点击选择文件。' },
+      { step: 1, title: '添加PDF表单', description: '拖放您的PDF表单或点击选择文件。' },
       { step: 2, title: '填写表单', description: '点击表单字段输入文本、勾选复选框或选择选项。' },
       { step: 3, title: '保存并下载', description: '点击保存保留您的输入并下载已填写的表单。' },
     ],
@@ -651,7 +651,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择要转换为表单的文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择要转换为表单的文档。' },
       { step: 2, title: '添加表单字段', description: '从工具栏选择字段类型并点击将其放置在文档上。' },
       { step: 3, title: '配置并保存', description: '设置字段属性，然后保存并下载可填写的PDF表单。' },
     ],
@@ -677,7 +677,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择文档。' },
       { step: 2, title: '调整阈值', description: '如果需要，设置空白检测阈值（默认值适用于大多数文档）。' },
       { step: 3, title: '删除并下载', description: '点击删除删除空白页并下载清理后的PDF。' },
     ],
@@ -704,7 +704,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的图像保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传图像', description: '拖放任何支持格式的图像或点击选择文件。' },
+      { step: 1, title: '添加图像', description: '拖放任何支持格式的图像或点击选择文件。' },
       { step: 2, title: '排列和配置', description: '重新排序图像并选择页面大小和方向选项。' },
       { step: 3, title: '转换并下载', description: '点击转换创建PDF并下载结果。' },
     ],
@@ -730,7 +730,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的图像保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PNG文件', description: '拖放您的PNG图像或点击选择文件。' },
+      { step: 1, title: '添加PNG文件', description: '拖放您的PNG图像或点击选择文件。' },
       { step: 2, title: '排列和配置', description: '重新排序图像并选择页面大小选项。' },
       { step: 3, title: '转换并下载', description: '点击转换创建PDF并下载。' },
     ],
@@ -756,7 +756,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的图像保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传WebP文件', description: '拖放您的WebP图像或点击选择文件。' },
+      { step: 1, title: '添加WebP文件', description: '拖放您的WebP图像或点击选择文件。' },
       { step: 2, title: '配置选项', description: '排列图像并选择页面大小和方向。' },
       { step: 3, title: '转换并下载', description: '点击转换创建PDF。' },
     ],
@@ -782,7 +782,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的文件保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传SVG文件', description: '拖放您的SVG文件或点击选择。' },
+      { step: 1, title: '添加SVG文件', description: '拖放您的SVG文件或点击选择。' },
       { step: 2, title: '配置设置', description: '选择页面大小和排列选项。' },
       { step: 3, title: '转换并下载', description: '点击转换创建矢量PDF。' },
     ],
@@ -808,7 +808,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的图像保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传BMP文件', description: '拖放您的BMP图像或点击选择文件。' },
+      { step: 1, title: '添加BMP文件', description: '拖放您的BMP图像或点击选择文件。' },
       { step: 2, title: '配置选项', description: '排列图像并选择页面设置。' },
       { step: 3, title: '转换并下载', description: '点击转换创建PDF。' },
     ],
@@ -834,7 +834,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的照片保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传HEIC文件', description: '拖放您的HEIC照片或点击选择文件。' },
+      { step: 1, title: '添加HEIC文件', description: '拖放您的HEIC照片或点击选择文件。' },
       { step: 2, title: '排列照片', description: '重新排序照片并选择页面设置。' },
       { step: 3, title: '转换并下载', description: '点击转换创建PDF。' },
     ],
@@ -860,7 +860,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的文件保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传TIFF文件', description: '拖放您的TIFF文件或点击选择。' },
+      { step: 1, title: '添加TIFF文件', description: '拖放您的TIFF文件或点击选择。' },
       { step: 2, title: '配置选项', description: '选择页面设置和压缩选项。' },
       { step: 3, title: '转换并下载', description: '点击转换创建PDF。' },
     ],
@@ -886,7 +886,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的文件保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传文本文件', description: '拖放您的.txt文件或点击选择。' },
+      { step: 1, title: '添加文本文件', description: '拖放您的.txt文件或点击选择。' },
       { step: 2, title: '自定义格式', description: '选择字体、大小、边距和页面设置。' },
       { step: 3, title: '转换并下载', description: '点击转换创建格式化的PDF。' },
     ],
@@ -912,7 +912,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的数据保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传JSON文件', description: '拖放您的.json文件或点击选择。' },
+      { step: 1, title: '添加JSON文件', description: '拖放您的.json文件或点击选择。' },
       { step: 2, title: '配置显示', description: '选择格式化选项和语法高亮。' },
       { step: 3, title: '转换并下载', description: '点击转换创建格式化的PDF。' },
     ],
@@ -938,7 +938,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器本地进行，确保您的文档保持私密和安全。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传Word文档', description: '拖放您的.docx文件或点击从设备中选择。' },
+      { step: 1, title: '添加Word文档', description: '拖放您的.docx文件或点击从设备中选择。' },
       { step: 2, title: '等待处理', description: '工具将加载文档并准备进行转换。' },
       { step: 3, title: '下载PDF', description: '点击下载保存转换后的PDF文档。' },
     ],
@@ -964,7 +964,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器本地进行，确保您的数据保持私密和安全。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传Excel文件', description: '拖放您的.xlsx文件或点击从设备中选择。' },
+      { step: 1, title: '添加Excel文件', description: '拖放您的.xlsx文件或点击从设备中选择。' },
       { step: 2, title: '等待处理', description: '工具将加载电子表格并转换所有工作表。' },
       { step: 3, title: '下载PDF', description: '点击下载保存转换后的PDF文档。' },
     ],
@@ -990,7 +990,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器本地进行，确保您的演示文稿保持私密和安全。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PowerPoint文件', description: '拖放您的.pptx文件或点击从设备中选择。' },
+      { step: 1, title: '添加PowerPoint文件', description: '拖放您的.pptx文件或点击从设备中选择。' },
       { step: 2, title: '等待处理', description: '工具将提取幻灯片内容并创建PDF。' },
       { step: 3, title: '下载PDF', description: '点击下载保存转换后的PDF文档。' },
     ],
@@ -1016,7 +1016,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器本地进行，确保您的文档保持私密和安全。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传XPS文件', description: '拖放您的.xps文件或点击从设备中选择。' },
+      { step: 1, title: '添加XPS文件', description: '拖放您的.xps文件或点击从设备中选择。' },
       { step: 2, title: '等待处理', description: '工具将解析并转换XPS文档。' },
       { step: 3, title: '下载PDF', description: '点击下载保存转换后的PDF文档。' },
     ],
@@ -1042,7 +1042,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器本地进行，确保您的文档保持私密和安全。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传RTF文件', description: '拖放您的.rtf文件或点击从设备中选择。' },
+      { step: 1, title: '添加RTF文件', description: '拖放您的.rtf文件或点击从设备中选择。' },
       { step: 2, title: '等待处理', description: '工具将解析并转换RTF内容。' },
       { step: 3, title: '下载PDF', description: '点击下载保存转换后的PDF文档。' },
     ],
@@ -1068,7 +1068,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器本地进行，使用先进的渲染技术，确保您的书籍保持私密，转换速度快。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传EPUB文件', description: '拖放您的.epub文件或点击从设备中选择。' },
+      { step: 1, title: '添加EPUB文件', description: '拖放您的.epub文件或点击从设备中选择。' },
       { step: 2, title: '等待转换', description: '工具将渲染并转换电子书的所有页面。' },
       { step: 3, title: '下载PDF', description: '点击下载保存转换后的PDF文档。' },
     ],
@@ -1094,7 +1094,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器本地进行，使用先进的渲染技术，确保您的书籍保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传MOBI文件', description: '拖放您的.mobi、.azw或.azw3文件，或点击从设备中选择。' },
+      { step: 1, title: '添加MOBI文件', description: '拖放您的.mobi、.azw或.azw3文件，或点击从设备中选择。' },
       { step: 2, title: '等待转换', description: '工具将渲染并转换电子书的所有页面。' },
       { step: 3, title: '下载PDF', description: '点击下载保存转换后的PDF文档。' },
     ],
@@ -1120,7 +1120,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器本地进行，确保您的文档保持私密和安全。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传DJVU文件', description: '拖放您的.djvu或.djv文件，或点击从设备中选择。' },
+      { step: 1, title: '添加DJVU文件', description: '拖放您的.djvu或.djv文件，或点击从设备中选择。' },
       { step: 2, title: '配置选项', description: '选择输出DPI（72、150或300）和PDF的图像质量。' },
       { step: 3, title: '转换并下载', description: '点击转换为PDF并下载转换后的文档。' },
     ],
@@ -1146,7 +1146,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器本地进行，使用先进的渲染技术，确保您的书籍保持私密，转换速度快。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传FB2文件', description: '拖放一个或多个.fb2或.fb2.zip文件，或点击从设备中选择。' },
+      { step: 1, title: '添加FB2文件', description: '拖放一个或多个.fb2或.fb2.zip文件，或点击从设备中选择。' },
       { step: 2, title: '选择质量', description: '选择输出质量：低（72 DPI）、中（150 DPI）或高（300 DPI）。' },
       { step: 3, title: '转换并下载', description: '点击转换为PDF并下载转换后的文档。' },
     ],
@@ -1174,7 +1174,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '选择页面和质量', description: '选择要转换的页面并设置质量/DPI选项。' },
       { step: 3, title: '转换并下载', description: '点击转换提取图像并作为ZIP下载。' },
     ],
@@ -1200,7 +1200,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '配置选项', description: '选择页面并设置分辨率（DPI）选项。' },
       { step: 3, title: '转换并下载', description: '点击转换提取PNG图像。' },
     ],
@@ -1226,7 +1226,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '设置质量选项', description: '选择页面并设置质量/压缩设置。' },
       { step: 3, title: '转换并下载', description: '点击转换创建WebP图像。' },
     ],
@@ -1252,7 +1252,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '选择页面', description: '选择要转换的页面并设置DPI。' },
       { step: 3, title: '转换并下载', description: '点击转换创建BMP图像。' },
     ],
@@ -1278,7 +1278,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '配置输出', description: '选择单页或多页TIFF并设置DPI。' },
       { step: 3, title: '转换并下载', description: '点击转换创建TIFF图像。' },
     ],
@@ -1304,7 +1304,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>预览每个转换后的页面，可以单独下载或作为ZIP文件下载。所有处理都在您的浏览器本地进行，确保您的文档完全隐私。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击浏览选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击浏览选择。' },
       { step: 2, title: '配置选项', description: '设置分辨率质量，可选择指定页面范围。' },
       { step: 3, title: '预览和转换', description: '点击转换进行处理。点击缩略图预览每个页面。' },
       { step: 4, title: '下载', description: '下载单个SVG文件或将所有页面打包为ZIP压缩包。' },
@@ -1333,7 +1333,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的彩色PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的彩色PDF文件或点击选择。' },
       { step: 2, title: '预览转换', description: '预览灰度版本的外观。' },
       { step: 3, title: '转换并下载', description: '点击转换创建灰度PDF。' },
     ],
@@ -1359,7 +1359,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有提取都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '选择要提取的数据', description: '选择要提取的内容：文本、元数据、结构。' },
       { step: 3, title: '提取并下载', description: '点击提取生成JSON并下载。' },
     ],
@@ -1385,7 +1385,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的文档隐私安全。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '选择质量', description: '选择幻灯片的图像质量(DPI)。' },
       { step: 3, title: '转换并下载', description: '点击转换创建PowerPoint演示文稿。' },
     ],
@@ -1411,7 +1411,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换都在您的浏览器中进行，确保您的数据隐私安全。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '处理', description: '工具将自动识别表格。' },
       { step: 3, title: '下载Excel', description: '下载包含提取表格的文件。' },
     ],
@@ -1437,7 +1437,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在本地完成，确保您的设计和作品保留在设备上，保持私密和安全。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PSD文件', description: '将PSD文件拖放到上传区域。支持大文件。' },
+      { step: 1, title: '添加PSD文件', description: '将PSD文件拖放到上传区域。支持大文件。' },
       { step: 2, title: '处理', description: '工具将读取PSD数据并将其转换为PDF格式。' },
       { step: 3, title: '下载', description: '立即下载转换后的PDF文件。' },
     ],
@@ -1465,7 +1465,7 @@ export const toolContentZh: Record<string, ToolContent> = {
           <p>OCR 恢复文字层后，可用 <a href="/zh/tools/translate-pdf/">PDF 翻译</a> 工具把整份文档翻译成其他语言，识别出的排版原样保留。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传扫描的PDF', description: '拖放您的扫描PDF或点击选择。' },
+      { step: 1, title: '添加扫描的PDF', description: '拖放您的扫描PDF或点击选择。' },
       { step: 2, title: '选择语言', description: '选择文档语言以获得准确识别。' },
       { step: 3, title: '处理并下载', description: '点击处理运行OCR并下载可搜索的PDF。' },
     ],
@@ -1491,7 +1491,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传两个PDF', description: '上传正面页面PDF和背面页面PDF。' },
+      { step: 1, title: '添加两个PDF', description: '上传正面页面PDF和背面页面PDF。' },
       { step: 2, title: '配置顺序', description: '选择是否为从后到前的扫描反转第二个文档。' },
       { step: 3, title: '合并并下载', description: '点击合并交错页面并下载。' },
     ],
@@ -1517,7 +1517,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文件保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '添加附件', description: '选择要附加到PDF的文件。' },
       { step: 3, title: '保存并下载', description: '点击保存嵌入附件并下载。' },
     ],
@@ -1543,7 +1543,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有提取都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '查看附件', description: '查看PDF中所有嵌入文件的列表。' },
       { step: 3, title: '提取并下载', description: '下载单个文件或全部作为ZIP。' },
     ],
@@ -1569,7 +1569,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有编辑都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '管理附件', description: '查看、重命名或删除嵌入的文件。' },
       { step: 3, title: '保存并下载', description: '点击保存应用更改并下载。' },
     ],
@@ -1595,7 +1595,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '设置分割', description: '选择水平、垂直或网格分割并设置部分数量。' },
       { step: 3, title: '分割并下载', description: '点击分割拆分页面并下载。' },
     ],
@@ -1621,7 +1621,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '选择位置', description: '选择在哪里插入空白页以及插入多少页。' },
       { step: 3, title: '添加并下载', description: '点击添加插入页面并下载。' },
     ],
@@ -1647,7 +1647,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '选择页面', description: '选择反转所有页面或特定范围。' },
       { step: 3, title: '反转并下载', description: '点击反转翻转页面顺序并下载。' },
     ],
@@ -1673,7 +1673,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '选择旋转', description: '选择旋转角度和要旋转的页面。' },
       { step: 3, title: '旋转并下载', description: '点击旋转应用更改并下载。' },
     ],
@@ -1699,7 +1699,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '选择布局', description: '选择2合1、4合1、6合1、9合1或自定义网格。' },
       { step: 3, title: '创建并下载', description: '点击创建生成N合一PDF并下载。' },
     ],
@@ -1725,7 +1725,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '设置间距', description: '选择拼接页面之间的间隙。' },
       { step: 3, title: '合并并下载', description: '点击合并创建单页PDF。' },
     ],
@@ -1751,7 +1751,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有查看都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '查看属性', description: '查看以有组织格式显示的所有元数据。' },
       { step: 3, title: '如需导出', description: '可选择将元数据导出为JSON。' },
     ],
@@ -1777,7 +1777,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有编辑都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '编辑属性', description: '修改标题、作者、主题、关键词和其他字段。' },
       { step: 3, title: '保存并下载', description: '点击保存应用更改并下载。' },
     ],
@@ -1803,7 +1803,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器中进行，确保您的文件保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF', description: '拖放多个PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF', description: '拖放多个PDF文件或点击选择。' },
       { step: 2, title: '配置存档', description: '可选设置存档名称和压缩级别。' },
       { step: 3, title: '创建并下载', description: '点击创建生成ZIP压缩包。' },
     ],
@@ -1829,7 +1829,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有比较都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传两个PDF', description: '上传原始和修改后的PDF文档。' },
+      { step: 1, title: '添加两个PDF', description: '上传原始和修改后的PDF文档。' },
       { step: 2, title: '比较文档', description: '以并排或叠加模式查看高亮显示的差异。' },
       { step: 3, title: '导出结果', description: '下载比较报告或带注释的PDF。' },
     ],
@@ -1855,7 +1855,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的大幅面PDF或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的大幅面PDF或点击选择。' },
       { step: 2, title: '配置瓷砖', description: '设置网格大小、重叠和输出纸张尺寸。' },
       { step: 3, title: '创建并下载', description: '点击创建生成可打印的瓷砖。' },
     ],
@@ -1882,7 +1882,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '选择目标大小', description: '选择标准尺寸或输入自定义尺寸。' },
       { step: 3, title: '应用并下载', description: '点击应用标准化页面并下载。' },
     ],
@@ -1908,7 +1908,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '线性化', description: '点击线性化优化以供网络查看。' },
       { step: 3, title: '下载', description: '下载优化后的PDF。' },
     ],
@@ -1934,7 +1934,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有分析都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '查看尺寸', description: '查看所有页面显示的页面大小。' },
       { step: 3, title: '导出报告', description: '可选择将尺寸导出为JSON。' },
     ],
@@ -1960,7 +1960,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传受限PDF', description: '拖放您的受限PDF或点击选择。' },
+      { step: 1, title: '添加受限PDF', description: '拖放您的受限PDF或点击选择。' },
       { step: 2, title: '删除限制', description: '点击删除解锁文档。' },
       { step: 3, title: '下载', description: '下载不受限制的PDF。' },
     ],
@@ -1986,7 +1986,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有修复都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传损坏的PDF', description: '拖放您损坏的PDF或点击选择。' },
+      { step: 1, title: '添加损坏的PDF', description: '拖放您损坏的PDF或点击选择。' },
       { step: 2, title: '修复文档', description: '点击修复尝试恢复。' },
       { step: 3, title: '下载', description: '如果成功，下载修复后的PDF。' },
     ],
@@ -2013,7 +2013,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有加密都在您的浏览器中进行，确保您的密码和文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '设置密码', description: '输入用户密码和/或所有者密码。配置权限。' },
       { step: 3, title: '加密并下载', description: '点击加密保护您的PDF并下载。' },
     ],
@@ -2039,7 +2039,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有清理都在您的浏览器中进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '选择要删除的内容', description: '选择要去除的隐藏数据类型。' },
       { step: 3, title: '清理并下载', description: '点击清理清洁PDF并下载。' },
     ],
@@ -2065,7 +2065,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有解密都在您的浏览器中进行，确保您的密码和文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传受保护的PDF', description: '拖放您受密码保护的PDF。' },
+      { step: 1, title: '添加受保护的PDF', description: '拖放您受密码保护的PDF。' },
       { step: 2, title: '输入密码', description: '输入当前文档密码。' },
       { step: 3, title: '解密并下载', description: '点击解密删除保护并下载。' },
     ],
@@ -2091,7 +2091,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您带有表单或注释的PDF。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您带有表单或注释的PDF。' },
       { step: 2, title: '选择要扁平化的内容', description: '选择扁平化表单、注释或两者。' },
       { step: 3, title: '扁平化并下载', description: '点击扁平化创建静态PDF。' },
     ],
@@ -2141,7 +2141,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '删除元数据', description: '点击删除去除所有元数据。' },
       { step: 3, title: '下载', description: '下载无元数据的PDF。' },
     ],
@@ -2167,7 +2167,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有处理都在您的浏览器本地进行，确保您的文档保持私密。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 1, title: '添加PDF文件', description: '拖放您的PDF文件或点击选择。' },
       { step: 2, title: '设置权限', description: '启用或禁用打印、复制、编辑和注释。' },
       { step: 3, title: '应用并下载', description: '设置所有者密码并下载受限PDF。' },
     ],
@@ -2192,7 +2192,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有转换均在您的浏览器本地完成，确保您的商业机密和个人隐私不会被泄露。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放PDF文件或点击选择要转换的文档。' },
+      { step: 1, title: '添加PDF文件', description: '拖放PDF文件或点击选择要转换的文档。' },
       { step: 2, title: '开始转换', description: '等待系统自动解析并重建文档结构。' },
       { step: 3, title: '下载Word文档', description: '点击下载生成的DOCX文件，并在Microsoft Word或WPS中打开。' },
     ],
@@ -2219,7 +2219,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>适合需要将PDF内容导入文本编辑器、进行代码分析或准备机器翻译语料的用户。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放PDF文件到此处。' },
+      { step: 1, title: '添加PDF文件', description: '拖放PDF文件到此处。' },
       { step: 2, title: '提取文字', description: '系统将快速扫描所有页面的字符流。' },
       { step: 3, title: '下载文本文件', description: '获取.txt格式的纯文本文件。' },
     ],
@@ -2244,7 +2244,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>该工具会嵌入所有字体并移除不符合存档规范的动态元素（如JavaScript），使文档变得更加稳健和透明。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF', description: '选择需要永久存档的重要文件。' },
+      { step: 1, title: '添加PDF', description: '选择需要永久存档的重要文件。' },
       { step: 2, title: '转换标准', description: '系统将自动调整文档属性以符合PDF/A-1b、2b或3b规范。' },
       { step: 3, title: '下载存档文件', description: '获取适用于政府、法律或学术要求的存档PDF。' },
     ],
@@ -2269,7 +2269,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>非常适合将PDF手册、宣传册或研究论文发布到网站上，提供比下载PDF文件更好的用户体验。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF', description: '选择要网页化的PDF文件。' },
+      { step: 1, title: '添加PDF', description: '选择要网页化的PDF文件。' },
       { step: 2, title: '生成HTML', description: '系统将页面结构、样式和图片重新编码为HTML/CSS。' },
       { step: 3, title: '下载或查看', description: '下载包含HTML文件和资源的压缩包。' },
     ],
@@ -2295,7 +2295,7 @@ export const toolContentZh: Record<string, ToolContent> = {
       <p>所有提取过程都在您的浏览器中进行，确保您的文档保持私密和安全。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传PDF文件', description: '拖放一个或多个PDF文件，或点击从设备中选择文件。' },
+      { step: 1, title: '添加PDF文件', description: '拖放一个或多个PDF文件，或点击从设备中选择文件。' },
       { step: 2, title: '设置过滤选项', description: '调整最小宽度、高度和文件大小，过滤掉不需要的小图片。' },
       { step: 3, title: '提取图片', description: '点击提取按钮，查找PDF中所有嵌入的图片。' },
       { step: 4, title: '下载', description: '单独下载每张图片，或将所有图片打包成ZIP压缩包下载。' },
@@ -2318,7 +2318,7 @@ export const toolContentZh: Record<string, ToolContent> = {
     keywords: ['pdf图层', 'ocg管理器'],
     description: '<p>管理PDF文档中的可选内容组（OCG）。</p>',
     howToUse: [
-      { step: 1, title: '上传PDF', description: '上传包含图层的PDF文件。' },
+      { step: 1, title: '添加PDF', description: '上传包含图层的PDF文件。' },
       { step: 2, title: '查看图层', description: '工具自动列出所有图层。' },
       { step: 3, title: '管理图层', description: '切换、添加或删除图层。' },
     ],
@@ -2366,7 +2366,7 @@ export const toolContentZh: Record<string, ToolContent> = {
           <p>阅读外文文档时，可用 <a href="/zh/tools/translate-pdf/">PDF 翻译</a> 生成同文件的中文对照版本。</p>
     `,
     howToUse: [
-      { step: 1, title: '上传 PDF', description: '拖入文本型 PDF（不支持无文字层的扫描件），选择源语言和目标语言。' },
+      { step: 1, title: '添加 PDF', description: '拖入文本型 PDF（不支持无文字层的扫描件），选择源语言和目标语言。' },
       { step: 2, title: '开始翻译', description: '点击翻译并查看进度：页面在本地解析，文本块在线翻译，然后合成译文页面。' },
       { step: 3, title: '预览并下载', description: '检查第一页预览，下载纯译文版或双语对照版 PDF。' },
     ],

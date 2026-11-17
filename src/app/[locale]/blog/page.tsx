@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { blogPosts } from '@/content/blog';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { generateWebSiteSchema } from '@/lib/seo';
+import { generateWebSiteSchema, generateBreadcrumbSchema } from '@/lib/seo';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
@@ -37,6 +37,13 @@ export default function BlogIndexPage() {
       <JsonLd
         data={[
           generateWebSiteSchema('en'),
+          generateBreadcrumbSchema(
+            [
+              { name: 'Home', path: '' },
+              { name: 'Blog', path: '/blog' },
+            ],
+            'en'
+          ),
           {
             '@context': 'https://schema.org',
             '@type': 'Blog',

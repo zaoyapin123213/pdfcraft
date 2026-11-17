@@ -6,7 +6,7 @@
 
 - [Home / Free PDF Editor](https://pdfeditorfree.net/en/): the free PDF editor and complete toolbox entry point.
 - [All PDF Tools](https://pdfeditorfree.net/en/tools/): searchable index of all 96 tools.
-- [Blog](https://pdfeditorfree.net/en/blog/): 35 in-depth PDF guides, tutorials and editor reviews.
+- [Blog](https://pdfeditorfree.net/en/blog/): 40 in-depth PDF guides, tutorials and editor reviews.
 - [FAQ](https://pdfeditorfree.net/en/faq/): answers about privacy, security, features and supported formats.
 - [Contact](https://pdfeditorfree.net/en/contact/): contact page (peter@hengxang.com).
 
