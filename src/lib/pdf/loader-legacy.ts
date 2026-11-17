@@ -28,9 +28,10 @@ function configureLegacyWorker(pdfjsLib: PDFJSLegacyModule): void {
     if (legacyWorkerConfigured) return;
 
     if (typeof window !== 'undefined') {
-        // Use the worker from CDN for legacy version
+        // Self-hosted legacy worker (public/workers/, copied from
+        // pdfjs-dist-legacy) — removes the last cdnjs runtime dependency
         pdfjsLib.GlobalWorkerOptions.workerSrc =
-            'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+            '/workers/pdf.worker.legacy.min.js';
         legacyWorkerConfigured = true;
     }
 }

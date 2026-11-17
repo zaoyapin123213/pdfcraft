@@ -183,7 +183,6 @@ export function EditPDFTool({ className }: EditPDFToolProps) {
   const lastPressRef = useRef<{ t: number; x: number; y: number }>({ t: 0, x: 0, y: 0 });
   useEffect(() => {
     if (objects.length > 0) {
-      console.warn('[probe-obj]', JSON.stringify(objects.map((o) => ({ k: o.kind, fs: o.kind === 'text' ? (o as TextObject).fontSize : undefined, id: o.id.slice(-4) }))));
     }
   }, [objects]);
 

@@ -22,39 +22,16 @@ import { blogPosts } from '@/content/blog';
 export const dynamic = 'force-static';
 
 /**
- * Priority values for different page types
- */
-const PRIORITY = {
-  home: 1.0,
-  tools: 0.9,
-  category: 0.8,
-  toolPage: 0.8,
-  blog: 0.7,
-  static: 0.6,
-} as const;
-
-/**
- * Change frequency for different page types
- */
-const CHANGE_FREQUENCY = {
-  home: 'daily',
-  tools: 'weekly',
-  category: 'weekly',
-  toolPage: 'monthly',
-  static: 'monthly',
-} as const;
-
-/**
  * Static pages that exist for all locales
  */
 const STATIC_PAGES = [
-  { path: '', priority: PRIORITY.home, changeFrequency: CHANGE_FREQUENCY.home },
-  { path: '/tools', priority: PRIORITY.tools, changeFrequency: CHANGE_FREQUENCY.tools },
-  { path: '/workflow', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
-  { path: '/about', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
-  { path: '/faq', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
-  { path: '/privacy', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
-  { path: '/contact', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
+  { path: '' },
+  { path: '/tools' },
+  { path: '/workflow' },
+  { path: '/about' },
+  { path: '/faq' },
+  { path: '/privacy' },
+  { path: '/contact' },
 ];
 
 /**
@@ -73,11 +50,9 @@ function generateLocaleEntries(locale: Locale, lastModified: Date): MetadataRout
 
   // Add static pages
   for (const page of STATIC_PAGES) {
+    // lastmod omitted: same honesty rule as tool pages (no per-page dates)
     entries.push({
       url: localizedUrl(locale, page.path),
-      lastModified,
-      changeFrequency: page.changeFrequency as 'daily' | 'weekly' | 'monthly',
-      priority: page.priority,
     });
   }
 
@@ -85,20 +60,16 @@ function generateLocaleEntries(locale: Locale, lastModified: Date): MetadataRout
   for (const category of TOOL_CATEGORIES) {
     entries.push({
       url: localizedUrl(locale, `tools/category/${category}`),
-      lastModified,
-      changeFrequency: CHANGE_FREQUENCY.category as 'weekly',
-      priority: PRIORITY.category,
     });
   }
 
   // Add tool pages
   const tools = getAllTools();
   for (const tool of tools) {
+    // lastmod omitted: no per-tool content dates exist, and a build
+    // timestamp is not a truthful modification date (Google discounts it)
     entries.push({
       url: localizedUrl(locale, `tools/${tool.slug}`),
-      lastModified,
-      changeFrequency: CHANGE_FREQUENCY.toolPage as 'monthly',
-      priority: PRIORITY.toolPage,
     });
   }
 
@@ -112,19 +83,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   const allEntries: MetadataRoute.Sitemap = [];
 
-  // Blog is English-only
+  // Blog is English-only; entries carry the post's real dateModified
   allEntries.push({
     url: `${siteConfig.url}/en/blog/`,
     lastModified,
-    changeFrequency: 'weekly',
-    priority: PRIORITY.blog,
   });
   for (const post of blogPosts) {
     allEntries.push({
       url: `${siteConfig.url}/en/blog/${post.slug}/`,
       lastModified: new Date(post.dateModified),
-      changeFrequency: 'monthly',
-      priority: PRIORITY.blog,
     });
   }
 

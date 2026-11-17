@@ -12,9 +12,11 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=31536000; includeSubDomains
 
-# HTML pages - no cache, always revalidate
+# HTML pages - revalidate at the browser, cache at the edge for a day.
+# s-maxage lets Cloudflare serve HTML from the edge cache (Pages purges it
+# on every deployment), cutting the DYNAMIC origin round-trip per visit.
 /*.html
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate, s-maxage=86400
 
 # JavaScript files - immutable cache (hashed filenames)
 /*.js
